@@ -1,5 +1,113 @@
 <template>
-  <div class="about">
-    <h1>This is an about page</h1>
+  <div class=" overflow-hidden">
+    <AppSection :titre="titre" />
+    <div class=" py-5 card_info">
+      <div class="container-fluid">
+        <div class="row ">
+          <div class="col-lg-6 col-md-8 col-sm-12 col-12 row ">
+            <div>
+              <img
+                src="../assets/atlassian_0.png"
+                width="900"
+                height="700"
+                alt=""
+              />
+            </div>
+          </div>
+          <div class="col-lg-6 col-md-8 col-sm-12 col-12 row">
+            <div class="col-12  fs-6 ">
+              <div class="p-3 info text-start">
+                <img src="../assets/info.png" width="50" alt="" />
+                <h3 class="my-3 h3-one">
+                  Fondée en 2019, DATA FC est spécialisée dans
+                </h3>
+
+                <p>
+                  L’Ingénierie de formation et l’assistance conseil en
+                  recrutement
+                </p>
+                <p>
+                  L’Assistance conseil en création et pilotage des entreprises
+                </p>
+                <p>Le placement ou l’externalisation de ressources humaines</p>
+                <p>L’Assistance technique dans le domaine informatique</p>
+                <p>La Fourniture du personnel intérimaire</p>
+                <p>Le Management des organisations</p>
+                <p>La Formation continue</p>
+              </div>
+            </div>
+
+            <div class="col-12 fs-6">
+              <div class="p-4 info text-start">
+                <img src="../assets/group.png" width="50" alt="" />
+                <h3 class="my-3 h3-one ">
+                  DATA FC dispose des outils particulièrement utiles et d’un
+                  processus de gestion efficace pour
+                </h3>
+                <p>
+                  Accompagner ses clients via une approche innovante à booster
+                  les performances de leurs entreprises et à contribuer à la
+                  réussite de leurs projets.
+                </p>
+                <p>
+                  Proposer aux entreprises clientes des solutions efficaces
+                  contribuant à leur évolution et à l’amélioration de leur
+                  compétitivité, en faisant preuve d’éthique et de
+                  confidentialité.
+                </p>
+                <p>
+                  Entretenir une relation durable et personnalisée avec ses
+                  clients, en faisant preuve de transparence et de disponibilité
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
+
+<script>
+import AppSection from "@/components/inc/AppSection.vue";
+export default {
+  name: "about",
+  data() {
+    return {
+      titre: "QUI SOMMES NOUS ?",
+    };
+  },
+
+  components: {
+    AppSection,
+  },
+};
+</script>
+
+<style lang="scss" scoped>
+.card_info {
+  background: rgb(35, 138, 145);
+  background: linear-gradient(
+    193deg,
+    rgba(35, 138, 145, 1) 3%,
+    rgba(30, 157, 166, 1) 13%,
+    rgba(70, 175, 182, 1) 28%,
+    rgba(111, 191, 196, 1) 40%,
+    rgb(226, 226, 226) 57%,
+    rgb(236, 236, 236) 100%
+  );
+
+  .info {
+    margin: 10px;
+    background: rgba(255, 255, 255, 0.719);
+    min-height: 300px;
+    border-radius: 3px;
+    z-index: 100;
+  }
+}
+.h3-one {
+  font-family: Poppins;
+  font-size: 22px;
+  color: rgba(35, 138, 145, 1);
+}
+</style>
