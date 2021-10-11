@@ -132,7 +132,17 @@
 </template>
 
 <script>
-export default {};
+export default {
+   name:"login",
+  methods:{
+    async Auth(email,password){
+      if(email && password){
+        
+      }
+    }
+  },
+};
+};
 </script>
 
 <style lang="scss" scoped>
