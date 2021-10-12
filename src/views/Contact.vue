@@ -51,7 +51,8 @@
                   />
                 </span>
                 <h3>Telephone</h3>
-                <p>06 75 34 37 30</p>
+                <p> <b>Tele :</b> +212-675-343-730</p>
+                <p> <b>Fixe :</b> +212-524-624-584</p>
               </div>
             </div>
           </div>
@@ -178,6 +179,7 @@ export default {
   text-align: center;
   box-shadow: 0 0 30px #9e9e9e54;
   text-justify: center;
+  min-height: 200px;
   h3 {
     font-size: 20px;
     color: #777777;

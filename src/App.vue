@@ -8,11 +8,11 @@
 </template>
 
 <script>
-import AppNav from "@/components/layout/AppNav.vue";
+// import AppNav from "@/components/layout/AppNav.vue";
 import AppNavBoot from "@/components/layout/BootNav.vue";
 export default {
   components: {
-    AppNav,
+    // AppNav,
     AppNavBoot
   },
 };
@@ -55,9 +55,7 @@ export default {
   background-color: white;
   // box-shadow: 0 0.1rem 0.3rem rgba(0, 0, 0, 0.3);
 }
-#mynavi .container-fluid .mynaviItem {
-  // color: #444444;
-}
+
 #mynavi .container-fluid a {
   color: #444444;
   text-decoration: none;

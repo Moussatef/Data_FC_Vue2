@@ -6,19 +6,25 @@
         style="background-image url('images/bg-01.jpg');"
       >
         <div class="wrap-login100 p-l-55 p-r-55 p-t-20 p-b-20 shadow ">
-          <form class="login100-form validate-form">
-            <img src="../assets/logo.svg" class="logo" alt="" />
-            <hr />
-            <span class="login100-form-title p-b-50 m-b-50  mt-3">
-              Connexion
-            </span>
+          <img src="../assets/logo.svg" class="logo" alt="" />
+          <hr />
+          <span class="login100-form-title p-b-50 m-b-50  mt-3">
+            Connexion
+          </span>
 
-            <div
-              class="wrap-input100 validate-input m-b-23 my-3 text-start"
-              data-validate="Username is reauired"
-            >
-              <span class="mb-4 ">E-mail</span>
-              <!-- <input
+          <vs-alert dark :progress="progress" color="danger" closable v-model="active" v-if="message_err">
+            <template #title>
+              Erreur lors de l'inscription
+            </template>
+            {{ message_err }}
+          </vs-alert>
+
+          <div
+            class="  m-b-23 my-3 text-start"
+            data-validate="Username is reauired"
+          >
+            <span class="mb-4 ">E-mail</span>
+            <!-- <input
                 class="input100"
                 type="email"
                 name="Email"
@@ -26,87 +32,89 @@
               />
               <span class="focus-input100" ></span> -->
 
-              <vs-input
-                color="#25767a"
-                class="my-4 "
-                border
-                type="email"
-                v-model="value2"
-                placeholder="Écrivez votre e-mail"
-              >
-                <template #icon>
-                  <i class="bx bx-user"></i>
-                </template>
-              </vs-input>
-            </div>
-            <div
-              class="wrap-input100  text-start "
-              data-validate="Password is required"
+            <vs-input
+              color="#25767a"
+              class="my-4 "
+              border
+              type="email"
+              v-model="email"
+              placeholder="Écrivez votre e-mail"
             >
-              <span class="my-2">Mot de passe</span>
-              <!-- <input
+              <template #icon>
+                <i class="bx bx-user"></i>
+              </template>
+            </vs-input>
+          </div>
+          <div
+            class="wrap-input100  text-start "
+            data-validate="Password is required"
+          >
+            <span class="my-2">Mot de passe</span>
+            <!-- <input
                 class="input100"
                 type="password"
                 name="pass"
                 placeholder="Écrivez votre mot de passe"
               />
               <span class="focus-input100"></span> -->
-              <vs-input
-                color="#25767a"
-                border
-                class="my-4"
-                type="password"
-                v-model="value2"
-                placeholder="Écrivez votre mot de passe"
-                
-              >
-                <template #icon>
-                  <i class="bx bx-lock-open-alt"></i>
-                </template>
-              </vs-input>
-            </div>
+            <vs-input
+              color="#25767a"
+              border
+              class="my-4 inp "
+              type="password"
+              v-model="password"
+              placeholder="Écrivez votre mot de passe"
+            >
+              <template #icon>
+                <i class="bx bx-lock-open-alt"></i>
+              </template>
+            </vs-input>
+          </div>
 
-            <div class="text-right p-t-8 p-b-31">
-              <a class="nav-link" href="#">
-                Mot de passe oublié?
-              </a>
-            </div>
+          <div class="text-right p-t-8 p-b-31">
+            <a class="nav-link" href="#">
+              Mot de passe oublié?
+            </a>
+          </div>
 
-            <div class="">
-              <div class="d-grid gap-2">
-                <!-- <button class="si" type="button">
+          <div class="">
+            <div class="d-grid gap-2">
+              <!-- <button class="si" type="button">
                   Se connecter
                 </button> -->
-                <vs-button
-                  color="rgba(35, 138, 145, 1) "
-                  class="sii"
-                  gradient
-                  :active="active == 6"
-                  @click="active = 6"
-                >
-                  Se connecter
-                </vs-button>
+              <vs-button
+                color="rgba(35, 138, 145, 1) "
+                class="sii"
+                gradient
+                :active="active == 6"
+                @click="
+                  active = 6;
+                  Auth(email, password);
+                "
+              >
+                Se connecter
+              </vs-button>
 
-                <vs-button
-                  border
-                  class="fbb"
-                  color="#25767a"
-                  :active="active == 1"
-                  @click="active = 1"
-                  to="/register"
-                >
-                  S'inscrire
-                </vs-button>
-              </div>
+              <vs-button
+                border
+                class="fbb"
+                color="#25767a"
+                :active="active == 1"
+                @click="active = 1"
+                to="/register"
+              >
+                S'inscrire
+              </vs-button>
             </div>
+          </div>
 
-            <!-- 
+          <!-- 
 					<div class="txt1 text-center p-t-54 p-b-20">
 						<span>
 							Or Sign Up Using
 						</span>
 					</div> -->
-            <!-- 
+          <!-- 
 					<div class="flex-c-m">
 						<a href="#" class="login100-social-item bg1">
 							<i class="fa fa-facebook"></i>
@@ -121,27 +129,119 @@
 						</a>
 					</div> -->
 
-            <div class="flex-col-c p-t-55"></div>
-          </form>
+          <div class="flex-col-c p-t-55"></div>
         </div>
       </div>
     </div>
-
-    <div id="dropDownSelect1"></div>
   </div>
 </template>
 
 <script>
 export default {
-   name:"login",
-  methods:{
-    async Auth(email,password){
-      if(email && password){
-        
-      }
-    }
-  },
+  name: "login",
+  data: () => ({
+    email: undefined,
+    password: undefined,
+    active: 0,
+    message_err: "",
+    active_alert: false,
 
+    active_alert: false,
+    input1: "",
+    input2: "",
+    checkbox1: false,
+
+    time: 6000,
+    progress: 0,
+  }),
+  methods: {
+    async Auth(email, password) {
+      if (email && password) {
+        var myHeaders = new Headers();
+        myHeaders.append("Accept", "application/json");
+        myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
+
+        var urlencoded = new URLSearchParams();
+        urlencoded.append("email", email);
+        urlencoded.append("password", password);
+
+        var requestOptions = {
+          method: "POST",
+          headers: myHeaders,
+          body: urlencoded,
+          redirect: "follow",
+        };
+        const result = await fetch(
+          "http://127.0.0.1:8000/api/datafc/auth/admin-derct",
+          requestOptions
+        );
+        if (result.status == 201) {
+          const res = await result.json();
+          console.log(res);
+          this.message_err = undefined;
+          localStorage.setItem("token", res.Token);
+        } else {
+          const err = await result.json();
+          console.log(err.message);
+          this.message_err = err.message;
+        }
+      } else {
+        this.message_err = "entrées vides";
+      }
+    },
+  },
+  watch: {
+    active(val) {
+      if (val) {
+        var interval = setInterval(() => {
+          this.progress++;
+        }, this.time / 100);
+
+        setTimeout(() => {
+          this.active = false;
+          clearInterval(interval);
+          this.progress = 0;
+        }, this.time);
+      }
+    },
+  },
+  computed: {
+    getProgress() {
+      let progress = 0;
+
+      // at least one number
+
+      if (/\d/.test(this.value)) {
+        progress += 20;
+      }
+
+      // at least one capital letter
+
+      if (/(.*[A-Z].*)/.test(this.value)) {
+        progress += 20;
+      }
+
+      // at menons a lowercase
+
+      if (/(.*[a-z].*)/.test(this.value)) {
+        progress += 20;
+      }
+
+      // more than 5 digits
+
+      if (this.value.length >= 6) {
+        progress += 20;
+      }
+
+      // at least one special character
+
+      if (/[^A-Za-z0-9]/.test(this.value)) {
+        progress += 20;
+      }
+
+      return progress;
+    },
+  },
 };
 </script>
 
@@ -149,6 +249,14 @@ export default {
 /*[ FONT SIZE ]
 ///////////////////////////////////////////////////////////
 */
+
+.alert-example {
+  .vs-button--active {
+    transform: translate(0, -5px);
+    border-radius: 0px 0px 12px 12px;
+  }
+}
+
 .m-b-23 {
   margin-bottom: 23px;
 }
@@ -259,74 +367,6 @@ ul,
 li {
   margin: 0px;
   list-style-type: none;
-}
-
-/*---------------------------------------------*/
-input {
-  outline: none;
-  border: none;
-}
-
-textarea {
-  outline: none;
-  border: none;
-}
-
-textarea:focus,
-input:focus {
-  border-color: transparent !important;
-}
-
-input:focus::-webkit-input-placeholder {
-  color: transparent;
-}
-input:focus:-moz-placeholder {
-  color: transparent;
-}
-input:focus::-moz-placeholder {
-  color: transparent;
-}
-input:focus:-ms-input-placeholder {
-  color: transparent;
-}
-
-textarea:focus::-webkit-input-placeholder {
-  color: transparent;
-}
-textarea:focus:-moz-placeholder {
-  color: transparent;
-}
-textarea:focus::-moz-placeholder {
-  color: transparent;
-}
-textarea:focus:-ms-input-placeholder {
-  color: transparent;
-}
-
-input::-webkit-input-placeholder {
-  color: #adadad;
-}
-input:-moz-placeholder {
-  color: #adadad;
-}
-input::-moz-placeholder {
-  color: #adadad;
-}
-input:-ms-input-placeholder {
-  color: #adadad;
-}
-
-textarea::-webkit-input-placeholder {
-  color: #adadad;
-}
-textarea:-moz-placeholder {
-  color: #adadad;
-}
-textarea::-moz-placeholder {
-  color: #adadad;
-}
-textarea:-ms-input-placeholder {
-  color: #adadad;
 }
 
 /*---------------------------------------------*/

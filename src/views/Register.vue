@@ -1,136 +1,152 @@
 <template>
   <div class=" overflow-hidden">
+    <vs-dialog width="550px"  not-close blur  v-model="active_dlg">
+      <template #header>
+        <h4 class="not-margin">Message <b>succès</b></h4>
+      </template>
+
+      <div class="con-content">
+        <p>
+          Enregistré avec succès maintenant vous pouvez vous connecter pour continuer
+        </p>
+      </div>
+
+      <template #footer>
+        <div class="con-footer">
+          <vs-button to="/login" @click="active_dlg = false" transparent>
+            Ok
+          </vs-button>
+        </div>
+      </template>
+    </vs-dialog>
     <div class="limiter ">
       <div
         class="container-login100 bg-light"
         style="background-image url('images/bg-01.jpg');"
       >
         <div class="wrap-login100 mt-5 p-l-55 p-r-55 p-t-20 p-b-20">
-          <form class="login100-form validate-form">
-            <img src="../assets/logo.svg" class="logo" alt="" />
-            <span class="login100-form-title p-b-50">
-              S'inscrire
-            </span>
+          <img src="../assets/logo.svg" class="logo" alt="" />
+          <span class="login100-form-title p-b-50">
+            S'inscrire
+          </span>
 
-            <div
-              class="wrap-input100 validate-input m-b-23 text-start"
-              data-validate="Username is reauired"
+          <div
+            class="wrap-input100 validate-input m-b-23 text-start"
+            data-validate="Username is reauired"
+          >
+            <span class=" my-2">Nom</span>
+            <vs-input
+              color="#25767a"
+              class="my-4 "
+              border
+              type="text"
+              v-model="nom"
+              placeholder="Écrivez votre nom"
             >
-              <span class=" my-2">Nom</span>
-              <vs-input
-                color="#25767a"
-                class="my-4 "
-                border
-                type="text"
-                v-model="value2"
-                placeholder="Écrivez votre nom"
-              >
-                <template #icon>
-                  <i class="bx bx-user"></i>
-                </template>
-              </vs-input>
-            </div>
+              <template #icon>
+                <i class="bx bx-user"></i>
+              </template>
+            </vs-input>
+          </div>
 
-            <div
-              class="wrap-input100 validate-input m-b-23 text-start"
-              data-validate="Username is reauired"
+          <div
+            class="wrap-input100 validate-input m-b-23 text-start"
+            data-validate="Username is reauired"
+          >
+            <span class=" my-2">Prénom</span>
+            <vs-input
+              color="#25767a"
+              class="my-4 "
+              border
+              type="text"
+              v-model="prenom"
+              placeholder="Écrivez votre prenom"
             >
-              <span class=" my-2">Prénom</span>
-               <vs-input
-                color="#25767a"
-                class="my-4 "
-                border
-                type="text"
-                v-model="value2"
-                placeholder="Écrivez votre prenom"
-              >
-                <template #icon>
-                  <i class="bx bx-user"></i>
-                </template>
-              </vs-input>
-            </div>
+              <template #icon>
+                <i class="bx bx-user"></i>
+              </template>
+            </vs-input>
+          </div>
 
-            <div
-              class="wrap-input100 validate-input m-b-23 text-start"
-              data-validate="Username is reauired"
+          <div
+            class="wrap-input100 validate-input m-b-23 text-start"
+            data-validate="Username is reauired"
+          >
+            <span class=" my-2">Email</span>
+            <vs-input
+              color="#25767a"
+              class="my-4 "
+              border
+              type="email"
+              v-model="email"
+              placeholder="Écrivez votre e-mail"
             >
-              <span class=" my-2">Email</span>
-              <vs-input
-                color="#25767a"
-                class="my-4 "
-                border
-                type="email"
-                v-model="value2"
-                placeholder="Écrivez votre e-mail"
-              >
-                <template #icon>
-                  <i class="fa fa-envelope-o" aria-hidden="true"></i>
-                </template>
-              </vs-input>
-            </div>
+              <template #icon>
+                <i class="fa fa-envelope-o" aria-hidden="true"></i>
+              </template>
+            </vs-input>
+          </div>
 
-
-            <div
-              class="wrap-input100 validate-input text-start"
-              data-validate="Password is required"
+          <div
+            class="wrap-input100 validate-input text-start"
+            data-validate="Password is required"
+          >
+            <span class=" ">Mot de passe</span>
+            <vs-input
+              color="#25767a"
+              border
+              class="my-4"
+              type="password"
+              v-model="password"
+              placeholder="Écrivez votre mot de passe"
             >
-              <span class=" ">Mot de passe</span>
-              <vs-input
-                color="#25767a"
-                border
-                class="my-4"
-                type="password"
-                v-model="value2"
-                placeholder="Écrivez votre mot de passe"
-                
-              >
-                <template #icon>
-                  <i class="bx bx-lock-open-alt"></i>
-                </template>
-              </vs-input>
-            </div>
+              <template #icon>
+                <i class="bx bx-lock-open-alt"></i>
+              </template>
+            </vs-input>
+          </div>
 
-            <div
-              class="wrap-input100 validate-input text-start mt-3"
-              data-validate="Password is required"
+          <div
+            class="wrap-input100 validate-input text-start mt-3"
+            data-validate="Password is required"
+          >
+            <span class=" ">Confirmez le mot de passe</span>
+            <vs-input
+              color="#25767a"
+              border
+              class="my-4"
+              type="password"
+              v-model="password_confirmation"
+              name="password_confirmation"
+              id="password_confirmation"
+              placeholder="réécrire le mot de passe"
             >
-              <span class=" ">Confirmez le mot de passe</span>
-              <vs-input
-                color="#25767a"
-                border
-                class="my-4"
-                type="password"
-                v-model="value2"
-                placeholder="réécrire le mot de passe"
-                
+              <template #icon>
+                <i class="bx bx-lock-open-alt"></i>
+              </template>
+            </vs-input>
+          </div>
+
+          <div class="mt-5">
+            <div class="d-grid gap-2 ">
+              <button
+                class="btn btn-conx  rounded-pill py-2"
+                @click="
+                  register(nom, prenom, email, password, password_confirmation)
+                "
               >
-                <template #icon>
-                  <i class="bx bx-lock-open-alt"></i>
-                </template>
-              </vs-input>
+                S'inscrire
+              </button>
             </div>
+          </div>
 
-
-
-
-            
-
-            <div class="mt-5">
-              <div class="d-grid gap-2 ">
-                <button class="btn btn-conx  rounded-pill py-2" type="button">
-                  S'inscrire
-                </button>
-                
-              </div>
-            </div>
-
-            <!-- 
+          <!-- 
 					<div class="txt1 text-center p-t-54 p-b-20">
 						<span>
 							Or Sign Up Using
 						</span>
 					</div> -->
-            <!-- 
+          <!-- 
 					<div class="flex-c-m">
 						<a href="#" class="login100-social-item bg1">
 							<i class="fa fa-facebook"></i>
@@ -145,10 +161,7 @@
 						</a>
 					</div> -->
 
-            <div class="flex-col-c p-t-55">
-              
-            </div>
-          </form>
+          <div class="flex-col-c p-t-55"></div>
         </div>
       </div>
     </div>
@@ -158,13 +171,50 @@
 </template>
 
 <script>
-export default {};
+export default {
+  data: () => ({
+    nom: undefined,
+    prenom: undefined,
+    email: undefined,
+    password: undefined,
+    password_confirmation: undefined,
+    active_dlg: false,
+  }),
+  methods: {
+    async register(nom, prenom, email, password, password_confirmation) {
+      var myHeaders = new Headers();
+      myHeaders.append("Accept", "application/json");
+      myHeaders.append("Content-Type", "application/json");
+
+      var raw = JSON.stringify({
+        nom: nom,
+        prenom: prenom,
+        email: email,
+        password: password,
+        password_confirmation: password_confirmation,
+      });
+
+      var requestOptions = {
+        method: "POST",
+        headers: myHeaders,
+        body: raw,
+        redirect: "follow",
+      };
+      const result = await fetch(
+        "http://127.0.0.1:8000/api/client/register",
+        requestOptions
+      );
+      if (result.status === 201) {
+        const res = await result.json();
+        console.log(res);
+        this.active_dlg = true;
+      }
+    },
+  },
+};
 </script>
 
 <style lang="scss" scoped>
-
-
-
 /*[ FONT SIZE ]
 ///////////////////////////////////////////////////////////
 */
