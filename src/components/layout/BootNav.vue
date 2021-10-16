@@ -112,7 +112,7 @@
               >Demande de devis</router-link
             >
           </li>
-          <li class="nav-item">
+          <div class="d-flex btn-conx">
             <vs-button
               border
               class="p-1 fs-6 btn-conx "
@@ -122,8 +122,6 @@
             >
               Se connecter
             </vs-button>
-          </li>
-          <li class="nav-item">
             <vs-button
               color="rgba(35, 138, 145, 1) "
               class="p-1 fs-6 "
@@ -134,7 +132,7 @@
             >
               S'inscrire
             </vs-button>
-          </li>
+          </div>
         </ul>
       </div>
     </div>
@@ -145,14 +143,22 @@
 export default {
   data: () => ({
     active: 0,
-    active_con:0
+    active_con: 0,
   }),
+  methods: {},
 };
 </script>
 
 <style lang="scss" scoped>
-.btn-conx{
-
-  margin-left: 15rem;
+.btn-conx {
+  margin-left: 7rem;
+}
+#mynavi {
+  z-index: 9999999;
+}
+@media screen and (max-width: 1000px) {
+  .btn-conx {
+    margin: 5px auto;
+  }
 }
 </style>

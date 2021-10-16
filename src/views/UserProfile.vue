@@ -1,6 +1,6 @@
 <template>
     <div class=" overflow-hidden">
-        <div class="center mt-5">
+        <!-- <div class="center mt-5">
       <button @click="active_alert=!active_alert">
         active
       </button>
@@ -41,16 +41,21 @@
           </div>
         </template>
       </vs-dialog>
-    </div>
+    </div> -->
+	<AppNavS/>
 
     </div>
 </template>
 
 <script>
+import AppNavS from "@/components/layout/AppNavS.vue"
 export default {
     data:()=> ({
         active_alert: false,
-    })
+    }),
+	components:{
+		AppNavS
+	}
 }
 </script>
 

@@ -12,7 +12,14 @@
             Connexion
           </span>
 
-          <vs-alert dark :progress="progress" color="danger" closable v-model="active" v-if="message_err">
+          <vs-alert
+            dark
+            :progress="progress"
+            color="danger"
+            closable
+            v-model="active"
+            v-if="message_err"
+          >
             <template #title>
               Erreur lors de l'inscription
             </template>
@@ -31,7 +38,6 @@
                 placeholder="Écrivez votre e-mail"
               />
               <span class="focus-input100" ></span> -->
-
             <vs-input
               color="#25767a"
               class="my-4 "
@@ -76,7 +82,6 @@
               Mot de passe oublié?
             </a>
           </div>
-
           <div class="">
             <div class="d-grid gap-2">
               <!-- <button class="si" type="button">
@@ -107,7 +112,6 @@
               </vs-button>
             </div>
           </div>
-
           <!-- 
 					<div class="txt1 text-center p-t-54 p-b-20">
 						<span>
@@ -128,14 +132,12 @@
 							<i class="fa fa-google"></i>
 						</a>
 					</div> -->
-
           <div class="flex-col-c p-t-55"></div>
         </div>
       </div>
     </div>
   </div>
 </template>
-
 <script>
 export default {
   name: "login",
@@ -180,6 +182,8 @@ export default {
           console.log(res);
           this.message_err = undefined;
           localStorage.setItem("token", res.Token);
+          location.replace("/AdminDash");
+          
         } else {
           const err = await result.json();
           console.log(err.message);
