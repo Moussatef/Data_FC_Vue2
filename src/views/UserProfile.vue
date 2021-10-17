@@ -1,6 +1,6 @@
 <template>
-    <div class=" overflow-hidden">
-        <!-- <div class="center mt-5">
+  <div class=" overflow-hidden">
+    <!-- <div class="center mt-5">
       <button @click="active_alert=!active_alert">
         active
       </button>
@@ -42,79 +42,91 @@
         </template>
       </vs-dialog>
     </div> -->
-	<AppNavS/>
+    <div class="row">
+      <div class="col-lg-2">
+        <AppNavS class=" poition-fixed" />
+      </div>
 
+      <div class=" col-lg-10 row justify-content-center text-start mt-4">
+        <div class="col-lg-12">
+          <AppFormation />
+        </div>
+        <div class="col-lg-12">
+          <AppClient />
+        </div>
+      </div>
     </div>
+  </div>
 </template>
 
 <script>
-import AppNavS from "@/components/layout/AppNavS.vue"
+import AppFormation from "@/components/Admin/AppFormation.vue";
+import AppClient from "@/components/Admin/AppClient.vue";
+import AppNavS from "@/components/layout/AppNavS.vue";
 export default {
-    data:()=> ({
-        active_alert: false,
-    }),
-	components:{
-		AppNavS
-	}
-}
+  data: () => ({
+    active_alert: false,
+  }),
+  components: {
+    AppNavS,
+    AppFormation,
+    AppClient,
+  },
+};
 </script>
 
 <style lang="scss" scoped>
-
 .not-margin {
-	margin: 0px;
-	font-weight: normal;
-	padding: 10px;
+  margin: 0px;
+  font-weight: normal;
+  padding: 10px;
 }
 .con-form {
-	width: 100%;
-	.flex {
-		display: flex;
-		align-items: center;
-		justify-content: space-between;
-		a {
-			font-size: 0.8rem;
-			opacity: 0.7;
-			&:hover {
-				opacity: 1;
-			}
-		}
-	}
-	vs-checkbox-label {
-		font-size: 0.8rem;
-	}
-	vs-input-content {
-		margin: 10px 0px;
-		width: 100%;
-		.vs-input {
-			width: 100%;
-		}
-	}
+  width: 100%;
+  .flex {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    a {
+      font-size: 0.8rem;
+      opacity: 0.7;
+      &:hover {
+        opacity: 1;
+      }
+    }
+  }
+  vs-checkbox-label {
+    font-size: 0.8rem;
+  }
+  vs-input-content {
+    margin: 10px 0px;
+    width: 100%;
+    .vs-input {
+      width: 100%;
+    }
+  }
 }
 .footer-dialog {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	flex-direction: column;
-	width: calc(100%);
-	.new {
-		margin: 0px;
-		margin-top: 20px;
-		padding: 0px;
-		font-size: 0.7rem;
-		a {
-			color: rgba(var(--vs-primary), 1) !important;
-			margin-left: 6px;
-			&:hover {
-				text-decoration: underline;
-			}
-		}
-	}
-	vs-button {
-		margin: 0px;
-	}
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: calc(100%);
+  .new {
+    margin: 0px;
+    margin-top: 20px;
+    padding: 0px;
+    font-size: 0.7rem;
+    a {
+      color: rgba(var(--vs-primary), 1) !important;
+      margin-left: 6px;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+  vs-button {
+    margin: 0px;
+  }
 }
-
-
-
 </style>

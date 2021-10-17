@@ -1,23 +1,25 @@
 <template>
   <div class=" py-5 bg-light">
-    <div class="accordion accordion-flush m-5" id="accordionFlushExample">
-      <div class="accordion-item">
-        <h2 class="accordion-header " id="flush-headingOne">
+    <h2 class="">Formations interentreprises</h2>
+              <hr />
+    <div class="accordion accordion-flush " id="accordionFlushExample">
+      <div class="accordion-item" :key="x" v-for="(cat, x) in categories">
+        <h2 class="accordion-header " :id="'flush-headingOne'+cat.codeF">
           <button
             class="accordion-button collapsed fs-4"
             type="button"
             data-bs-toggle="collapse"
-            data-bs-target="#flush-collapseOne"
+            :data-bs-target="'#flush-collapseOne'+cat.codeF"
             aria-expanded="false"
-            aria-controls="flush-collapseOne"
+            :aria-controls="'flush-collapseOne'+cat.codeF"
           >
-            DFC 1 : GRH et Management
+            {{cat.codeF}} : {{cat.titre}}
           </button>
         </h2>
         <div
-          id="flush-collapseOne"
+          :id="'flush-collapseOne'+cat.codeF"
           class="accordion-collapse collapse"
-          aria-labelledby="flush-headingOne"
+          :aria-labelledby="'flush-headingOne'+cat.codeF"
           data-bs-parent="#accordionFlushExample"
         >
           <div class="accordion-body">
@@ -50,15 +52,16 @@
                     <vs-tr
                       class="bg-white"
                       :key="i"
-                      v-for="(tr, i) in formationEnt"
+                      v-for="(tr, i) in cat.formation"
                       :data="tr"
                       :danger="tr.id == 3"
                       :success="tr.id == 5"
                       :primary="tr.id == 8"
                       :warn="tr.id == 9"
                     >
-                    
-                      <vs-td v-if="tr.formationcategorie_id == 1" class="text-start">
+                      <vs-td
+                        class="text-start"
+                      >
                         {{ tr.titre }}
                       </vs-td>
                       <vs-td class="text-start">
@@ -85,8 +88,6 @@
           </div>
         </div>
       </div>
-      
-      
     </div>
   </div>
 </template>
@@ -168,12 +169,13 @@ export default {
       },
     ],
   }),
-  methods: mapActions(["getAllFormationEn"]),
+  methods: mapActions(["getAllFormationEn", "getAllCategories"]),
 
-  computed: mapGetters(["formationEnt"]),
+  computed: mapGetters(["formationEnt", "categories"]),
 
   mounted() {
     this.getAllFormationEn();
+    this.getAllCategories();
   },
 };
 </script>

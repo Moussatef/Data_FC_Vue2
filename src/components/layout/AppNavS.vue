@@ -1,66 +1,156 @@
 <template>
- 
-  <div class="d-flex flex-column flex-shrink-0 bg-dark  position-fixed mt-20" style="width: 4.5rem;">
-    <a href="/" class="d-block p-3 link-dark text-decoration-none" title="Icon-only" data-bs-toggle="tooltip" data-bs-placement="right">
-      <svg class="bi" width="40" height="32"><use xlink:href="#bootstrap"/></svg>
-      <span class="visually-hidden">Icon-only</span>
-    </a>
-    <ul class="nav nav-pills nav-flush flex-column mb-auto text-center">
-      <li class="nav-item">
-        <a href="#" class="nav-link active py-3 border-bottom" aria-current="page" title="Home" data-bs-toggle="tooltip" data-bs-placement="right">
+  <div class="hidden position-fixed">
+    <vs-sidebar hover-expand
+        reduce v-model="active" class="" open>
+      <template #logo>
+        <!-- ...img logo -->
+      </template>
+      <vs-sidebar-item id="home">
+        <template #icon>
           <i class="bx bx-home"></i>
-        </a>
-      </li>
-      <li>
-        <a href="#" class="nav-link py-3 border-bottom" title="Dashboard" data-bs-toggle="tooltip" data-bs-placement="right">
-          <i class="bx bxl-github"></i>
-        </a>
-      </li>
-      <li>
-        <a href="#" class="nav-link py-3 border-bottom" title="Orders" data-bs-toggle="tooltip" data-bs-placement="right">
-          <i class="bx bx-home"></i>
-        </a>
-      </li>
-      <li>
-        <a href="#" class="nav-link py-3 border-bottom" title="Products" data-bs-toggle="tooltip" data-bs-placement="right">
-          <i class="bx bx-home"></i>
-        </a>
-      </li>
-      <li>
-        <a href="#" class="nav-link py-3 border-bottom" title="Customers" data-bs-toggle="tooltip" data-bs-placement="right">
-          <i class="bx bx-home"  ></i>
-        </a>
-      </li>
-    </ul>
-    <div class="dropdown border-top">
-      <a href="#" class="d-flex align-items-center justify-content-center p-3 link-dark text-decoration-none dropdown-toggle" id="dropdownUser3" data-bs-toggle="dropdown" aria-expanded="false">
-        <img src="https://github.com/mdo.png" alt="mdo" width="24" height="24" class="rounded-circle">
-      </a>
-      <ul class="dropdown-menu text-small shadow" aria-labelledby="dropdownUser3">
-        <li><a class="dropdown-item" href="#">New project...</a></li>
-        <li><a class="dropdown-item" href="#">Settings</a></li>
-        <li><a class="dropdown-item" href="#">Profile</a></li>
-        <li><hr class="dropdown-divider"></li>
-        <li><a class="dropdown-item" href="#">Sign out</a></li>
-      </ul>
-    </div>
+        </template>
+        Home
+      </vs-sidebar-item>
+      <vs-sidebar-item id="market">
+        <template #icon>
+          <i class="bx bx-grid-alt"></i>
+        </template>
+        Market Overview
+      </vs-sidebar-item>
+      <vs-sidebar-item id="Music">
+        <template #icon>
+          <i class="bx bxs-music"></i>
+        </template>
+        Music
+      </vs-sidebar-item>
+      <vs-sidebar-group>
+        <template #header>
+          <vs-sidebar-item arrow>
+            <template #icon>
+              <i class="bx bx-group"></i>
+            </template>
+            Social media
+          </vs-sidebar-item>
+        </template>
+
+        <vs-sidebar-item id="Instagram">
+          <template #icon>
+            <i class="bx bxl-instagram"></i>
+          </template>
+          Instagram
+        </vs-sidebar-item>
+        <vs-sidebar-item id="twitter">
+          <template #icon>
+            <i class="bx bxl-twitter"></i>
+          </template>
+          Twitter
+        </vs-sidebar-item>
+        <vs-sidebar-item id="Facebook">
+          <template #icon>
+            <i class="bx bxl-facebook"></i>
+          </template>
+          Facebook
+        </vs-sidebar-item>
+      </vs-sidebar-group>
+      <vs-sidebar-group>
+        <template #header>
+          <vs-sidebar-item arrow>
+            <template #icon>
+              <i class="bx bx-code-alt"></i>
+            </template>
+            Coding
+          </vs-sidebar-item>
+        </template>
+
+        <vs-sidebar-item id="github">
+          <template #icon>
+            <i class="bx bxl-github"></i>
+          </template>
+          Github
+        </vs-sidebar-item>
+        <vs-sidebar-item id="codepen">
+          <template #icon>
+            <i class="bx bxl-codepen"></i>
+          </template>
+          Codepen
+        </vs-sidebar-item>
+        <vs-sidebar-item id="discord">
+          <template #icon>
+            <i class="bx bxl-discord"></i>
+          </template>
+          Discord
+        </vs-sidebar-item>
+        <vs-sidebar-item id="Javascript">
+          <template #icon>
+            <i class="bx bxl-javascript"></i>
+          </template>
+          Javascript
+        </vs-sidebar-item>
+        <vs-sidebar-item id="git">
+          <template #icon>
+            <i class="bx bxl-git"></i>
+          </template>
+          Git
+        </vs-sidebar-item>
+      </vs-sidebar-group>
+      <vs-sidebar-item id="donate">
+        <template #icon>
+          <i class="bx bxs-donate-heart"></i>
+        </template>
+        Donate
+      </vs-sidebar-item>
+      <vs-sidebar-item id="drink">
+        <template #icon>
+          <i class="bx bx-drink"></i>
+        </template>
+        Drink
+      </vs-sidebar-item>
+      <vs-sidebar-item id="shopping">
+        <template #icon>
+          <i class="bx bxs-shopping-bags"></i>
+        </template>
+        Shopping
+      </vs-sidebar-item>
+      <vs-sidebar-item id="chat">
+        <template #icon>
+          <i class="bx bx-chat"></i>
+        </template>
+        Chat
+      </vs-sidebar-item>
+      <template #footer>
+        <vs-row justify="space-between">
+          <vs-avatar>
+            <img src="/avatars/avatar-5.png" alt="" />
+          </vs-avatar>
+
+          <vs-avatar badge-color="danger" badge-position="top-right">
+            <i class="bx bx-bell"></i>
+
+            <template #badge>
+              28
+            </template>
+          </vs-avatar>
+        </vs-row>
+      </template>
+    </vs-sidebar>
   </div>
 </template>
 
 <script>
 export default {
-    name: "AppNavS"
-}
+  name: "AppNavS",
+  data:() => ({
+        active: 'home',
+      })
+};
 </script>
 
-
 <style lang="scss" scoped>
-.mt-10{
-    margin-top: 10rem;
+.mt-10 {
+  margin-top: 10rem;
 }
 
-.mt-20{
-    margin-top: 10rem;
+.mt-20 {
+  margin-top: 10rem;
 }
-
 </style>
