@@ -112,8 +112,9 @@
               >Demande de devis</router-link
             >
           </li>
-          <div class="d-flex btn-conx">
+          <div v-if="!token" class="d-flex btn-conx">
             <vs-button
+            
               border
               class="p-1 fs-6 btn-conx "
               :active="active_con == 0"
@@ -133,6 +134,37 @@
               S'inscrire
             </vs-button>
           </div>
+          <!-- <div v-if="token" class="d-flex btn-conx">
+            <vs-button
+            
+              border
+              class="p-1 fs-6 btn-conx "
+              :active="active_con == 0"
+              @click="active = 1"
+              to="/login"
+            >
+              Profile
+            </vs-button>
+            <vs-button
+              color="rgba(35, 138, 145, 1) "
+              class="p-1 fs-6 "
+              gradient
+              :active="active == 6"
+              @click="active = 6"
+              to="/register"
+            >
+              Se déconnecter 
+            </vs-button>
+          </div> -->
+          <div v-if="token" class="flex-shrink-0 dropdown m-x-5 position-relative">
+          <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" id="dropdownUser2" data-bs-toggle="dropdown" aria-expanded="false">
+            <img src="https://github.com/mdo.png" alt="mdo" width="32" height="32" class="rounded-circle">
+          </a>
+          <ul class="dropdown-menu text-small shadow m-e-5" aria-labelledby="dropdownUser2">
+            <li><router-link class="dropdown-item" to="/admindash"><i class="bx bxs-user me-2"></i>Profile</router-link></li>
+            <li><router-link class="dropdown-item" to="/hach"><i class="bx bxs-log-out me-2"></i>Sign out</router-link></li>
+          </ul>
+        </div>
         </ul>
       </div>
     </div>
@@ -144,6 +176,7 @@ export default {
   data: () => ({
     active: 0,
     active_con: 0,
+    token: localStorage.getItem("token"),
   }),
   methods: {},
 };
@@ -156,9 +189,17 @@ export default {
 #mynavi {
   z-index: 9999999;
 }
-@media screen and (max-width: 1000px) {
+.m-x-5{
+  margin: 5px 9rem 5px 15rem;
+}
+
+@media screen and (max-width: 1400px) {
   .btn-conx {
     margin: 5px auto;
   }
+  .m-x-5{
+  margin: 2% auto;
+}
+
 }
 </style>

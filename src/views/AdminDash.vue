@@ -5,29 +5,32 @@
       <div class="main ">
         <div class="side-navbar">
           <ul>
-            <li class="my-5"></li>
-            <li>
-              <a href="#">
+            <li class="my-5">
+              <div class="bx bx-menu" @click="menu()" id="menu-icon"></div>
+            </li>
+            <li :class="{ isActive: homeAct }">
+              <a href="#" @click="doHome()">
                 <span class="icon"><i class="bx bxs-home"></i></span>
                 <span class="text">Home</span>
               </a>
             </li>
-            <li :class="{formation : 'isActive'} ">
-              <a @click="formation()" >
+            <li :class="{ isActive: formationAct }">
+              <a @click="doFormation()" href="#">
                 <span class="icon"
                   ><i class="bx bxs-server" aria-hidden="true"></i
                 ></span>
                 <span class="text">Formation</span>
               </a>
             </li>
-            <li>
-              <a href="#">
+
+            <li :class="{ isActive: participantsAct }">
+              <a href="#" @click="doParticipants()">
                 <span class="icon"><i class="bx bxs-group"></i></span>
                 <span class="text">participants</span>
               </a>
             </li>
-            <li>
-              <a href="#">
+            <li :class="{ isActive: profile }">
+              <a href="#" @click="doProfile()">
                 <span class="icon"><i class="bx bxs-user"></i></span>
                 <span class="text">Profile</span>
               </a>
@@ -54,18 +57,7 @@
         </div>
         <div class="content ">
           <div class="top-navbar position-fixed bg-light ">
-            <vs-button
-              @click="
-                activeSidebar = !activeSidebar;
-                menu();
-              "
-              active="activeSidebar"
-              id="menu-icon"
-              flat
-              icon
-            >
-              <i class="bx bx-menu"></i>
-            </vs-button>
+            <div class="bx bx-menu btn_nav" @click="menu()"></div>
             <div class="profile"></div>
           </div>
         </div>
@@ -140,12 +132,26 @@
                 </div>
               </div>
             </div>
-            <div v-if="home" class="row justify-content-center text-start mt-4">
+            <div
+              v-if="homeAct"
+              class="row justify-content-center text-start mt-4"
+            >
               <div class="col-lg-12">
                 <AppFormation />
               </div>
               <div class="col-lg-12">
                 <AppClient />
+              </div>
+            </div>
+            <div
+              v-if="formationAct"
+              class="row justify-content-center text-start mt-4"
+            >
+              <div class="col-lg-7">
+                <AppAddFormation />
+              </div>
+              <div class="col-lg-12">
+                <AppFormation />
               </div>
             </div>
           </div>
@@ -156,24 +162,48 @@
 </template>
 <script>
 import AppFormation from "@/components/Admin/AppFormation.vue";
+import AppAddFormation from "@/components/Admin/AppAddFormation.vue";
 import AppClient from "@/components/Admin/AppClient.vue";
 export default {
   name: "AdminDash",
+  components: {
+    AppFormation,
+    AppClient,
+    AppAddFormation,
+  },
   data: () => ({
-    home: true,
-    formation:false,
-    participants:false,
-    activeSidebar: false
+    homeAct: true,
+    formationAct: false,
+    participantsAct: false,
+    activeSidebar: false,
+    profile: false,
   }),
 
   methods: {
-
-    formation(){
-      this.formation = true;
-      this.home = false;
-      this.participants = false;
+    doFormation() {
+      this.formationAct = true;
+      this.homeAct = false;
+      this.participantsAct = false;
+      this.profile = false;
     },
-
+    doHome() {
+      this.formationAct = false;
+      this.homeAct = true;
+      this.participantsAct = false;
+      this.profile = false;
+    },
+    doParticipants() {
+      this.formationAct = false;
+      this.homeAct = false;
+      this.participantsAct = true;
+      this.profile = false;
+    },
+    doProfile() {
+      this.formationAct = false;
+      this.homeAct = false;
+      this.participantsAct = false;
+      this.profile = true;
+    },
 
     openNotification(position = null, color) {
       const noti = this.$vs.notification({
@@ -193,15 +223,10 @@ export default {
   mounted() {
     this.openNotification(null, "rgb(59,222,200)");
   },
-  components: {
-    AppFormation,
-    AppClient,
-  },
 };
 </script>
 
 <style lang="scss" scoped>
-
 .top-10 {
   top: 5rem;
   position: sticky;
@@ -251,6 +276,9 @@ export default {
   width: 100%;
 }
 .side-navbar ul li:hover {
+  background: #0f7892;
+}
+.isActive {
   background: #0f7892;
 }
 .side-navbar ul li:first-child {
@@ -304,6 +332,13 @@ export default {
 #menu-icon {
   font-size: 34px;
   cursor: pointer;
+  color: #fff;
+}
+.btn_nav {
+  display: none;
+  font-size: 34px;
+  cursor: pointer;
+  color: rgb(0, 0, 0);
 }
 .content.active {
   width: calc(100% - 60px);
@@ -327,6 +362,13 @@ export default {
   }
   .side-navbar.active {
     left: 0;
+  }
+  .btn_nav {
+    display: block;
+    margin-left: 10px ;
+  }
+  #menu-icon {
+    display: none;
   }
 }
 </style>

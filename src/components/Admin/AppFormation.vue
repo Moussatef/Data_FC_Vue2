@@ -28,29 +28,29 @@
                 <vs-table striped>
                   <template #thead>
                     <vs-tr>
-                      <vs-th>
-                        titre
+                      <vs-th class="fs-6">
+                        Titre
                       </vs-th>
-                      <vs-th>
+                      <vs-th class="fs-6">
                         Objectifs
                       </vs-th>
-                      <vs-th>
+                      <vs-th class="fs-6">
                         Population cible
                       </vs-th>
-                      <vs-th>
+                      <vs-th class="fs-6">
                         Durée de la formation
                       </vs-th>
-                      <vs-th>
+                      <vs-th class="fs-6">
                         Programme de formation
                       </vs-th>
-                      <vs-th>
+                      <vs-th class="fs-6">
                         Id
                       </vs-th>
                     </vs-tr>
                   </template>
                   <template #tbody>
                     <vs-tr
-                      class="bg-white"
+                      class="bg-white "
                       :key="i"
                       v-for="(tr, i) in cat.formation"
                       :data="tr"
@@ -60,20 +60,20 @@
                       :warn="tr.id == 9"
                     >
                       <vs-td
-                        class="text-start"
+                        class="text-start fs-6"
                       >
                         {{ tr.titre }}
                       </vs-td>
-                      <vs-td class="text-start">
+                      <vs-td class="text-start fs-6">
                         {{ tr.objectifs }}
                       </vs-td>
-                      <vs-td class="text-start">
+                      <vs-td class="text-start fs-6">
                         {{ tr.population_cible }}
                       </vs-td>
-                      <vs-td class="text-start">
+                      <vs-td class="text-start fs-6">
                         {{ tr.duree_dormation }}
                       </vs-td>
-                      <vs-td class="text-start">
+                      <vs-td class="text-start fs-6">
                         <ul>
                           <li :key="j" v-for="(li, j) in tr.programme">
                             {{ li.description }}
