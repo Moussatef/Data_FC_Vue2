@@ -114,7 +114,6 @@
           </li>
           <div v-if="!token" class="d-flex btn-conx">
             <vs-button
-            
               border
               class="p-1 fs-6 btn-conx "
               :active="active_con == 0"
@@ -156,15 +155,41 @@
               Se déconnecter 
             </vs-button>
           </div> -->
-          <div v-if="token" class="flex-shrink-0 dropdown m-x-5 position-relative">
-          <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" id="dropdownUser2" data-bs-toggle="dropdown" aria-expanded="false">
-            <img src="https://github.com/mdo.png" alt="mdo" width="32" height="32" class="rounded-circle">
-          </a>
-          <ul class="dropdown-menu text-small shadow m-e-5" aria-labelledby="dropdownUser2">
-            <li><router-link class="dropdown-item" to="/admindash"><i class="bx bxs-user me-2"></i>Profile</router-link></li>
-            <li><router-link class="dropdown-item" to="/hach"><i class="bx bxs-log-out me-2"></i>Sign out</router-link></li>
-          </ul>
-        </div>
+          <div
+            v-if="token"
+            class="flex-shrink-0 dropdown m-x-5 position-relative"
+          >
+            <a
+              href="#"
+              class="d-block link-dark text-decoration-none dropdown-toggle"
+              id="dropdownUser2"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              <img
+                src="https://github.com/mdo.png"
+                alt="mdo"
+                width="32"
+                height="32"
+                class="rounded-circle"
+              />
+            </a>
+            <ul
+              class="dropdown-menu text-small shadow m-e-5"
+              aria-labelledby="dropdownUser2"
+            >
+              <li>
+                <router-link class="dropdown-item" to="/admindash"
+                  ><i class="bx bxs-user me-2"></i>Profile</router-link
+                >
+              </li>
+              <li>
+                <a class="dropdown-item" @click="logout()"
+                  ><i class="bx bxs-log-out me-2"></i>Sign out</a
+                >
+              </li>
+            </ul>
+          </div>
         </ul>
       </div>
     </div>
@@ -178,7 +203,27 @@ export default {
     active_con: 0,
     token: localStorage.getItem("token"),
   }),
-  methods: {},
+  methods: {
+    async logout() {
+      var myHeaders = new Headers();
+      myHeaders.append("Authorization", "Bearer " + this.token);
+
+      var requestOptions = {
+        method: "POST",
+        headers: myHeaders,
+        redirect: "follow",
+      };
+      const res = await fetch(
+        "http://127.0.0.1:8000/api/datafc/auth/admin-derct/logout", requestOptions
+      );
+      if (res.status === 200) {
+        const result = await res.json();
+        console.log(result);
+        localStorage.clear();
+        location.replace("/");
+      }
+    },
+  },
 };
 </script>
 
@@ -189,7 +234,7 @@ export default {
 #mynavi {
   z-index: 9999999;
 }
-.m-x-5{
+.m-x-5 {
   margin: 5px 9rem 5px 15rem;
 }
 
@@ -197,9 +242,8 @@ export default {
   .btn-conx {
     margin: 5px auto;
   }
-  .m-x-5{
-  margin: 2% auto;
-}
-
+  .m-x-5 {
+    margin: 2% auto;
+  }
 }
 </style>
