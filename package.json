@@ -9,6 +9,8 @@
   "dependencies": {
     "@popperjs/core": "^2.10.2",
     "aos": "^2.3.4",
+    "axios": "^0.23.0",
+    "axos": "0.0.1",
     "bootstrap": "^5.1.2",
     "core-js": "^3.6.5",
     "jquery": "^3.6.0",

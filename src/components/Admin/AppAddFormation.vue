@@ -227,7 +227,18 @@
                   ></span>
                 </div>
               </div>
-              <div class="row col-4 offset-md-8">
+              <div
+                class="row col-4 offset-md-8"
+                v-if="
+                  inpCodeF &&
+                    inpTitre &&
+                    inpObj &&
+                    inpPc &&
+                    inpDf &&
+                    programme.length &&
+                    value1
+                "
+              >
                 <vs-button
                   size="large"
                   class="my-4"
@@ -256,6 +267,7 @@
 </template>
 <script>
 import { mapGetters, mapActions } from "vuex";
+import axios from "axios";
 export default {
   data: () => ({
     activebtn: 0,
@@ -267,13 +279,13 @@ export default {
     inpTitre: undefined,
     inpDf: undefined,
     inpPc: undefined,
-    inpObj:undefined,
+    inpObj: undefined,
 
     activeClos: 0,
     imagepreview: "../../assets/OrongeUL/Attheofficerafiki.png",
     image: null,
     img_src: false,
-    token : localStorage.getItem('token'),
+    token: localStorage.getItem("token"),
   }),
 
   methods: {
@@ -289,7 +301,6 @@ export default {
       data.append("imgFormation", param[6]);
       data.append("typeFormation", param[7]);
 
-
       var myHeaders = new Headers();
       myHeaders.append("Accept", "application/json");
       myHeaders.append("Content-Type", "application/json");
@@ -302,9 +313,15 @@ export default {
         redirect: "follow",
       };
 
-      const res = await fetch(
+      const res = await axios.post(
         "http://127.0.0.1:8000/api/add/formation",
-        requestOptions
+        data,
+        {
+          headers: {
+            Accept: "application/json",
+            Authorization: `Bearer ` + this.token,
+          },
+        }
       );
       if (res.status === 200) {
         const result = await res.json();
