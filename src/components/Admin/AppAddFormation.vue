@@ -42,7 +42,7 @@
           <div class="con-form">
             <div class="row justify-content-center align-items-center">
               <div class="col-3 ">
-                  <img
+                <img
                   v-if="img_src == false"
                   src="../../assets/OrongeUL/Attheofficerafiki.png"
                   width="200"
@@ -108,7 +108,7 @@
               </div>
               <div class="col-lg-6 col-12">
                 <vs-input
-                  v-model="input1"
+                  v-model="inpCodeF"
                   class="my-3"
                   border
                   warn
@@ -122,7 +122,7 @@
               </div>
               <div class="col-lg-6 col-12">
                 <vs-input
-                  v-model="input1"
+                  v-model="inpTitre"
                   class="my-3"
                   border
                   warn
@@ -149,7 +149,7 @@
                 </template>
               </vs-input> -->
                 <textarea
-                  v-model="input1"
+                  v-model="inpObj"
                   class="form-control mb-2"
                   placeholder="objectifs"
                   rows="3"
@@ -157,7 +157,7 @@
               </div>
               <div class="col-lg-6 col-12">
                 <vs-input
-                  v-model="input1"
+                  v-model="inpPc"
                   class="my-3"
                   border
                   warn
@@ -172,7 +172,7 @@
               <!-- //row 3 -->
               <div class="col-lg-12 col-12">
                 <vs-input
-                  v-model="input1"
+                  v-model="inpDf"
                   class="my-3"
                   border
                   warn
@@ -231,7 +231,18 @@
                 <vs-button
                   size="large"
                   class="my-4"
-                  @click="putProgramme(inpProgramme)"
+                  @click="
+                    addFormation([
+                      inpCodeF,
+                      inpTitre,
+                      inpObj,
+                      inpPc,
+                      inpDf,
+                      programme,
+                      image,
+                      value1,
+                    ])
+                  "
                 >
                   <i class="fa fa-plus" aria-hidden="true"> Ajouter</i>
                 </vs-button>
@@ -252,14 +263,54 @@ export default {
     value1: "",
     programme: [],
     inpProgramme: undefined,
+    inpCodeF: undefined,
+    inpTitre: undefined,
+    inpDf: undefined,
+    inpPc: undefined,
+    inpObj:undefined,
+
     activeClos: 0,
     imagepreview: "../../assets/OrongeUL/Attheofficerafiki.png",
     image: null,
     img_src: false,
+    token : localStorage.getItem('token'),
   }),
 
   methods: {
     ...mapActions(["getAllFormationEn", "getAllCategories"]),
+    async addFormation(param) {
+      const data = new FormData();
+      data.append("codeFormation", param[0]);
+      data.append("titre", param[1]);
+      data.append("objectifs", param[2]);
+      data.append("populationCible", param[3]);
+      data.append("dureeFormation", param[4]);
+      data.append("programmeFormation", param[5]);
+      data.append("imgFormation", param[6]);
+      data.append("typeFormation", param[7]);
+
+
+      var myHeaders = new Headers();
+      myHeaders.append("Accept", "application/json");
+      myHeaders.append("Content-Type", "application/json");
+      myHeaders.append("Authorization", "Bearer " + this.token);
+
+      var requestOptions = {
+        method: "POST",
+        headers: myHeaders,
+        body: data,
+        redirect: "follow",
+      };
+
+      const res = await fetch(
+        "http://127.0.0.1:8000/api/add/formation",
+        requestOptions
+      );
+      if (res.status === 200) {
+        const result = await res.json();
+        console.log(result);
+      }
+    },
     imageSelected(e) {
       this.img_src = true;
       this.image = e.target.files[0];
