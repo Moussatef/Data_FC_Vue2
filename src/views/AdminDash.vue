@@ -154,6 +154,14 @@
                 <AppFormation />
               </div>
             </div>
+            <div
+              v-if="participantsAct"
+              class="row justify-content-center text-start mt-4"
+            >
+              <div class="col-lg-12">
+                <AppClient />
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -365,7 +373,7 @@ export default {
   }
   .btn_nav {
     display: block;
-    margin-left: 10px ;
+    margin-left: 10px;
   }
   #menu-icon {
     display: none;

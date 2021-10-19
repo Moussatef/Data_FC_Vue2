@@ -18,7 +18,8 @@
         </h2>
         <div
           :id="'flush-collapseOne' + cat.codeF"
-          class="accordion-collapse collapse"
+          class="accordion-collapse collapse "
+          :class="{'show' : (cat.id == 1) }"
           :aria-labelledby="'flush-headingOne' + cat.codeF"
           data-bs-parent="#accordionFlushExample"
         >
