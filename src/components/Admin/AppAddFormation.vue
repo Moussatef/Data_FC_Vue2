@@ -18,94 +18,154 @@
           </vs-button>
         </div>
       </div>
+      <vs-dialog width="50vw" not-center v-model="active3">
+        <template #header>
+          <h4 class="not-margin">Type de <b>Formation</b></h4>
+        </template>
+
+        <div class="row px-4 ">
+          <div class="col-12 my-3">
+            <vs-input
+              v-model="inpCodeType"
+              class="my-3"
+              border
+              success
+              icon-after
+              label-placeholder="Code Type du formation"
+            >
+              <template #icon>
+                <i class="fa fa-tag"></i>
+              </template>
+            </vs-input>
+          </div>
+          <div class="col-12 my-2">
+            <vs-input
+              v-model="inpTitreType"
+              class="my-3"
+              border
+              success
+              icon-after
+              label-placeholder="Titre Type du formation"
+            >
+              <template #icon>
+                <i class="fa fa-sticky-note-o"></i>
+              </template>
+            </vs-input>
+          </div>
+        </div>
+
+        <template #footer>
+          <div
+            class="d-flex align-items-center justify-content-center flex-direction-column"
+          >
+            <vs-button @click="addTypeformation" class="px-2 py-1" transparent>
+              Ok
+            </vs-button>
+            <vs-button
+              @click="active3 = false"
+              class="px-2 py-1"
+              dark
+              transparent
+            >
+              Cancel
+            </vs-button>
+          </div>
+        </template>
+      </vs-dialog>
 
       <div id="myModal" class="modal">
         <!-- Modal content -->
         <div class="modal-content">
           <div class="row justify-content-between">
-            <div class="col-10"></div>
+            <div class="col-10 "></div>
 
             <vs-button
               class="close float-right col-2"
               circle
               danger
               border
-              :active="activeClos == 6"
-              @click="
-                activeClos = 6;
-                closeM();
-              "
+              @click="closeM()"
             >
               <i class="fa fa-close"></i>
             </vs-button>
           </div>
           <div class="con-form">
-            <div class="row justify-content-center align-items-center">
-              <div class="col-3 ">
-                <img
-                  v-if="img_src == false"
-                  src="../../assets/OrongeUL/Attheofficerafiki.png"
-                  width="200"
-                  height="200"
-                  class="rounded-lg"
-                  alt=""
-                  id="src_formation"
-                />
-                <img
-                  v-if="img_src == true"
-                  :src="imagepreview"
-                  width="200"
-                  height="200"
-                  class="rounded-lg"
-                  alt=""
-                  id="src_formation"
-                />
-                <input
-                  type="file"
-                  accept="image/*"
-                  ref="formation_img"
-                  class=" invisible "
-                  id="img_formation"
-                  @change="imageSelected"
-                />
-                <vs-button
-                  class="col-lg-12 col-md-12 col-12 "
-                  circle
-                  success
-                  border
-                  :active="activeClos == 6"
-                  @click="
-                    activeClos = 6;
-                    $refs.formation_img.click();
-                  "
-                >
-                  <i class="fa fa-upload"></i>
-                </vs-button>
-              </div>
-              <div class="col-lg-10 col-12 row   align-items-center my-3">
-                <div class="col-lg-4">Type de formation</div>
-                <div class="col-lg-8">
-                  <vs-select v-model="value1">
-                    <vs-option
-                      v-for="cat in categories"
-                      :key="cat.id"
-                      :label="cat.codeF + ' : ' + cat.titre"
-                      :value="cat.id"
+            <h2 class="text-center mb-4">Ajouter une formation</h2>
+            <div class="row justify-content-evnly align-items-center">
+              <div class="col-12  row justify-content-between mb-5">
+                <div class="col-lg-5 col-md-12 col-12  ">
+                  <div
+                    class="card border-0 shadow justify-content-center align-items-center "
+                  >
+                    <img
+                      v-if="img_src == false"
+                      src="../../assets/OrongeUL/Attheofficerafiki.png"
+                      width="200"
+                      height="200"
+                      class="rounded-lg"
+                      alt=""
+                      id="src_formation"
+                    />
+                    <img
+                      v-if="img_src == true"
+                      :src="imagepreview"
+                      width="200"
+                      height="200"
+                      class="rounded-lg mt-2"
+                      alt=""
+                      id="src_formation"
+                    />
+                    <input
+                      type="file"
+                      accept="image/*"
+                      ref="formation_img"
+                      class=" invisible "
+                      id="img_formation"
+                      @change="imageSelected"
+                    />
+                    <vs-button
+                      class="col-lg-6 col-md-8 col-12  "
+                      circle
+                      success
+                      border
+                      :active="activeImg == 6"
+                      @click="
+                        activeImg = 6;
+                        $refs.formation_img.click();
+                      "
                     >
-                      {{ cat.codeF }} : {{ cat.titre }}
-                    </vs-option>
-                  </vs-select>
+                      <i class="fa fa-upload"></i>
+                    </vs-button>
+                  </div>
+                </div>
+                <div class="col-lg-7 col-md-12 col-sm-12 col-12 my-4">
+                  <h5>Type de formation</h5>
+                  <div class="d-flex">
+                    <vs-select
+                      placeholder="sélectionner le type de formation"
+                      v-model="value1"
+                    >
+                      <vs-option
+                        v-for="cat in categories"
+                        :key="cat.id"
+                        :label="cat.codeF + ' : ' + cat.titre"
+                        :value="cat.id"
+                      >
+                        {{ cat.codeF }} : {{ cat.titre }}
+                      </vs-option>
+                    </vs-select>
+                    <vs-button
+                      class="mx-3"
+                      size="large"
+                      border
+                      @click="active3 = !active3"
+                    >
+                      <i class="fa fa-plus" aria-hidden="true"></i>
+                    </vs-button>
+                  </div>
                 </div>
               </div>
-              <div class="col-lg-2 col-12">
-                <vs-button
-                  size="large"
-                  :active="activebtn == 1"
-                  @click="activebtn = 1"
-                >
-                  <i class="fa fa-plus" aria-hidden="true"></i>
-                </vs-button>
-              </div>
+
               <div class="col-lg-6 col-12">
                 <vs-input
                   v-model="inpCodeF"
@@ -281,7 +341,12 @@ export default {
     inpPc: undefined,
     inpObj: undefined,
 
+    inpCodeType:undefined,
+    inpTitreType:undefined,
+
+    active3: false,
     activeClos: 0,
+    activeImg: 0,
     imagepreview: "../../assets/OrongeUL/Attheofficerafiki.png",
     image: null,
     img_src: false,
@@ -290,6 +355,16 @@ export default {
 
   methods: {
     ...mapActions(["getAllFormationEn", "getAllCategories"]),
+    addTypeformation() {
+      this.$store.dispatch("addTypeFormation",[this.inpCodeType,this.inpTitreType]).then((res) =>{
+        console.log(res);
+        this.active3 = false;
+        this.inpCodeType = undefined;
+        this.inpTitreType = undefined;
+        
+
+        });
+    },
     async addFormation(param) {
       const data = new FormData();
       data.append("codeFormation", param[0]);
@@ -301,30 +376,20 @@ export default {
       data.append("imgFormation", param[6]);
       data.append("typeFormation", param[7]);
 
-      var myHeaders = new Headers();
-      myHeaders.append("Accept", "application/json");
-      myHeaders.append("Content-Type", "application/json");
-      myHeaders.append("Authorization", "Bearer " + this.token);
-
-      var requestOptions = {
-        method: "POST",
-        headers: myHeaders,
-        body: data,
-        redirect: "follow",
+      var config = {
+        method: "post",
+        url: "http://127.0.0.1:8000/api/add/formation",
+        headers: {
+          Accept: "application/json",
+          Authorization: "Bearer " + localStorage.getItem("token"),
+          "Content-Type": "application/json",
+        },
+        data: data,
       };
 
-      const res = await axios.post(
-        "http://127.0.0.1:8000/api/add/formation",
-        data,
-        {
-          headers: {
-            Accept: "application/json",
-            Authorization: `Bearer ` + this.token,
-          },
-        }
-      );
+      const res = await axios(config);
       if (res.status === 200) {
-        const result = await res.json();
+        const result = await res.data;
         console.log(result);
       }
     },

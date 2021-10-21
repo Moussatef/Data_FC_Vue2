@@ -9,13 +9,13 @@
               <div class="bx bx-menu" @click="menu()" id="menu-icon"></div>
             </li>
             <li :class="{ isActive: homeAct }">
-              <a href="#" @click="doHome()">
+              <a  @click="doHome()">
                 <span class="icon"><i class="bx bxs-home"></i></span>
                 <span class="text">Home</span>
               </a>
             </li>
             <li :class="{ isActive: formationAct }">
-              <a @click="doFormation()" href="#">
+              <a @click="doFormation()" >
                 <span class="icon"
                   ><i class="bx bxs-server" aria-hidden="true"></i
                 ></span>
@@ -24,31 +24,31 @@
             </li>
 
             <li :class="{ isActive: participantsAct }">
-              <a href="#" @click="doParticipants()">
+              <a  @click="doParticipants()">
                 <span class="icon"><i class="bx bxs-group"></i></span>
                 <span class="text">participants</span>
               </a>
             </li>
             <li :class="{ isActive: profile }">
-              <a href="#" @click="doProfile()">
+              <a  @click="doProfile()">
                 <span class="icon"><i class="bx bxs-user"></i></span>
                 <span class="text">Profile</span>
               </a>
             </li>
             <li>
-              <a href="#">
+              <a >
                 <span class="icon"><i class="bx bxs-cloud-upload"></i></span>
                 <span class="text">Upload</span>
               </a>
             </li>
             <li>
-              <a href="#">
+              <a >
                 <span class="icon"><i class="bx bxs-cog"></i></span>
                 <span class="text">Setting</span>
               </a>
             </li>
             <li>
-              <a href="#">
+              <a >
                 <span class="icon"><i class="bx bxs-log-out"></i></span>
                 <span class="text">Log-Out</span>
               </a>
@@ -140,7 +140,7 @@
                 <AppFormation />
               </div>
               <div class="col-lg-12">
-                <AppClient />
+                <AppClient check="0" />
               </div>
             </div>
             <div
@@ -159,7 +159,7 @@
               class="row justify-content-center text-start mt-4"
             >
               <div class="col-lg-12">
-                <AppClient />
+                <AppClient check="0" />
               </div>
             </div>
           </div>
@@ -252,6 +252,9 @@ export default {
 // .hidden {
 //   overflow-y: scroll;
 // }
+a{
+  cursor: pointer;
+}
 
 /* Google Fonts */
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");

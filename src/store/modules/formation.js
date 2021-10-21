@@ -1,4 +1,4 @@
-
+import axios from 'axios'
 
 const state = {
     formationEnt: [],
@@ -38,12 +38,47 @@ const actions = {
 
         }
 
+    },
+
+    async addTypeFormation({ commit }, param) {
+
+        var data = JSON.stringify({
+            "codeType": param[0],
+            "titre": param[1]
+        });
+
+        var config = {
+            method: 'post',
+            url: 'http://127.0.0.1:8000/api/add/type-formation',
+            headers: {
+                'Accept': 'application/json',
+                'Authorization': 'Bearer ' + localStorage.getItem('token'),
+                'Content-Type': 'application/json'
+            },
+            data: data
+        };
+
+        axios(config)
+        // .then((res) => {
+        //     // commit('setAllCategory', res.formationAll)
+        //     console.log(res);
+        // })
     }
 }
 
 const mutations = {
     setFormations: (state, formations) => (state.formationEnt = formations),
     setCategory: (state, categories) => (state.categories = categories),
+    addCategory: function (state, categories) {
+        state.categories.unshift(categories[0]);
+    },
+
+    setAllCategory: (state, categories) => {
+        // state.loading = false;
+        (state.categories.push(...categories));
+    },
+
+
 
 
 
