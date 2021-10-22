@@ -13,6 +13,8 @@ import Linterim from '../views/Linterim.vue'
 import Login from '../views/LoginUser.vue'
 import Register from '../views/Register.vue'
 import AdminDash from '../views/AdminDash.vue'
+import AdminFormationEn from '../views/AdminFormationEn.vue'
+import AdminClient from '../views/AdminClient.vue'
 import UserProfile from '../views/UserProfile.vue'
 
 Vue.use(VueRouter)
@@ -26,22 +28,74 @@ const routes = [
   {
     path: '/login',
     name: 'Login',
-    component: Login
+    component: Login,
+    beforeEnter: (to, from, next) => {
+      if (!localStorage.getItem('token')) {
+        next();
+      } else {
+        next('/');
+      }
+    }
   },
   {
     path: '/register',
     name: 'Register',
-    component: Register
+    component: Register,
+    beforeEnter: (to, from, next) => {
+      if (!localStorage.getItem('token')) {
+        next();
+      } else {
+        next('/');
+      }
+    }
   },
   {
     path: '/AdminDash',
     name: 'AdminDash',
-    component: AdminDash
+    component: AdminDash,
+    beforeEnter: (to, from, next) => {
+      if (localStorage.getItem('token')) {
+        next();
+      } else {
+        next('/');
+      }
+    }
+  },
+  {
+    path: '/admin-formation-en',
+    name: 'AdminFormationEn',
+    component: AdminFormationEn,
+    beforeEnter: (to, from, next) => {
+      if (localStorage.getItem('token')) {
+        next();
+      } else {
+        next('/');
+      }
+    }
+  },
+  {
+    path: '/admin-client',
+    name: 'AdminClient',
+    component: AdminClient,
+    beforeEnter: (to, from, next) => {
+      if (localStorage.getItem('token')) {
+        next();
+      } else {
+        next('/');
+      }
+    }
   },
   {
     path: '/UserProfile',
     name: 'UserProfile',
-    component: UserProfile
+    component: UserProfile,
+    beforeEnter: (to, from, next) => {
+      if (localStorage.getItem('token')) {
+        next();
+      } else {
+        next('/');
+      }
+    }
   },
   {
     path: '/nos-formations',

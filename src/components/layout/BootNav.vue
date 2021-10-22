@@ -26,6 +26,11 @@
               >Accueil</router-link
             >
           </li>
+          <li>
+            <router-link class="nav-link" to="/sommes-nous"
+              >Qui sommes nous</router-link
+            >
+          </li>
 
           <li class="nav-item dropdown">
             <a
@@ -96,22 +101,18 @@
               </li>
             </ul>
           </li>
-          <li>
-            <router-link class="nav-link" to="/sommes-nous"
-              >Qui sommes nous</router-link
-            >
-          </li>
+          
           <li>
             <router-link class="nav-link" to="/contact-nous"
               >Contact</router-link
             >
           </li>
 
-          <li class="nav-item">
+          <!-- <li class="nav-item">
             <router-link class="nav-link" to="/demande-de-devis"
               >Demande de devis</router-link
             >
-          </li>
+          </li> -->
           <div v-if="!token" class="d-flex btn-conx">
             <vs-button
               border

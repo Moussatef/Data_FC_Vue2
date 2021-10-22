@@ -7,37 +7,14 @@
     <div class="content ">
       <div class="top-navbar position-fixed bg-light ">
         <div class="bx bx-menu btn_nav" @click="menu()"></div>
-        
+        <div class="profile"></div>
       </div>
-      <h1 class="my-5">Administrateur</h1>
+      <h1 class="my-5">Participants</h1>
       <div class=" container-fluid">
         <AppStatus/>
-        
-        <div v-if="homeAct" class="row justify-content-center text-start mt-4">
+        <div class="row justify-content-center text-start mt-4">
           <div class="col-lg-12">
-            <AppFormation />
-          </div>
-          <div class="col-lg-12">
-            <AppClient check="0" />
-          </div>
-        </div>
-        <div
-          v-if="formationAct"
-          class="row justify-content-center text-start mt-4"
-        >
-          <div class="col-lg-7">
-            <AppAddFormation />
-          </div>
-          <div class="col-lg-12">
-            <AppFormation />
-          </div>
-        </div>
-        <div
-          v-if="participantsAct"
-          class="row justify-content-center text-start mt-4"
-        >
-          <div class="col-lg-12">
-            <AppClient check="1" />
+            <AppClient />
           </div>
         </div>
       </div>
@@ -46,18 +23,14 @@
 </template>
 <script>
 import AppSideNav from "@/components/Admin/AppSIdeNav.vue";
-import AppFormation from "@/components/Admin/AppFormation.vue";
-import AppAddFormation from "@/components/Admin/AppAddFormation.vue";
 import AppClient from "@/components/Admin/AppClient.vue";
-import AppStatus from "@/components/Admin/AppStatus.vue"
+import AppStatus from "@/components/Admin/AppStatus.vue";
 
 export default {
-  name: "AdminDash",
+  name: "AdminClient",
   components: {
     AppSideNav,
-    AppFormation,
     AppClient,
-    AppAddFormation,
     AppStatus
   },
   data: () => ({
@@ -68,19 +41,8 @@ export default {
     profile: false,
   }),
 
-  methods: {
-    openNotification(position = null, color) {
-      const noti = this.$vs.notification({
-        color,
-        position,
-        title: "Administrateur",
-        text: "Bienvenue dans le tableau de bord de l'administrateur",
-      });
-    },
-  },
-  mounted() {
-    this.openNotification(null, "rgb(59,222,200)");
-  },
+  methods: {},
+  mounted() {},
 };
 </script>
 
@@ -102,7 +64,6 @@ export default {
 // .hidden {
 //   overflow-y: scroll;
 // }
-
 .content {
   position: relative;
   width: calc(100% - 200px);

@@ -1,5 +1,33 @@
 <template>
   <div class="overflow-hidden">
+    <vs-dialog width="550px" prevent-close not-center v-model="activeDilogS">
+      <template #header>
+        <h4 class="not-margin">
+          Ajouter avec succès
+        </h4>
+      </template>
+
+      <div class="con-content">
+        <p>
+          La formation est ajoutée avec succès à la base de données
+        </p>
+      </div>
+
+      <template #footer>
+        <div class="">
+          <vs-button
+            class="px-2 py-1"
+            @click="
+              activeDilogS = false;
+              closeM();
+            "
+            transparent
+          >
+            Ok
+          </vs-button>
+        </div>
+      </template>
+    </vs-dialog>
     <div class="container my-4">
       <div class="row justify-content-between  bg-white py-3">
         <div class="col-lg-8">
@@ -171,7 +199,7 @@
                   v-model="inpCodeF"
                   class="my-3"
                   border
-                  warn
+                  primary
                   icon-after
                   label-placeholder="Code formation"
                 >
@@ -185,7 +213,7 @@
                   v-model="inpTitre"
                   class="my-3"
                   border
-                  warn
+                  primary
                   icon-after
                   label-placeholder="Titre"
                 >
@@ -200,7 +228,7 @@
                 v-model="input1"
                 class="my-3"
                 border
-                warn
+                primary
                 icon-after
                 label-placeholder="Objectifs"
               >
@@ -220,7 +248,7 @@
                   v-model="inpPc"
                   class="my-3"
                   border
-                  warn
+                  primary
                   icon-after
                   label-placeholder="Population cible"
                 >
@@ -235,7 +263,7 @@
                   v-model="inpDf"
                   class="my-3"
                   border
-                  warn
+                  primary
                   icon-after
                   label-placeholder="Durée de la formation"
                 >
@@ -252,7 +280,7 @@
                     v-model="inpProgramme"
                     class="my-3"
                     border
-                    warn
+                    primary
                     icon-after
                     label-placeholder="Programme de formation"
                   >
@@ -330,6 +358,7 @@ import { mapGetters, mapActions } from "vuex";
 import axios from "axios";
 export default {
   data: () => ({
+    activeDilogS: false,
     activebtn: 0,
     activeDlg: false,
     value1: "",
@@ -341,8 +370,8 @@ export default {
     inpPc: undefined,
     inpObj: undefined,
 
-    inpCodeType:undefined,
-    inpTitreType:undefined,
+    inpCodeType: undefined,
+    inpTitreType: undefined,
 
     active3: false,
     activeClos: 0,
@@ -356,13 +385,13 @@ export default {
   methods: {
     ...mapActions(["getAllFormationEn", "getAllCategories"]),
     addTypeformation() {
-      this.$store.dispatch("addTypeFormation",[this.inpCodeType,this.inpTitreType]).then((res) =>{
-        console.log(res);
-        this.active3 = false;
-        this.inpCodeType = undefined;
-        this.inpTitreType = undefined;
-        
-
+      this.$store
+        .dispatch("addTypeFormation", [this.inpCodeType, this.inpTitreType])
+        .then((res) => {
+          console.log(res);
+          this.active3 = false;
+          this.inpCodeType = undefined;
+          this.inpTitreType = undefined;
         });
     },
     async addFormation(param) {
@@ -391,6 +420,15 @@ export default {
       if (res.status === 200) {
         const result = await res.data;
         console.log(result);
+        this.activeDilogS = true;
+        this.inpProgramme = undefined;
+        this.inpCodeF = undefined;
+        this.inpTitre = undefined;
+        this.inpDf = undefined;
+        this.inpPc = undefined;
+        this.inpObj = undefined;
+
+        this.programme.splice(0, this.programme.length);
       }
     },
     imageSelected(e) {

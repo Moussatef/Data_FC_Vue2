@@ -1,43 +1,23 @@
 <template>
-  <div class=" overflow-hidden bg-light">
+  <div class=" overflow-hidden bg-light ">
     <div class="mt-4"></div>
-
     <AppSideNav />
-
     <div class="content ">
       <div class="top-navbar position-fixed bg-light ">
         <div class="bx bx-menu btn_nav" @click="menu()"></div>
-        
+        <div class="profile"></div>
       </div>
-      <h1 class="my-5">Administrateur</h1>
-      <div class=" container-fluid">
-        <AppStatus/>
-        
-        <div v-if="homeAct" class="row justify-content-center text-start mt-4">
-          <div class="col-lg-12">
-            <AppFormation />
-          </div>
-          <div class="col-lg-12">
-            <AppClient check="0" />
-          </div>
-        </div>
-        <div
-          v-if="formationAct"
-          class="row justify-content-center text-start mt-4"
-        >
-          <div class="col-lg-7">
-            <AppAddFormation />
-          </div>
-          <div class="col-lg-12">
-            <AppFormation />
-          </div>
-        </div>
-        <div
-          v-if="participantsAct"
-          class="row justify-content-center text-start mt-4"
-        >
-          <div class="col-lg-12">
-            <AppClient check="1" />
+      <div class="ms-5">
+        <h1 class="my-5">FORMATIONS INTERENTREPRISES</h1>
+        <div class=" container-fluid">
+          <AppStatus/>
+          <div class="row justify-content-center text-start mt-4">
+            <div class="col-lg-7">
+              <AppAddFormation />
+            </div>
+            <div class="col-lg-12">
+              <AppFormation />
+            </div>
           </div>
         </div>
       </div>
@@ -48,15 +28,13 @@
 import AppSideNav from "@/components/Admin/AppSIdeNav.vue";
 import AppFormation from "@/components/Admin/AppFormation.vue";
 import AppAddFormation from "@/components/Admin/AppAddFormation.vue";
-import AppClient from "@/components/Admin/AppClient.vue";
-import AppStatus from "@/components/Admin/AppStatus.vue"
+import AppStatus from "@/components/Admin/AppStatus.vue";
 
 export default {
-  name: "AdminDash",
+  name: "AdminFormationEn",
   components: {
     AppSideNav,
     AppFormation,
-    AppClient,
     AppAddFormation,
     AppStatus
   },
@@ -68,19 +46,8 @@ export default {
     profile: false,
   }),
 
-  methods: {
-    openNotification(position = null, color) {
-      const noti = this.$vs.notification({
-        color,
-        position,
-        title: "Administrateur",
-        text: "Bienvenue dans le tableau de bord de l'administrateur",
-      });
-    },
-  },
-  mounted() {
-    this.openNotification(null, "rgb(59,222,200)");
-  },
+  methods: {},
+  mounted() {},
 };
 </script>
 
@@ -95,13 +62,6 @@ export default {
 .mt-20 {
   margin-top: 10%;
 }
-.status-card {
-  min-height: 150px;
-  margin-bottom: 20px;
-}
-// .hidden {
-//   overflow-y: scroll;
-// }
 
 .content {
   position: relative;
@@ -140,12 +100,13 @@ export default {
     width: 100%;
     left: 0;
   }
-
+ 
   .content.active {
     width: calc(100% - 60px);
     left: 60px;
   }
-
+ 
+ 
   #menu-icon {
     display: none;
   }

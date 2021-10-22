@@ -19,7 +19,7 @@
         <div
           :id="'flush-collapseOne' + cat.codeF"
           class="accordion-collapse collapse "
-          :class="{'show' : (cat.id == 1) }"
+          :class="{ show: cat.id == 1 }"
           :aria-labelledby="'flush-headingOne' + cat.codeF"
           data-bs-parent="#accordionFlushExample"
         >
@@ -32,6 +32,9 @@
                   </template>
                   <template #thead>
                     <vs-tr>
+                      <vs-th class="fs-6">
+                        Code
+                      </vs-th>
                       <vs-th class="fs-6">
                         Titre
                       </vs-th>
@@ -48,6 +51,9 @@
                         Programme de formation
                       </vs-th>
                       <vs-th class="fs-6"> </vs-th>
+                      <vs-th> </vs-th>
+                      <vs-th> </vs-th>
+                      <vs-th> </vs-th>
                     </vs-tr>
                   </template>
                   <template #tbody>
@@ -61,6 +67,9 @@
                       :primary="tr.id == 8"
                       :warn="tr.id == 9"
                     >
+                      <vs-td class="text-start fs-6">
+                        {{ tr.codeF }}
+                      </vs-td>
                       <vs-td class="text-start fs-6">
                         {{ tr.titre }}
                       </vs-td>
@@ -81,6 +90,21 @@
                         </ul>
                       </vs-td>
                       <vs-td class="text-start fs-6"> </vs-td>
+                      <vs-td>
+                        <vs-button flat icon>
+                          Modifier
+                        </vs-button>
+                      </vs-td>
+                      <vs-td>
+                        <vs-button border danger>
+                          Supprimer
+                        </vs-button>
+                      </vs-td>
+                      <vs-td>
+                        <vs-button flat icon>
+                          <i class="bx bx-lock-open-alt"></i>
+                        </vs-button>
+                      </vs-td>
                     </vs-tr>
                   </template>
                 </vs-table>
@@ -104,7 +128,7 @@ export default {
   computed: mapGetters(["formationEnt", "categories"]),
 
   mounted() {
-    this.getAllFormationEn();
+    // this.getAllFormationEn();
     this.getAllCategories();
   },
 };
