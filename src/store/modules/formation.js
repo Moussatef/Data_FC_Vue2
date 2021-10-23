@@ -3,11 +3,15 @@ import axios from 'axios'
 const state = {
     formationEnt: [],
     categories: [],
+    StatusCategory: false,
+    AjouteErr: undefined,
 }
 
 const getters = {
     formationEnt: state => state.formationEnt,
     categories: state => state.categories,
+    StatusCategory: state => state.statusCategory,
+    AjouteErr: state => state.ajouteErr
 }
 
 const actions = {
@@ -57,30 +61,80 @@ const actions = {
             },
             data: data
         };
+        return new Promise((resolve, reject) => {
 
-        axios(config)
-        // .then((res) => {
-        //     // commit('setAllCategory', res.formationAll)
-        //     console.log(res);
-        // })
-    }
+            axios(config)
+                .then(response => {
+                    let formation = response.data.formationAll;
+                    // consoled for testing
+                    console.log(formation);
+                    commit('setCategory', formation);
+                    resolve('Success')
+                })
+                .catch(error => {
+                    reject(error)
+                })
+
+        })
+    },
+    async addFormation({ commit }, param) {
+
+        const data = new FormData();
+        data.append("codeFormation", param[0]);
+        data.append("titre", param[1]);
+        data.append("objectifs", param[2]);
+        data.append("populationCible", param[3]);
+        data.append("dureeFormation", param[4]);
+        data.append("programmeFormation", param[5]);
+        data.append("imgFormation", param[6]);
+        data.append("typeFormation", param[7]);
+
+        var config = {
+            method: "post",
+            url: "http://127.0.0.1:8000/api/add/formation",
+            headers: {
+                Accept: "application/json",
+                Authorization: "Bearer " + localStorage.getItem("token"),
+                "Content-Type": "application/json",
+            },
+            data: data,
+        };
+
+        return new Promise((resolve, reject) => {
+            axios(config)
+                .then(response => {
+                    let formation = response.data.formation;
+                    // consoled for testing
+                    console.log(formation);
+                    commit('addFormation', formation);
+                    resolve('Success')
+                })
+                .catch(error => {
+                    reject(error)
+                })
+        })
+    },
 }
-
 const mutations = {
     setFormations: (state, formations) => (state.formationEnt = formations),
     setCategory: (state, categories) => (state.categories = categories),
     addCategory: function (state, categories) {
         state.categories.unshift(categories[0]);
     },
+    addFormation: (state, formation) => {
+        var res = state.categories.findIndex(el => el.id == formation.formationcategorie_id)
+        console.log(res);
+    },
 
     setAllCategory: (state, categories) => {
         // state.loading = false;
+        // state.StatusCategory = true
         (state.categories.push(...categories));
     },
-
-
-
-
+    setCategoryErr: (state, err) => {
+        // state.StatusCategory = true
+        state.AjouteErr = err
+    }
 
 }
 

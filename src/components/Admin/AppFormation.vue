@@ -4,23 +4,23 @@
     <hr />
     <div class="accordion accordion-flush " id="accordionFlushExample">
       <div class="accordion-item" :key="x" v-for="(cat, x) in categories">
-        <h2 class="accordion-header " :id="'flush-headingOne' + cat.codeF">
+        <h2 class="accordion-header " :id="'flush-headingOne' + cat.id">
           <button
             class="accordion-button collapsed fs-4"
             type="button"
             data-bs-toggle="collapse"
-            :data-bs-target="'#flush-collapseOne' + cat.codeF"
+            :data-bs-target="'#flush-collapseOne' + cat.id"
             aria-expanded="false"
-            :aria-controls="'flush-collapseOne' + cat.codeF"
+            :aria-controls="'flush-collapseOne' + cat.id"
           >
             {{ cat.codeF }} : {{ cat.titre }}
           </button>
         </h2>
         <div
-          :id="'flush-collapseOne' + cat.codeF"
+          :id="'flush-collapseOne' + cat.id"
           class="accordion-collapse collapse "
           :class="{ show: cat.id == 1 }"
-          :aria-labelledby="'flush-headingOne' + cat.codeF"
+          :aria-labelledby="'flush-headingOne' + cat.id"
           data-bs-parent="#accordionFlushExample"
         >
           <div class="accordion-body">

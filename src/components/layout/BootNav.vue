@@ -229,6 +229,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+a {
+  cursor: pointer;
+}
 .btn-conx {
   margin-left: 7rem;
 }

@@ -9,7 +9,7 @@
 
       <div class="con-content">
         <p>
-          La formation est ajoutée avec succès à la base de données
+          {{ description }}
         </p>
       </div>
 
@@ -19,7 +19,7 @@
             class="px-2 py-1"
             @click="
               activeDilogS = false;
-              closeM();
+              activeTypeF = false;
             "
             transparent
           >
@@ -27,6 +27,23 @@
           </vs-button>
         </div>
       </template>
+    </vs-dialog>
+
+    <vs-dialog
+      width="550px"
+      not-padding
+      prevent-close
+      not-center
+      v-model="alertDanger"
+    >
+      <div>
+        <vs-alert danger v-model="alertDanger">
+          <template #title>
+            Error message
+          </template>
+          {{ errorDesc }}
+        </vs-alert>
+      </div>
     </vs-dialog>
     <div class="container my-4">
       <div class="row justify-content-between  bg-white py-3">
@@ -46,7 +63,7 @@
           </vs-button>
         </div>
       </div>
-      <vs-dialog width="50vw" not-center v-model="active3">
+      <vs-dialog width="50vw" not-center v-model="activeTypeF">
         <template #header>
           <h4 class="not-margin">Type de <b>Formation</b></h4>
         </template>
@@ -86,11 +103,11 @@
           <div
             class="d-flex align-items-center justify-content-center flex-direction-column"
           >
-            <vs-button @click="addTypeformation" class="px-2 py-1" transparent>
+            <vs-button @click="addType" class="px-2 py-1" transparent>
               Ok
             </vs-button>
             <vs-button
-              @click="active3 = false"
+              @click="activeTypeF = false"
               class="px-2 py-1"
               dark
               transparent
@@ -186,7 +203,7 @@
                       class="mx-3"
                       size="large"
                       border
-                      @click="active3 = !active3"
+                      @click="activeTypeF = !activeTypeF"
                     >
                       <i class="fa fa-plus" aria-hidden="true"></i>
                     </vs-button>
@@ -351,12 +368,17 @@
         </div>
       </div>
     </div>
+    <!-- <AppDenger title="Error" :description="errorDesc" :activeDang="alertDanger"/> -->
   </div>
 </template>
 <script>
 import { mapGetters, mapActions } from "vuex";
+import AppDenger from "../Alert/AppDenger.vue";
 import axios from "axios";
 export default {
+  components: {
+    AppDenger,
+  },
   data: () => ({
     activeDilogS: false,
     activebtn: 0,
@@ -373,53 +395,50 @@ export default {
     inpCodeType: undefined,
     inpTitreType: undefined,
 
-    active3: false,
+    activeTypeF: false,
     activeClos: 0,
     activeImg: 0,
-    imagepreview: "../../assets/OrongeUL/Attheofficerafiki.png",
+    imagepreview: null,
     image: null,
     img_src: false,
     token: localStorage.getItem("token"),
+
+    errorDesc: "",
+    alertDanger: false,
+
+    description: "",
   }),
 
   methods: {
-    ...mapActions(["getAllFormationEn", "getAllCategories"]),
-    addTypeformation() {
+    ...mapActions([
+      "getAllFormationEn",
+      "getAllCategories",
+      "addTypeFormation",
+    ]),
+    addType() {
       this.$store
         .dispatch("addTypeFormation", [this.inpCodeType, this.inpTitreType])
         .then((res) => {
-          console.log(res);
-          this.active3 = false;
+          this.description =
+            "Type formation est ajoutée avec succès à la base de données";
+          this.activeDilogS = true;
           this.inpCodeType = undefined;
           this.inpTitreType = undefined;
+        })
+        .catch((err) => {
+          this.errorDesc = err.message;
+          this.alertDanger = true;
         });
+      // this.addTypeFormation([this.inpCodeType, this.inpTitreType])
+      // this.$store.dispatch()
     },
     async addFormation(param) {
-      const data = new FormData();
-      data.append("codeFormation", param[0]);
-      data.append("titre", param[1]);
-      data.append("objectifs", param[2]);
-      data.append("populationCible", param[3]);
-      data.append("dureeFormation", param[4]);
-      data.append("programmeFormation", param[5]);
-      data.append("imgFormation", param[6]);
-      data.append("typeFormation", param[7]);
-
-      var config = {
-        method: "post",
-        url: "http://127.0.0.1:8000/api/add/formation",
-        headers: {
-          Accept: "application/json",
-          Authorization: "Bearer " + localStorage.getItem("token"),
-          "Content-Type": "application/json",
-        },
-        data: data,
-      };
-
-      const res = await axios(config);
-      if (res.status === 200) {
-        const result = await res.data;
+      this.$store
+        .dispatch("addFormation", param)
+        .then((res) => {
         console.log(result);
+        this.description =
+          "La formation est ajoutée avec succès à la base de données";
         this.activeDilogS = true;
         this.inpProgramme = undefined;
         this.inpCodeF = undefined;
@@ -427,14 +446,17 @@ export default {
         this.inpDf = undefined;
         this.inpPc = undefined;
         this.inpObj = undefined;
-
         this.programme.splice(0, this.programme.length);
-      }
+        this.closeM();
+      }).catch((err)=>{
+        this.errorDesc = err.message;
+          this.alertDanger = true;
+
+      })
     },
     imageSelected(e) {
       this.img_src = true;
       this.image = e.target.files[0];
-
       let reader = new FileReader();
       reader.readAsDataURL(this.image);
       reader.onload = (e) => {
