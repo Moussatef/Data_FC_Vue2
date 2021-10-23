@@ -1,5 +1,7 @@
 <template>
   <div class="overflow-hidden">
+
+    <!-- Dialog for succes adding -->
     <vs-dialog width="550px" prevent-close not-center v-model="activeDilogS">
       <template #header>
         <h4 class="not-margin">
@@ -28,7 +30,7 @@
         </div>
       </template>
     </vs-dialog>
-
+<!-- Dialog if eny Error happened whene we adding -->
     <vs-dialog
       width="550px"
       not-padding
@@ -45,8 +47,12 @@
         </vs-alert>
       </div>
     </vs-dialog>
+
+<!-- Container add formation an inputs Dailog -->
+
     <div class="container my-4">
       <div class="row justify-content-between  bg-white py-3">
+
         <div class="col-lg-8">
           <h2>Ajouter Formation</h2>
         </div>
@@ -63,6 +69,8 @@
           </vs-button>
         </div>
       </div>
+
+      <!-- Dialog for adding type formation -->
       <vs-dialog width="50vw" not-center v-model="activeTypeF">
         <template #header>
           <h4 class="not-margin">Type de <b>Formation</b></h4>
@@ -117,6 +125,7 @@
           </div>
         </template>
       </vs-dialog>
+      <!-- Model for adding formation  -->
 
       <div id="myModal" class="modal">
         <!-- Modal content -->
