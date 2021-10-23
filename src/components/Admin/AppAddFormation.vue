@@ -241,18 +241,6 @@
               </div>
               <!-- //row 2 -->
               <div class="col-lg-6 col-12">
-                <!-- <vs-input
-                v-model="input1"
-                class="my-3"
-                border
-                primary
-                icon-after
-                label-placeholder="Objectifs"
-              >
-                <template #icon>
-                  <i class="fa fa-tag"></i>
-                </template>
-              </vs-input> -->
                 <textarea
                   v-model="inpObj"
                   class="form-control mb-2"
@@ -315,22 +303,24 @@
               <div
                 class="col-lg-12 d-flex flex-wrap justify-content-center align-items-center"
               >
-                <div v-for="(pro, i) in programme" :key="i" class="p-4 m-1">
-                  <!-- <vs-alert gradient>
-                  <template #title>
-                    Vuesax Framework
-                  </template>
-                </vs-alert> -->
-                  <span
-                    class="badge badge_prm rounded-pill text-dark ps-3 py-1 d-flex justify-content-between align-items-center fs-6"
-                  >
-                    <i class="fa fa-check mt-1 mx-2"></i>
+                
+                  <vs-alert shadow>
+                    <template #title> </template>
+                    <div v-for="(pro, i) in programme" :key="i" class="m-1">
+                    <div class=" d-flex justify-content-start align-items-center fs-6">
+                      <i class="fa fa-check mt-1 mx-2"></i>
 
-                    {{ pro }}
-                    <vs-button size="small" class="ms-5" @click="removeEl(pro)">
-                      <i class="fa fa-close"></i> </vs-button
-                  ></span>
-                </div>
+                      {{ pro }}
+                      <vs-button
+                        size="small"
+                        class="ms-5"
+                        @click="removeEl(pro)"
+                      >
+                        <i class="fa fa-close"></i>
+                      </vs-button>
+                    </div>
+                    </div>
+                  </vs-alert>
               </div>
               <div
                 class="row col-4 offset-md-8"
@@ -360,7 +350,7 @@
                     ])
                   "
                 >
-                  <i class="fa fa-plus" aria-hidden="true"> Ajouter</i>
+                  <i class="fa fa-plus me-3" aria-hidden="true"></i>Ajouter
                 </vs-button>
               </div>
             </div>
@@ -436,23 +426,22 @@ export default {
       this.$store
         .dispatch("addFormation", param)
         .then((res) => {
-        console.log(result);
-        this.description =
-          "La formation est ajoutée avec succès à la base de données";
-        this.activeDilogS = true;
-        this.inpProgramme = undefined;
-        this.inpCodeF = undefined;
-        this.inpTitre = undefined;
-        this.inpDf = undefined;
-        this.inpPc = undefined;
-        this.inpObj = undefined;
-        this.programme.splice(0, this.programme.length);
-        this.closeM();
-      }).catch((err)=>{
-        this.errorDesc = err.message;
+          this.description =
+            "La formation est ajoutée avec succès à la base de données";
+          this.activeDilogS = true;
+          this.inpProgramme = undefined;
+          this.inpCodeF = undefined;
+          this.inpTitre = undefined;
+          this.inpDf = undefined;
+          this.inpPc = undefined;
+          this.inpObj = undefined;
+          this.programme.splice(0, this.programme.length);
+          this.closeM();
+        })
+        .catch((err) => {
+          this.errorDesc = err;
           this.alertDanger = true;
-
-      })
+        });
     },
     imageSelected(e) {
       this.img_src = true;

@@ -23,7 +23,7 @@ const actions = {
         const response = await fetch("http://127.0.0.1:8000/api/formation", requestOptions)
         if (response.status === 200) {
             const result = await response.json();
-            console.log(result.data);
+            // console.log(result.data);
             commit('setFormations', result.data)
 
         }
@@ -37,7 +37,7 @@ const actions = {
         const response = await fetch("http://127.0.0.1:8000/api/formation/categories", requestOptions)
         if (response.status === 200) {
             const result = await response.json();
-            console.log(result.data);
+            // console.log(result.data);
             commit('setCategory', result.data)
 
         }
@@ -103,9 +103,9 @@ const actions = {
         return new Promise((resolve, reject) => {
             axios(config)
                 .then(response => {
-                    let formation = response.data.formation;
+                    let formation = response.data.formation[0];
                     // consoled for testing
-                    console.log(formation);
+                    // console.log(formation);
                     commit('addFormation', formation);
                     resolve('Success')
                 })
@@ -122,8 +122,8 @@ const mutations = {
         state.categories.unshift(categories[0]);
     },
     addFormation: (state, formation) => {
-        var res = state.categories.findIndex(el => el.id == formation.formationcategorie_id)
-        console.log(res);
+        state.categories[state.categories.findIndex(el => el.id == formation.formationcategorie_id)].formation.push({ ...formation });
+        // console.log(res);
     },
 
     setAllCategory: (state, categories) => {
