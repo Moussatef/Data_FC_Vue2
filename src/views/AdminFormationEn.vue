@@ -13,6 +13,11 @@
           <AppStatus/>
           <div class="row justify-content-center text-start mt-4">
             <div class="col-lg-7">
+              
+              <AppGestionCategory />
+            </div>
+            <div class="col-lg-7">
+              
               <AppAddFormation />
             </div>
             <div class="col-lg-12">
@@ -28,6 +33,7 @@
 import AppSideNav from "@/components/Admin/AppSIdeNav.vue";
 import AppFormation from "@/components/Admin/AppFormation.vue";
 import AppAddFormation from "@/components/Admin/AppAddFormation.vue";
+import AppGestionCategory from "@/components/Admin/AppGestionCategory.vue";
 import AppStatus from "@/components/Admin/AppStatus.vue";
 
 export default {
@@ -36,7 +42,8 @@ export default {
     AppSideNav,
     AppFormation,
     AppAddFormation,
-    AppStatus
+    AppStatus,
+    AppGestionCategory
   },
   data: () => ({
     homeAct: true,

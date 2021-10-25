@@ -114,6 +114,12 @@ const actions = {
                 })
         })
     },
+
+    async removeCategorie({ commit }, param) {
+
+
+
+    },
 }
 const mutations = {
     setFormations: (state, formations) => (state.formationEnt = formations),
