@@ -101,7 +101,7 @@
               </li>
             </ul>
           </li>
-          
+
           <li>
             <router-link class="nav-link" to="/contact-nous"
               >Contact</router-link
@@ -113,7 +113,7 @@
               >Demande de devis</router-link
             >
           </li> -->
-          <div v-if="!token" class="d-flex btn-conx">
+          <div v-if="!user && !admin" class="d-flex btn-conx">
             <vs-button
               border
               class="p-1 fs-6 btn-conx "
@@ -134,30 +134,9 @@
               S'inscrire
             </vs-button>
           </div>
-          <!-- <div v-if="token" class="d-flex btn-conx">
-            <vs-button
-            
-              border
-              class="p-1 fs-6 btn-conx "
-              :active="active_con == 0"
-              @click="active = 1"
-              to="/login"
-            >
-              Profile
-            </vs-button>
-            <vs-button
-              color="rgba(35, 138, 145, 1) "
-              class="p-1 fs-6 "
-              gradient
-              :active="active == 6"
-              @click="active = 6"
-              to="/register"
-            >
-              Se déconnecter 
-            </vs-button>
-          </div> -->
+
           <div
-            v-if="token"
+            v-if="user || admin"
             class="flex-shrink-0 dropdown m-x-5 position-relative"
           >
             <a
@@ -168,7 +147,7 @@
               aria-expanded="false"
             >
               <img
-                src="https://github.com/mdo.png"
+                src="../../assets/logo.png"
                 alt="mdo"
                 width="32"
                 height="32"
@@ -179,7 +158,12 @@
               class="dropdown-menu text-small shadow m-e-5"
               aria-labelledby="dropdownUser2"
             >
-              <li>
+              <li v-if="user">
+                <router-link class="dropdown-item" to="/client/profile"
+                  ><i class="bx bxs-user me-2"></i>Client</router-link
+                >
+              </li>
+              <li v-if="admin">
                 <router-link class="dropdown-item" to="/admindash"
                   ><i class="bx bxs-user me-2"></i>Profile</router-link
                 >
@@ -202,7 +186,10 @@ export default {
   data: () => ({
     active: 0,
     active_con: 0,
-    token: localStorage.getItem("token"),
+    user: localStorage.getItem("user"),
+    admin: localStorage.getItem("tokenADM_Data@_Fc"),
+    token:
+      localStorage.getItem("user") || localStorage.getItem("tokenADM_Data@_Fc"),
   }),
   methods: {
     async logout() {
@@ -215,7 +202,8 @@ export default {
         redirect: "follow",
       };
       const res = await fetch(
-        "http://127.0.0.1:8000/api/datafc/auth/admin-derct/logout", requestOptions
+        "http://127.0.0.1:8000/api/datafc/auth/admin-derct/logout",
+        requestOptions
       );
       if (res.status === 200) {
         const result = await res.json();

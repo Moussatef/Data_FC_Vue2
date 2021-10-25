@@ -96,7 +96,11 @@
                         </vs-button>
                       </vs-td>
                       <vs-td>
-                        <vs-button border danger>
+                        <vs-button
+                          @click="deleteFormation(tr.id)"
+                          border
+                          danger
+                        >
                           Supprimer
                         </vs-button>
                       </vs-td>
@@ -123,9 +127,24 @@ export default {
   data: () => ({
     search: "",
   }),
-  methods: mapActions(["getAllFormationEn", "getAllCategories"]),
+  methods: {
+    ...mapActions(["getAllFormationEn", "getAllCategories", "removeFoemation"]),
+    // function delete formation
+    async deleteFormation(id) {
+      this.$store
+        .dispatch("removeFormation", [id])
+        .then((result) => {
+          console.log(result);
+          // this.activeConfirmation = false;
+        })
+        .catch((err) => {
+          this.errorDesc = err.message;
+          this.alertDanger = true;
+        });
+    },
+  },
 
-  computed: mapGetters(["formationEnt", "categories"]),
+  computed: { ...mapGetters(["formationEnt", "categories"]) },
 
   mounted() {
     // this.getAllFormationEn();

@@ -74,7 +74,14 @@
                     </vs-button>
                   </vs-td>
                   <vs-td>
-                    <vs-button @click="idCategory = tr.id" border danger>
+                    <vs-button
+                      @click="
+                        idCategory = tr.id;
+                        activeConfirmation = true;
+                      "
+                      border
+                      danger
+                    >
                       Supprimer
                     </vs-button>
                   </vs-td>
@@ -235,12 +242,12 @@
           </div>
 
           <template #footer>
-            <div class="con-footer">
+            <div class="d-flex align-items-center justify-content-end">
               <vs-button @click="deleteCategorie(idCategory)" transparent>
-                Ok
+                Oui
               </vs-button>
               <vs-button @click="activeConfirmation = false" dark transparent>
-                Cancel
+                Annuler
               </vs-button>
             </div>
           </template>

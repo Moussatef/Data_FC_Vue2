@@ -16,6 +16,7 @@ import AdminDash from '../views/AdminDash.vue'
 import AdminFormationEn from '../views/AdminFormationEn.vue'
 import AdminClient from '../views/AdminClient.vue'
 import UserProfile from '../views/UserProfile.vue'
+import LoginAdmin from '../views/LoginAdmin.vue'
 
 Vue.use(VueRouter)
 
@@ -30,7 +31,19 @@ const routes = [
     name: 'Login',
     component: Login,
     beforeEnter: (to, from, next) => {
-      if (!localStorage.getItem('token')) {
+      if (!localStorage.getItem('user')) {
+        next();
+      } else {
+        next('/');
+      }
+    }
+  },
+  {
+    path: '/admin/datafc/auth/2@21/login',
+    name: 'LoginAdmin',
+    component: LoginAdmin,
+    beforeEnter: (to, from, next) => {
+      if (!localStorage.getItem('tokenADM_Data@_Fc')) {
         next();
       } else {
         next('/');
@@ -42,7 +55,7 @@ const routes = [
     name: 'Register',
     component: Register,
     beforeEnter: (to, from, next) => {
-      if (!localStorage.getItem('token')) {
+      if (!localStorage.getItem('tokenADM_Data@_Fc') && !localStorage.getItem('user')) {
         next();
       } else {
         next('/');
@@ -54,7 +67,7 @@ const routes = [
     name: 'AdminDash',
     component: AdminDash,
     beforeEnter: (to, from, next) => {
-      if (localStorage.getItem('token')) {
+      if (localStorage.getItem('tokenADM_Data@_Fc')) {
         next();
       } else {
         next('/');
@@ -66,7 +79,7 @@ const routes = [
     name: 'AdminFormationEn',
     component: AdminFormationEn,
     beforeEnter: (to, from, next) => {
-      if (localStorage.getItem('token')) {
+      if (localStorage.getItem('tokenADM_Data@_Fc')) {
         next();
       } else {
         next('/');
@@ -78,7 +91,7 @@ const routes = [
     name: 'AdminClient',
     component: AdminClient,
     beforeEnter: (to, from, next) => {
-      if (localStorage.getItem('token')) {
+      if (localStorage.getItem('tokenADM_Data@_Fc')) {
         next();
       } else {
         next('/');
@@ -86,11 +99,11 @@ const routes = [
     }
   },
   {
-    path: '/UserProfile',
+    path: '/client/profile',
     name: 'UserProfile',
     component: UserProfile,
     beforeEnter: (to, from, next) => {
-      if (localStorage.getItem('token')) {
+      if (localStorage.getItem('user')) {
         next();
       } else {
         next('/');

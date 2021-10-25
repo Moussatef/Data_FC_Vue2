@@ -9,7 +9,7 @@
           <img src="../assets/logo.svg" class="logo" alt="" />
           <hr />
           <span class="login100-form-title p-b-50 m-b-50  mt-3">
-            Connexion
+            Connexion Administrateur
           </span>
 
           <vs-alert
@@ -139,36 +139,16 @@
   </div>
 </template>
 <script>
-// const CryptoJS = require("crypto-js");
-// //The Function Below To Encrypt Text
-// const encryptWithAES = (text) => {
-//   const passphrase = "myBestEverForEver2017";
-//   return CryptoJS.AES.encrypt(text, passphrase).toString();
-// };
-// //The Function Below To Decrypt Text
-// const decryptWithAES = (ciphertext) => {
-//   const passphrase = "myBestEverForEver2017";
-//   const bytes = CryptoJS.AES.decrypt(ciphertext, passphrase);
-//   const originalText = bytes.toString(CryptoJS.enc.Utf8);
-//   return originalText;
-// };
-
-// let encryptText = encryptWithAES("YAZAN");
-// //EncryptedText==>  //U2FsdGVkX19GgWeS66m0xxRUVxfpI60uVkWRedyU15I=
-
-// let decryptText = decryptWithAES(encryptText);
-// //decryptText==>  //YAZAN
-
-// console.log(decryptText);
-
 export default {
-  name: "login",
+  name: "LoginAdmin",
   data: () => ({
     email: undefined,
     password: undefined,
     active: 0,
     message_err: "",
+    active_alert: false,
 
+    active_alert: false,
     input1: "",
     input2: "",
     checkbox1: false,
@@ -194,21 +174,18 @@ export default {
           redirect: "follow",
         };
         const result = await fetch(
-          "http://127.0.0.1:8000/api/login/client",
+          "http://127.0.0.1:8000/api/datafc/auth/admin-derct",
           requestOptions
         );
         if (result.status == 201) {
-          this.message_err = "";
-          this.active = false;
           const res = await result.json();
           console.log(res);
           this.message_err = undefined;
-          // const tokenUser = encryptWithAES("tokenUserEncry");
-          localStorage.setItem("user", res.Token);
-          location.replace("/client/profile");
+          localStorage.setItem("tokenADM_Data@_Fc", res.Token);
+          location.replace("/AdminDash");
         } else {
           const err = await result.json();
-          // console.log(err.message);
+          console.log(err.message);
           this.message_err = err.message;
         }
       } else {
@@ -267,11 +244,6 @@ export default {
 
       return progress;
     },
-  },
-  mounted() {
-    // let encryptText = encryptWithAES("YAZAN");
-    // let test = decryptWithAES(encryptText);
-    // console.log(test);
   },
 };
 </script>

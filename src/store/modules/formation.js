@@ -15,6 +15,7 @@ const getters = {
 }
 
 const actions = {
+    // get all formation
     async getAllFormationEn({ commit }) {
         var requestOptions = {
             method: 'GET',
@@ -29,6 +30,8 @@ const actions = {
         }
 
     },
+
+    //ge all categorys with continent formation
     async getAllCategories({ commit }) {
         var requestOptions = {
             method: 'GET',
@@ -44,6 +47,8 @@ const actions = {
 
     },
 
+    //function add type of formation
+
     async addTypeFormation({ commit }, param) {
 
         var data = JSON.stringify({
@@ -56,7 +61,7 @@ const actions = {
             url: 'http://127.0.0.1:8000/api/add/type-formation',
             headers: {
                 'Accept': 'application/json',
-                'Authorization': 'Bearer ' + localStorage.getItem('token'),
+                'Authorization': 'Bearer ' + localStorage.getItem('tokenADM_Data@_Fc'),
                 'Content-Type': 'application/json'
             },
             data: data
@@ -77,6 +82,9 @@ const actions = {
 
         })
     },
+
+
+    //function add  formation
     async addFormation({ commit }, param) {
 
         const data = new FormData();
@@ -94,7 +102,7 @@ const actions = {
             url: "http://127.0.0.1:8000/api/add/formation",
             headers: {
                 Accept: "application/json",
-                Authorization: "Bearer " + localStorage.getItem("token"),
+                Authorization: "Bearer " + localStorage.getItem("tokenADM_Data@_Fc"),
                 "Content-Type": "application/json",
             },
             data: data,
@@ -114,8 +122,10 @@ const actions = {
                 })
         })
     },
-
+    // function remove category
     async removeCategorie({ commit }, param) {
+
+
         var data = JSON.stringify({
             "categorie_id": param[0],
         });
@@ -125,7 +135,7 @@ const actions = {
             url: "http://127.0.0.1:8000/api/categories-remove",
             headers: {
                 Accept: "application/json",
-                Authorization: "Bearer " + localStorage.getItem("token"),
+                Authorization: "Bearer " + localStorage.getItem("tokenADM_Data@_Fc"),
                 "Content-Type": "application/json",
             },
             data: data
@@ -147,6 +157,39 @@ const actions = {
 
 
     },
+
+    // function remove formation
+    async removeFormation({ commit }, param) {
+        var data = JSON.stringify({
+            "formation_id": param[0],
+        });
+        var config = {
+            method: "post",
+            url: "http://127.0.0.1:8000/api/formation-remove",
+            headers: {
+                Accept: "application/json",
+                Authorization: "Bearer " + localStorage.getItem("tokenADM_Data@_Fc"),
+                "Content-Type": "application/json",
+            },
+            data: data
+        }
+        return new Promise((resolve, reject) => {
+            axios(config)
+                .then(response => {
+                    let res = response.data;
+                    // consoled for testing
+                    // console.log(formation);
+                    commit('removeFormation', res.Formation);
+                    resolve('Success')
+                })
+                .catch(error => {
+                    reject(error)
+                })
+        })
+
+
+
+    },
 }
 const mutations = {
     setFormations: (state, formations) => (state.formationEnt = formations),
@@ -159,11 +202,6 @@ const mutations = {
         // console.log(res);
     },
 
-    setAllCategory: (state, categories) => {
-        // state.loading = false;
-        // state.StatusCategory = true
-        (state.categories.push(...categories));
-    },
     setCategoryErr: (state, err) => {
         // state.StatusCategory = true
         state.AjouteErr = err
@@ -172,7 +210,14 @@ const mutations = {
     removeCategorie: (state, categorie_id) => {
         state.categories.splice(state.categories.findIndex(el => el.id == categorie_id), 1);
 
-    }
+    },
+
+    removeFormation: (state, categories) => {
+        // state.categories.formation.splice(state.categories.formation.findIndex(el => el.id == Formation_id), 1);
+        // console.log("chihaja");
+        state.categories = categories
+
+    },
 
 }
 
