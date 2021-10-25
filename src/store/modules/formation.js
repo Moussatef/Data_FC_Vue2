@@ -116,7 +116,34 @@ const actions = {
     },
 
     async removeCategorie({ commit }, param) {
+        var data = JSON.stringify({
+            "categorie_id": param[0],
+        });
 
+        var config = {
+            method: "post",
+            url: "http://127.0.0.1:8000/api/categories-remove",
+            headers: {
+                Accept: "application/json",
+                Authorization: "Bearer " + localStorage.getItem("token"),
+                "Content-Type": "application/json",
+            },
+            data: data
+
+        }
+        return new Promise((resolve, reject) => {
+            axios(config)
+                .then(response => {
+                    let res = response.data;
+                    // consoled for testing
+                    // console.log(formation);
+                    commit('removeCategorie', param[0]);
+                    resolve('Success')
+                })
+                .catch(error => {
+                    reject(error)
+                })
+        })
 
 
     },
@@ -140,6 +167,11 @@ const mutations = {
     setCategoryErr: (state, err) => {
         // state.StatusCategory = true
         state.AjouteErr = err
+    },
+
+    removeCategorie: (state, categorie_id) => {
+        state.categories.splice(state.categories.findIndex(el => el.id == categorie_id), 1);
+
     }
 
 }

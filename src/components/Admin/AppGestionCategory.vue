@@ -74,7 +74,7 @@
                     </vs-button>
                   </vs-td>
                   <vs-td>
-                    <vs-button border danger>
+                    <vs-button @click="idCategory = tr.id" border danger>
                       Supprimer
                     </vs-button>
                   </vs-td>
@@ -186,35 +186,65 @@
           </div>
         </vs-dialog>
 
-         <!-- Dialog for succes adding -->
-    <vs-dialog width="550px" prevent-close not-center v-model="activeDilogS">
-      <template #header>
-        <h4 class="not-margin">
-          Ajouter avec succès
-        </h4>
-      </template>
+        <!-- Dialog for succes adding -->
+        <vs-dialog
+          width="550px"
+          prevent-close
+          not-center
+          v-model="activeDilogS"
+        >
+          <template #header>
+            <h4 class="not-margin">
+              Ajouter avec succès
+            </h4>
+          </template>
 
-      <div class="con-content">
-        <p>
-          {{ description }}
-        </p>
-      </div>
+          <div class="con-content">
+            <p>
+              {{ description }}
+            </p>
+          </div>
 
-      <template #footer>
-        <div class="">
-          <vs-button
-            class="px-2 py-1"
-            @click="
-              activeDilogS = false;
-              activeTypeF = false;
-            "
-            transparent
-          >
-            Ok
-          </vs-button>
-        </div>
-      </template>
-    </vs-dialog>
+          <template #footer>
+            <div class="">
+              <vs-button
+                class="px-2 py-1"
+                @click="
+                  activeDilogS = false;
+                  activeTypeF = false;
+                "
+                transparent
+              >
+                Ok
+              </vs-button>
+            </div>
+          </template>
+        </vs-dialog>
+
+        <!-- Confirmation for removeCategorie -->
+
+        <vs-dialog width="550px" not-center v-model="activeConfirmation">
+          <template #header>
+            <h4 class="not-margin">Confirmation de <b>Suppression</b></h4>
+          </template>
+
+          <div class="con-content">
+            <p>
+              Êtes-vous sûr de vouloir supprimer cette catégorie
+            </p>
+          </div>
+
+          <template #footer>
+            <div class="con-footer">
+              <vs-button @click="deleteCategorie(idCategory)" transparent>
+                Ok
+              </vs-button>
+              <vs-button @click="activeConfirmation = false" dark transparent>
+                Cancel
+              </vs-button>
+            </div>
+          </template>
+        </vs-dialog>
       </div>
     </div>
   </div>
@@ -235,8 +265,12 @@ export default {
     checkbox1: false,
     search: "",
 
+    activeConfirmation: false,
+
     page: 1,
     max: 6,
+
+    idCategory: undefined,
 
     inpCodeType: undefined,
     inpTitreType: undefined,
@@ -252,6 +286,8 @@ export default {
       "getAllFormationEn",
       "getAllCategories",
       "addTypeFormation",
+      ,
+      "removeCategorie",
     ]),
     addType() {
       this.$store
@@ -269,6 +305,20 @@ export default {
         });
       // this.addTypeFormation([this.inpCodeType, this.inpTitreType])
       // this.$store.dispatch()
+    },
+
+    // function delete categorie
+    async deleteCategorie(id) {
+      this.$store
+        .dispatch("removeCategorie", [id])
+        .then((result) => {
+          console.log(result);
+          this.activeConfirmation = false;
+        })
+        .catch((err) => {
+          this.errorDesc = err.message;
+          this.alertDanger = true;
+        });
     },
   },
   computed: {
