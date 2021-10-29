@@ -10,7 +10,7 @@ const getters = {
 
 const actions = {
     async getAllClient({ commit }) {
-        var token = localStorage.getItem('token')
+        var token = localStorage.getItem('tokenADM_Data@_Fc')
         if (token) {
             var myHeaders = new Headers();
             myHeaders.append("Authorization", "Bearer " + token);

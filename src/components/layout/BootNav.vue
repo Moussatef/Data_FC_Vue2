@@ -157,20 +157,32 @@
             <ul
               class="dropdown-menu text-small shadow m-e-5"
               aria-labelledby="dropdownUser2"
+              v-if="user"
             >
-              <li v-if="user">
-                <router-link class="dropdown-item" to="/client/profile"
-                  ><i class="bx bxs-user me-2"></i>Client</router-link
-                >
-              </li>
-              <li v-if="admin">
-                <router-link class="dropdown-item" to="/admindash"
+              <li>
+                <router-link class="dropdown-item" to="/client-profile"
                   ><i class="bx bxs-user me-2"></i>Profile</router-link
                 >
               </li>
               <li>
                 <a class="dropdown-item" @click="logout()"
                   ><i class="bx bxs-log-out me-2"></i>Sign out</a
+                >
+              </li>
+            </ul>
+            <ul
+              class="dropdown-menu text-small shadow m-e-5"
+              aria-labelledby="dropdownUser2"
+              v-if="admin"
+            >
+              <li>
+                <router-link class="dropdown-item" to="/admindash"
+                  ><i class="bx bxs-user me-2"></i>Profile</router-link
+                >
+              </li>
+              <li>
+                <a class="dropdown-item" @click="logout()"
+                  ><i class="bx bxs-log-out me-2"></i>Se déconnecter</a
                 >
               </li>
             </ul>
@@ -190,26 +202,33 @@ export default {
     admin: localStorage.getItem("tokenADM_Data@_Fc"),
     token:
       localStorage.getItem("user") || localStorage.getItem("tokenADM_Data@_Fc"),
+    apiAdmin: "http://127.0.0.1:8000/api/datafc/auth/admin-derct/logout",
+    apiUser: "http://127.0.0.1:8000/api/datafc/auth/logout",
   }),
   methods: {
     async logout() {
-      var myHeaders = new Headers();
-      myHeaders.append("Authorization", "Bearer " + this.token);
+      let api;
+      if (this.admin) {
+        api = this.apiAdmin;
+      } else if (this.user) {
+        api = this.apiUser;
+      }
+      if (api) {
+        var myHeaders = new Headers();
+        myHeaders.append("Authorization", "Bearer " + this.token);
 
-      var requestOptions = {
-        method: "POST",
-        headers: myHeaders,
-        redirect: "follow",
-      };
-      const res = await fetch(
-        "http://127.0.0.1:8000/api/datafc/auth/admin-derct/logout",
-        requestOptions
-      );
-      if (res.status === 200) {
-        const result = await res.json();
-        console.log(result);
-        localStorage.clear();
-        location.replace("/");
+        var requestOptions = {
+          method: "POST",
+          headers: myHeaders,
+          redirect: "follow",
+        };
+        const res = await fetch(api, requestOptions);
+        if (res.status === 200) {
+          const result = await res.json();
+          console.log(result);
+          localStorage.clear();
+          location.replace("/");
+        }
       }
     },
   },

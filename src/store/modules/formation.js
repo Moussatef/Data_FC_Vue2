@@ -31,7 +31,7 @@ const actions = {
 
     },
 
-    //ge all categorys with continent formation
+    //obtenir toutes les catégories avec des formations
     async getAllCategories({ commit }) {
         var requestOptions = {
             method: 'GET',
@@ -40,11 +40,9 @@ const actions = {
         const response = await fetch("http://127.0.0.1:8000/api/formation/categories", requestOptions)
         if (response.status === 200) {
             const result = await response.json();
-            // console.log(result.data);
+            console.log(result.data);
             commit('setCategory', result.data)
-
         }
-
     },
 
     //function add type of formation
@@ -179,15 +177,13 @@ const actions = {
                     let res = response.data;
                     // consoled for testing
                     // console.log(formation);
-                    commit('removeFormation', res.Formation);
+                    commit('removeFormation', param);
                     resolve('Success')
                 })
                 .catch(error => {
                     reject(error)
                 })
         })
-
-
 
     },
 }
@@ -212,10 +208,10 @@ const mutations = {
 
     },
 
-    removeFormation: (state, categories) => {
-        // state.categories.formation.splice(state.categories.formation.findIndex(el => el.id == Formation_id), 1);
-        // console.log("chihaja");
-        state.categories = categories
+    removeFormation: (state, param) => {
+        let categorieIndex = state.categories.findIndex(el => el.id == param[1])
+        let formationIndex = state.categories[categorieIndex].formation.findIndex(el => el.id == param[0]);
+        state.categories[categorieIndex].formation.splice(formationIndex, 1)
 
     },
 

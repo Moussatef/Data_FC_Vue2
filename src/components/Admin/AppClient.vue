@@ -25,8 +25,6 @@
           <div class="accordion-body">
             <div class="row">
               <div class="center my-4">
-                
-
                 <vs-table striped>
                   <template #header>
                     <vs-input v-model="search" border placeholder="Search" />
@@ -48,7 +46,6 @@
                     </vs-tr>
                   </template>
                   <template #tbody>
-                  
                     <vs-tr
                       class="bg-white "
                       :key="i"
@@ -60,10 +57,10 @@
                       :warn="tr.id == 9"
                     >
                       <vs-td class="text-start fs-6">
-                         <div class="d-flex align-items-center">
+                        <div class="d-flex align-items-center">
                           <vs-avatar class="me-4">
                             <img
-                              src="../../assets/OrongeUL/Analysis-amico.png"
+                              :src="'http://127.0.0.1:8000' + tr.image"
                               alt=""
                             />
                           </vs-avatar>
@@ -91,7 +88,6 @@
                           <i class="bx bx-lock-open-alt"></i>
                         </vs-button>
                       </vs-td>
-                      
                     </vs-tr>
                   </template>
                 </vs-table>

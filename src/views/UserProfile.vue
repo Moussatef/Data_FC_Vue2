@@ -1,58 +1,12 @@
 <template>
   <div class=" overflow-hidden">
-    <!-- <div class="center mt-5">
-      <button @click="active_alert=!active_alert">
-        active
-      </button>
-      <vs-dialog overflow-hidden v-model="active_alert">
-        <template #header>
-          <h4 class="not-margin">
-            Welcome to <b>Vuesax</b>
-          </h4>
-        </template>
+    <AppNavS class="nav_z poition-fixed" />
 
-
-        <div class="con-form">
-          <vs-input v-model="input1" placeholder="Email">
-            <template #icon>
-              @
-            </template>
-          </vs-input>
-          <vs-input type="password" v-model="input2" placeholder="Password">
-            <template #icon>
-              <i class='bx bxs-lock'></i>
-            </template>
-          </vs-input>
-          <div class="flex">
-            <vs-checkbox v-model="checkbox1">Remember me</vs-checkbox>
-            <a href="#">Forgot Password?</a>
-          </div>
-        </div>
-
-        <template #footer>
-          <div class="footer-dialog">
-            <vs-button block>
-              Sign In
-            </vs-button>
-
-            <div class="new">
-              New Here? <a href="#">Create New Account</a>
-            </div>
-          </div>
-        </template>
-      </vs-dialog>
-    </div> -->
-    <div class="row">
-      <div class="col-lg-2">
-        <AppNavS class=" poition-fixed" />
-      </div>
-
-      <div class=" col-lg-10 row justify-content-center text-start mt-4">
+    <div class="content">
+      <h1 class="my-5">Participants</h1>
+      <div class=" d-flex justify-content-center text-start mt-4">
         <div class="col-lg-12">
           <AppFormation />
-        </div>
-        <div class="col-lg-12">
-          <AppClient />
         </div>
       </div>
     </div>
@@ -76,6 +30,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.nav_z {
+  z-index: 9999;
+}
 .not-margin {
   margin: 0px;
   font-weight: normal;
@@ -95,38 +52,55 @@ export default {
       }
     }
   }
-  vs-checkbox-label {
-    font-size: 0.8rem;
-  }
-  vs-input-content {
-    margin: 10px 0px;
-    width: 100%;
-    .vs-input {
-      width: 100%;
-    }
-  }
 }
-.footer-dialog {
+// .sidediv {
+//   width: 50px;
+// }
+.content {
+  position: relative;
+  width: calc(100% - 120px);
+  left: 100px;
+  min-height: 100vh;
+  transition: 0.5s ease;
+}
+.top-navbar {
+  margin-top: 3.2rem;
+  width: (rem);
   display: flex;
   align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  width: calc(100%);
-  .new {
-    margin: 0px;
-    margin-top: 20px;
-    padding: 0px;
-    font-size: 0.7rem;
-    a {
-      color: rgba(var(--vs-primary), 1) !important;
-      margin-left: 6px;
-      &:hover {
-        text-decoration: underline;
-      }
-    }
+  justify-content: space-between;
+  // padding: 7px 20px;
+}
+
+#menu-icon {
+  font-size: 34px;
+  cursor: pointer;
+  color: #fff;
+}
+.btn_nav {
+  display: none;
+  font-size: 34px;
+  cursor: pointer;
+  color: rgb(0, 0, 0);
+}
+.content.active {
+  width: calc(100% - 60px);
+  left: 60px;
+}
+
+@media (max-width: 868px) {
+  .content {
+    width: 100%;
+    left: 0;
   }
-  vs-button {
-    margin: 0px;
+
+  .content.active {
+    width: calc(100% - 60px);
+    left: 60px;
+  }
+
+  #menu-icon {
+    display: none;
   }
 }
 </style>

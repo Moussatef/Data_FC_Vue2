@@ -230,7 +230,7 @@
 
         <!-- Confirmation for removeCategorie -->
 
-        <vs-dialog width="550px" not-center v-model="activeConfirmation">
+        <vs-dialog width="550px" not-center danger v-model="activeConfirmation">
           <template #header>
             <h4 class="not-margin">Confirmation de <b>Suppression</b></h4>
           </template>

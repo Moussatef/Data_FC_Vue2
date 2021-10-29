@@ -50,10 +50,9 @@
                       <vs-th class="fs-6">
                         Programme de formation
                       </vs-th>
-                      <vs-th class="fs-6"> </vs-th>
-                      <vs-th> </vs-th>
-                      <vs-th> </vs-th>
-                      <vs-th> </vs-th>
+                      <vs-th v-if="admintoken" class="fs-6"> </vs-th>
+                      <vs-th v-if="admintoken"> </vs-th>
+                      <vs-th v-if="admintoken"> </vs-th>
                     </vs-tr>
                   </template>
                   <template #tbody>
@@ -89,22 +88,32 @@
                           </li>
                         </ul>
                       </vs-td>
-                      <vs-td class="text-start fs-6"> </vs-td>
-                      <vs-td>
-                        <vs-button flat icon>
+                      <vs-td v-if="admintoken">
+                        <vs-button
+                          flat
+                          icon
+                          @click="
+                            activebtn = 1;
+                            openMd(tr, [cat.codeF, cat.titre]);
+                          "
+                        >
                           Modifier
                         </vs-button>
                       </vs-td>
-                      <vs-td>
+                      <vs-td v-if="admintoken">
                         <vs-button
-                          @click="deleteFormation(tr.id)"
+                          @click="
+                            idFormation = tr.id;
+                            idCategory = tr.formationcategorie_id;
+                            activeConfirmation = true;
+                          "
                           border
                           danger
                         >
                           Supprimer
                         </vs-button>
                       </vs-td>
-                      <vs-td>
+                      <vs-td v-if="admintoken">
                         <vs-button flat icon>
                           <i class="bx bx-lock-open-alt"></i>
                         </vs-button>
@@ -118,23 +127,72 @@
         </div>
       </div>
     </div>
+    <AppUpdateFormation
+      v-if="openModel"
+      :formation="formationObj"
+      :categorie="categorieName"
+      @closeModel="closeModel"
+    />
+    <vs-dialog width="550px" not-center v-model="activeConfirmation">
+      <template #header>
+        <h4 class="not-margin" style="color:red;">
+          Confirmation de <b>Suppression</b>
+        </h4>
+      </template>
+
+      <div class="con-content">
+        <p>
+          Êtes-vous sûr de vouloir supprimer cette catégorie
+        </p>
+      </div>
+
+      <template #footer>
+        <div class="d-flex align-items-center justify-content-end">
+          <vs-button
+            @click="deleteFormation(idFormation, idCategory)"
+            transparent
+          >
+            Oui
+          </vs-button>
+          <vs-button @click="activeConfirmation = false" dark transparent>
+            Annuler
+          </vs-button>
+        </div>
+      </template>
+    </vs-dialog>
   </div>
 </template>
 <script>
 import { mapGetters, mapActions } from "vuex";
+import AppUpdateFormation from "@/components/Admin/AppUpdateFormation.vue";
 export default {
   name: "AppFormation",
-  data: () => ({
-    search: "",
-  }),
+  components: {
+    AppUpdateFormation,
+  },
+  data: function() {
+    return {
+      search: "",
+      admintoken: localStorage.getItem("tokenADM_Data@_Fc"),
+      activeConfirmation: false,
+      idFormation: undefined,
+      idCategory: undefined,
+      openModel: false,
+      formationObj: undefined,
+      categorieName: undefined,
+    };
+  },
   methods: {
     ...mapActions(["getAllFormationEn", "getAllCategories", "removeFoemation"]),
     // function delete formation
-    async deleteFormation(id) {
+    async deleteFormation(id, idCat) {
       this.$store
-        .dispatch("removeFormation", [id])
+        .dispatch("removeFormation", [id, idCat])
         .then((result) => {
           console.log(result);
+          this.activeConfirmation = false;
+          this.idFormation = undefined;
+
           // this.activeConfirmation = false;
         })
         .catch((err) => {
@@ -142,9 +200,18 @@ export default {
           this.alertDanger = true;
         });
     },
+    openMd(formation, categories) {
+      this.formationObj = formation;
+      this.categorieName = categories[0] + " " + categories[1];
+      this.openModel = true;
+    },
+    closeModel() {
+      this.openModel = false;
+    },
   },
-
-  computed: { ...mapGetters(["formationEnt", "categories"]) },
+  computed: {
+    ...mapGetters(["formationEnt", "categories"]),
+  },
 
   mounted() {
     // this.getAllFormationEn();

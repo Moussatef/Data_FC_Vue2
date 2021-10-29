@@ -17,6 +17,7 @@ import AdminFormationEn from '../views/AdminFormationEn.vue'
 import AdminClient from '../views/AdminClient.vue'
 import UserProfile from '../views/UserProfile.vue'
 import LoginAdmin from '../views/LoginAdmin.vue'
+import AdminProfile from '../views/AdminProfile.vue'
 
 Vue.use(VueRouter)
 
@@ -39,7 +40,7 @@ const routes = [
     }
   },
   {
-    path: '/admin/datafc/auth/2@21/login',
+    path: '/data-fc-administration-authentication',
     name: 'LoginAdmin',
     component: LoginAdmin,
     beforeEnter: (to, from, next) => {
@@ -75,6 +76,18 @@ const routes = [
     }
   },
   {
+    path: '/Admin-profile',
+    name: 'AdminProfile',
+    component: AdminProfile,
+    beforeEnter: (to, from, next) => {
+      if (localStorage.getItem('tokenADM_Data@_Fc')) {
+        next();
+      } else {
+        next('/');
+      }
+    }
+  },
+  {
     path: '/admin-formation-en',
     name: 'AdminFormationEn',
     component: AdminFormationEn,
@@ -99,7 +112,7 @@ const routes = [
     }
   },
   {
-    path: '/client/profile',
+    path: '/client-profile',
     name: 'UserProfile',
     component: UserProfile,
     beforeEnter: (to, from, next) => {

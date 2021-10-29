@@ -51,8 +51,8 @@
                   />
                 </span>
                 <h3>Telephone</h3>
-                <p> <b>Tele :</b> +212-675-343-730</p>
-                <p> <b>Fixe :</b> +212-524-624-584</p>
+                <p><b>Tele :</b> +212-675-343-730</p>
+                <p><b>Fixe :</b> +212-524-624-584</p>
               </div>
             </div>
           </div>
@@ -61,6 +61,7 @@
               <div class="row g-3">
                 <div class="col-sm-6">
                   <input
+                    v-model="inptnom"
                     type="text"
                     class="form-control"
                     id="firstName"
@@ -74,6 +75,7 @@
                 </div>
                 <div class="col-sm-6">
                   <input
+                    v-model="inptprenom"
                     type="text"
                     class="form-control"
                     id="lastName"
@@ -87,6 +89,7 @@
                 </div>
                 <div class="col-12">
                   <input
+                    v-model="inptemail"
                     type="email"
                     class="form-control"
                     id="email"
@@ -99,6 +102,7 @@
 
                 <div class="col-12">
                   <input
+                    v-model="inptsubject"
                     type="text"
                     class="form-control"
                     id="Subject"
@@ -112,6 +116,7 @@
 
                 <div class="col-12">
                   <textarea
+                    v-model="inptmessage"
                     class="form-control"
                     id="msg"
                     value=""
@@ -151,9 +156,14 @@
 import AppSection from "@/components/inc/AppSection.vue";
 export default {
   name: "Contact",
-  data() {
+  data: function() {
     return {
       titre: "CONTACT NOUS",
+      inptnom: undefined,
+      inptprenom: undefined,
+      inptemail: undefined,
+      inptsubject: undefined,
+      inptmessage: undefined,
     };
   },
 
@@ -163,8 +173,6 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
-
-
 .card {
   border: solid 1px #238a91;
 }

@@ -26,9 +26,9 @@
             <span class="text">participants</span>
           </router-link>
         </li>
-        
+
         <li :class="{ isActive: profile }">
-          <router-link to="/admin-formation">
+          <router-link to="/admin-profile">
             <span class="icon"><i class="bx bxs-user"></i></span>
             <span class="text">Profile</span>
           </router-link>
@@ -53,7 +53,6 @@
         </li>
       </ul>
     </div>
-    
   </div>
 </template>
 
@@ -113,13 +112,12 @@ a {
 .side-navbar ul li {
   width: 100%;
   a {
-   
     &.router-link-exact-active {
       background: #0f7892;
     }
   }
 }
- 
+
 .side-navbar ul li:hover {
   background: #0f7892;
 }
@@ -151,29 +149,7 @@ a {
   height: 60px;
   white-space: nowrap;
 }
-.content {
-  position: absolute;
-  width: calc(100% - 200px);
-  left: 200px;
-  min-height: 100vh;
-  transition: 0.5s ease;
-}
-.top-navbar {
-  margin-top: 3.2rem;
-  width: (rem);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  // padding: 7px 20px;
-}
-.profile img {
-  width: 44px;
-  height: 44px;
-  object-fit: contain;
-  object-position: center;
-  border-radius: 50%;
-  cursor: pointer;
-}
+
 #menu-icon {
   font-size: 34px;
   cursor: pointer;
@@ -193,18 +169,11 @@ a {
   width: 60px;
 }
 @media (max-width: 868px) {
-  .content {
-    width: 100%;
-    left: 0;
-  }
   .side-navbar {
     width: 60px;
     left: -60px;
   }
-  .content.active {
-    width: calc(100% - 60px);
-    left: 60px;
-  }
+
   .side-navbar.active {
     left: 0;
   }

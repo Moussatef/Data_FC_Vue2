@@ -205,7 +205,7 @@ export default {
           this.message_err = undefined;
           // const tokenUser = encryptWithAES("tokenUserEncry");
           localStorage.setItem("user", res.Token);
-          location.replace("/client/profile");
+          location.replace("/client-profile");
         } else {
           const err = await result.json();
           // console.log(err.message);

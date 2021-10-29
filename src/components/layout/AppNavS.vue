@@ -1,9 +1,15 @@
 <template>
   <div class="hidden position-fixed">
-    <vs-sidebar hover-expand
-        reduce v-model="active" class="" open>
-      <template #logo>
-        <!-- ...img logo -->
+    <vs-sidebar
+      hover-expand
+      reduce
+      v-model="active"
+      style="padding-top:70px"
+      class=""
+      open
+    >
+      <template style="margin-top:80px;" #logo>
+        <img src="../../assets/logo.png" alt="" />
       </template>
       <vs-sidebar-item id="home">
         <template #icon>
@@ -17,12 +23,12 @@
         </template>
         Market Overview
       </vs-sidebar-item>
-      <vs-sidebar-item id="Music">
+      <!-- <vs-sidebar-item id="Music">
         <template #icon>
           <i class="bx bxs-music"></i>
         </template>
         Music
-      </vs-sidebar-item>
+      </vs-sidebar-item> -->
       <vs-sidebar-group>
         <template #header>
           <vs-sidebar-item arrow>
@@ -111,25 +117,20 @@
         </template>
         Shopping
       </vs-sidebar-item>
-      <vs-sidebar-item id="chat">
-        <template #icon>
-          <i class="bx bx-chat"></i>
-        </template>
-        Chat
-      </vs-sidebar-item>
+
       <template #footer>
         <vs-row justify="space-between">
           <vs-avatar>
             <img src="/avatars/avatar-5.png" alt="" />
           </vs-avatar>
 
-          <vs-avatar badge-color="danger" badge-position="top-right">
+          <!-- <vs-avatar badge-color="danger" badge-position="top-right">
             <i class="bx bx-bell"></i>
 
             <template #badge>
               28
             </template>
-          </vs-avatar>
+          </vs-avatar> -->
         </vs-row>
       </template>
     </vs-sidebar>
@@ -139,9 +140,9 @@
 <script>
 export default {
   name: "AppNavS",
-  data:() => ({
-        active: 'home',
-      })
+  data: () => ({
+    active: "home",
+  }),
 };
 </script>
 
