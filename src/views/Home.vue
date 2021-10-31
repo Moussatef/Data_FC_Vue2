@@ -371,6 +371,49 @@
           </div>
         </div>
 
+        <div class=" container-fluid">
+          <div class="row justify-content-center">
+            <div class="col-12 ">
+              <iframe
+                class="video--player__vid"
+                allowfullscreen="1"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                title="YouTube video player"
+                src="https://www.youtube.com/embed/4e4PxhRcxHw?rel=0&amp;controls=2&amp;disablekb=0&amp;modestbranding=1&amp;enablejsapi=1&amp;origin=https%3A%2F%2Fwww.jechoisismontreal.com&amp;widgetid=1"
+                id="widget2"
+                data-gtm-yt-inspected-11225346_44="true"
+                width="640"
+                height="390"
+                frameborder="0"
+              ></iframe>
+            </div>
+            <div class="col-lg-6 col-12 my-3">
+              <div>
+                <img
+                  src="../assets/cover/m3.jpg"
+                  class="d-block mx-lg-auto img-fluid scale-img"
+                  alt="Bootstrap Themes"
+                  width="700"
+                  height="500"
+                  loading="lazy"
+                />
+              </div>
+            </div>
+            <div class="col-lg-6 col-12 my-3">
+              <div>
+                <img
+                  src="../assets/H3.jpg"
+                  class="d-block mx-lg-auto img-fluid scale-img"
+                  alt="Bootstrap Themes"
+                  width="700"
+                  height="500"
+                  loading="lazy"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+
         <div>
           <div class="row justify-content-center text-center my-5 ">
             <div
@@ -736,6 +779,14 @@ export default {
   font-family: Poppins;
   margin: 0;
   padding: 0;
+}
+.video--player__vid {
+  width: 100%;
+  height: 600px;
+  z-index: 0;
+}
+.scale-img:hover {
+  transform: scale(1.1);
 }
 .responsive_img {
   width: 100%;
