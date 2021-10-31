@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 
-import Home from '../views/Home.vue'
+import Accueil from '../views/Accueil.vue'
 import Formations from '../views/Formations.vue'
 import Contact from '../views/Contact.vue'
 import FormationEn from '../views/FormationEn.vue'
@@ -24,8 +24,8 @@ Vue.use(VueRouter)
 const routes = [
   {
     path: '/',
-    name: 'Home',
-    component: Home
+    name: 'Accueil',
+    component: Accueil
   },
   {
     path: '/login',

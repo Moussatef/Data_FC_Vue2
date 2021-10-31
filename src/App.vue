@@ -27,18 +27,14 @@ export default {
   color: #2c3e50;
   z-index: 999;
 }
-
 .logo-nav {
   width: 300px;
 }
-
 #nav {
   padding: 30px;
-
   a {
     // font-weight: bold;
     // color: #5f5f5f;
-
     &.router-link-exact-active {
       color: #238a91;
     }
@@ -51,12 +47,10 @@ export default {
     }
   }
 }
-
 #mynavi {
   background-color: white;
   // box-shadow: 0 0.1rem 0.3rem rgba(0, 0, 0, 0.3);
 }
-
 #mynavi .container-fluid a {
   color: #444444;
   text-decoration: none;
