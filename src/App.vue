@@ -15,9 +15,22 @@ export default {
   data: function() {
     return {
       role: "",
+      color: "#d5397b",
+      hasOpenLoading: false,
     };
   },
+
   methods: {
+    openLoading() {
+      const loading = this.$vs.loading({
+        text: "Loading...",
+        color: "#257579",
+        type: "circles"
+      });
+      setTimeout(() => {
+        loading.close();
+      }, 600);
+    },
     ...mapActions(["getAuthinfo"]),
 
     getInfoAuth() {
@@ -33,6 +46,7 @@ export default {
         .catch((err) => {
           this.errorDesc = err.message;
           // this.alertDanger = true;
+          localStorage.clear();
           console.log(err);
         });
     },
@@ -43,8 +57,13 @@ export default {
     AppNavBoot,
   },
   created() {
+    this.openLoading();
     this.getInfoAuth();
   },
+  beforeMount(){
+    this.getInfoAuth();
+
+  }
 };
 </script>
 

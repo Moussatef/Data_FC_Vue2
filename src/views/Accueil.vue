@@ -783,9 +783,20 @@ export default {
     //     }
     //  }
     // }
+    openLoading() {
+      const loading = this.$vs.loading({
+        text: "Loading...",
+        color: "#257579",
+        type: "circles",
+      });
+      setTimeout(() => {
+        loading.close();
+      }, 500);
+    },
   },
   mounted() {
     this.calculate();
+    this.openLoading();
   },
 };
 </script>

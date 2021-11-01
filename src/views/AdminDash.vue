@@ -46,12 +46,17 @@
         </div>
       </div>
     </div>
+     <div v-else-if="loading" class="box-loading" ref="content"></div>
     <div v-else>
       <h1>You don't have permission to this page</h1>
       <div>
         <img src="../assets/SvgUl/Questions-amico.svg" width="700" alt="" />
       </div>
-      <router-link to="/" type="button" class="btn btn-outline-secondary btn-lg">
+      <router-link
+        to="/"
+        type="button"
+        class="btn btn-outline-secondary btn-lg"
+      >
         <i class="bi bi-arrow-bar-left"></i>return back
       </router-link>
     </div>
@@ -84,7 +89,7 @@ export default {
     };
   },
   computed: {
-    ...mapGetters(["auth"]),
+    ...mapGetters(["auth","loading"]),
   },
 
   methods: {
@@ -95,6 +100,27 @@ export default {
         title: "Administrateur",
         text: "Bienvenue dans le tableau de bord de l'administrateur",
       });
+    },
+    openLoading() {
+      const loading = this.$vs.loading({
+        text: "Loading",
+        color: "#d5397b",
+        circles,
+      });
+      // setTimeout(() => {
+      //   loading.close();
+      // }, 3000);
+    },
+    closeLoading() {
+      const loading = this.$vs.loading({
+        target: this.$refs.content,
+        text: "Loading..",
+        color: "#257579",
+        type: "circles",
+      });
+      setTimeout(() => {
+        loading.close();
+      }, 500);
     },
   },
   mounted() {

@@ -50,9 +50,9 @@
                       <vs-th class="fs-6">
                         Programme de formation
                       </vs-th>
-                      <vs-th v-if="admintoken" class="fs-6"> </vs-th>
-                      <vs-th v-if="admintoken"> </vs-th>
-                      <vs-th v-if="admintoken"> </vs-th>
+                      <vs-th v-if="auth.role=='admin'" class="fs-6"> </vs-th>
+                      <vs-th v-if="auth.role=='admin'"> </vs-th>
+                      <vs-th v-if="auth.role=='admin'"> </vs-th>
                     </vs-tr>
                   </template>
                   <template #tbody>
@@ -88,7 +88,7 @@
                           </li>
                         </ul>
                       </vs-td>
-                      <vs-td v-if="admintoken">
+                      <vs-td v-if="auth.role=='admin'">
                         <vs-button
                           flat
                           icon
@@ -100,7 +100,7 @@
                           Modifier
                         </vs-button>
                       </vs-td>
-                      <vs-td v-if="admintoken">
+                      <vs-td v-if="auth.role=='admin'">
                         <vs-button
                           @click="
                             idFormation = tr.id;
@@ -113,7 +113,7 @@
                           Supprimer
                         </vs-button>
                       </vs-td>
-                      <vs-td v-if="admintoken">
+                      <vs-td v-if="auth.role=='admin'">
                         <vs-button flat icon>
                           <i class="bx bx-lock-open-alt"></i>
                         </vs-button>
@@ -173,7 +173,6 @@ export default {
   data: function() {
     return {
       search: "",
-      admintoken: localStorage.getItem("tokenADM_Data@_Fc"),
       activeConfirmation: false,
       idFormation: undefined,
       idCategory: undefined,
@@ -210,7 +209,7 @@ export default {
     },
   },
   computed: {
-    ...mapGetters(["formationEnt", "categories"]),
+    ...mapGetters(["formationEnt", "categories","auth", "loading"]),
   },
 
   mounted() {

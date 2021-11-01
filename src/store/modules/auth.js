@@ -3,11 +3,13 @@
 const state = {
     auth: [],
     role: "",
+    loading: true,
 }
 
 const getters = {
     auth: state => state.auth,
     role: state => state.role,
+    loading : state => state.loading,
 }
 
 const actions = {
@@ -30,9 +32,10 @@ const actions = {
                     .then(response => {
                         let aut_Info = response.data.data[0];
                         // consoled for testing
-                        console.log(aut_Info);
+                        // console.log(aut_Info);
                         commit('setAuth', aut_Info);
                         resolve(aut_Info)
+                        state.loading = false;
                     })
                     .catch(error => {
                         reject(error)

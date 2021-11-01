@@ -1,14 +1,37 @@
 <template>
-  <div class=" overflow-hidden">
-    <AppNavS class="nav_z poition-fixed" />
+  <div>
+    <div v-if="auth.role == 'client'" class=" overflow-hidden bg-light">
+      <AppNavS class="nav_z poition-fixed" />
 
-    <div class="content">
-      <h1 class="my-5">Participants</h1>
-      <div class=" d-flex justify-content-center text-start mt-4">
-        <div class="col-lg-12">
-          <AppFormation />
+      <div class="content">
+        <h1 class="my-5">Participants</h1>
+        <div class=" d-flex justify-content-center text-start mt-4">
+          <div class="col-lg-12">
+            <AppFormation />
+          </div>
         </div>
       </div>
+    </div>
+    <div v-else-if="loading" class="box-loading" ref="content"></div>
+    <div v-else>
+      <h1>You don't have permission to this page</h1>
+      <div>
+        <img src="../assets/SvgUl/Questions-amico.svg" width="700" alt="" />
+      </div>
+      <!-- <router-link
+        to="/"
+        type="button"
+        class="btn btn-outline-secondary btn-lg"
+      >
+        <i class="bi bi-arrow-bar-left"></i>return back
+      </router-link> -->
+      <button
+        @click="$router.go(-1)"
+        type="button"
+        class="btn btn-outline-secondary btn-lg"
+      >
+        <i class="bi bi-arrow-bar-left"></i>return back
+      </button>
     </div>
   </div>
 </template>
@@ -17,6 +40,7 @@
 import AppFormation from "@/components/Admin/AppFormation.vue";
 import AppClient from "@/components/Admin/AppClient.vue";
 import AppNavS from "@/components/layout/AppNavS.vue";
+import { mapGetters, mapActions } from "vuex";
 export default {
   data: () => ({
     active_alert: false,
@@ -26,6 +50,44 @@ export default {
     AppFormation,
     AppClient,
   },
+  computed: {
+    ...mapGetters(["auth", "loading"]),
+  },
+  methods: {
+    openLoading() {
+      const loading = this.$vs.loading({
+        text: "Loading",
+        color: "#d5397b",
+        circles,
+      });
+      // setTimeout(() => {
+      //   loading.close();
+      // }, 3000);
+    },
+    closeLoading() {
+      const loading = this.$vs.loading({
+        target: this.$refs.content,
+        text: "Loading..",
+        color: "#257579",
+        type: "circles",
+      });
+      setTimeout(() => {
+        loading.close();
+      }, 500);
+    },
+  },
+  watch: {
+    loading: function(val) {
+      if (val) {
+        // console.log(val);
+        this.openLoading()
+      } else {
+        this.closeLoading()
+        // console.log(val);
+      }
+    },
+  },
+  created() {},
 };
 </script>
 

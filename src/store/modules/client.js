@@ -24,7 +24,7 @@ const actions = {
             const response = await fetch("http://127.0.0.1:8000/api/client/info", requestOptions)
             if (response.status === 200) {
                 const result = await response.json();
-                console.log(result.data);
+                // console.log(result.data);
                 commit('setClient', result.data)
 
             }

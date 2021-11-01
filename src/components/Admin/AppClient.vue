@@ -81,12 +81,12 @@
                       </vs-td>
                       <vs-td>
                         <vs-button flat icon>
-                          Send Email
+                          Envoyer un e-mail
                         </vs-button>
                       </vs-td>
                       <vs-td>
                         <vs-button border danger>
-                          Remove User
+                          Supprimer Utilisateur
                         </vs-button>
                       </vs-td>
                       <vs-td>

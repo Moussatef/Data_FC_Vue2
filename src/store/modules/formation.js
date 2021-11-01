@@ -40,7 +40,7 @@ const actions = {
         const response = await fetch("http://127.0.0.1:8000/api/formation/categories", requestOptions)
         if (response.status === 200) {
             const result = await response.json();
-            console.log(result.data);
+            // console.log(result.data);
             commit('setCategory', result.data)
         }
     },
@@ -70,7 +70,7 @@ const actions = {
                 .then(response => {
                     let formation = response.data.formationAll;
                     // consoled for testing
-                    console.log(formation);
+                    // console.log(formation);
                     commit('setCategory', formation);
                     resolve('Success')
                 })

@@ -35,7 +35,7 @@ const actions = {
                 .then(response => {
                     let formation = response.data;
                     // consoled for testing
-                    console.log(formation);
+                    // console.log(formation);
                     // commit('setCategory', formation);
                     resolve('Success')
                 })
@@ -49,28 +49,28 @@ const actions = {
 
 
 
-    async getAllClient({ commit }) {
-        var token = localStorage.getItem('accessToken')
-        if (token) {
-            var myHeaders = new Headers();
-            myHeaders.append("Authorization", "Bearer " + token);
+    // async getAllClient({ commit }) {
+    //     var token = localStorage.getItem('accessToken')
+    //     if (token) {
+    //         var myHeaders = new Headers();
+    //         myHeaders.append("Authorization", "Bearer " + token);
 
-            var requestOptions = {
-                method: 'GET',
-                headers: myHeaders,
-                redirect: 'follow'
-            };
+    //         var requestOptions = {
+    //             method: 'GET',
+    //             headers: myHeaders,
+    //             redirect: 'follow'
+    //         };
 
-            const response = await fetch("http://127.0.0.1:8000/api/client/info", requestOptions)
-            if (response.status === 200) {
-                const result = await response.json();
-                console.log(result.data);
-                commit('setMessages', result.data)
+    //         const response = await fetch("http://127.0.0.1:8000/api/client/info", requestOptions)
+    //         if (response.status === 200) {
+    //             const result = await response.json();
+    //             console.log(result.data);
+    //             commit('setMessages', result.data)
 
-            }
-        }
+    //         }
+    //     }
 
-    },
+    // },
 
 }
 

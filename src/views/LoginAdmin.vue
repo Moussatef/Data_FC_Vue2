@@ -182,7 +182,7 @@ export default {
           console.log(res);
           this.message_err = undefined;
           localStorage.setItem("accessToken", res.Token);
-          location.replace("/AdminDash");
+          location.replace("/admin-dashboard");
         } else {
           const err = await result.json();
           console.log(err.message);
