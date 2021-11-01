@@ -25,7 +25,7 @@
         style="background-image url('images/bg-01.jpg');"
       >
         <div class="wrap-login100 mt-5 p-l-55 p-r-55 p-t-20 p-b-20">
-          <img src="../assets/logo.svg" class="logo" alt="" />
+          <img src="../assets/logo.jpg" class="logo" alt="" />
           <span class="login100-form-title p-b-50">
             S'inscrire
           </span>

@@ -113,7 +113,7 @@
               >Demande de devis</router-link
             >
           </li> -->
-          <div v-if="!user && !admin" class="d-flex btn-conx">
+          <div v-if="!token" class="d-flex btn-conx">
             <vs-button
               border
               class="p-1 fs-6 btn-conx "
@@ -136,36 +136,39 @@
           </div>
 
           <div
-            v-if="user || admin"
+            v-if="auth.role"
             class="flex-shrink-0 dropdown m-x-5 position-relative"
           >
+          
             <a
               href="#"
               class="d-block link-dark text-decoration-none dropdown-toggle"
               id="dropdownUser2"
               data-bs-toggle="dropdown"
               aria-expanded="false"
+             
             >
               <img
-                src="../../assets/logo.png"
-                alt="mdo"
+                :src="host+auth.image"
+                :alt="auth.nom[0]+'.'+auth.prenom[0]"
                 width="32"
                 height="32"
                 class="rounded-circle"
+                
               />
             </a>
             <ul
               class="dropdown-menu text-small shadow m-e-5"
               aria-labelledby="dropdownUser2"
             >
-              <li v-if="user">
+              <li v-if="auth.role == 'client'">
                 <router-link class="dropdown-item" to="/client-profile"
-                  ><i class="bx bxs-user me-2"></i>Profile</router-link
-                >
+                  ><i class="bx bxs-user me-2"></i>{{auth.nom}}
+                </router-link>
               </li>
-              <li v-if="admin">
-                <router-link class="dropdown-item" to="/admindash"
-                  ><i class="bx bxs-user me-2"></i>Profile</router-link
+              <li v-if="auth.role == 'admin'">
+                <router-link class="dropdown-item" to="/admin-dashboard"
+                  ><i class="bx bxs-user me-2"></i>Profile A</router-link
                 >
               </li>
               <li>
@@ -182,18 +185,21 @@
 </template>
 
 <script>
+import { mapGetters, mapActions } from "vuex";
 export default {
-  data: () => ({
-    active: 0,
-    active_con: 0,
-    user: localStorage.getItem("user"),
-    admin: localStorage.getItem("tokenADM_Data@_Fc"),
-    token:
-      localStorage.getItem("user") || localStorage.getItem("tokenADM_Data@_Fc"),
-    apiAdmin: "http://127.0.0.1:8000/api/datafc/auth/admin-derct/logout",
-    apiUser: "http://127.0.0.1:8000/api/datafc/auth/logout",
-  }),
+  data: function() {
+    return {
+      active: 0,
+      active_con: 0,
+      token: localStorage.getItem("accessToken"),
+      host:"http://127.0.0.1:8000",
+    };
+  },
+  computed: {
+    ...mapGetters(["auth"]),
+  },
   methods: {
+    ...mapActions(["mapActions"]),
     async logout() {
       var myHeaders = new Headers();
       myHeaders.append("Authorization", "Bearer " + this.token);
@@ -203,7 +209,10 @@ export default {
         headers: myHeaders,
         redirect: "follow",
       };
-      const res = await fetch("http://127.0.0.1:8000/api/datafc/auth/logout", requestOptions);
+      const res = await fetch(
+        "http://127.0.0.1:8000/api/datafc/auth/logout",
+        requestOptions
+      );
       if (res.status === 200) {
         const result = await res.json();
         console.log(result);

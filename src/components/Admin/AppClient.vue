@@ -31,18 +31,15 @@
                   </template>
                   <template #thead>
                     <vs-tr>
-                      <vs-th class="fs-6">
-                        Nom
-                      </vs-th>
-                      <vs-th class="fs-6">
-                        Prenom
-                      </vs-th>
-                      <vs-th class="fs-6">
-                        Email
-                      </vs-th>
-                      <vs-th> </vs-th>
-                      <vs-th> </vs-th>
-                      <vs-th> </vs-th>
+                      <vs-th class="fs-6"> Nom </vs-th>
+                      <vs-th class="fs-6"> Prenom </vs-th>
+                      <vs-th class="fs-6"> Email </vs-th>
+                      <vs-th class="fs-6"> Telephone </vs-th>
+                      <vs-th class="fs-6"> Genre </vs-th>
+                      <vs-th class="fs-6"> Role </vs-th>
+                      <vs-th class="px-5 mx-5"> </vs-th>
+                      <vs-th class="px-5 mx-5"> </vs-th>
+                      <vs-th class="px-5 mx-5"> </vs-th>
                     </vs-tr>
                   </template>
                   <template #tbody>
@@ -72,6 +69,15 @@
                       </vs-td>
                       <vs-td class="text-start fs-6">
                         {{ tr.email }}
+                      </vs-td>
+                      <vs-td class="text-start fs-6">
+                        {{ tr.telephone }}
+                      </vs-td>
+                      <vs-td class="text-start fs-6">
+                        {{ tr.genre }}
+                      </vs-td>
+                      <vs-td class="text-start fs-6">
+                        {{ tr.role }}
                       </vs-td>
                       <vs-td>
                         <vs-button flat icon>

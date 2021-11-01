@@ -373,7 +373,13 @@
 
         <div class=" container-fluid">
           <div class="row justify-content-center">
-            <div class="col-12 ">
+            <div
+              class="col-12 "
+              data-aos="fade-up"
+              data-aos-delay="50"
+              data-aos-duration="1000"
+              data-aos-easing="ease-in"
+            >
               <iframe
                 class="video--player__vid"
                 allowfullscreen="1"
@@ -388,7 +394,12 @@
               ></iframe>
             </div>
             <div class="col-lg-6 col-12 my-3">
-              <div>
+              <div
+                data-aos="fade-left"
+                data-aos-delay="50"
+                data-aos-duration="1000"
+                data-aos-easing="ease-in"
+              >
                 <img
                   src="../assets/cover/m3.jpg"
                   class="d-block mx-lg-auto img-fluid scale-img"
@@ -400,7 +411,12 @@
               </div>
             </div>
             <div class="col-lg-6 col-12 my-3">
-              <div>
+              <div
+                data-aos="fade-right"
+                data-aos-delay="50"
+                data-aos-duration="1000"
+                data-aos-easing="ease-in"
+              >
                 <img
                   src="../assets/H3.jpg"
                   class="d-block mx-lg-auto img-fluid scale-img"
@@ -416,14 +432,14 @@
 
         <div>
           <div class="row justify-content-center text-center my-5 ">
-            <div
-              class="col-lg-4 col-sm-12 col-12 col-md-8 my-4 "
-              data-aos="fade-right"
-              data-aos-delay="50"
-              data-aos-duration="2000"
-              data-aos-easing="ease-in"
-            >
-              <div class="card p-2 border-0 rounded shadow">
+            <div class="col-lg-4 col-sm-12 col-12 col-md-8 my-4 ">
+              <div
+                class="card p-2 border-0 rounded shadow"
+                data-aos="fade-right"
+                data-aos-delay="50"
+                data-aos-duration="1500"
+                data-aos-easing="ease-in"
+              >
                 <div>
                   <img src="../assets/book.png" width="100" alt="" />
                 </div>
@@ -437,7 +453,7 @@
             </div>
             <div
               class="col-lg-4 col-sm-12 col-12 col-md-8 my-4 "
-              data-aos="fade-right"
+              data-aos="fade-up"
               data-aos-delay="50"
               data-aos-duration="2000"
               data-aos-easing="ease-in"
@@ -457,9 +473,9 @@
             </div>
             <div
               class="col-lg-4 col-sm-12 col-12 col-md-8 my-4 "
-              data-aos="fade-right"
+              data-aos="fade-left"
               data-aos-delay="50"
-              data-aos-duration="2000"
+              data-aos-duration="1500"
               data-aos-easing="ease-in"
             >
               <div class="card p-2 border-0 rounded shadow">
@@ -660,6 +676,7 @@
           <!-- /.col-lg-4 -->
         </div>
       </div>
+
       <!-- /.row -->
       <div class="container col-xxl-8 px-4 py-5">
         <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
@@ -785,8 +802,12 @@ export default {
   height: 600px;
   z-index: 0;
 }
-.scale-img:hover {
-  transform: scale(1.1);
+.scale-img {
+  transition: 1s;
+  &:hover {
+    transform: scale(1.1);
+    transition: 1s;
+  }
 }
 .responsive_img {
   width: 100%;

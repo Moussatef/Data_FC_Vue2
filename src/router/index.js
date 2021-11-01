@@ -32,7 +32,7 @@ const routes = [
     name: 'Login',
     component: Login,
     beforeEnter: (to, from, next) => {
-      if (!localStorage.getItem('user')) {
+      if (!localStorage.getItem('accessToken')) {
         next();
       } else {
         next('/');
@@ -40,11 +40,11 @@ const routes = [
     }
   },
   {
-    path: '/data-fc-administration-authentication',
+    path: '/data-fc-administration',
     name: 'LoginAdmin',
     component: LoginAdmin,
     beforeEnter: (to, from, next) => {
-      if (!localStorage.getItem('tokenADM_Data@_Fc')) {
+      if (!localStorage.getItem('accessToken')) {
         next();
       } else {
         next('/');
@@ -56,20 +56,20 @@ const routes = [
     name: 'Register',
     component: Register,
     beforeEnter: (to, from, next) => {
-      if (!localStorage.getItem('tokenADM_Data@_Fc') && !localStorage.getItem('user')) {
+      if (!localStorage.getItem('accessToken')) {
         next();
       } else {
         next('/');
       }
     }
   },
-  
+
   {
-    path: '/AdminDash',
+    path: '/admin-dashboard',
     name: 'AdminDash',
     component: AdminDash,
     beforeEnter: (to, from, next) => {
-      if (localStorage.getItem('tokenADM_Data@_Fc')) {
+      if (localStorage.getItem('accessToken')) {
         next();
       } else {
         next('/');
@@ -81,7 +81,7 @@ const routes = [
     name: 'AdminProfile',
     component: AdminProfile,
     beforeEnter: (to, from, next) => {
-      if (localStorage.getItem('tokenADM_Data@_Fc')) {
+      if (localStorage.getItem('accessToken')) {
         next();
       } else {
         next('/');
@@ -93,7 +93,7 @@ const routes = [
     name: 'AdminFormationEn',
     component: AdminFormationEn,
     beforeEnter: (to, from, next) => {
-      if (localStorage.getItem('tokenADM_Data@_Fc')) {
+      if (localStorage.getItem('accessToken')) {
         next();
       } else {
         next('/');
@@ -105,7 +105,7 @@ const routes = [
     name: 'AdminClient',
     component: AdminClient,
     beforeEnter: (to, from, next) => {
-      if (localStorage.getItem('tokenADM_Data@_Fc')) {
+      if (localStorage.getItem('accessToken')) {
         next();
       } else {
         next('/');
@@ -117,7 +117,7 @@ const routes = [
     name: 'UserProfile',
     component: UserProfile,
     beforeEnter: (to, from, next) => {
-      if (localStorage.getItem('user')) {
+      if (localStorage.getItem('accessToken')) {
         next();
       } else {
         next('/');

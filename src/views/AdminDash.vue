@@ -1,46 +1,59 @@
 <template>
-  <div class=" overflow-hidden bg-light">
-    <div class="mt-4"></div>
+  <div>
+    <div v-if="auth.role == 'admin'" class=" overflow-hidden bg-light">
+      <div class="mt-4"></div>
 
-    <AppSideNav />
+      <AppSideNav />
 
-    <div class="content ">
-      <div class="top-navbar position-fixed bg-light ">
-        <div class="bx bx-menu btn_nav" @click="menu()"></div>
-        
+      <div class="content ">
+        <div class="top-navbar position-fixed bg-light ">
+          <div class="bx bx-menu btn_nav" @click="menu()"></div>
+        </div>
+        <h1 class="my-5">Administrateur</h1>
+        <div class=" container-fluid">
+          <AppStatus />
+
+          <div
+            v-if="homeAct"
+            class="row justify-content-center text-start mt-4"
+          >
+            <div class="col-lg-12">
+              <AppFormation />
+            </div>
+            <div class="col-lg-12">
+              <AppClient check="0" />
+            </div>
+          </div>
+          <div
+            v-if="formationAct"
+            class="row justify-content-center text-start mt-4"
+          >
+            <div class="col-lg-7">
+              <AppAddFormation />
+            </div>
+            <div class="col-lg-12">
+              <AppFormation />
+            </div>
+          </div>
+          <div
+            v-if="participantsAct"
+            class="row justify-content-center text-start mt-4"
+          >
+            <div class="col-lg-12">
+              <AppClient check="1" />
+            </div>
+          </div>
+        </div>
       </div>
-      <h1 class="my-5">Administrateur</h1>
-      <div class=" container-fluid">
-        <AppStatus/>
-        
-        <div v-if="homeAct" class="row justify-content-center text-start mt-4">
-          <div class="col-lg-12">
-            <AppFormation />
-          </div>
-          <div class="col-lg-12">
-            <AppClient check="0" />
-          </div>
-        </div>
-        <div
-          v-if="formationAct"
-          class="row justify-content-center text-start mt-4"
-        >
-          <div class="col-lg-7">
-            <AppAddFormation />
-          </div>
-          <div class="col-lg-12">
-            <AppFormation />
-          </div>
-        </div>
-        <div
-          v-if="participantsAct"
-          class="row justify-content-center text-start mt-4"
-        >
-          <div class="col-lg-12">
-            <AppClient check="1" />
-          </div>
-        </div>
+    </div>
+    <div v-else>
+      <h1>You don't have permission to this page</h1>
+      <div>
+        <img src="../assets/SvgUl/Questions-amico.svg" width="700" alt="" />
       </div>
+      <router-link to="/" type="button" class="btn btn-outline-secondary btn-lg">
+        <i class="bi bi-arrow-bar-left"></i>return back
+      </router-link>
     </div>
   </div>
 </template>
@@ -49,7 +62,8 @@ import AppSideNav from "@/components/Admin/AppSIdeNav.vue";
 import AppFormation from "@/components/Admin/AppFormation.vue";
 import AppAddFormation from "@/components/Admin/AppAddFormation.vue";
 import AppClient from "@/components/Admin/AppClient.vue";
-import AppStatus from "@/components/Admin/AppStatus.vue"
+import AppStatus from "@/components/Admin/AppStatus.vue";
+import { mapGetters, mapActions } from "vuex";
 
 export default {
   name: "AdminDash",
@@ -58,15 +72,20 @@ export default {
     AppFormation,
     AppClient,
     AppAddFormation,
-    AppStatus
+    AppStatus,
   },
-  data: () => ({
-    homeAct: true,
-    formationAct: false,
-    participantsAct: false,
-    activeSidebar: false,
-    profile: false,
-  }),
+  data: function() {
+    return {
+      homeAct: true,
+      formationAct: false,
+      participantsAct: false,
+      activeSidebar: false,
+      profile: false,
+    };
+  },
+  computed: {
+    ...mapGetters(["auth"]),
+  },
 
   methods: {
     openNotification(position = null, color) {

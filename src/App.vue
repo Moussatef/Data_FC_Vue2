@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <div id="nav">
-      <AppNavBoot />
+      <AppNavBoot :role="role" />
     </div>
     <router-view />
   </div>
@@ -10,10 +10,40 @@
 <script>
 // import AppNav from "@/components/layout/AppNav.vue";
 import AppNavBoot from "@/components/layout/BootNav.vue";
+import { mapGetters, mapActions } from "vuex";
 export default {
+  data: function() {
+    return {
+      role: "",
+    };
+  },
+  methods: {
+    ...mapActions(["getAuthinfo"]),
+
+    getInfoAuth() {
+      this.$store
+        .dispatch("getAuthinfo")
+        .then((res) => {
+          // this.description =
+          //   "Type formation est ajoutée avec succès à la base de données";
+          // console.log(res.role);
+          this.role = res.role;
+          // console.log(this.role);
+        })
+        .catch((err) => {
+          this.errorDesc = err.message;
+          // this.alertDanger = true;
+          console.log(err);
+        });
+    },
+  },
+  computed: {},
   components: {
     // AppNav,
-    AppNavBoot
+    AppNavBoot,
+  },
+  created() {
+    this.getInfoAuth();
   },
 };
 </script>
@@ -56,7 +86,7 @@ export default {
   text-decoration: none;
   font-size: 18px;
   // transition: 200ms;
-  &.router-link-exact-active  {
+  &.router-link-exact-active {
     color: #238a91;
     border-bottom: 2px solid #238a91;
     // transition: 200ms;

@@ -5,12 +5,21 @@
         class="container-login100 bg-light"
         style="background-image url('images/bg-01.jpg');"
       >
+        <div class="wrap-login100 img-l">
+          <!-- <img src="../assets/cover/l1.jpg"
+              class="d-block mx-lg-auto img-fluid"
+              alt="Bootstrap Themes"
+              width="700"
+              height="500"
+              loading="lazy"> -->
+        </div>
+
         <div class="wrap-login100 p-l-55 p-r-55 p-t-20 p-b-20 shadow ">
-          <img src="../assets/logo.svg" class="logo" alt="" />
-          <hr />
-          <span class="login100-form-title p-b-50 m-b-50  mt-3">
+          <img src="../assets/logo.jpg" class="logo invisible " alt="" />
+          <span class="login100-form-title p-b-50   mt-3 m-b-50">
             Connexion
           </span>
+          <!-- <hr class="" /> -->
 
           <vs-alert
             dark
@@ -204,7 +213,7 @@ export default {
           console.log(res);
           this.message_err = undefined;
           // const tokenUser = encryptWithAES("tokenUserEncry");
-          localStorage.setItem("user", res.Token);
+          localStorage.setItem("accessToken", res.Token);
           location.replace("/client-profile");
         } else {
           const err = await result.json();
@@ -443,6 +452,7 @@ iframe {
 .container-login100 {
   width: 100%;
   min-height: 100vh;
+  height: 770px;
   display: -webkit-box;
   display: -webkit-flex;
   display: -moz-box;
@@ -458,10 +468,16 @@ iframe {
 }
 
 .wrap-login100 {
+  height: 770px;
   width: 600px;
   background: #fff;
-  border-radius: 10px;
+  // border-radius: 10px;
   overflow: hidden;
+}
+.img-l {
+  height: 770px;
+  background: url(../assets/cover/l1.png);
+  background-size: cover;
 }
 
 /*------------------------------------------------------------------
@@ -469,6 +485,7 @@ iframe {
 
 .login100-form {
   width: 100%;
+  height: 770px;
 }
 
 .login100-form-title {

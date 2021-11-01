@@ -1,64 +1,85 @@
 <template>
-  <div class=" overflow-hidden bg-light ">
-    <div class="mt-4"></div>
+  <div>
+    <div v-if="auth.role == 'admin'" class=" overflow-hidden bg-light">
+      <div class="mt-4"></div>
 
-    <AppSideNav />
+      <AppSideNav />
 
-    <div class="content  ">
-      <div class="top-navbar position-fixed  ">
-        <div class="bx bx-menu btn_nav" @click="menu()"></div>
-      </div>
-      <h1 class="my-5">Admin Profile</h1>
+      <div class="content  ">
+        <div class="top-navbar position-fixed  ">
+          <div class="bx bx-menu btn_nav" @click="menu()"></div>
+        </div>
+        <h1 class="my-5">Admin Profile</h1>
 
-      <div class="container ">
-        <div class="row  justify-content-center">
-          <div class="col-10">
-            <div class="bg-white text-center p-2 shadow-md">
-              <vs-avatar
-                class="rounded-circle my-3 mx-auto"
-                size="150"
-                badge
-                history
-                history-gradient
-                badge-position="top-left"
-                badge-color="success"
-              >
-                <img src="../assets/logo.png" width="100" height="100" alt="" />
-                <template #icons>
-                  <i
-                    class="fa fa-pencil-square-o "
-                    @click="$refs.profile_img.click()"
-                    aria-hidden="true"
-                  ></i>
-                </template>
-              </vs-avatar>
-              <input
-                type="file"
-                accept="image/*"
-                ref="profile_img"
-                class="invisible "
-                id="img_profile"
-                @change="imageSelected"
-              />
-              <div class="d-flex justify-content-center align-items-center">
-                <h5>MOUSSATEF OTHMAN</h5>
-                <i class="fa fa-pencil-square-o ms-2" aria-hidden="true"></i>
+        <div class="container ">
+          <div class="row  justify-content-center">
+            <div class="col-10">
+              <div class="bg-white text-center p-2 shadow-md">
+                <vs-avatar
+                  class="rounded-circle my-3 mx-auto"
+                  size="150"
+                  badge
+                  history
+                  history-gradient
+                  badge-position="top-left"
+                  badge-color="success"
+                >
+                  <img
+                    src="../assets/logo.png"
+                    width="100"
+                    height="100"
+                    alt=""
+                  />
+                  <template #icons>
+                    <i
+                      class="fa fa-pencil-square-o "
+                      @click="$refs.profile_img.click()"
+                      aria-hidden="true"
+                    ></i>
+                  </template>
+                </vs-avatar>
+                <input
+                  type="file"
+                  accept="image/*"
+                  ref="profile_img"
+                  class="invisible "
+                  id="img_profile"
+                  @change="imageSelected"
+                />
+                <div class="d-flex justify-content-center align-items-center">
+                  <h5>MOUSSATEF OTHMAN</h5>
+                  <i class="fa fa-pencil-square-o ms-2" aria-hidden="true"></i>
+                </div>
+                <div class="d-flex justify-content-center align-items-center">
+                  <h6>otman.mousstaef@gmail.com</h6>
+                  <i class="fa fa-pencil-square-o  ms-2" aria-hidden="true"></i>
+                </div>
+                <p>Administrateur</p>
               </div>
-              <div class="d-flex justify-content-center align-items-center">
-                <h6>otman.mousstaef@gmail.com</h6>
-                <i class="fa fa-pencil-square-o  ms-2" aria-hidden="true"></i>
-              </div>
-              <p>Administrateur</p>
             </div>
           </div>
         </div>
       </div>
+    </div>
+    <div v-else>
+      <h1>You don't have permission to this page</h1>
+      <div>
+        <img src="../assets/SvgUl/Questions-amico.svg" width="700" alt="" />
+      </div>
+      <router-link
+        to="/"
+        type="button"
+        class="btn btn-outline-secondary btn-lg"
+      >
+        <i class="bi bi-arrow-bar-left"></i>return back
+      </router-link>
     </div>
   </div>
 </template>
 
 <script>
 import AppSideNav from "@/components/Admin/AppSIdeNav.vue";
+import { mapGetters, mapActions } from "vuex";
 export default {
   name: "AdminProfile",
   components: {
@@ -68,6 +89,9 @@ export default {
     return {
       imageSelected: undefined,
     };
+  },
+  computed: {
+    ...mapGetters(["auth"]),
   },
   methods: {
     edit() {

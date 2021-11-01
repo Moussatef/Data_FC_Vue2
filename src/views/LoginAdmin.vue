@@ -6,7 +6,7 @@
         style="background-image url('images/bg-01.jpg');"
       >
         <div class="wrap-login100 p-l-55 p-r-55 p-t-20 p-b-20 shadow ">
-          <img src="../assets/logo.svg" class="logo" alt="" />
+          <img src="../assets/logo.jpg" class="logo" alt="" />
           <hr />
           <span class="login100-form-title p-b-50 m-b-50  mt-3">
             Connexion Administrateur
@@ -181,7 +181,7 @@ export default {
           const res = await result.json();
           console.log(res);
           this.message_err = undefined;
-          localStorage.setItem("tokenADM_Data@_Fc", res.Token);
+          localStorage.setItem("accessToken", res.Token);
           location.replace("/AdminDash");
         } else {
           const err = await result.json();

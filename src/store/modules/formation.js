@@ -59,7 +59,7 @@ const actions = {
             url: 'http://127.0.0.1:8000/api/add/type-formation',
             headers: {
                 'Accept': 'application/json',
-                'Authorization': 'Bearer ' + localStorage.getItem('tokenADM_Data@_Fc'),
+                'Authorization': 'Bearer ' + localStorage.getItem('accessToken'),
                 'Content-Type': 'application/json'
             },
             data: data
@@ -100,7 +100,7 @@ const actions = {
             url: "http://127.0.0.1:8000/api/add/formation",
             headers: {
                 Accept: "application/json",
-                Authorization: "Bearer " + localStorage.getItem("tokenADM_Data@_Fc"),
+                Authorization: "Bearer " + localStorage.getItem("accessToken"),
                 "Content-Type": "application/json",
             },
             data: data,
@@ -133,7 +133,7 @@ const actions = {
             url: "http://127.0.0.1:8000/api/categories-remove",
             headers: {
                 Accept: "application/json",
-                Authorization: "Bearer " + localStorage.getItem("tokenADM_Data@_Fc"),
+                Authorization: "Bearer " + localStorage.getItem("accessToken"),
                 "Content-Type": "application/json",
             },
             data: data
@@ -166,7 +166,7 @@ const actions = {
             url: "http://127.0.0.1:8000/api/formation-remove",
             headers: {
                 Accept: "application/json",
-                Authorization: "Bearer " + localStorage.getItem("tokenADM_Data@_Fc"),
+                Authorization: "Bearer " + localStorage.getItem("accessToken"),
                 "Content-Type": "application/json",
             },
             data: data
