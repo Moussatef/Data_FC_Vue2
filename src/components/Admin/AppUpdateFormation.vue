@@ -178,7 +178,16 @@
                 <div class="col-lg-7 col-md-12 col-sm-12 col-12 my-4">
                   <h5>Type de formation</h5>
                   <div class="d-flex">
-                    <vs-select
+                    <select class="form-select" v-model="value1">
+                      <option
+                        v-for="cat in categories"
+                        :key="cat.id"
+                        :value="cat.id"
+                        >{{ cat.codeF }} : {{ cat.titre }}</option
+                      >
+                    </select>
+
+                    <!-- <vs-select
                       placeholder="sélectionner le type de formation"
                       v-model="value1"
                     >
@@ -190,7 +199,7 @@
                       >
                         {{ cat.codeF }} : {{ cat.titre }}
                       </vs-option>
-                    </vs-select>
+                    </vs-select> -->
                     <vs-button
                       class="mx-3"
                       size="large"
@@ -293,23 +302,22 @@
                 </div>
               </div>
               <div
-                class="col-lg-12 d-flex flex-wrap justify-content-center align-items-center"
+                class="col-lg-12 d-flex flex-wrap justify-content-evenly align-items-center"
               >
-                <vs-alert shadow>
-                  <template #title> </template>
-                  <div
-                    v-for="(pro, i) in programme"
-                    :key="i"
-                    class="m-1 d-flex justify-content-start align-items-center fs-6"
-                  >
+                <div
+                  v-for="(pro, i) in programme"
+                  :key="i"
+                  class=" col-5  d-flex justify-content-between align-items-center fs-6  my-1 border rounded"
+                >
+                  <div class="d-flex">
                     <i class="fa fa-check mt-1 mx-2"></i>
 
                     {{ pro }}
-                    <vs-button size="small" class="ms-5" @click="removeEl(pro)">
-                      <i class="fa fa-close"></i>
-                    </vs-button>
                   </div>
-                </vs-alert>
+                  <vs-button size="small" class="" @click="removeEl(pro)">
+                    <i class="fa fa-close"></i>
+                  </vs-button>
+                </div>
               </div>
               <div
                 class="row col-4 offset-md-8"

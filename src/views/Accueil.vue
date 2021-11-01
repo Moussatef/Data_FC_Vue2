@@ -395,6 +395,7 @@
             </div>
             <div class="col-lg-6 col-12 my-3">
               <div
+                class="shadow"
                 data-aos="fade-left"
                 data-aos-delay="50"
                 data-aos-duration="1000"
@@ -412,6 +413,7 @@
             </div>
             <div class="col-lg-6 col-12 my-3">
               <div
+              class="shadow"
                 data-aos="fade-right"
                 data-aos-delay="50"
                 data-aos-duration="1000"
@@ -816,7 +818,7 @@ export default {
 .scale-img {
   transition: 1s;
   &:hover {
-    transform: scale(1.1);
+    transform: scale(0.9);
     transition: 1s;
   }
 }
