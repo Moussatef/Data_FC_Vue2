@@ -25,7 +25,7 @@
                   badge-color="success"
                 >
                   <img
-                    src="../assets/logo.png"
+                    :src="'http://127.0.0.1:8000'+auth.image"
                     width="100"
                     height="100"
                     alt=""
@@ -47,11 +47,13 @@
                   @change="imageSelected"
                 />
                 <div class="d-flex justify-content-center align-items-center">
-                  <h5>MOUSSATEF OTHMAN</h5>
+                  <h5 class="text-uppercase">
+                    {{ auth.nom }} {{ auth.prenom }}
+                  </h5>
                   <i class="fa fa-pencil-square-o ms-2" aria-hidden="true"></i>
                 </div>
                 <div class="d-flex justify-content-center align-items-center">
-                  <h6>otman.mousstaef@gmail.com</h6>
+                  <h6>{{ auth.email }}</h6>
                   <i class="fa fa-pencil-square-o  ms-2" aria-hidden="true"></i>
                 </div>
                 <p>Administrateur</p>

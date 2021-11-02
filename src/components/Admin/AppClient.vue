@@ -102,6 +102,36 @@
           </div>
         </div>
       </div>
+      <vs-dialog
+        v-if="clientInfo"
+        width="1600px"
+        not-center
+        v-model="activeEmail"
+      >
+        <template #header>
+          <h4 class="not-margin">Envoyer un <b> e-mail </b></h4>
+        </template>
+
+        <div class="container">
+          <div class="row">
+            <div class="col-8">
+              <h5>à : {{ clientInfo.nom }} {{ clientInfo.prenom }}</h5>
+              <h5>e-mail : {{ clientInfo.email }}</h5>
+            </div>
+          </div>
+        </div>
+
+        <template #footer>
+          <div class="d-flex  justify-content-end">
+            <vs-button @click="active2 = false" transparent>
+              Ok
+            </vs-button>
+            <vs-button @click="active2 = false" dark transparent>
+              Cancel
+            </vs-button>
+          </div>
+        </template>
+      </vs-dialog>
     </div>
   </div>
 </template>
@@ -110,12 +140,15 @@ import { mapGetters, mapActions } from "vuex";
 export default {
   name: "AppFormation",
   props: ["check"],
-  data: () => ({
-    search: "",
-    // page: 1,
-    // max: 10,
-    selected: [],
-  }),
+  data: () => {
+    return {
+      search: "",
+      // page: 1,
+      // max: 10,
+      selected: [],
+      activeEmail: false,
+    };
+  },
   methods: mapActions(["getAllClient"]),
 
   computed: mapGetters(["client"]),

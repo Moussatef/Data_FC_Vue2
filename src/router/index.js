@@ -18,6 +18,7 @@ import AdminClient from '../views/AdminClient.vue'
 import UserProfile from '../views/UserProfile.vue'
 import LoginAdmin from '../views/LoginAdmin.vue'
 import AdminProfile from '../views/AdminProfile.vue'
+import NotFound from '../views/NotFound.vue'
 
 Vue.use(VueRouter)
 
@@ -173,18 +174,18 @@ const routes = [
     // which is lazy-loaded when the route is visited.
     component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
   },
-  // {
-  //   name: 'NotFound',
-  //   component: NotFound,
-  //   path: '/:pathMatch(.)',
+  {
+    name: 'NotFound',
+    component: NotFound,
+    path: '/:pathMatch(.)',
 
-  // },
-  // {
-  //   name: 'NotFound',
-  //   component: NotFound,
-  //   path: '/:pathMatch(.*) *',
+  },
+  {
+    name: 'NotFound',
+    component: NotFound,
+    path: '/:pathMatch(.*) *',
 
-  // },
+  },
 ]
 
 const router = new VueRouter({

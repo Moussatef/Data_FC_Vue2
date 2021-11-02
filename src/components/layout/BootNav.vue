@@ -151,9 +151,9 @@
               <img
                 :src="host+auth.image"
                 :alt="auth.nom[0]+'.'+auth.prenom[0]"
-                width="32"
-                height="32"
-                class="rounded-circle"
+                width="40"
+                height="40"
+                class="rounded-circle border border-success "
                 
               />
             </a>

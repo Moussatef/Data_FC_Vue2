@@ -175,23 +175,25 @@
                     </vs-button>
                   </div>
                 </div>
+
                 <div class="col-lg-7 col-md-12 col-sm-12 col-12 my-4">
                   <h5>Type de formation</h5>
                   <div class="d-flex">
-                    <select class="form-select" v-model="value1">
+                    <!-- <select class="form-select" v-model="valueSe">
                       <option
                         v-for="cat in categories"
                         :key="cat.id"
                         :value="cat.id"
                         >{{ cat.codeF }} : {{ cat.titre }}</option
                       >
-                    </select>
+                    </select> -->
 
-                    <!-- <vs-select
+                    <vs-select
                       placeholder="sélectionner le type de formation"
-                      v-model="value1"
+                      v-model="valueSe"
                     >
                       <vs-option
+                      class=" overflow-hidden mb-2 py-4"
                         v-for="cat in categories"
                         :key="cat.id"
                         :label="cat.codeF + ' : ' + cat.titre"
@@ -199,7 +201,7 @@
                       >
                         {{ cat.codeF }} : {{ cat.titre }}
                       </vs-option>
-                    </vs-select> -->
+                    </vs-select>
                     <vs-button
                       class="mx-3"
                       size="large"
@@ -328,7 +330,7 @@
                     inpPc &&
                     inpDf &&
                     programme.length &&
-                    value1
+                    valueSe
                 "
               >
                 <vs-button
@@ -343,7 +345,7 @@
                       inpDf,
                       programme,
                       image,
-                      value1,
+                      valueSe,
                     ])
                   "
                 >
@@ -367,10 +369,11 @@ export default {
   props: { formation: Object, categorie: String },
   data: function() {
     return {
+      value3: "",
       activeDilogS: false,
       activebtn: 0,
       activeDlg: false,
-      value1: this.categorie,
+      valueSe: this.categorie,
       programme: this.formation.programme.map((el) => el.description),
       inpProgramme: undefined,
       inpCodeF: this.formation.codeF,

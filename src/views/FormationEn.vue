@@ -33,7 +33,7 @@
                   :key="i"
                   v-for="(tr, i) in cat.formation"
                 >
-                  <div class="card shadow-sm" @click="showFormation(tr)">
+                  <div class="card shadow-sm">
                     <img
                       :src="'http://127.0.0.1:8000' + tr.imgFormation"
                       height="300"
@@ -44,6 +44,20 @@
                       <p class="card-text fs-4">
                         {{ tr.titre }}
                       </p>
+                    </div>
+                    <div class="card-footer d-flex justify-content-end ">
+                      <vs-button class="fs-6" @click="activeVd = true" border>
+                        bande annonce
+                      </vs-button>
+                      <vs-button
+                        @click="showFormation(tr)"
+                        class="fs-6"
+                        border
+                        color="rgb(59,222,200)"
+                        gradient
+                      >
+                        Visite
+                      </vs-button>
                     </div>
                   </div>
                 </div>
@@ -69,6 +83,41 @@
           </div>
         </div>
       </div>
+      <vs-dialog width="1400px" not-center v-model="activeVd">
+        <template #header>
+          <h4 class="not-margin">Bande <b> annonce </b></h4>
+        </template>
+
+        <div class="container">
+          <div class="row">
+            <iframe
+              class="video--player__vid"
+              allowfullscreen="1"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              title="YouTube video player"
+              src="https://www.youtube.com/embed/4e4PxhRcxHw?rel=0&amp;controls=2&amp;disablekb=0&amp;modestbranding=1&amp;enablejsapi=1&amp;origin=https%3A%2F%2Fwww.jechoisismontreal.com&amp;widgetid=1"
+              id="widget2"
+              data-gtm-yt-inspected-11225346_44="true"
+              width="640"
+              height="390"
+              frameborder="0"
+            ></iframe>
+         
+          </div>
+        </div>
+
+        <template #footer>
+          <div class="d-flex  justify-content-end">
+            <vs-button @click="activeVd = false" transparent>
+              Ok
+            </vs-button>
+            <vs-button @click="activeVd = false" dark transparent>
+              Cancel
+            </vs-button>
+          </div>
+        </template>
+      </vs-dialog>
+
       <vs-dialog
         v-if="formationShow"
         width="1600px"
@@ -190,6 +239,8 @@ export default {
       titre: "Formations Interentreprises",
       active2: false,
       formationShow: undefined,
+      btnactive: false,
+      activeVd: false,
     };
   },
   methods: {
@@ -215,6 +266,11 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.video--player__vid {
+  width: 100%;
+  height: 600px;
+  z-index: 0;
+}
 .card_formation {
   transition: transform 250ms;
   overflow: hidden;

@@ -6,7 +6,7 @@
           <div class="bx bx-menu" @click="menu()" id="menu-icon"></div>
         </li>
         <li>
-          <router-link to="/adminDash">
+          <router-link to="/admin-dashboard">
             <span class="icon"><i class="bx bxs-home"></i></span>
             <span class="text">Home</span>
           </router-link>
