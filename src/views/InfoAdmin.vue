@@ -2,18 +2,15 @@
   <div>
     <div v-if="auth.role == 'admin'" class=" overflow-hidden bg-light">
       <div class="mt-4"></div>
-
       <AppSideNav />
-
       <div class="content  ">
         <div class="top-navbar position-fixed  ">
           <div class="bx bx-menu btn_nav" @click="menu()"></div>
         </div>
-        <h1 class="my-5">Admin Profile</h1>
-
+        <h1 class="my-5">Administrateur Information</h1>
         <div class="container ">
           <div class="row  justify-content-center">
-            <div class="col-10">
+            <div class="col-4">
               <div class="bg-white text-center p-2 shadow-md">
                 <vs-avatar
                   class="rounded-circle my-3 mx-auto"
@@ -25,7 +22,15 @@
                   badge-color="success"
                 >
                   <img
-                    :src="'http://127.0.0.1:8000'+auth.image"
+                    v-if="!imagepreview"
+                    :src="'http://127.0.0.1:8000' + auth.image"
+                    width="100"
+                    height="100"
+                    alt=""
+                  />
+                  <img
+                    v-if="imagepreview"
+                    :src="imagepreview"
                     width="100"
                     height="100"
                     alt=""
@@ -59,10 +64,43 @@
                 <p>Administrateur</p>
               </div>
             </div>
+            <div class="col-8 bg-white">
+              <div class="p-2">
+                <div class="row justify-content-start align-items-start mt-3 ">
+                  <h5 class="col-2 text-start">Adresse :</h5>
+                  <p class="text-uppercase text-start  col-8 ">
+                    {{ auth.adresse.adresse }}
+                  </p>
+                  <i class="fa fa-pencil-square-o col-2" aria-hidden="true"></i>
+                </div>
+                <div class="row justify-content-start align-items-start mt-3 ">
+                  <h5 class="col-2 text-start">Ville :</h5>
+                  <p class="text-uppercase text-start  col-4 ">
+                    {{ auth.adresse.ville }}
+                  </p>
+                  <i class="fa fa-pencil-square-o col-2" aria-hidden="true"></i>
+                </div>
+                <div class="row justify-content-start align-items-start mt-3 ">
+                  <h5 class="col-2 text-start">Genre :</h5>
+                  <p class="text-uppercase text-start col-4 ">
+                    {{ auth.genre }}
+                  </p>
+                  <i class="fa fa-pencil-square-o col-2" aria-hidden="true"></i>
+                </div>
+                <div class="row justify-content-start align-items-start mt-3 ">
+                  <h5 class="col-2 text-start">Telephone:</h5>
+                  <p class="text-uppercase text-start  col-4 ">
+                    {{ auth.telephone }}
+                  </p>
+                  <i class="fa fa-pencil-square-o col-2" aria-hidden="true"></i>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </div>
+    <div v-else-if="loading" class="box-loading" ref="content"></div>
     <div v-else>
       <h1>You don't have permission to this page</h1>
       <div>
@@ -83,21 +121,57 @@
 import AppSideNav from "@/components/Admin/AppSIdeNav.vue";
 import { mapGetters, mapActions } from "vuex";
 export default {
-  name: "AdminProfile",
+  name: "InfoAdmin",
   components: {
     AppSideNav,
   },
   data: function() {
     return {
-      imageSelected: undefined,
+      imagepreview: undefined,
     };
   },
   computed: {
-    ...mapGetters(["auth"]),
+    ...mapGetters(["auth", "loading"]),
   },
   methods: {
+    menu() {
+      let sidenavbar = document.querySelector(".side-navbar");
+      let content = document.querySelector(".content");
+      sidenavbar.classList.toggle("active");
+      content.classList.toggle("active");
+    },
+    openLoading() {
+      const loading = this.$vs.loading({
+        text: "Loading",
+        color: "#d5397b",
+        circles,
+      });
+      // setTimeout(() => {
+      //   loading.close();
+      // }, 3000);
+    },
+    closeLoading() {
+      const loading = this.$vs.loading({
+        target: this.$refs.content,
+        text: "Loading..",
+        color: "#257579",
+        type: "circles",
+      });
+      setTimeout(() => {
+        loading.close();
+      }, 1000);
+    },
     edit() {
       alert("HHHH");
+    },
+    imageSelected(e) {
+      this.img_src = true;
+      this.image = e.target.files[0];
+      let reader = new FileReader();
+      reader.readAsDataURL(this.image);
+      reader.onload = (e) => {
+        this.imagepreview = e.target.result;
+      };
     },
   },
 };
@@ -162,6 +236,10 @@ export default {
   .content.active {
     width: calc(100% - 60px);
     left: 60px;
+  }
+  .btn_nav {
+    display: block;
+    margin-left: 10px;
   }
 
   #menu-icon {

@@ -50,9 +50,9 @@
                       <vs-th class="fs-6">
                         Programme de formation
                       </vs-th>
-                      <vs-th v-if="auth.role=='admin'" class="fs-6"> </vs-th>
-                      <vs-th v-if="auth.role=='admin'"> </vs-th>
-                      <vs-th v-if="auth.role=='admin'"> </vs-th>
+                      <vs-th v-if="auth.role == 'admin'" class="fs-6"> </vs-th>
+                      <vs-th v-if="auth.role == 'admin'"> </vs-th>
+                      <vs-th v-if="auth.role == 'admin'"> </vs-th>
                     </vs-tr>
                   </template>
                   <template #tbody>
@@ -88,7 +88,7 @@
                           </li>
                         </ul>
                       </vs-td>
-                      <vs-td v-if="auth.role=='admin'">
+                      <vs-td v-if="auth.role == 'admin'">
                         <vs-button
                           flat
                           icon
@@ -100,7 +100,7 @@
                           Modifier
                         </vs-button>
                       </vs-td>
-                      <vs-td v-if="auth.role=='admin'">
+                      <vs-td v-if="auth.role == 'admin'">
                         <vs-button
                           @click="
                             idFormation = tr.id;
@@ -113,8 +113,12 @@
                           Supprimer
                         </vs-button>
                       </vs-td>
-                      <vs-td v-if="auth.role=='admin'">
-                        <vs-button flat icon>
+                      <vs-td v-if="auth.role == 'admin'">
+                        <vs-button v-if="tr.block == 1" danger flat icon>
+                          <i class="bx bx-lock"></i>
+                        </vs-button>
+
+                        <vs-button v-if="tr.block == 0" flat icon>
                           <i class="bx bx-lock-open-alt"></i>
                         </vs-button>
                       </vs-td>
@@ -209,7 +213,7 @@ export default {
     },
   },
   computed: {
-    ...mapGetters(["formationEnt", "categories","auth", "loading"]),
+    ...mapGetters(["formationEnt", "categories", "auth", "loading"]),
   },
 
   mounted() {

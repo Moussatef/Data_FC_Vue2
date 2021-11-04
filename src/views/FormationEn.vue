@@ -33,7 +33,7 @@
                   :key="i"
                   v-for="(tr, i) in cat.formation"
                 >
-                  <div class="card shadow-sm">
+                  <div class="card shadow">
                     <img
                       :src="'http://127.0.0.1:8000' + tr.imgFormation"
                       height="300"
@@ -45,14 +45,13 @@
                         {{ tr.titre }}
                       </p>
                     </div>
-                    <div class="card-footer d-flex justify-content-end ">
-                      <vs-button class="fs-6" @click="activeVd = true" border>
+                    <div class="card-footer  d-flex justify-content-end ">
+                      <vs-button class="fs-6" @click="activeVd = true" gradient>
                         bande annonce
                       </vs-button>
                       <vs-button
                         @click="showFormation(tr)"
                         class="fs-6"
-                        border
                         color="rgb(59,222,200)"
                         gradient
                       >
@@ -61,23 +60,6 @@
                     </div>
                   </div>
                 </div>
-                <!-- <div class="col-lg-3" :key="i" v-for="(tr, i) in cat.formation">
-                  <div @click="showFormation(tr)" class=" card_formation">
-                    <div class="card shadow-sm">
-                      <img
-                        :src="'http://127.0.0.1:8000' + tr.imgFormation"
-                        height="225"
-                        alt=""
-                      />
-
-                      <div class="card-body">
-                        <p class="card-text fs-3">
-                          {{ tr.titre }}
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </div> -->
               </div>
             </div>
           </div>
@@ -102,7 +84,6 @@
               height="390"
               frameborder="0"
             ></iframe>
-         
           </div>
         </div>
 
@@ -279,15 +260,16 @@ export default {
   .card {
     overflow: hidden;
     min-height: 500px;
-    border-bottom: none;
-    border-top: none;
-    border-right: solid 1px rgb(255, 123, 0);
-    border-left: solid 1px rgb(255, 123, 0);
-    border-radius: 15px;
+    // border-bottom: none;
+    // border-top: none;
+    // border-right: solid 1px rgb(255, 123, 0);
+    // border-left: solid 1px rgb(255, 123, 0);
+    border: none;
+    border-radius: 10px;
     transition: 0.6s;
     &:hover {
-      border-right: solid 2px rgb(36, 110, 112);
-      border-left: solid 2px rgb(36, 110, 112);
+      border: solid 2px rgba(51, 161, 165, 0.486);
+      // border-left: solid 2px rgb(36, 110, 112);
       transition: 0.6s;
     }
   }
@@ -298,7 +280,7 @@ export default {
   }
   &:hover {
     transform: translateY(-13px);
-    cursor: pointer;
+    // cursor: pointer;
     transition: 0.8s;
 
     img {
@@ -308,6 +290,13 @@ export default {
   }
   .card-text {
     color: #266874;
+  }
+  .card-footer {
+    background: linear-gradient(
+      180deg,
+      #ffffffd3 0%,
+      #3f3f3f7a 100%
+    ) !important;
   }
 }
 </style>

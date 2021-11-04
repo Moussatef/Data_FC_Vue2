@@ -46,7 +46,7 @@
         </div>
       </div>
     </div>
-     <div v-else-if="loading" class="box-loading" ref="content"></div>
+    <div v-else-if="loading" class="box-loading" ref="content"></div>
     <div v-else>
       <h1>You don't have permission to this page</h1>
       <div>
@@ -89,7 +89,7 @@ export default {
     };
   },
   computed: {
-    ...mapGetters(["auth","loading"]),
+    ...mapGetters(["auth", "loading"]),
   },
 
   methods: {
@@ -120,7 +120,13 @@ export default {
       });
       setTimeout(() => {
         loading.close();
-      }, 500);
+      }, 1000);
+    },
+    menu() {
+      let sidenavbar = document.querySelector(".side-navbar");
+      let content = document.querySelector(".content");
+      sidenavbar.classList.toggle("active");
+      content.classList.toggle("active");
     },
   },
   mounted() {
@@ -189,6 +195,10 @@ export default {
   .content.active {
     width: calc(100% - 60px);
     left: 60px;
+  }
+  .btn_nav {
+    display: block;
+    margin-left: 10px;
   }
 
   #menu-icon {

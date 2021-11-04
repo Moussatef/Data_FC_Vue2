@@ -25,7 +25,7 @@ export default {
       const loading = this.$vs.loading({
         text: "Loading...",
         color: "#257579",
-        type: "circles"
+        type: "circles",
       });
       setTimeout(() => {
         loading.close();
@@ -41,7 +41,7 @@ export default {
           //   "Type formation est ajoutée avec succès à la base de données";
           // console.log(res.role);
           this.role = res.role;
-          // console.log(this.role);
+          console.log(res);
         })
         .catch((err) => {
           this.errorDesc = err.message;
@@ -60,10 +60,9 @@ export default {
     this.openLoading();
     this.getInfoAuth();
   },
-  beforeMount(){
+  beforeMount() {
     this.getInfoAuth();
-
-  }
+  },
 };
 </script>
 

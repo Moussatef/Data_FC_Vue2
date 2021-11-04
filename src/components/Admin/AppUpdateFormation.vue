@@ -193,7 +193,7 @@
                       v-model="valueSe"
                     >
                       <vs-option
-                      class=" overflow-hidden mb-2 py-4"
+                        class=" overflow-hidden mb-2 py-4"
                         v-for="cat in categories"
                         :key="cat.id"
                         :label="cat.codeF + ' : ' + cat.titre"
@@ -337,7 +337,7 @@
                   size="large"
                   class="my-4"
                   @click="
-                    addFormation([
+                    upFormation([
                       inpCodeF,
                       inpTitre,
                       inpObj,
@@ -346,6 +346,7 @@
                       programme,
                       image,
                       valueSe,
+                      id,
                     ])
                   "
                 >
@@ -373,7 +374,7 @@ export default {
       activeDilogS: false,
       activebtn: 0,
       activeDlg: false,
-      valueSe: this.categorie,
+      valueSe: this.formation.formationcategorie_id,
       programme: this.formation.programme.map((el) => el.description),
       inpProgramme: undefined,
       inpCodeF: this.formation.codeF,
@@ -381,6 +382,7 @@ export default {
       inpDf: this.formation.duree_dormation,
       inpPc: this.formation.population_cible,
       inpObj: this.formation.objectifs,
+      id: this.formation.id,
 
       inpCodeType: undefined,
       inpTitreType: undefined,
@@ -421,12 +423,12 @@ export default {
       // this.addTypeFormation([this.inpCodeType, this.inpTitreType])
       // this.$store.dispatch()
     },
-    async addFormation(param) {
+    async upFormation(param) {
       this.$store
-        .dispatch("addFormation", param)
+        .dispatch("updateFormation", param)
         .then((res) => {
           this.description =
-            "La formation est ajoutée avec succès à la base de données";
+            "La formation est modifié avec succès à la base de données";
           this.activeDilogS = true;
           this.inpProgramme = undefined;
           this.inpCodeF = undefined;
@@ -484,7 +486,7 @@ export default {
   },
   computed: mapGetters(["formationEnt", "categories"]),
   mounted() {
-    this.getAllFormationEn();
+    // this.getAllFormationEn();
     this.getAllCategories();
   },
 };

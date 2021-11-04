@@ -15,9 +15,11 @@ import Register from '../views/Register.vue'
 import AdminDash from '../views/AdminDash.vue'
 import AdminFormationEn from '../views/AdminFormationEn.vue'
 import AdminClient from '../views/AdminClient.vue'
+import InfoClient from '../views/ClientInfo.vue'
+import ClientFavorite from '../views/ClientFavorite.vue'
 import UserProfile from '../views/UserProfile.vue'
+import InfoAdmin from '../views/InfoAdmin.vue'
 import LoginAdmin from '../views/LoginAdmin.vue'
-import AdminProfile from '../views/AdminProfile.vue'
 import NotFound from '../views/NotFound.vue'
 
 Vue.use(VueRouter)
@@ -28,6 +30,7 @@ const routes = [
     name: 'Accueil',
     component: Accueil
   },
+  // authontification route
   {
     path: '/login',
     name: 'Login',
@@ -65,6 +68,8 @@ const routes = [
     }
   },
 
+  //admin route
+
   {
     path: '/admin-dashboard',
     name: 'AdminDash',
@@ -78,9 +83,9 @@ const routes = [
     }
   },
   {
-    path: '/Admin-profile',
-    name: 'AdminProfile',
-    component: AdminProfile,
+    path: '/info-admin',
+    name: 'InfoAdmin',
+    component: InfoAdmin,
     beforeEnter: (to, from, next) => {
       if (localStorage.getItem('accessToken')) {
         next();
@@ -89,6 +94,8 @@ const routes = [
       }
     }
   },
+
+
   {
     path: '/admin-formation-en',
     name: 'AdminFormationEn',
@@ -113,6 +120,34 @@ const routes = [
       }
     }
   },
+  //fin route admin
+
+
+  //client-route
+  {
+    path: '/info-client',
+    name: 'InfoClient',
+    component: InfoClient,
+    beforeEnter: (to, from, next) => {
+      if (localStorage.getItem('accessToken')) {
+        next();
+      } else {
+        next('/');
+      }
+    }
+  },
+  {
+    path: '/client-favorite-formation',
+    name: 'ClientFavorite',
+    component: ClientFavorite,
+    beforeEnter: (to, from, next) => {
+      if (localStorage.getItem('accessToken')) {
+        next();
+      } else {
+        next('/');
+      }
+    }
+  },
   {
     path: '/client-profile',
     name: 'UserProfile',
@@ -125,6 +160,9 @@ const routes = [
       }
     }
   },
+  //fin route client profile
+
+  //simple route
   {
     path: '/nos-formations',
     name: 'Formations',
@@ -175,15 +213,15 @@ const routes = [
     component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
   },
   {
+    path: '/:pathMatch(.)',
     name: 'NotFound',
     component: NotFound,
-    path: '/:pathMatch(.)',
 
   },
   {
+    path: '/:pathMatch(.*) *',
     name: 'NotFound',
     component: NotFound,
-    path: '/:pathMatch(.*) *',
 
   },
 ]

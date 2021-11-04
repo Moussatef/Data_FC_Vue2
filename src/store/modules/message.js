@@ -33,9 +33,46 @@ const actions = {
 
             axios(config)
                 .then(response => {
-                    let formation = response.data;
+                    let message = response.data.message;
                     // consoled for testing
-                    // console.log(formation);
+                    console.log(message);
+                    commit('addMessages', message);
+                    resolve('Success')
+                })
+                .catch(error => {
+                    reject(error)
+                })
+
+        })
+
+    },
+    async adminSendMessage({ commit }, param) {
+        var data = JSON.stringify({
+            "id": param[0],
+            "title": param[1],
+            "subject": param[2],
+            "message": param[3],
+
+        });
+        var config = {
+            method: 'post',
+            url: 'http://127.0.0.1:8000/api/admin/send-message',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer ' + localStorage.getItem('accessToken'),
+
+            },
+            data: data
+        };
+
+        return new Promise((resolve, reject) => {
+
+            axios(config)
+                .then(response => {
+                    let message = response.data.message;
+                    // consoled for testing
+                    console.log(message);
                     // commit('setCategory', formation);
                     resolve('Success')
                 })
@@ -76,8 +113,7 @@ const actions = {
 
 const mutations = {
     setMessages: (state, messages) => (state.messages = messages),
-
-
+    addMessages: (state, messages) => (state.messages.unshift(messages)),
 
 }
 

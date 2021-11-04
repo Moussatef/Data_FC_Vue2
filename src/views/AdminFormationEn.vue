@@ -27,6 +27,7 @@
         </div>
       </div>
     </div>
+    <div v-else-if="loading" class="box-loading" ref="content"></div>
     <div v-else>
       <h1>You don't have permission to this page</h1>
       <div>
@@ -63,10 +64,38 @@ export default {
     profile: false,
   }),
   computed: {
-    ...mapGetters(["auth"]),
+    ...mapGetters(["auth","loading"]),
   },
 
-  methods: {},
+  methods: {
+     menu() {
+      let sidenavbar = document.querySelector(".side-navbar");
+      let content = document.querySelector(".content");
+      sidenavbar.classList.toggle("active");
+      content.classList.toggle("active");
+    },
+     openLoading() {
+      const loading = this.$vs.loading({
+        text: "Loading",
+        color: "#d5397b",
+        circles,
+      });
+      // setTimeout(() => {
+      //   loading.close();
+      // }, 3000);
+    },
+    closeLoading() {
+      const loading = this.$vs.loading({
+        target: this.$refs.content,
+        text: "Loading..",
+        color: "#257579",
+        type: "circles",
+      });
+      setTimeout(() => {
+        loading.close();
+      }, 1000);
+    },
+  },
   mounted() {},
 };
 </script>
@@ -124,6 +153,10 @@ export default {
   .content.active {
     width: calc(100% - 60px);
     left: 60px;
+  }
+  .btn_nav {
+    display: block;
+    margin-left: 10px;
   }
 
   #menu-icon {

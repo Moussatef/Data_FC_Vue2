@@ -9,9 +9,9 @@
       open
     >
       <template style="margin-top:80px;" #logo>
-        <img src="../../assets/logo.png" alt="" />
+        <img :src="host+auth.image" alt="" />
       </template>
-      <vs-sidebar-item id="home">
+      <vs-sidebar-item to="/info-client" id="home">
         <template #icon>
           <i class="bx bx-home"></i>
         </template>
@@ -99,11 +99,11 @@
           Git
         </vs-sidebar-item>
       </vs-sidebar-group>
-      <vs-sidebar-item id="donate">
+      <vs-sidebar-item to="/client-favorite-formation" id="donate">
         <template #icon>
           <i class="bx bxs-donate-heart"></i>
         </template>
-        Donate
+        Favorite Formation
       </vs-sidebar-item>
       <vs-sidebar-item id="drink">
         <template #icon>
@@ -138,11 +138,16 @@
 </template>
 
 <script>
+import { mapGetters } from "vuex";
 export default {
   name: "AppNavS",
   data: () => ({
     active: "home",
+    host :"http://127.0.0.1:8000"
   }),
+  computed: {
+    ...mapGetters(["auth", "loading"]),
+  },
 };
 </script>
 

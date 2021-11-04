@@ -27,8 +27,8 @@
           </router-link>
         </li>
 
-        <li :class="{ isActive: profile }">
-          <router-link to="/admin-profile">
+        <li>
+          <router-link to="/info-admin">
             <span class="icon"><i class="bx bxs-user"></i></span>
             <span class="text">Profile</span>
           </router-link>
@@ -46,10 +46,10 @@
           </router-link>
         </li>
         <li>
-          <router-link to="/admin-formation">
+          <a @click="logout()">
             <span class="icon"><i class="bx bxs-log-out"></i></span>
             <span class="text">Log-Out</span>
-          </router-link>
+          </a>
         </li>
       </ul>
     </div>
@@ -58,6 +58,7 @@
 
 <script>
 export default {
+  name: "AppSideNav",
   data: () => ({
     homeAct: true,
     formationAct: false,
@@ -72,6 +73,29 @@ export default {
       let content = document.querySelector(".content");
       sidenavbar.classList.toggle("active");
       content.classList.toggle("active");
+    },
+    async logout() {
+      var myHeaders = new Headers();
+      myHeaders.append(
+        "Authorization",
+        "Bearer " + localStorage.getItem("accessToken")
+      );
+
+      var requestOptions = {
+        method: "POST",
+        headers: myHeaders,
+        redirect: "follow",
+      };
+      const res = await fetch(
+        "http://127.0.0.1:8000/api/datafc/auth/logout",
+        requestOptions
+      );
+      if (res.status === 200) {
+        const result = await res.json();
+        console.log(result);
+        localStorage.clear();
+        location.replace("/");
+      }
     },
   },
 };
@@ -177,10 +201,7 @@ a {
   .side-navbar.active {
     left: 0;
   }
-  .btn_nav {
-    display: block;
-    margin-left: 10px;
-  }
+
   #menu-icon {
     display: none;
   }
