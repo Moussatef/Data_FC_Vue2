@@ -21,6 +21,7 @@
             @click="
               activeDilogS = false;
               activeTypeF = false;
+              $emit('closeMl',[closeMl]);
             "
             transparent
           >
@@ -347,7 +348,8 @@
                       image,
                       valueSe,
                       id,
-                    ])
+                    ]);
+                    
                   "
                 >
                   <i class="fa fa-plus me-3" aria-hidden="true"></i>Modifier
@@ -400,6 +402,8 @@ export default {
 
       description: "",
 
+      closeMl: false,
+
       imgFormation: this.formation.imgFormation,
     };
   },
@@ -437,7 +441,7 @@ export default {
           this.inpPc = undefined;
           this.inpObj = undefined;
           this.programme.splice(0, this.programme.length);
-          this.closeM();
+          this.closeMl = true;
         })
         .catch((err) => {
           this.errorDesc = err;

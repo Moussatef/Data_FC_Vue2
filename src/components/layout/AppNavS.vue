@@ -9,9 +9,9 @@
       open
     >
       <template style="margin-top:80px;" #logo>
-        <img :src="host+auth.image" alt="" />
+        <img :src="host + auth.image" alt="" />
       </template>
-      <vs-sidebar-item to="/info-client" id="home">
+      <vs-sidebar-item to="/info-client" :class="{'active' : activelink == 'ClientInfo' }" id="home">
         <template #icon>
           <i class="bx bx-home"></i>
         </template>
@@ -58,59 +58,14 @@
           Facebook
         </vs-sidebar-item>
       </vs-sidebar-group>
-      <vs-sidebar-group>
-        <template #header>
-          <vs-sidebar-item arrow>
-            <template #icon>
-              <i class="bx bx-code-alt"></i>
-            </template>
-            Coding
-          </vs-sidebar-item>
-        </template>
 
-        <vs-sidebar-item id="github">
-          <template #icon>
-            <i class="bx bxl-github"></i>
-          </template>
-          Github
-        </vs-sidebar-item>
-        <vs-sidebar-item id="codepen">
-          <template #icon>
-            <i class="bx bxl-codepen"></i>
-          </template>
-          Codepen
-        </vs-sidebar-item>
-        <vs-sidebar-item id="discord">
-          <template #icon>
-            <i class="bx bxl-discord"></i>
-          </template>
-          Discord
-        </vs-sidebar-item>
-        <vs-sidebar-item id="Javascript">
-          <template #icon>
-            <i class="bx bxl-javascript"></i>
-          </template>
-          Javascript
-        </vs-sidebar-item>
-        <vs-sidebar-item id="git">
-          <template #icon>
-            <i class="bx bxl-git"></i>
-          </template>
-          Git
-        </vs-sidebar-item>
-      </vs-sidebar-group>
-      <vs-sidebar-item to="/client-favorite-formation" id="donate">
+      <vs-sidebar-item to="/client-favorite-formation" :class="{'active' : activelink == 'ClientFavorite' }" id="ClientFavorite">
         <template #icon>
           <i class="bx bxs-donate-heart"></i>
         </template>
-        Favorite Formation
+        Formations Préféré
       </vs-sidebar-item>
-      <vs-sidebar-item id="drink">
-        <template #icon>
-          <i class="bx bx-drink"></i>
-        </template>
-        Drink
-      </vs-sidebar-item>
+
       <vs-sidebar-item id="shopping">
         <template #icon>
           <i class="bx bxs-shopping-bags"></i>
@@ -120,9 +75,9 @@
 
       <template #footer>
         <vs-row justify="space-between">
-          <vs-avatar>
+          <!-- <vs-avatar>
             <img src="/avatars/avatar-5.png" alt="" />
-          </vs-avatar>
+          </vs-avatar> -->
 
           <!-- <vs-avatar badge-color="danger" badge-position="top-right">
             <i class="bx bx-bell"></i>
@@ -141,10 +96,13 @@
 import { mapGetters } from "vuex";
 export default {
   name: "AppNavS",
-  data: () => ({
-    active: "home",
-    host :"http://127.0.0.1:8000"
-  }),
+  props: ['activelink'],
+  data: () => {
+    return {
+      active: this.activelink,
+      host: "http://127.0.0.1:8000",
+    };
+  },
   computed: {
     ...mapGetters(["auth", "loading"]),
   },

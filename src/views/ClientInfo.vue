@@ -2,16 +2,16 @@
   <div>
     <div v-if="auth.role == 'client'" class=" overflow-hidden bg-light">
       <div class="mt-4"></div>
-      <AppNavS class="nav_z poition-fixed" />
+      <AppNavS class="nav_z poition-fixed" :activelink="'ClientInfo'" />
       <div class="content  ">
         <div class="top-navbar position-fixed  ">
           <div class="bx bx-menu btn_nav" @click="menu()"></div>
         </div>
         <h1 class="my-5">Client Information</h1>
         <div class="container ">
-          <div class="row  justify-content-center">
-            <div class="col-4">
-              <div class="bg-white text-center p-2 shadow-md">
+          <div class="row  justify-content-evenly">
+            <div class="col-3 bg-white">
+              <div class=" text-center p-2 shadow-md">
                 <vs-avatar
                   class="rounded-circle my-3 mx-auto"
                   size="150"
@@ -68,7 +68,10 @@
               <div class="p-2">
                 <div class="row justify-content-start align-items-start mt-3 ">
                   <h5 class="col-2 text-start">Adresse :</h5>
-                  <p v-if="auth.adresse" class="text-uppercase text-start  col-8 ">
+                  <p
+                    v-if="auth.adresse"
+                    class="text-uppercase text-start  col-8 "
+                  >
                     {{ auth.adresse.adresse }}
                   </p>
                   <p v-else class="text-muted text-start  col-4 ">
@@ -78,7 +81,10 @@
                 </div>
                 <div class="row justify-content-start align-items-start mt-3 ">
                   <h5 class="col-2 text-start">Ville :</h5>
-                  <p v-if="auth.adresse" class="text-uppercase text-start  col-4 ">
+                  <p
+                    v-if="auth.adresse"
+                    class="text-uppercase text-start  col-4 "
+                  >
                     {{ auth.adresse.ville }}
                   </p>
                   <p v-else class="text-muted text-start  col-4 ">
@@ -100,12 +106,14 @@
                   </p>
                   <i class="fa fa-pencil-square-o col-2" aria-hidden="true"></i>
                 </div>
-                <div class="row justify-content-start align-items-start mt-3 ">
-                  <h5 class="col-5 text-start">NB° Formation Favorits:</h5>
-                  <p class="text-uppercase text-start  col-4 fs-5">
-                   <b>{{ auth.favorit.length }}</b> 
-                  </p>
-                  <i class="fa fa-pencil-square-o col-2" aria-hidden="true"></i>
+
+                <div class="row justify-content-center align-items-start my-3  ">
+                  <div class="card col-4 text-center shadow border-none">
+                    <p class="text-muted ">NB° Formation Favorits</p>
+                    <p class="text-uppercase text-muted    fs-2">
+                      <b>{{ auth.favorit.length }}</b>
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>
@@ -136,7 +144,7 @@ import { mapGetters, mapActions } from "vuex";
 export default {
   name: "InfoClient",
   components: {
-     AppNavS,
+    AppNavS,
   },
   data: function() {
     return {
@@ -187,9 +195,7 @@ export default {
       };
     },
   },
-  mounted() {
-    
-  }
+  mounted() {},
 };
 </script>
 

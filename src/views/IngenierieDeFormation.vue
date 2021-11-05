@@ -80,34 +80,20 @@
           </div>
 
           <div class="col-12   mb-5 justify-content-center ">
-            <!-- <v-pip
+            <v-pip
                 :video-options="videoOptions"
                 :button-options="buttonOptions"
                 @video-in-pip="handlePIP"
                 @requesting-pip-failure="handlePipOpenFailure"
                 @exiting-pip-failure="handlePipExitFailure"
-              /> -->
-
-            <!-- 16:9 aspect ratio: default -->
-
-            <!-- <v-pip
-              :video-options="videoOptions"
-              :button-options="buttonOptions"
-            /> -->
-
-            <plyr>
-              <video>
-                <source src="../assets/video/vdtest.mp4" type="video/mp4" />
-              </video>
-            </plyr>
+              />
           </div>
         </div>
       </div>
     </div>
   </div>
 </template>
-<script type="text/javascript" src="https://unpkg.com/vue@latest"></script>
-  <script type="text/javascript" src="https://unpkg.com/vue-plyr@latest"></script>
+
 <script>
 import AppSection from "@/components/inc/AppSection.vue";
 import VPip from "v-pip";
@@ -116,48 +102,7 @@ export default {
     return {
       titre: "Ingénierie de formation",
 
-       // Array of objects with path to video files and format.
-            videos: [
-                { src: 'path/to/video.mp4', format: 'mp4' },
-                { src: 'path/to/video.webm', format: 'webm' }
-            ],
-
-            // Object with subtitles label, source, and language.
-            subtitles: {
-                label: "English Captions",
-                src: "path/to/captions.vtt",
-                srclang: "en"
-            },
-
-            // Array of objects with path to audio files and format.
-            tracks: [
-                { src: 'path/to/audio.mp3', format: 'mp3' },
-                { src: 'path/to/audio.ogg', format: 'ogg' }
-            ],
-
-            // YouTube video ID or video URL.
-            // https://www.youtube.com/watch?v=bTqVqk7FSmY & https://youtu.be/bTqVqk7FSmY would have the same effect.
-            youtubeID: 'bTqVqk7FSmY',
-
-            // Vimeo video ID or video URL.
-            // https://vimeo.com/147865858 would have the same effect.
-            vimeoID: '147865858'
-       
-
-      // isPip: false,
-      // videoOptions: {
-      //   wrapper: "w-full h-full",
-      //   src:
-      //     "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
-      //   class: "w-3/4 rounded",
-      //   alt: "Placeholder Image",
-      // },
-      // buttonOptions: {
-      //   wrapper: "",
-      //   type: "button",
-      //   class: "btn",
-      //   label: "Toggle picture-in-picture",
-      // },
+      
     };
   },
   methods: {
@@ -174,7 +119,6 @@ export default {
 
   components: {
     AppSection,
-    VPip,
   },
 };
 </script>

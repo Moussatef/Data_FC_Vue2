@@ -136,6 +136,7 @@
       :formation="formationObj"
       :categorie="categorieName"
       @closeModel="closeModel"
+      @closeMl="closeMl"
     />
     <vs-dialog width="550px" not-center v-model="activeConfirmation">
       <template #header>
@@ -210,6 +211,12 @@ export default {
     },
     closeModel() {
       this.openModel = false;
+    },
+    closeMl(param) {
+      console.log(param);
+      if (param) {
+        this.openModel = false;
+      }
     },
   },
   computed: {

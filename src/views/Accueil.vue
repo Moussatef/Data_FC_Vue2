@@ -380,7 +380,7 @@
               data-aos-duration="1000"
               data-aos-easing="ease-in"
             >
-              <iframe
+              <!-- <iframe
                 class="video--player__vid"
                 allowfullscreen="1"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -391,7 +391,14 @@
                 width="640"
                 height="390"
                 frameborder="0"
-              ></iframe>
+              ></iframe> -->
+              <v-pip
+                :video-options="videoOptions"
+                :button-options="buttonOptions"
+                @video-in-pip="handlePIP"
+                @requesting-pip-failure="handlePipOpenFailure"
+                @exiting-pip-failure="handlePipExitFailure"
+              />
             </div>
             <div class="col-lg-6 col-12 my-3">
               <div
@@ -413,7 +420,7 @@
             </div>
             <div class="col-lg-6 col-12 my-3">
               <div
-              class="shadow"
+                class="shadow"
                 data-aos="fade-right"
                 data-aos-delay="50"
                 data-aos-duration="1000"
@@ -740,14 +747,56 @@
 </template>
 
 <script>
+import VPip from "v-pip";
 export default {
   name: "Home",
   data() {
     return {
       scrolledToBottom: false,
+      // Array of objects with path to video files and format.
+      videos: [
+        { src: "path/to/video.mp4", format: "mp4" },
+        { src: "path/to/video.webm", format: "webm" },
+      ],
+
+      // Object with subtitles label, source, and language.
+      subtitles: {
+        label: "English Captions",
+        src: "path/to/captions.vtt",
+        srclang: "en",
+      },
+
+      // Array of objects with path to audio files and format.
+      tracks: [
+        { src: "path/to/audio.mp3", format: "mp3" },
+        { src: "path/to/audio.ogg", format: "ogg" },
+      ],
+
+      // YouTube video ID or video URL.
+      // https://www.youtube.com/watch?v=bTqVqk7FSmY & https://youtu.be/bTqVqk7FSmY would have the same effect.
+      youtubeID: "bTqVqk7FSmY",
+
+      // Vimeo video ID or video URL.
+      // https://vimeo.com/147865858 would have the same effect.
+      vimeoID: "147865858",
+
+      isPip: false,
+      videoOptions: {
+        wrapper: "w-full h-full",
+        src:
+          "https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-576p.mp4",
+        class: "w-3/4 rounded",
+        alt: "Placeholder Image",
+      },
+      buttonOptions: {
+        wrapper: "",
+        type: "button",
+        class: "btn",
+        label: "Toggle picture-in-picture",
+      },
     };
   },
-  components: {},
+  components: { VPip },
   methods: {
     calculate() {
       //#region - start of - number counter animation

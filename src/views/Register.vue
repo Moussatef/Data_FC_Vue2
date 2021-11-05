@@ -1,13 +1,14 @@
 <template>
   <div class=" overflow-hidden">
-    <vs-dialog width="550px"  not-close blur  v-model="active_dlg">
+    <vs-dialog width="550px" not-close blur v-model="active_dlg">
       <template #header>
         <h4 class="not-margin">Message <b>succès</b></h4>
       </template>
 
       <div class="con-content">
         <p>
-          Enregistré avec succès maintenant vous pouvez vous connecter pour continuer
+          Enregistré avec succès maintenant vous pouvez vous connecter pour
+          continuer
         </p>
       </div>
 
@@ -37,6 +38,7 @@
             <span class=" my-2">Nom</span>
             <vs-input
               color="#25767a"
+              name="first-name"
               class="my-4 "
               border
               type="text"
@@ -59,6 +61,7 @@
               class="my-4 "
               border
               type="text"
+              name="last-name"
               v-model="prenom"
               placeholder="Écrivez votre prenom"
             >
@@ -126,13 +129,42 @@
               </template>
             </vs-input>
           </div>
+          <div
+            class="wrap-input100 validate-input text-start mt-3"
+            data-validate="Password is required"
+          >
+            <span class=" ">Genre</span>
+            <div class="text-start mt-3  ">
+              <vs-radio
+                class="justify-content-start mb-2"
+                v-model="genre"
+                val="homme"
+              >
+                Homme
+              </vs-radio>
+              <vs-radio
+                class="justify-content-start"
+                v-model="genre"
+                val="femme"
+              >
+                Femme
+              </vs-radio>
+            </div>
+          </div>
 
           <div class="mt-5">
             <div class="d-grid gap-2 ">
               <button
                 class="btn btn-conx  rounded-pill py-2"
                 @click="
-                  register(nom, prenom, email, password, password_confirmation)
+                  register(
+                    nom,
+                    prenom,
+                    email,
+                    password,
+                    password_confirmation,
+                    genre
+                  )
                 "
               >
                 S'inscrire
@@ -179,9 +211,10 @@ export default {
     password: undefined,
     password_confirmation: undefined,
     active_dlg: false,
+    genre: "homme",
   }),
   methods: {
-    async register(nom, prenom, email, password, password_confirmation) {
+    async register(nom, prenom, email, password, password_confirmation, genre) {
       var myHeaders = new Headers();
       myHeaders.append("Accept", "application/json");
       myHeaders.append("Content-Type", "application/json");
@@ -192,6 +225,7 @@ export default {
         email: email,
         password: password,
         password_confirmation: password_confirmation,
+        genre: genre,
       });
 
       var requestOptions = {

@@ -2,13 +2,27 @@
   <div>
     <div v-if="auth.role == 'client'" class=" overflow-hidden bg-light">
       <div class="mt-4"></div>
-      <AppNavS class="nav_z poition-fixed" />
+      <AppNavS class="nav_z poition-fixed" :activelink="'ClientFavorite'" />
       <div class="content ">
         <div class="top-navbar position-fixed  ">
           <div class="bx bx-menu btn_nav" @click="menu()"></div>
         </div>
         <h1 class="my-5 ">Les Formations Préféré</h1>
-        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-5 m-3 justify-content-center ">
+        <div
+          v-if="!auth.favorit.length"
+          class=" "
+        >
+          <img
+            src="../assets/OrongeUL/Questions-cuate.png"
+            
+            width="600"
+            alt=""
+          />
+          <h3 class="text-muted">Pas de formation</h3>
+        </div>
+        <div
+          class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-5 m-3 justify-content-center "
+        >
           <div
             class="col card_formation"
             :key="i"
@@ -28,7 +42,7 @@
                 </p>
               </div>
               <div class="card-footer  d-flex justify-content-end ">
-                <vs-button class="fs-6" @click="activeVd=true" gradient>
+                <vs-button class="fs-6" @click="activeVd = true" gradient>
                   bande annonce
                 </vs-button>
                 <vs-button
