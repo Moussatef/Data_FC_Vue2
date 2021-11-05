@@ -9,9 +9,19 @@
         <div
           class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-3 g-5"
         >
-          <div class="col card_formation">
+          <div
+            class="col card_formation"
+            data-aos="zoom-in-down"
+            data-aos-delay="50"
+            data-aos-duration="1000"
+            data-aos-easing="ease-in"
+          >
             <div class="card shadow-sm">
-              <img src="../assets/OrongeUL/Workchat-amico.svg" height="300"   alt="" />
+              <img
+                src="../assets/OrongeUL/Workchat-amico.svg"
+                height="300"
+                alt=""
+              />
 
               <div class="card-body">
                 <p class="card-text fs-4">
@@ -20,7 +30,13 @@
               </div>
             </div>
           </div>
-          <div class="col card_formation">
+          <div
+            class="col card_formation"
+            data-aos="zoom-in-down"
+            data-aos-delay="50"
+            data-aos-duration="1000"
+            data-aos-easing="ease-in"
+          >
             <div class="card shadow-sm">
               <img
                 src="../assets/OrongeUL/BusinessPlan-cuate.svg"
@@ -35,9 +51,19 @@
               </div>
             </div>
           </div>
-          <div class="col card_formation">
+          <div
+            class="col card_formation"
+            data-aos="zoom-in-down"
+            data-aos-delay="50"
+            data-aos-duration="1000"
+            data-aos-easing="ease-in"
+          >
             <div class="card shadow-sm">
-              <img src="../assets/OrongeUL/Projections-amico.svg" height="300"  alt="" />
+              <img
+                src="../assets/OrongeUL/Projections-amico.svg"
+                height="300"
+                alt=""
+              />
 
               <div class="card-body">
                 <p class="card-text fs-4">
@@ -47,9 +73,19 @@
             </div>
           </div>
 
-          <div class="col card_formation">
+          <div
+            class="col card_formation"
+            data-aos="zoom-in-down"
+            data-aos-delay="50"
+            data-aos-duration="1000"
+            data-aos-easing="ease-in"
+          >
             <div class="card shadow-sm">
-              <img src="../assets/OrongeUL/Dronesurveillance-amico.svg" height="270"  alt="" />
+              <img
+                src="../assets/OrongeUL/Dronesurveillance-amico.svg"
+                height="270"
+                alt=""
+              />
 
               <div class="card-body">
                 <p class="card-text fs-4">
@@ -59,9 +95,15 @@
               </div>
             </div>
           </div>
-          <div class="col card_formation">
+          <div
+            class="col card_formation"
+            data-aos="zoom-in-down"
+            data-aos-delay="50"
+            data-aos-duration="1000"
+            data-aos-easing="ease-in"
+          >
             <div class="card shadow-sm">
-              <img src="../assets/OrongeUL/Team-pana.svg" height="270"  alt="" />
+              <img src="../assets/OrongeUL/Team-pana.svg" height="270" alt="" />
 
               <div class="card-body">
                 <p class="card-text fs-4">
@@ -70,9 +112,19 @@
               </div>
             </div>
           </div>
-          <div class="col card_formation">
+          <div
+            class="col card_formation"
+            data-aos="zoom-in-down"
+            data-aos-delay="50"
+            data-aos-duration="1000"
+            data-aos-easing="ease-in"
+          >
             <div class="card shadow-sm">
-              <img src="../assets/OrongeUL/Attheoffice-bro.svg" height="270"  alt="" />
+              <img
+                src="../assets/OrongeUL/Attheoffice-bro.svg"
+                height="270"
+                alt=""
+              />
 
               <div class="card-body">
                 <p class="card-text fs-4">
@@ -83,9 +135,15 @@
             </div>
           </div>
 
-          <div class="col card_formation">
+          <div
+            class="col card_formation"
+            data-aos="zoom-in-down"
+            data-aos-delay="50"
+            data-aos-duration="1000"
+            data-aos-easing="ease-in"
+          >
             <div class="card shadow-sm">
-              <img src="../assets/marketing.png"  alt="" />
+              <img src="../assets/marketing.png" alt="" />
 
               <div class="card-body">
                 <p class="card-text fs-4">
@@ -94,9 +152,15 @@
               </div>
             </div>
           </div>
-          <div class="col card_formation">
+          <div
+            class="col card_formation"
+            data-aos="zoom-in-down"
+            data-aos-delay="50"
+            data-aos-duration="1000"
+            data-aos-easing="ease-in"
+          >
             <div class="card shadow-sm">
-              <img src="../assets/MainPic.png"  alt="" />
+              <img src="../assets/MainPic.png" alt="" />
 
               <div class="card-body">
                 <p class="card-text fs-4">
@@ -105,9 +169,15 @@
               </div>
             </div>
           </div>
-          <div class="col card_formation">
+          <div
+            class="col card_formation"
+            data-aos="zoom-in-down"
+            data-aos-delay="50"
+            data-aos-duration="1000"
+            data-aos-easing="ease-in"
+          >
             <div class="card shadow-sm">
-              <img src="../assets/driving.png"  alt="" />
+              <img src="../assets/driving.png" alt="" />
 
               <div class="card-body">
                 <p class="card-text fs-4">
@@ -117,10 +187,15 @@
             </div>
           </div>
 
-          
-          <div class="col card_formation">
+          <div
+            class="col card_formation"
+            data-aos="zoom-in-down"
+            data-aos-delay="50"
+            data-aos-duration="1000"
+            data-aos-easing="ease-in"
+          >
             <div class="card shadow-sm">
-              <img src="../assets/OrongeUL/Telecommuting-rafiki.png"   alt="" />
+              <img src="../assets/OrongeUL/Telecommuting-rafiki.png" alt="" />
 
               <div class="card-body">
                 <p class="card-text fs-4">
@@ -129,9 +204,19 @@
               </div>
             </div>
           </div>
-          <div class="col card_formation">
+          <div
+            class="col card_formation"
+            data-aos="zoom-in-down"
+            data-aos-delay="50"
+            data-aos-duration="1000"
+            data-aos-easing="ease-in"
+          >
             <div class="card shadow-sm">
-              <img src="../assets/OrongeUL/Pairprogramming-pana.svg" height="270" alt="" />
+              <img
+                src="../assets/OrongeUL/Pairprogramming-pana.svg"
+                height="270"
+                alt=""
+              />
 
               <div class="card-body">
                 <p class="card-text fs-4">
@@ -141,9 +226,15 @@
             </div>
           </div>
 
-          <div class="col card_formation">
+          <div
+            class="col card_formation"
+            data-aos="zoom-in-down"
+            data-aos-delay="50"
+            data-aos-duration="1000"
+            data-aos-easing="ease-in"
+          >
             <div class="card shadow-sm">
-              <img src="../assets/systeminfo.png"  alt="" />
+              <img src="../assets/systeminfo.png" alt="" />
 
               <div class="card-body">
                 <p class="card-text fs-4">
@@ -152,9 +243,15 @@
               </div>
             </div>
           </div>
-          <div class="col card_formation">
+          <div
+            class="col card_formation"
+            data-aos="zoom-in-down"
+            data-aos-delay="50"
+            data-aos-duration="1000"
+            data-aos-easing="ease-in"
+          >
             <div class="card shadow-sm">
-              <img src="../assets/OrongeUL/Memorystorage-amico.svg"  alt="" />
+              <img src="../assets/OrongeUL/Memorystorage-amico.svg" alt="" />
 
               <div class="card-body">
                 <p class="card-text fs-4">
@@ -163,13 +260,15 @@
               </div>
             </div>
           </div>
-          <div class="col card_formation">
+          <div
+            class="col card_formation"
+            data-aos="zoom-in-down"
+            data-aos-delay="50"
+            data-aos-duration="1000"
+            data-aos-easing="ease-in"
+          >
             <div class="card shadow-sm">
-              <img
-                src="../assets/ai-article-5enablers.png"
-                
-                alt=""
-              />
+              <img src="../assets/ai-article-5enablers.png" alt="" />
 
               <div class="card-body">
                 <p class="card-text fs-4">
@@ -179,9 +278,15 @@
             </div>
           </div>
 
-          <div class="col card_formation">
+          <div
+            class="col card_formation"
+            data-aos="zoom-in-down"
+            data-aos-delay="50"
+            data-aos-duration="1000"
+            data-aos-easing="ease-in"
+          >
             <div class="card shadow-sm">
-              <img src="../assets/OrongeUL/Team-bro.svg"  alt="" />
+              <img src="../assets/OrongeUL/Team-bro.svg" alt="" />
 
               <div class="card-body">
                 <p class="card-text fs-4">
@@ -191,9 +296,15 @@
             </div>
           </div>
 
-          <div class="col card_formation">
+          <div
+            class="col card_formation"
+            data-aos="zoom-in-down"
+            data-aos-delay="50"
+            data-aos-duration="1000"
+            data-aos-easing="ease-in"
+          >
             <div class="card shadow-sm">
-              <img src="../assets/gne.jpg"   alt="" />
+              <img src="../assets/gne.jpg" alt="" />
 
               <div class="card-body">
                 <p class="card-text fs-4">
@@ -274,9 +385,8 @@ export default {
       transform: scaleX(1.2);
       transition: 0.8s;
     }
-
   }
-  .card-text{
+  .card-text {
     color: #266874;
   }
 }

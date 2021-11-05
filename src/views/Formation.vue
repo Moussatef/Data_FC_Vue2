@@ -6,11 +6,22 @@
         <div class="row justify-centant-center align-items-center ">
           <div class=" col-12  row   align-items-center">
             <div class="col-lg-6 col-md-12 col-sm-12 col-12  ">
-              <div>
+              <div
+                data-aos="fade-left"
+                data-aos-delay="50"
+                data-aos-duration="1000"
+                data-aos-easing="ease-in"
+              >
                 <img src="../assets/formationQui.png" width="670" alt="" />
               </div>
             </div>
-            <div class="col-lg-6 col-md-12 col-sm-12 col-12 ">
+            <div
+              class="col-lg-6 col-md-12 col-sm-12 col-12 "
+              data-aos="fade-right"
+              data-aos-delay="50"
+              data-aos-duration="1000"
+              data-aos-easing="ease-in"
+            >
               <div class="p-3 info text-start fs-5">
                 <img src="../assets/info.png" width="50" alt="" />
                 <h3 class="my-3 h3-one">
@@ -28,7 +39,13 @@
           </div>
 
           <div class=" col-12  row   align-items-center">
-            <div class="col-lg-6 col-md-12 col-sm-12 col-12 order-lg-2 ">
+            <div
+              class="col-lg-6 col-md-12 col-sm-12 col-12 order-lg-2 "
+              data-aos="fade-left"
+              data-aos-delay="50"
+              data-aos-duration="1000"
+              data-aos-easing="ease-in"
+            >
               <div>
                 <img
                   src="../assets/OrongeUL/BusinessPlan-bro.svg"
@@ -37,7 +54,13 @@
                 />
               </div>
             </div>
-            <div class="col-lg-6 col-md-12 col-sm-12 col-12 order-lg-1  ">
+            <div
+              class="col-lg-6 col-md-12 col-sm-12 col-12 order-lg-1  "
+              data-aos="fade-right"
+              data-aos-delay="50"
+              data-aos-duration="1000"
+              data-aos-easing="ease-in"
+            >
               <div class="p-3 info text-start fs-5 ">
                 <img src="../assets/info.png" width="50" alt="" />
                 <h3 class="my-3 h3-one">
@@ -51,16 +74,26 @@
                 </p>
               </div>
             </div>
-            
           </div>
 
           <div class=" col-12  row   align-items-center">
             <div class="col-lg-6 col-md-12 col-sm-12 col-12 order-lg-1  ">
-              <div>
+              <div
+                data-aos="fade-left"
+                data-aos-delay="50"
+                data-aos-duration="1000"
+                data-aos-easing="ease-in"
+              >
                 <img src="../assets/OrongeUL/Team-bro.svg" width="480" alt="" />
               </div>
             </div>
-            <div class="col-lg-6 col-md-12 col-sm-12 col-12 order-lg-2 ">
+            <div
+              class="col-lg-6 col-md-12 col-sm-12 col-12 order-lg-2 "
+              data-aos="fade-right"
+              data-aos-delay="50"
+              data-aos-duration="1000"
+              data-aos-easing="ease-in"
+            >
               <div class="p-4 info text-start fs-5">
                 <img src="../assets/info.png" width="50" alt="" />
                 <h3 class="my-3 h3-one">
@@ -77,7 +110,12 @@
 
           <div class=" col-12  row   align-items-center">
             <div class="col-lg-6 col-md-12 col-sm-12 col-12  order-lg-2">
-              <div>
+              <div
+                data-aos="fade-left"
+                data-aos-delay="50"
+                data-aos-duration="1000"
+                data-aos-easing="ease-in"
+              >
                 <img
                   src="../assets/OrongeUL/Team-pana.svg"
                   width="550"
@@ -85,7 +123,13 @@
                 />
               </div>
             </div>
-            <div class="col-lg-6 col-md-12 col-sm-12 col-12  order-lg-1">
+            <div
+              class="col-lg-6 col-md-12 col-sm-12 col-12  order-lg-1"
+              data-aos="fade-right"
+              data-aos-delay="50"
+              data-aos-duration="1000"
+              data-aos-easing="ease-in"
+            >
               <div class="p-3 info text-start fs-5">
                 <img src="../assets/info.png" width="50" alt="" />
                 <h3 class="my-3 h3-one">
@@ -102,7 +146,13 @@
 
           <div class=" col-12  row   align-items-center">
             <div class="col-lg-6 col-md-12 col-sm-12 col-12 order-lg-1  ">
-              <div class="img-dev">
+              <div
+                class="img-dev"
+                data-aos="fade-left"
+                data-aos-delay="50"
+                data-aos-duration="1000"
+                data-aos-easing="ease-in"
+              >
                 <img
                   src="../assets/OrongeUL/Attheoffice-amico.svg"
                   width="500"
@@ -110,7 +160,13 @@
                 />
               </div>
             </div>
-            <div class="col-lg-6 col-md-12 col-sm-12 col-12 item-5 order-lg-2 ">
+            <div
+              class="col-lg-6 col-md-12 col-sm-12 col-12 item-5 order-lg-2 "
+              data-aos="fade-right"
+              data-aos-delay="50"
+              data-aos-duration="1000"
+              data-aos-easing="ease-in"
+            >
               <div class="p-3 info text-start fs-5 ">
                 <img src="../assets/info.png" width="50" alt="" />
                 <h3 class="my-3 h3-one">

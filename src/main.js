@@ -36,6 +36,17 @@ AOS.init();
 
 
 
+// import Embed from 'v-video-embed'
+
+// // global register
+// Vue.use(Embed);
+
+import VuePlyr from 'vue-plyr';
+import 'vue-plyr/dist/vue-plyr.css';
+Vue.use(VuePlyr)
+
+
+
 
 
 

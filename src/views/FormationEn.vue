@@ -30,6 +30,10 @@
               >
                 <div
                   class="col card_formation"
+                  data-aos="zoom-out-down"
+                  data-aos-delay="50"
+                  data-aos-duration="1000"
+                  data-aos-easing="ease-in"
                   :key="i"
                   v-for="(tr, i) in cat.formation"
                 >
@@ -46,17 +50,38 @@
                       </p>
                     </div>
                     <div class="card-footer  d-flex justify-content-end ">
-                      <vs-button class="fs-6" @click="activeVd = true" gradient>
+                      <vs-button class="" @click="activeVd = true" gradient>
                         bande annonce
                       </vs-button>
                       <vs-button
                         @click="showFormation(tr)"
-                        class="fs-6"
+                        class=""
                         color="rgb(59,222,200)"
                         gradient
                       >
                         Visite
                       </vs-button>
+                      <div v-if="auth.role == 'client'">
+                        <vs-button
+                          v-if="tr.block == 1"
+                          icon
+                          color="danger"
+                          border
+                          active
+                        >
+                          <i class="bi bi-star-fill"></i>
+                        </vs-button>
+
+                        <vs-button
+                          v-if="tr.block == 0"
+                          flat
+                          icon
+                          color="danger"
+                          border
+                        >
+                          <i class="bi bi-star"></i>
+                        </vs-button>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -233,7 +258,7 @@ export default {
   },
 
   computed: {
-    ...mapGetters(["formationEnt", "categories"]),
+    ...mapGetters(["formationEnt", "categories", "auth"]),
   },
 
   components: {
@@ -295,7 +320,7 @@ export default {
     background: linear-gradient(
       180deg,
       #ffffffd3 0%,
-      #3f3f3f7a 100%
+      #2c968d7a 100%
     ) !important;
   }
 }

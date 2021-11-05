@@ -639,7 +639,7 @@
                 </div>
                 <div
                   class="col-md-6 col-sm-12 col-lg-4 "
-                  data-aos="fade-right"
+                  data-aos="fade-down"
                   data-aos-delay="50"
                   data-aos-duration="1000"
                   data-aos-easing="ease-in"
@@ -657,7 +657,7 @@
 
                 <div
                   class="col-md-6 col-sm-12 col-lg-4  "
-                  data-aos="fade-right"
+                  data-aos="fade-left"
                   data-aos-delay="50"
                   data-aos-duration="1000"
                   data-aos-easing="ease-in"
