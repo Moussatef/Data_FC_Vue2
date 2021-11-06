@@ -400,9 +400,9 @@
                 @exiting-pip-failure="handlePipExitFailure"
               />
             </div>
-            <div class="col-lg-6 col-12 my-3">
+            <div class="col-lg-5 col-12 my-3">
               <div
-                class="shadow"
+                class="shadow overflow-hidden"
                 data-aos="fade-left"
                 data-aos-delay="50"
                 data-aos-duration="1000"
@@ -418,9 +418,9 @@
                 />
               </div>
             </div>
-            <div class="col-lg-6 col-12 my-3">
+            <div class="col-lg-5 col-12 my-3">
               <div
-                class="shadow"
+                class="shadow overflow-hidden"
                 data-aos="fade-right"
                 data-aos-delay="50"
                 data-aos-duration="1000"
@@ -836,15 +836,7 @@ export default {
         }
       });
     },
-    //     scroll() {
-    //   window.onscroll = () => {
-    //     let bottomOfWindow = Math.max(window.pageYOffset, document.documentElement.scrollTop, document.body.scrollTop) + window.innerHeight === document.documentElement.offsetHeight
-
-    //     if (bottomOfWindow) {
-    //      this.scrolledToBottom = true // replace it with your code
-    //     }
-    //  }
-    // }
+  
     openLoading() {
       const loading = this.$vs.loading({
         text: "Loading...",
@@ -878,7 +870,7 @@ export default {
 .scale-img {
   transition: 1s;
   &:hover {
-    transform: scale(0.9);
+    transform: scale(1.1);
     transition: 1s;
   }
 }

@@ -9,6 +9,11 @@ import 'bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './scss/main.scss'
 import 'normalize.css'
+import AOS from 'aos';
+import 'aos/dist/aos.css'; // You can also use <link> for styles
+import vuetify from './plugins/vuetify'
+// ..
+AOS.init();
 
 import Vuesax from 'vuesax'
 import 'vuesax/dist/vuesax.css' //Vuesax styles
@@ -26,11 +31,7 @@ Vue.use(Vuesax, {
     }
 })
 
-import AOS from 'aos';
-import 'aos/dist/aos.css'; // You can also use <link> for styles
-import vuetify from './plugins/vuetify'
-// ..
-AOS.init();
+
 
 // import Embed from 'v-video-embed'
 

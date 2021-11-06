@@ -123,7 +123,7 @@ const routes = [
   },
 
   {
-    path: '/formation-show/:id',
+    path: '/formation/:id',
     name: 'FormationShow',
     component: FormationShow,
     beforeEnter: (to, from, next) => {
