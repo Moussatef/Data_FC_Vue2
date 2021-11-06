@@ -708,9 +708,17 @@
               Bootstrap, the world’s most popular front-end open source toolkit,
             </p>
             <div class="d-grid gap-2 d-md-flex justify-content-md-start">
-              <button type="button" class="btn btn-primary btn-lg px-4 me-md-2">
-                Primary
-              </button>
+              <vs-button
+              to="/formations-interentreprises"
+              size="xl"
+                upload
+                color="warn"
+                gradient
+                :active="active == 3"
+                @click="active = 3"
+              >
+                Obtenez le maintenant <i class="bx bxs-bell-ring mx-2"></i>
+              </vs-button>
             </div>
           </div>
         </div>
@@ -752,6 +760,9 @@ export default {
   name: "Home",
   data() {
     return {
+      active:false,
+
+
       scrolledToBottom: false,
       // Array of objects with path to video files and format.
       videos: [

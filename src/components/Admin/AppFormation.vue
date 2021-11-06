@@ -114,12 +114,8 @@
                         </vs-button>
                       </vs-td>
                       <vs-td v-if="auth.role == 'admin'">
-                        <vs-button v-if="tr.block == 1" danger flat icon>
-                          <i class="bx bx-lock"></i>
-                        </vs-button>
-
-                        <vs-button v-if="tr.block == 0" flat icon>
-                          <i class="bx bx-lock-open-alt"></i>
+                        <vs-button :to="'/formation-show/' + tr.id" flat icon>
+                          <i class="bi bi-eye"></i>
                         </vs-button>
                       </vs-td>
                     </vs-tr>

@@ -39,7 +39,7 @@
                 >
                   <div class="card shadow">
                     <img
-                      :src="'http://127.0.0.1:8000' + tr.imgFormation"
+                      :src=" tr.imgFormation"
                       height="300"
                       alt=""
                     />
@@ -50,7 +50,14 @@
                       </p>
                     </div>
                     <div class="card-footer  d-flex justify-content-end ">
-                      <vs-button class="" @click="activeVd = true" gradient>
+                      <vs-button
+                        class=""
+                        @click="
+                          activeVd = true;
+                          formationShow = tr;
+                        "
+                        gradient
+                      >
                         bande annonce
                       </vs-button>
                       <vs-button
@@ -114,11 +121,17 @@
 
         <template #footer>
           <div class="d-flex  justify-content-end">
-            <vs-button @click="activeVd = false" transparent>
-              Ok
+            <vs-button
+              @click="
+                active2 = true;
+                activeVd = false;
+              "
+              transparent
+            >
+              Suivant
             </vs-button>
             <vs-button @click="activeVd = false" dark transparent>
-              Cancel
+              Annuler
             </vs-button>
           </div>
         </template>
@@ -138,7 +151,7 @@
             class="col-3 card border-0 shadow justify-content-center align-items-center "
           >
             <img
-              :src="'http://127.0.0.1:8000' + formationShow.imgFormation"
+              :src="formationShow.imgFormation"
               width="400"
               height="400"
               class="rounded-lg mt-2"
@@ -222,10 +235,10 @@
         <template #footer>
           <div class="d-flex  justify-content-end">
             <vs-button @click="active2 = false" transparent>
-              Ok
+              Acheter
             </vs-button>
             <vs-button @click="active2 = false" dark transparent>
-              Cancel
+              Annuler
             </vs-button>
           </div>
         </template>

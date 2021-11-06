@@ -2,6 +2,7 @@ import axios from 'axios'
 
 const state = {
     formationEnt: [],
+    formation: [],
     categories: [],
     StatusCategory: false,
     AjouteErr: undefined,
@@ -9,6 +10,7 @@ const state = {
 
 const getters = {
     formationEnt: state => state.formationEnt,
+    formation: state => state.formation,
     categories: state => state.categories,
     StatusCategory: state => state.statusCategory,
     AjouteErr: state => state.ajouteErr
@@ -24,7 +26,7 @@ const actions = {
         const response = await fetch("http://127.0.0.1:8000/api/formation", requestOptions)
         if (response.status === 200) {
             const result = await response.json();
-            // console.log(result.data);
+            console.log(result.data);
             commit('setFormations', result.data)
 
         }
@@ -79,6 +81,32 @@ const actions = {
                 })
 
         })
+    },
+
+    async formationParam({ commit }, param) {
+
+
+        var config = {
+            method: 'get',
+            url: 'http://127.0.0.1:8000/api/admin/formation/' + param,
+            headers: {
+                'Accept': 'application/json',
+                'Authorization': 'Bearer ' + localStorage.getItem('accessToken'),
+                'Content-Type': 'application/json'
+            },
+
+        };
+
+        axios(config).then((res) => {
+            const formation = res.data.data[0]
+            console.log(formation);
+            commit('oneFormation', formation);
+        }).catch((error) => {
+            console.log(error);
+        })
+
+
+
     },
 
 
@@ -234,6 +262,12 @@ const actions = {
 const mutations = {
     setFormations: (state, formations) => (state.formationEnt = formations),
     setCategory: (state, categories) => (state.categories = categories),
+    oneFormation: (state, param) => {
+        state.formation = param
+    },
+
+
+
     addCategory: function (state, categories) {
         state.categories.unshift(categories[0]);
     },
@@ -254,7 +288,7 @@ const mutations = {
     updateFormation: (state, param) => {
         let categorieIndex = state.categories.findIndex(el => el.id == param.formationcategorie_id)
         let formationIndex = state.categories[categorieIndex].formation.findIndex(el => el.id == param.id);
-        state.categories[categorieIndex].formation.splice(formationIndex, 1,param)
+        state.categories[categorieIndex].formation.splice(formationIndex, 1, param)
 
     },
 

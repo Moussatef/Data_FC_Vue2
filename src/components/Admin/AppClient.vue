@@ -57,7 +57,7 @@
                         <div class="d-flex align-items-center">
                           <vs-avatar class="me-4">
                             <img
-                              :src="'http://127.0.0.1:8000' + tr.image"
+                              :src="tr.image"
                               alt=""
                             />
                           </vs-avatar>
@@ -85,16 +85,16 @@
                         </vs-button>
                       </vs-td>
                       <vs-td>
-                        <vs-button border danger>
+                        <vs-button border danger @click="ShowDeleteConf(tr)">
                           Supprimer Utilisateur
                         </vs-button>
                       </vs-td>
                       <vs-td>
                         <vs-button v-if="tr.block == 1" danger flat icon>
-                         <i class="bx bx-lock"></i>
+                          <i class="bx bx-lock"></i>
                         </vs-button>
 
-                        <vs-button v-if="tr.block == 0"  flat icon>
+                        <vs-button v-if="tr.block == 0" flat icon>
                           <i class="bx bx-lock-open-alt"></i>
                         </vs-button>
                       </vs-td>
@@ -107,6 +107,47 @@
         </div>
       </div>
     </div>
+
+    <vs-dialog square not-padding v-model="activeAlert">
+      
+      <vs-alert dark :progress="progress" v-model="activeAlert">
+        <template #title>
+          Succès
+        </template>
+        la personne a été supprimée avec succès
+      </vs-alert>
+    </vs-dialog>
+
+    <vs-dialog v-if="clientInfo" width="1000px" v-model="activeDelete">
+      <template #header>
+        <h4 class="not-margin">Confirmation de <b> la suppression </b></h4>
+      </template>
+      <div class="text-center">
+        <h4>Voulez-vous supprimer cette personne</h4>
+      </div>
+
+      <template #footer>
+        <div class="d-flex  justify-content-end">
+          <vs-button
+            @click="
+              deleteClient(
+                clientInfo.id,
+                clientInfo.nom,
+                clientInfo.prenom,
+                clientInfo.email
+              )
+            "
+            transparent
+          >
+            Oui
+          </vs-button>
+          <vs-button @click="activeDelete = false" dark transparent>
+            Non
+          </vs-button>
+        </div>
+      </template>
+    </vs-dialog>
+
     <vs-dialog v-if="clientInfo" width="1000px" v-model="activeEmail">
       <template #header>
         <h4 class="not-margin">Envoyer un <b> e-mail </b></h4>
@@ -115,12 +156,7 @@
       <div class="container">
         <div class="row text-start">
           <div class="center col-12">
-            <vs-alert
-              primary
-              :progress="progress"
-              
-              v-model="activeAlert"
-            >
+            <vs-alert primary :progress="progress" v-model="activeAlert">
               <template #title>
                 Succès
               </template>
@@ -161,7 +197,7 @@
                     required
                   />
                   <div class="invalid-feedback">
-                    Please enter your Telephone.
+                    Please enter title.
                   </div>
                 </div>
                 <div class="col-12">
@@ -174,7 +210,7 @@
                     required
                   />
                   <div class="invalid-feedback">
-                    Please enter your Telephone.
+                    Please enter subject.
                   </div>
                 </div>
 
@@ -191,6 +227,7 @@
                 </div>
                 <div class="text-center col-3 offset-lg-10  ">
                   <vs-button
+                  v-if="inpttitre && inptsubject && inptmessage && clientInfo  "
                     border
                     @click="
                       addMessage(
@@ -214,9 +251,7 @@
 
       <template #footer>
         <div class="d-flex  justify-content-end">
-          <vs-button @click="activeEmail = false" transparent>
-            Ok
-          </vs-button>
+          
           <vs-button @click="activeEmail = false" dark transparent>
             Cancel
           </vs-button>
@@ -238,8 +273,9 @@ export default {
       // max: 10,
       selected: [],
       activeEmail: false,
+      activeDelete: false,
       activeAlert: false,
-      time: 4000,
+      time: 2500,
       progress: 0,
 
       inptnom: undefined,
@@ -256,6 +292,10 @@ export default {
     ShowSendMessage(client) {
       this.clientInfo = client;
       this.activeEmail = true;
+    },
+    ShowDeleteConf(client) {
+      this.clientInfo = client;
+      this.activeDelete = true;
     },
     addMessage(id, title, subject, message) {
       if (id && title && subject && message) {
@@ -279,6 +319,23 @@ export default {
             this.inptmessage = undefined;
           });
       }
+    },
+    async deleteClient(id, nom, prenom, email) {
+      this.$store
+        .dispatch("deletePersonne", [id, nom, prenom, email])
+        .then((result) => {
+          console.log(result);
+          // this.activeConfirmation = false;
+          // this.idFormation = undefined;
+
+          // this.activeConfirmation = false;
+          this.activeDelete = false;
+          this.activeAlert = true;
+        })
+        .catch((err) => {
+          this.errorDesc = err.message;
+          this.alertDanger = true;
+        });
     },
   },
   watch: {
