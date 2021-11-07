@@ -870,11 +870,7 @@ export default {
 .scale-img {
   transition: 1s;
   &:hover {
-<<<<<<< HEAD
     transform: scale(1.2);
-=======
-    transform: scale(1.1);
->>>>>>> ff82be1de9ac8dd2b888e8afbd7fa9ac52b24af6
     transition: 1s;
   }
 }

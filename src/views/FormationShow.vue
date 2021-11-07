@@ -10,15 +10,9 @@
       </template>
       
     </vs-alert> -->
-<<<<<<< HEAD
     <vs-button size="xl" @click="$router.go(-1)" border shadow square>
      
      <i class="bi bi-arrow-bar-left me-2"></i> Revenir </vs-button>
-=======
-    <vs-button border flat>
-     <i class="bx bxs-phone-call"></i>
-     Default </vs-button>
->>>>>>> ff82be1de9ac8dd2b888e8afbd7fa9ac52b24af6
     <div v-if="formation" class="container-fluid bg-white p-5 my-5">
       <div class="row justify-content-evenly ">
         <div
