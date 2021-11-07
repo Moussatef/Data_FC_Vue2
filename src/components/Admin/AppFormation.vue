@@ -114,7 +114,11 @@
                         </vs-button>
                       </vs-td>
                       <vs-td v-if="auth.role == 'admin'">
+<<<<<<< HEAD
                         <vs-button :to="'/formation-show/' + tr.id" flat icon>
+=======
+                        <vs-button :to="'/formation/' + tr.id" flat icon>
+>>>>>>> ff82be1de9ac8dd2b888e8afbd7fa9ac52b24af6
                           <i class="bi bi-eye"></i>
                         </vs-button>
                       </vs-td>

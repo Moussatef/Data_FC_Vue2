@@ -123,7 +123,11 @@ const routes = [
   },
 
   {
+<<<<<<< HEAD
     path: '/formation-show/:id',
+=======
+    path: '/formation/:id',
+>>>>>>> ff82be1de9ac8dd2b888e8afbd7fa9ac52b24af6
     name: 'FormationShow',
     component: FormationShow,
     beforeEnter: (to, from, next) => {
