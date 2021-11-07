@@ -380,7 +380,7 @@
               data-aos-duration="1000"
               data-aos-easing="ease-in"
             >
-              <!-- <iframe
+              <iframe
                 class="video--player__vid"
                 allowfullscreen="1"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -391,18 +391,18 @@
                 width="640"
                 height="390"
                 frameborder="0"
-              ></iframe> -->
-              <v-pip
+              ></iframe>
+              <!-- <v-pip
                 :video-options="videoOptions"
                 :button-options="buttonOptions"
                 @video-in-pip="handlePIP"
                 @requesting-pip-failure="handlePipOpenFailure"
                 @exiting-pip-failure="handlePipExitFailure"
-              />
+              /> -->
             </div>
             <div class="col-lg-6 col-12 my-3">
               <div
-                class="shadow"
+                class="shadow overflow-hidden"
                 data-aos="fade-left"
                 data-aos-delay="50"
                 data-aos-duration="1000"
@@ -420,7 +420,7 @@
             </div>
             <div class="col-lg-6 col-12 my-3">
               <div
-                class="shadow"
+                class="shadow overflow-hidden"
                 data-aos="fade-right"
                 data-aos-delay="50"
                 data-aos-duration="1000"
@@ -708,9 +708,17 @@
               Bootstrap, the world’s most popular front-end open source toolkit,
             </p>
             <div class="d-grid gap-2 d-md-flex justify-content-md-start">
-              <button type="button" class="btn btn-primary btn-lg px-4 me-md-2">
-                Primary
-              </button>
+              <vs-button
+              to="/formations-interentreprises"
+              size="xl"
+                upload
+                color="warn"
+                gradient
+                :active="active == 3"
+                @click="active = 3"
+              >
+                Obtenez le maintenant <i class="bx bxs-bell-ring mx-2"></i>
+              </vs-button>
             </div>
           </div>
         </div>
@@ -752,6 +760,9 @@ export default {
   name: "Home",
   data() {
     return {
+      active:false,
+
+
       scrolledToBottom: false,
       // Array of objects with path to video files and format.
       videos: [
@@ -867,7 +878,7 @@ export default {
 .scale-img {
   transition: 1s;
   &:hover {
-    transform: scale(0.9);
+    transform: scale(1.2);
     transition: 1s;
   }
 }

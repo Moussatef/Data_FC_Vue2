@@ -116,9 +116,7 @@
 
             <vs-button
               class="close float-right col-2"
-              circle
-              danger
-              border
+              shadow
               @click="
                 closeM();
                 $emit('closeModel');
@@ -137,7 +135,7 @@
                   >
                     <img
                       v-if="img_src == false"
-                      :src="'http://127.0.0.1:8000' + imgFormation"
+                      :src="imgFormation"
                       width="200"
                       height="200"
                       class="rounded-lg"

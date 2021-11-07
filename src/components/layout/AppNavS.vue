@@ -9,7 +9,7 @@
       open
     >
       <template style="margin-top:80px;" #logo>
-        <img :src="host + auth.image" alt="" />
+        <img :src="auth.image" alt="" />
       </template>
       <vs-sidebar-item to="/info-client" :class="{'active' : activelink == 'ClientInfo' }" id="home">
         <template #icon>

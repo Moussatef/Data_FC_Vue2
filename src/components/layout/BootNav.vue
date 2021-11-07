@@ -114,47 +114,43 @@
             >
           </li> -->
           <div v-if="!token" class="d-flex btn-conx">
-            <vs-button
-              border
-              class="p-1 fs-6 btn-conx "
-              :active="active_con == 0"
-              @click="active = 1"
-              to="/login"
-            >
-              Se connecter
-            </vs-button>
-            <vs-button
+             <vs-button
               color="rgba(35, 138, 145, 1) "
-              class="p-1 fs-6 "
-              gradient
-              :active="active == 6"
-              @click="active = 6"
+              class="p-1 fs-6 btn-conx"
+              
+              
               to="/register"
             >
               S'inscrire
             </vs-button>
+            <vs-button
+              border
+              class="p-1 fs-6  "
+              
+              to="/login"
+            >
+              Se connecter
+            </vs-button>
+           
           </div>
 
           <div
             v-if="auth.role"
             class="flex-shrink-0 dropdown m-x-5 position-relative"
           >
-          
             <a
               href="#"
               class="d-block link-dark text-decoration-none dropdown-toggle"
               id="dropdownUser2"
               data-bs-toggle="dropdown"
               aria-expanded="false"
-             
             >
               <img
-                :src="host+auth.image"
-                :alt="auth.nom[0]+'.'+auth.prenom[0]"
+                :src="auth.image"
+                :alt="auth.nom[0] + '.' + auth.prenom[0]"
                 width="40"
                 height="40"
                 class="rounded-circle border border-success "
-                
               />
             </a>
             <ul
@@ -163,7 +159,7 @@
             >
               <li v-if="auth.role == 'client'">
                 <router-link class="dropdown-item" to="/client-profile"
-                  ><i class="bx bxs-user me-2"></i>{{auth.nom}}
+                  ><i class="bx bxs-user me-2"></i>{{ auth.nom }}
                 </router-link>
               </li>
               <li v-if="auth.role == 'admin'">
@@ -192,7 +188,7 @@ export default {
       active: 0,
       active_con: 0,
       token: localStorage.getItem("accessToken"),
-      host:"http://127.0.0.1:8000",
+      host: "http://127.0.0.1:8000",
     };
   },
   computed: {

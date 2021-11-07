@@ -39,7 +39,7 @@
                 >
                   <div class="card shadow">
                     <img
-                      :src="'http://127.0.0.1:8000' + tr.imgFormation"
+                      :src=" tr.imgFormation"
                       height="300"
                       alt=""
                     />
@@ -50,14 +50,21 @@
                       </p>
                     </div>
                     <div class="card-footer  d-flex justify-content-end ">
-                      <vs-button class="" @click="activeVd = true" gradient>
+                      <vs-button
+                        class=""
+                        @click="
+                          activeVd = true;
+                          formationShow = tr;
+                        "
+                        gradient
+                      >
                         bande annonce
                       </vs-button>
                       <vs-button
                         @click="showFormation(tr)"
                         class=""
                         color="rgb(59,222,200)"
-                        gradient
+                        
                       >
                         Visite
                       </vs-button>
@@ -114,11 +121,17 @@
 
         <template #footer>
           <div class="d-flex  justify-content-end">
-            <vs-button @click="activeVd = false" transparent>
-              Ok
+            <vs-button
+              @click="
+                active2 = true;
+                activeVd = false;
+              "
+              transparent
+            >
+              Suivant
             </vs-button>
             <vs-button @click="activeVd = false" dark transparent>
-              Cancel
+              Annuler
             </vs-button>
           </div>
         </template>
@@ -138,7 +151,7 @@
             class="col-3 card border-0 shadow justify-content-center align-items-center "
           >
             <img
-              :src="'http://127.0.0.1:8000' + formationShow.imgFormation"
+              :src="formationShow.imgFormation"
               width="400"
               height="400"
               class="rounded-lg mt-2"
@@ -222,10 +235,10 @@
         <template #footer>
           <div class="d-flex  justify-content-end">
             <vs-button @click="active2 = false" transparent>
-              Ok
+              Acheter
             </vs-button>
             <vs-button @click="active2 = false" dark transparent>
-              Cancel
+              Annuler
             </vs-button>
           </div>
         </template>
@@ -292,27 +305,27 @@ export default {
     border: none;
     border-radius: 10px;
     transition: 0.6s;
-    &:hover {
-      border: solid 2px rgba(51, 161, 165, 0.486);
-      // border-left: solid 2px rgb(36, 110, 112);
-      transition: 0.6s;
-    }
+    // &:hover {
+    //   border: solid 2px rgba(51, 161, 165, 0.486);
+    //   // border-left: solid 2px rgb(36, 110, 112);
+    //   transition: 0.6s;
+    // }
   }
   img {
     transition: transform 250ms;
     overflow: hidden;
     transition: 0.8s;
-  }
-  &:hover {
-    transform: translateY(-13px);
-    // cursor: pointer;
-    transition: 0.8s;
+    &:hover {
+    // transform: translateY(-13px);
+    // // cursor: pointer;
+    // transition: 0.8s;
 
-    img {
       transform: scaleX(1.2);
       transition: 0.8s;
-    }
+   
   }
+  }
+  
   .card-text {
     color: #266874;
   }

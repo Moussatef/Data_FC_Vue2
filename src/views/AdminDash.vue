@@ -86,6 +86,7 @@ export default {
       participantsAct: false,
       activeSidebar: false,
       profile: false,
+      openN:true,
     };
   },
   computed: {
@@ -129,8 +130,11 @@ export default {
       content.classList.toggle("active");
     },
   },
-  mounted() {
-    this.openNotification(null, "rgb(59,222,200)");
+  created() {
+    // if(this.openN){
+    // this.openNotification(null, "rgb(59,222,200)");
+    // this.openN = false
+    // }
   },
 };
 </script>

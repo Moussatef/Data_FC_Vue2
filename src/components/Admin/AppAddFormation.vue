@@ -58,6 +58,7 @@
         <div class="col-lg-2 col-2">
           <vs-button
             size="large"
+            gradient
             :active="activebtn == 1"
             @click="
               activebtn = 1;
@@ -134,9 +135,9 @@
 
             <vs-button
               class="close float-right col-2"
-              circle
-              danger
-              border
+              squire
+              shadow
+              
               @click="closeM()"
             >
               <i class="fa fa-close"></i>
@@ -194,11 +195,12 @@
                 <div class="col-lg-7 col-md-12 col-sm-12 col-12 my-4">
                   <h5>Type de formation</h5>
                   <div class="d-flex">
-                    <vs-select
+                   <vs-select
                       placeholder="sélectionner le type de formation"
                       v-model="value1"
                     >
                       <vs-option
+                        class=" overflow-hidden mb-2 py-4"
                         v-for="cat in categories"
                         :key="cat.id"
                         :label="cat.codeF + ' : ' + cat.titre"
@@ -207,6 +209,20 @@
                         {{ cat.codeF }} : {{ cat.titre }}
                       </vs-option>
                     </vs-select>
+
+
+                    <!-- <select class="form-select form-select-sm" v-model="value1" aria-label=".form-select-sm example">
+  <option selected >sélectionner le type de formation</option>
+  
+  <option
+                        v-for="cat in categories"
+                        :key="cat.id"
+                        :label="cat.codeF + ' : ' + cat.titre"
+                        :value="cat.id"
+                      >
+                        {{ cat.codeF }} : {{ cat.titre }}
+                      </option>
+</select> -->
                     <vs-button
                       class="mx-3"
                       size="large"

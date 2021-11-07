@@ -23,7 +23,7 @@
                 >
                   <img
                     v-if="!imagepreview"
-                    :src="'http://127.0.0.1:8000' + auth.image"
+                    :src="auth.image"
                     width="100"
                     height="100"
                     alt=""
@@ -68,15 +68,21 @@
               <div class="p-2">
                 <div class="row justify-content-start align-items-start mt-3 ">
                   <h5 class="col-2 text-start">Adresse :</h5>
-                  <p class="text-uppercase text-start  col-8 ">
+                  <p class="text-uppercase text-start  col-8 " v-if="auth.adresse">
                     {{ auth.adresse.adresse }}
+                  </p>
+                  <p class="text-uppercase text-start  col-4 " v-else >
+                    null
                   </p>
                   <i class="fa fa-pencil-square-o col-2" aria-hidden="true"></i>
                 </div>
                 <div class="row justify-content-start align-items-start mt-3 ">
                   <h5 class="col-2 text-start">Ville :</h5>
-                  <p class="text-uppercase text-start  col-4 ">
+                  <p class="text-uppercase text-start  col-4 " v-if="auth.adresse">
                     {{ auth.adresse.ville }}
+                  </p>
+                  <p class="text-uppercase text-start  col-4 " v-else >
+                    null
                   </p>
                   <i class="fa fa-pencil-square-o col-2" aria-hidden="true"></i>
                 </div>

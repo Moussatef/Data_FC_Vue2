@@ -4,7 +4,6 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 
-
 import 'jquery'
 import 'bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css'
@@ -33,9 +32,6 @@ import vuetify from './plugins/vuetify'
 // ..
 AOS.init();
 
-
-
-
 // import Embed from 'v-video-embed'
 
 // // global register
@@ -44,11 +40,6 @@ AOS.init();
 import VuePlyr from 'vue-plyr';
 import 'vue-plyr/dist/vue-plyr.css';
 Vue.use(VuePlyr)
-
-
-
-
-
 
 
 
