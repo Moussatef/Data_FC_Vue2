@@ -2,10 +2,10 @@
   <div class=" overflow-hidden">
     <div class="limiter ">
       <div
-        class="container-login100 bg-light"
+        class="container-login100 bg-light "
         style="background-image url('images/bg-01.jpg');"
       >
-        <div class="wrap-login100 img-l">
+        <div class="wrap-login100 img-l lg-img">
           <!-- <img src="../assets/cover/l1.jpg"
               class="d-block mx-lg-auto img-fluid"
               alt="Bootstrap Themes"
@@ -758,6 +758,10 @@ iframe {
   }
 }
 
-@media (max-width: 576px) {
+@media (max-width: 1230px) {
+  .lg-img{
+    display: none;
+  }
+
 }
 </style>

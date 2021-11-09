@@ -17,9 +17,12 @@
     "normalize.css": "^8.0.1",
     "popper.js": "^1.16.1",
     "v-pip": "^1.2.1",
+    "vimeo": "^2.1.1",
     "vue": "^2.6.11",
+    "vue-fancybox": "^1.0.3",
     "vue-plyr": "^7.0.0",
     "vue-router": "^3.2.0",
+    "vue-vimeo-player": "^0.2.2",
     "vuesax": "^4.0.1-alpha.25",
     "vuetify": "^2.4.0",
     "vuex": "^3.4.0"

@@ -12,12 +12,17 @@ import 'normalize.css'
 import AOS from 'aos';
 import 'aos/dist/aos.css'; // You can also use <link> for styles
 import vuetify from './plugins/vuetify'
+
+//
+import vueVimeoPlayer from 'vue-vimeo-player'
+Vue.use(vueVimeoPlayer)
 // ..
 AOS.init();
 
 import Vuesax from 'vuesax'
 import 'vuesax/dist/vuesax.css' //Vuesax styles
 import 'material-icons/iconfont/material-icons.css';
+
 
 Vue.use(Vuesax, {
     theme: {
@@ -31,15 +36,7 @@ Vue.use(Vuesax, {
     }
 })
 
-<<<<<<< HEAD
-import AOS from 'aos';
-import 'aos/dist/aos.css'; // You can also use <link> for styles
-import vuetify from './plugins/vuetify'
-// ..
-AOS.init();
-=======
 
->>>>>>> ff82be1de9ac8dd2b888e8afbd7fa9ac52b24af6
 
 // import Embed from 'v-video-embed'
 

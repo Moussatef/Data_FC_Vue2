@@ -1,10 +1,14 @@
 <template>
-  <div class=" py-5 bg-light">
+  <div class="py-5 bg-light">
     <h2 class="">Formations interentreprises</h2>
     <hr />
-    <div class="accordion accordion-flush " id="accordionFlushExample">
+    <div
+      v-if="!showFormation"
+      class="accordion accordion-flush"
+      id="accordionFlushExample"
+    >
       <div class="accordion-item" :key="x" v-for="(cat, x) in categories">
-        <h2 class="accordion-header " :id="'flush-headingOne' + cat.id">
+        <h2 class="accordion-header" :id="'flush-headingOne' + cat.id">
           <button
             class="accordion-button collapsed fs-4"
             type="button"
@@ -18,7 +22,7 @@
         </h2>
         <div
           :id="'flush-collapseOne' + cat.id"
-          class="accordion-collapse collapse "
+          class="accordion-collapse collapse"
           :class="{ show: cat.id == 1 }"
           :aria-labelledby="'flush-headingOne' + cat.id"
           data-bs-parent="#accordionFlushExample"
@@ -32,24 +36,12 @@
                   </template>
                   <template #thead>
                     <vs-tr>
-                      <vs-th class="fs-6">
-                        Code
-                      </vs-th>
-                      <vs-th class="fs-6">
-                        Titre
-                      </vs-th>
-                      <vs-th class="fs-6">
-                        Objectifs
-                      </vs-th>
-                      <vs-th class="fs-6">
-                        Population cible
-                      </vs-th>
-                      <vs-th class="fs-6">
-                        Durée de la formation
-                      </vs-th>
-                      <vs-th class="fs-6">
-                        Programme de formation
-                      </vs-th>
+                      <vs-th class="fs-6"> Code </vs-th>
+                      <vs-th class="fs-6"> Titre </vs-th>
+                      <vs-th class="fs-6"> Objectifs </vs-th>
+                      <vs-th class="fs-6"> Population cible </vs-th>
+                      <vs-th class="fs-6"> Durée de la formation </vs-th>
+                      <vs-th class="fs-6"> Programme de formation </vs-th>
                       <vs-th v-if="auth.role == 'admin'" class="fs-6"> </vs-th>
                       <vs-th v-if="auth.role == 'admin'"> </vs-th>
                       <vs-th v-if="auth.role == 'admin'"> </vs-th>
@@ -57,7 +49,7 @@
                   </template>
                   <template #tbody>
                     <vs-tr
-                      class="bg-white "
+                      class="bg-white"
                       :key="i"
                       v-for="(tr, i) in $vs.getSearch(cat.formation, search)"
                       :data="tr"
@@ -114,11 +106,7 @@
                         </vs-button>
                       </vs-td>
                       <vs-td v-if="auth.role == 'admin'">
-<<<<<<< HEAD
-                        <vs-button :to="'/formation-show/' + tr.id" flat icon>
-=======
-                        <vs-button :to="'/formation/' + tr.id" flat icon>
->>>>>>> ff82be1de9ac8dd2b888e8afbd7fa9ac52b24af6
+                        <vs-button @click="showFormationApp(tr.id)" flat icon>
                           <i class="bi bi-eye"></i>
                         </vs-button>
                       </vs-td>
@@ -131,6 +119,21 @@
         </div>
       </div>
     </div>
+    <div v-if="showFormation">
+      <vs-button
+        size="xl"
+        @click="
+          showFormation = false;
+          formation_id = undefined;
+        "
+        border
+        shadow
+        square
+      >
+        <i class="bi bi-arrow-bar-left me-2"></i> Revenir
+      </vs-button>
+      <FormationShow :formation_id="formation_id" />
+    </div>
     <AppUpdateFormation
       v-if="openModel"
       :formation="formationObj"
@@ -140,15 +143,13 @@
     />
     <vs-dialog width="550px" not-center v-model="activeConfirmation">
       <template #header>
-        <h4 class="not-margin" style="color:red;">
+        <h4 class="not-margin" style="color: red">
           Confirmation de <b>Suppression</b>
         </h4>
       </template>
 
       <div class="con-content">
-        <p>
-          Êtes-vous sûr de vouloir supprimer cette catégorie
-        </p>
+        <p>Êtes-vous sûr de vouloir supprimer cette catégorie</p>
       </div>
 
       <template #footer>
@@ -170,12 +171,14 @@
 <script>
 import { mapGetters, mapActions } from "vuex";
 import AppUpdateFormation from "@/components/Admin/AppUpdateFormation.vue";
+import FormationShow from "@/components/Admin/AppShowFormation.vue";
 export default {
   name: "AppFormation",
   components: {
     AppUpdateFormation,
+    FormationShow,
   },
-  data: function() {
+  data: function () {
     return {
       search: "",
       activeConfirmation: false,
@@ -184,10 +187,16 @@ export default {
       openModel: false,
       formationObj: undefined,
       categorieName: undefined,
+      showFormation: false,
+      formation_id: undefined,
     };
   },
   methods: {
     ...mapActions(["getAllFormationEn", "getAllCategories", "removeFoemation"]),
+    showFormationApp(id) {
+      this.formation_id = id;
+      this.showFormation = true;
+    },
     // function delete formation
     async deleteFormation(id, idCat) {
       this.$store

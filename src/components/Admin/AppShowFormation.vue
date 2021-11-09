@@ -1,16 +1,13 @@
 <template>
   <div class="overflow-hidden position-relativ bg-light">
     <div class="mt-5"></div>
-    <h2>FORMATIONS INTERENTREPRISES</h2>
     <!-- <vs-alert closable v-model="active">
       <template #title>
         Vuesax Framework
       </template>
       
     </vs-alert> -->
-    <vs-button size="xl" @click="$router.go(-1)" border shadow square>
-      <i class="bi bi-arrow-bar-left me-2"></i> Revenir
-    </vs-button>
+    
     <div v-if="formation" class="container-fluid bg-white p-5 my-5">
       <div class="row justify-content-evenly">
         <div
@@ -156,7 +153,7 @@
                     <div class="card shadow">
                       <div class="card-body text-center">
                         <!-- <AppVimeo /> -->
-                        <img src="../assets/vimeo.png" width="400" alt="" />
+                        <img src="../../assets/vimeo.png" width="400" alt="" />
                       </div>
                       <div class="card-footer d-flex justify-content-end">
                         <vs-button
@@ -196,7 +193,7 @@
                     <div class="card shadow">
                       <div class="card-body text-center">
                         <!-- <AppVimeo /> -->
-                        <img src="../assets/vimeo.png" width="400" alt="" />
+                        <img src="../../assets/vimeo.png" width="400" alt="" />
                       </div>
                       <div class="card-footer d-flex justify-content-end">
                         <vs-button
@@ -244,7 +241,7 @@
       </vs-dialog>
     </div>
     <div v-else>
-      <img src="../assets/OrongeUL/Questions-cuate.png" width="600" alt="" />
+      <img src="../../assets/OrongeUL/Questions-cuate.png" width="600" alt="" />
       <h2>La formation n'existe pas</h2>
     </div>
   </div>
@@ -255,9 +252,10 @@ import AppVimeo from "@/components/vimeo/AppVimeo.vue";
 import { mapGetters, mapActions } from "vuex";
 export default {
   name: "FormationShow",
+  props: ["formation_id"],
   data: function () {
     return {
-      id: this.$route.params.id,
+      id: this.formation_id,
       active: true,
       activeBD:false,
     };

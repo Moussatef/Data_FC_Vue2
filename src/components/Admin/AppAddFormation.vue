@@ -556,7 +556,7 @@ export default {
 }
 
 .badge_prm {
-  background: linear-gradient(130deg, #0fc6eb85 0%, #09a81e38 100%);
+  background: linear-gradient(130deg, #0fc6eb85 0%, #9c9c9cb6 100%);
   color: #fff;
 }
 </style>

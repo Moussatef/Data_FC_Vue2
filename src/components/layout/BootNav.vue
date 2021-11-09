@@ -1,7 +1,7 @@
 <template>
   <nav id="mynavi" class="navbar navbar-expand-xxl fixed-top navbar-light">
     <div class="container-fluid">
-      <a class="navbar-brand" href="#">
+      <a class="navbar-brand" to="/">
         <img src="../../assets/logo.jpg" width="300" alt="" />
       </a>
 
@@ -228,7 +228,7 @@ a {
   margin-left: 7rem;
 }
 #mynavi {
-  z-index: 9999999;
+  // z-index: 9999999;
 }
 .m-x-5 {
   margin: 5px 9rem 5px 15rem;

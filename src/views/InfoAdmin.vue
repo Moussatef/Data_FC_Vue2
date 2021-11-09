@@ -1,15 +1,15 @@
 <template>
   <div>
-    <div v-if="auth.role == 'admin'" class=" overflow-hidden bg-light">
+    <div v-if="auth.role == 'admin'" class="overflow-hidden bg-light">
       <div class="mt-4"></div>
       <AppSideNav />
-      <div class="content  ">
-        <div class="top-navbar position-fixed  ">
+      <div class="content">
+        <div class="top-navbar position-fixed">
           <div class="bx bx-menu btn_nav" @click="menu()"></div>
         </div>
         <h1 class="my-5">Administrateur Information</h1>
-        <div class="container ">
-          <div class="row  justify-content-center">
+        <div class="container">
+          <div class="row justify-content-center">
             <div class="col-4">
               <div class="bg-white text-center p-2 shadow-md">
                 <vs-avatar
@@ -37,7 +37,7 @@
                   />
                   <template #icons>
                     <i
-                      class="fa fa-pencil-square-o "
+                      class="fa fa-pencil-square-o"
                       @click="$refs.profile_img.click()"
                       aria-hidden="true"
                     ></i>
@@ -47,7 +47,7 @@
                   type="file"
                   accept="image/*"
                   ref="profile_img"
-                  class="invisible "
+                  class="invisible"
                   id="img_profile"
                   @change="imageSelected"
                 />
@@ -55,50 +55,86 @@
                   <h5 class="text-uppercase">
                     {{ auth.nom }} {{ auth.prenom }}
                   </h5>
-                  <i class="fa fa-pencil-square-o ms-2" aria-hidden="true"></i>
+                  <vs-button class="" shadow>
+                    <i
+                      class="fa fa-pencil-square-o "
+                      aria-hidden="true"
+                    ></i>
+                  </vs-button>
                 </div>
                 <div class="d-flex justify-content-center align-items-center">
                   <h6>{{ auth.email }}</h6>
-                  <i class="fa fa-pencil-square-o  ms-2" aria-hidden="true"></i>
+                  <vs-button class="" shadow>
+                    <i
+                      class="fa fa-pencil-square-o "
+                      aria-hidden="true"
+                    ></i>
+                  </vs-button>
                 </div>
                 <p>Administrateur</p>
               </div>
             </div>
             <div class="col-8 bg-white">
               <div class="p-2">
-                <div class="row justify-content-start align-items-start mt-3 ">
+                <div class="row justify-content-start align-items-start mt-3">
                   <h5 class="col-2 text-start">Adresse :</h5>
-                  <p class="text-uppercase text-start  col-8 " v-if="auth.adresse">
+                  <p
+                    class="text-uppercase text-start col-8"
+                    v-if="auth.adresse"
+                  >
                     {{ auth.adresse.adresse }}
                   </p>
-                  <p class="text-uppercase text-start  col-4 " v-else >
-                    null
+                  <p class="text-uppercase text-start col-4 text-muted" v-else>
+                    Ajouter votre adresse
                   </p>
-                  <i class="fa fa-pencil-square-o col-2" aria-hidden="true"></i>
+                  <vs-button class="col-2" shadow>
+                    <i
+                      class="fa fa-pencil-square-o "
+                      aria-hidden="true"
+                    ></i>
+                  </vs-button>
                 </div>
-                <div class="row justify-content-start align-items-start mt-3 ">
+                <div class="row justify-content-start align-items-start mt-3">
                   <h5 class="col-2 text-start">Ville :</h5>
-                  <p class="text-uppercase text-start  col-4 " v-if="auth.adresse">
+                  <p
+                    class="text-uppercase text-start col-4"
+                    v-if="auth.adresse"
+                  >
                     {{ auth.adresse.ville }}
                   </p>
-                  <p class="text-uppercase text-start  col-4 " v-else >
-                    null
+                  <p class="text-uppercase text-start col-4 text-muted" v-else>
+                    Ajoute votre ville
                   </p>
-                  <i class="fa fa-pencil-square-o col-2" aria-hidden="true"></i>
+                  <vs-button class="col-2" shadow>
+                    <i
+                      class="fa fa-pencil-square-o "
+                      aria-hidden="true"
+                    ></i>
+                  </vs-button>
                 </div>
-                <div class="row justify-content-start align-items-start mt-3 ">
+                <div class="row justify-content-start align-items-start mt-3">
                   <h5 class="col-2 text-start">Genre :</h5>
-                  <p class="text-uppercase text-start col-4 ">
+                  <p class="text-uppercase text-start text-muted col-4">
                     {{ auth.genre }}
                   </p>
-                  <i class="fa fa-pencil-square-o col-2" aria-hidden="true"></i>
+                  <vs-button class="col-2" shadow>
+                    <i
+                      class="fa fa-pencil-square-o "
+                      aria-hidden="true"
+                    ></i>
+                  </vs-button>
                 </div>
-                <div class="row justify-content-start align-items-start mt-3 ">
+                <div class="row justify-content-start align-items-start mt-3">
                   <h5 class="col-2 text-start">Telephone:</h5>
-                  <p class="text-uppercase text-start  col-4 ">
+                  <p class="text-uppercase text-start text-muted col-4">
                     {{ auth.telephone }}
                   </p>
-                  <i class="fa fa-pencil-square-o col-2" aria-hidden="true"></i>
+                  <vs-button class="col-2" shadow>
+                    <i
+                      class="fa fa-pencil-square-o "
+                      aria-hidden="true"
+                    ></i>
+                  </vs-button>
                 </div>
               </div>
             </div>
@@ -131,7 +167,7 @@ export default {
   components: {
     AppSideNav,
   },
-  data: function() {
+  data: function () {
     return {
       imagepreview: undefined,
     };

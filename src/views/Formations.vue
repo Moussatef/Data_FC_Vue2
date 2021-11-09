@@ -3,7 +3,7 @@
     <AppSection :titre="titre" />
 
     <div class="album py-5 bg-light">
-      <h1 class="text-gray mb-5 fs-1 ">Nos Formations</h1>
+      <h1 class="text-gray mb-5 fs-1 text-muted">Nos Formations</h1>
       <hr class="featurette-divider mb-5" />
       <div class="container">
         <div

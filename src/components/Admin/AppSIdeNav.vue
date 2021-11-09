@@ -34,7 +34,7 @@
           </router-link>
         </li>
         <li>
-          <router-link to="/admin-formation">
+          <router-link to="/formation-video">
             <span class="icon"><i class="bx bxs-cloud-upload"></i></span>
             <span class="text">Upload</span>
           </router-link>

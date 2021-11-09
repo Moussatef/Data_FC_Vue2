@@ -144,13 +144,13 @@
 
         <hr class="featurette-divider my-5" />
 
-        <div class="row featurette my-5 ">
+        <div class="row featurette my-5">
           <div class="col-md-7 my-5 py-5 position-relative">
             <div
-              class="care bg-white   p-5 position-absolute top-0 start-0 shadow  "
+              class="care bg-white p-5 position-absolute top-0 start-0 shadow"
             ></div>
             <div
-              class="my-3 "
+              class="my-3"
               data-aos="zoom-in"
               data-aos-delay="50"
               data-aos-duration="2000"
@@ -169,7 +169,7 @@
             </div>
 
             <div
-              class="my-4 pt-4 "
+              class="my-4 pt-4"
               data-aos="zoom-in"
               data-aos-delay="50"
               data-aos-duration="2000"
@@ -208,7 +208,7 @@
           class="row py-4 div-ch align-items-center justify-content-evenly my-5"
         >
           <div
-            class="col-md-5 col-lg-5 "
+            class="col-md-5 col-lg-5"
             data-aos="fade-down"
             data-aos-delay="50"
             data-aos-duration="1500"
@@ -224,144 +224,189 @@
             />
           </div>
           <div
-            class=" col-lg-6  m-1"
+            class="col-lg-6 m-1"
             data-aos="zoom-in"
             data-aos-delay="50"
             data-aos-duration="1500"
             data-aos-easing="ease-in-out"
           >
-            <h2 class="featurette-heading h2-one mb-4">
-              Nos engagements
-            </h2>
-            <div class="list-group row  mb-2  ">
-              <div class="row justify-content-evenly align-items-center  ">
-                <div class=" col-lg-1 col-md-1 col-sm-1 col-1 ">
+            <h2 class="featurette-heading h2-one mb-4">Nos engagements</h2>
+            <div class="list-group row mb-2">
+              <div class="row justify-content-evenly align-items-center">
+                <div class="col-lg-1 col-md-1 col-sm-1 col-1">
                   <div class="icon_span">
                     <img src="../assets/guarante.png" class="" />
                   </div>
                 </div>
                 <label
-                  class="list-group-item py-3 col-lg-10 col-md-9 col-sm-8 col-7 border-0 "
+                  class="
+                    list-group-item
+                    py-3
+                    col-lg-10 col-md-9 col-sm-8 col-7
+                    border-0
+                  "
                 >
-                  <span class="d-block fs-6 text-start text-start  opacity-90"
+                  <span class="d-block fs-6 text-start text-start opacity-90"
                     >Garantir des prestations de qualité répondant aux exigences
                     de nos clients</span
                   >
                 </label>
               </div>
             </div>
-            <div class="list-group row mb-2  ">
+            <div class="list-group row mb-2">
               <div class="row justify-content-evenly align-items-center">
-                <div class=" col-lg-1 col-md-1 col-sm-1 col-1">
+                <div class="col-lg-1 col-md-1 col-sm-1 col-1">
                   <div class="icon_span">
                     <img src="../assets/cooperation.png" altr="" />
                   </div>
                 </div>
                 <label
-                  class="list-group-item border-0 shadow py-3 col-lg-10 col-md-9 col-sm-8 col-7"
+                  class="
+                    list-group-item
+                    border-0
+                    shadow
+                    py-3
+                    col-lg-10 col-md-9 col-sm-8 col-7
+                  "
                 >
-                  <span class="d-block fs-6 text-start text-start  opacity-90"
+                  <span class="d-block fs-6 text-start text-start opacity-90"
                     >Etre un partenaire d’excellence de nos clients</span
                   >
                 </label>
               </div>
             </div>
-            <div class="list-group row mb-2  ">
+            <div class="list-group row mb-2">
               <div class="row justify-content-evenly align-items-center">
-                <div class=" col-lg-1 col-md-1 col-sm-1 col-1">
+                <div class="col-lg-1 col-md-1 col-sm-1 col-1">
                   <div class="icon_span">
                     <img src="../assets/idea.png" altr="" />
                   </div>
                 </div>
                 <label
-                  class="list-group-item border-0 shadow py-3 col-lg-10 col-md-9 col-sm-8 col-7"
+                  class="
+                    list-group-item
+                    border-0
+                    shadow
+                    py-3
+                    col-lg-10 col-md-9 col-sm-8 col-7
+                  "
                 >
-                  <span class="d-block fs-6 text-start text-start  opacity-90"
+                  <span class="d-block fs-6 text-start text-start opacity-90"
                     >Fournir des solutions innovantes et sur mesure pour chaque
                     entreprise cliente</span
                   >
                 </label>
               </div>
             </div>
-            <div class="list-group row mb-2  ">
+            <div class="list-group row mb-2">
               <div class="row justify-content-evenly align-items-center">
-                <div class=" col-lg-1 col-md-1 col-sm-1 col-1">
+                <div class="col-lg-1 col-md-1 col-sm-1 col-1">
                   <div class="icon_span">
                     <img src="../assets/like.png" altr="" />
                   </div>
                 </div>
                 <label
-                  class="list-group-item border-0 shadow py-3 col-lg-10 col-md-9 col-sm-8 col-7"
+                  class="
+                    list-group-item
+                    border-0
+                    shadow
+                    py-3
+                    col-lg-10 col-md-9 col-sm-8 col-7
+                  "
                 >
-                  <span class="d-block fs-6 text-start text-start  opacity-90"
+                  <span class="d-block fs-6 text-start text-start opacity-90"
                     >Satisfaire nos clients dans le but de maintenir une
                     relation confirmée et durable</span
                   >
                 </label>
               </div>
             </div>
-            <div class="list-group row mb-2  ">
+            <div class="list-group row mb-2">
               <div class="row justify-content-evenly align-items-center">
-                <div class=" col-lg-1 col-md-1 col-sm-1 col-1">
+                <div class="col-lg-1 col-md-1 col-sm-1 col-1">
                   <div class="icon_span">
                     <img src="../assets/technology.png" altr="" />
                   </div>
                 </div>
                 <label
-                  class="list-group-item border-0 shadow py-3 col-lg-10 col-md-9 col-sm-8 col-7"
+                  class="
+                    list-group-item
+                    border-0
+                    shadow
+                    py-3
+                    col-lg-10 col-md-9 col-sm-8 col-7
+                  "
                 >
-                  <span class="d-block fs-6 text-start text-start  opacity-90"
+                  <span class="d-block fs-6 text-start text-start opacity-90"
                     >Proposer des services novateurs, un accompagnement
                     privilégié et des conseils personnalisés</span
                   >
                 </label>
               </div>
             </div>
-            <div class="list-group row mb-2  ">
+            <div class="list-group row mb-2">
               <div class="row justify-content-evenly align-items-center">
-                <div class=" col-lg-1 col-md-1 col-sm-1 col-1">
+                <div class="col-lg-1 col-md-1 col-sm-1 col-1">
                   <div class="icon_span">
                     <img src="../assets/balance-scale.png" altr="" />
                   </div>
                 </div>
                 <label
-                  class="list-group-item border-0 shadow py-3 col-lg-10 col-md-9 col-sm-8 col-7"
+                  class="
+                    list-group-item
+                    border-0
+                    shadow
+                    py-3
+                    col-lg-10 col-md-9 col-sm-8 col-7
+                  "
                 >
-                  <span class="d-block fs-6 text-start text-start  opacity-90"
+                  <span class="d-block fs-6 text-start text-start opacity-90"
                     >Assurer une déontologie de travail dans toutes nos
                     interventions</span
                   >
                 </label>
               </div>
             </div>
-            <div class="list-group row mb-2  ">
+            <div class="list-group row mb-2">
               <div class="row justify-content-evenly align-items-center">
-                <div class=" col-lg-1 col-md-1 col-sm-1 col-1">
+                <div class="col-lg-1 col-md-1 col-sm-1 col-1">
                   <div class="icon_span">
                     <img src="../assets/consult.png" altr="" />
                   </div>
                 </div>
                 <label
-                  class="list-group-item border-0 shadow py-3 col-lg-10 col-md-9 col-sm-8 col-7"
+                  class="
+                    list-group-item
+                    border-0
+                    shadow
+                    py-3
+                    col-lg-10 col-md-9 col-sm-8 col-7
+                  "
                 >
-                  <span class="d-block fs-6 text-start text-start  opacity-90"
+                  <span class="d-block fs-6 text-start text-start opacity-90"
                     >Viser l’excellence et la perfection dans la réalisation de
                     toutes nos prestations</span
                   >
                 </label>
               </div>
             </div>
-            <div class="list-group row mb-2  ">
+            <div class="list-group row mb-2">
               <div class="row justify-content-evenly align-items-center">
-                <div class=" col-lg-1 col-md-1 col-sm-1 col-1">
+                <div class="col-lg-1 col-md-1 col-sm-1 col-1">
                   <div class="icon_span">
                     <img src="../assets/authorized-dealer.png" altr="" />
                   </div>
                 </div>
                 <label
-                  class="list-group-item border-0 shadow py-3 col-lg-10 col-md-9 col-sm-8 col-7"
+                  class="
+                    list-group-item
+                    border-0
+                    shadow
+                    py-3
+                    col-lg-10 col-md-9 col-sm-8 col-7
+                  "
                 >
-                  <span class="d-block fs-6 text-start text-start  opacity-90"
+                  <span class="d-block fs-6 text-start text-start opacity-90"
                     >Adopter des pratiques responsables et un comportement
                     éthique avec nos clients</span
                   >
@@ -371,10 +416,10 @@
           </div>
         </div>
 
-        <div class=" container-fluid">
+        <div class="container-fluid">
           <div class="row justify-content-center">
             <div
-              class="col-12 "
+              class="col-12"
               data-aos="fade-up"
               data-aos-delay="50"
               data-aos-duration="1000"
@@ -395,9 +440,7 @@
               <!-- <v-pip
                 :video-options="videoOptions"
                 :button-options="buttonOptions"
-                @video-in-pip="handlePIP"
-                @requesting-pip-failure="handlePipOpenFailure"
-                @exiting-pip-failure="handlePipExitFailure"
+                
               /> -->
             </div>
             <div class="col-lg-5 col-12 my-3">
@@ -440,8 +483,8 @@
         </div>
 
         <div>
-          <div class="row justify-content-center text-center my-5 ">
-            <div class="col-lg-4 col-sm-12 col-12 col-md-8 my-4 ">
+          <div class="row justify-content-center text-center my-5">
+            <div class="col-lg-4 col-sm-12 col-12 col-md-8 my-4">
               <div
                 class="card p-2 border-0 rounded shadow"
                 data-aos="fade-right"
@@ -457,11 +500,11 @@
                   <span class="fs-1 pluss">+</span>
                 </div>
 
-                <div class="chiffre ">FORMATIONS</div>
+                <div class="chiffre">FORMATIONS</div>
               </div>
             </div>
             <div
-              class="col-lg-4 col-sm-12 col-12 col-md-8 my-4 "
+              class="col-lg-4 col-sm-12 col-12 col-md-8 my-4"
               data-aos="fade-up"
               data-aos-delay="50"
               data-aos-duration="2000"
@@ -481,7 +524,7 @@
               </div>
             </div>
             <div
-              class="col-lg-4 col-sm-12 col-12 col-md-8 my-4 "
+              class="col-lg-4 col-sm-12 col-12 col-md-8 my-4"
               data-aos="fade-left"
               data-aos-delay="50"
               data-aos-duration="1500"
@@ -512,7 +555,7 @@
           data-aos-easing="ease-in"
         >
           <div class="container px-4 py-5 card-futur bg-white" id="featured-3">
-            <h2 class="pb-2 border-bottom ">Nos valeurs</h2>
+            <h2 class="pb-2 border-bottom">Nos valeurs</h2>
 
             <div
               id="carouselExampleInterval"
@@ -615,27 +658,25 @@
         <!-- /END THE FEATURETTES -->
       </div>
       <!-- Three columns of text below the carousel -->
-      <div class=" container-fluid card_Item">
+      <div class="container-fluid card_Item">
         <div class="row">
           <div class="col-lg-12">
-            <div class="p-5 my-4 ">
+            <div class="p-5 my-4">
               <div class="container-fluid py-5 h2-two">
-                <h2 class="display-5 fw-bold  ">
-                  Notre vivier de compétences
-                </h2>
+                <h2 class="display-5 fw-bold">Notre vivier de compétences</h2>
                 <p class="col-md-8 fs-4">
                   Nous disposons d’un ensemble d’intervenants composés de
                 </p>
               </div>
               <div class="row justify-content-center align-items-md-stretch">
                 <div
-                  class="col-md-6 col-sm-12 col-lg-4 col-12 "
+                  class="col-md-6 col-sm-12 col-lg-4 col-12"
                   data-aos="fade-right"
                   data-aos-delay="50"
                   data-aos-duration="1000"
                   data-aos-easing="ease-in"
                 >
-                  <div class=" p-5 card_cmp  ">
+                  <div class="p-5 card_cmp">
                     <img src="../assets/formation.png" alt="" />
                     <h2>Formation</h2>
                     <p class="fs-4">
@@ -645,13 +686,13 @@
                   </div>
                 </div>
                 <div
-                  class="col-md-6 col-sm-12 col-lg-4 "
+                  class="col-md-6 col-sm-12 col-lg-4"
                   data-aos="fade-down"
                   data-aos-delay="50"
                   data-aos-duration="1000"
                   data-aos-easing="ease-in"
                 >
-                  <div class=" p-5 card_cmp ">
+                  <div class="p-5 card_cmp">
                     <img src="../assets/pos.png" alt="" />
                     <h2>Consultants</h2>
                     <p class="fs-4">
@@ -663,13 +704,13 @@
                 </div>
 
                 <div
-                  class="col-md-6 col-sm-12 col-lg-4  "
+                  class="col-md-6 col-sm-12 col-lg-4"
                   data-aos="fade-left"
                   data-aos-delay="50"
                   data-aos-duration="1000"
                   data-aos-easing="ease-in"
                 >
-                  <div class=" p-5 card_cmp  ">
+                  <div class="p-5 card_cmp">
                     <img src="../assets/acmp.png" alt="" />
                     <h2>Enseignants</h2>
                     <p class="fs-4">
@@ -701,7 +742,7 @@
           </div>
           <div class="col-lg-6">
             <h1 class="display-5 fw-bold lh-1 mb-3 h2-one">
-              Lorem ipsum dolor
+              Formations Interentreprises
             </h1>
             <p class="lead">
               Quickly design and customize responsive mobile-first sites with
@@ -709,8 +750,8 @@
             </p>
             <div class="d-grid gap-2 d-md-flex justify-content-md-start">
               <vs-button
-              to="/formations-interentreprises"
-              size="xl"
+                to="/formations-interentreprises"
+                size="xl"
                 upload
                 color="warn"
                 gradient
@@ -722,8 +763,9 @@
             </div>
           </div>
         </div>
+        
       </div>
-      <div class="card  text-white border-0 overflow-hidden">
+      <div class="card text-white border-0 overflow-hidden">
         <img
           class="card-img responsive_img"
           src="../assets/h11.jpg"
@@ -732,11 +774,11 @@
         <span class="mask bg-primary alpha-7"></span>
         <div class="card-img-overlay d-flex align-items-center">
           <div class="col-lg-8">
-            <h4 class="heading  h3 text-white">
+            <h4 class="heading h3 text-white">
               La clé de la réussite est de trouver un véritable partenaire
               d’externalisation
             </h4>
-            <h4 class="heading  h3 text-white">
+            <h4 class="heading h3 text-white">
               L’intérim est la solution idéale pour vous
             </h4>
             <p class="card-text"></p>
@@ -755,60 +797,17 @@
 </template>
 
 <script>
-import VPip from "v-pip";
 export default {
   name: "Home",
   data() {
     return {
-      active:false,
-
-
-      scrolledToBottom: false,
-      // Array of objects with path to video files and format.
-      videos: [
-        { src: "path/to/video.mp4", format: "mp4" },
-        { src: "path/to/video.webm", format: "webm" },
-      ],
-
-      // Object with subtitles label, source, and language.
-      subtitles: {
-        label: "English Captions",
-        src: "path/to/captions.vtt",
-        srclang: "en",
-      },
-
-      // Array of objects with path to audio files and format.
-      tracks: [
-        { src: "path/to/audio.mp3", format: "mp3" },
-        { src: "path/to/audio.ogg", format: "ogg" },
-      ],
-
-      // YouTube video ID or video URL.
-      // https://www.youtube.com/watch?v=bTqVqk7FSmY & https://youtu.be/bTqVqk7FSmY would have the same effect.
-      youtubeID: "bTqVqk7FSmY",
-
-      // Vimeo video ID or video URL.
-      // https://vimeo.com/147865858 would have the same effect.
-      vimeoID: "147865858",
-
-      isPip: false,
-      videoOptions: {
-        wrapper: "w-full h-full",
-        src:
-          "https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-576p.mp4",
-        class: "w-3/4 rounded",
-        alt: "Placeholder Image",
-      },
-      buttonOptions: {
-        wrapper: "",
-        type: "button",
-        class: "btn",
-        label: "Toggle picture-in-picture",
-      },
+      active: false,
+     
     };
   },
-  components: { VPip },
+  components: {},
   methods: {
+   
     calculate() {
       //#region - start of - number counter animation
       const counterAnim = (qSelector, start = 0, end, duration = 1000) => {
@@ -836,7 +835,7 @@ export default {
         }
       });
     },
-  
+
     openLoading() {
       const loading = this.$vs.loading({
         text: "Loading...",
