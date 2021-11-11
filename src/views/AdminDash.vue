@@ -12,6 +12,7 @@
         <h1 class="my-5">Administrateur</h1>
         <div class=" container-fluid">
           <AppStatus />
+          <AppAdminInfo/>
 
           <div
             v-if="homeAct"
@@ -65,6 +66,7 @@
 <script>
 import AppSideNav from "@/components/Admin/AppSIdeNav.vue";
 import AppFormation from "@/components/Admin/AppFormation.vue";
+import AppAdminInfo from "@/components/Admin/AppAdminInfo.vue";
 import AppAddFormation from "@/components/Admin/AppAddFormation.vue";
 import AppClient from "@/components/Admin/AppClient.vue";
 import AppStatus from "@/components/Admin/AppStatus.vue";
@@ -78,6 +80,7 @@ export default {
     AppClient,
     AppAddFormation,
     AppStatus,
+    AppAdminInfo,
   },
   data: function() {
     return {

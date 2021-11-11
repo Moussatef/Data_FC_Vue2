@@ -20,8 +20,7 @@
                 </span>
                 <h3>Adresse</h3>
                 <p>
-                  Avenue de La Liberté ,Immeuble Goumrizid 03 éme étage N° 13
-                  Ville Nouvelle - Safi Maroc
+                  {{company.adresse}}
                 </p>
               </div>
             </div>
@@ -37,7 +36,7 @@
                   />
                 </span>
                 <h3>E-mail</h3>
-                <p>datafc2019@gmail.com</p>
+                <p>{{company.email}}</p>
               </div>
             </div>
             <div class="col-lg-3 col-md-12 col-sm-12 col-12  py-2 ">
@@ -52,8 +51,8 @@
                   />
                 </span>
                 <h3>Telephone</h3>
-                <p><b>Tele :</b> +212-675-343-730</p>
-                <p><b>Fixe :</b> +212-524-624-584</p>
+                <p><b>Tele :</b>{{company.tele}}</p>
+                <p><b>Fixe :</b> {{company.fixe}}</p>
               </div>
             </div>
           </div>
@@ -205,7 +204,7 @@ export default {
     };
   },
   methods: {
-    ...mapActions(["sendMessage"]),
+    ...mapActions(["sendMessage","getCompnyInfo"]),
     addMessage(nom, prenom, email, subject, message) {
       if (nom && prenom && email && subject && message) {
         this.$store
@@ -228,6 +227,9 @@ export default {
           });
       }
     },
+  },
+  computed:{
+    ...mapGetters(["company"]),
   },
   watch: {
     active(val) {

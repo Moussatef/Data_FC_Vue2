@@ -4,12 +4,14 @@ const state = {
     auth: [],
     role: "",
     loading: true,
+    company:[],
 }
 
 const getters = {
     auth: state => state.auth,
     role: state => state.role,
     loading : state => state.loading,
+    company : state => state.company,
 }
 
 const actions = {
@@ -46,10 +48,30 @@ const actions = {
 
     },
 
+    async getCompnyInfo({commit}) {
+        var myHeaders = new Headers();
+        myHeaders.append("Accept", "application/json");
+  
+        var requestOptions = {
+          method: "GET",
+          headers: myHeaders,
+          redirect: "follow",
+        };
+  
+        fetch("http://127.0.0.1:8000/api/company/info", requestOptions)
+          .then((response) => response.json())
+          .then((result) => {
+              console.log(result)
+              commit('setCompany',result)
+            })
+          .catch((error) => console.log("error", error));
+      },
+
 }
 
 const mutations = {
     setAuth: (state, auth) => (state.auth = auth),
+    setCompany : (state, company) => (state.company = company),
 
 
 

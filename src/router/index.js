@@ -16,7 +16,6 @@ import AdminDash from '../views/AdminDash.vue'
 import AdminFormationEn from '../views/AdminFormationEn.vue'
 import AdminClient from '../views/AdminClient.vue'
 import FormationVideo from '../views/FormationVideo.vue'
-import FormationShow from '../views/FormationShow.vue'
 import InfoClient from '../views/ClientInfo.vue'
 import ClientFavorite from '../views/ClientFavorite.vue'
 import UserProfile from '../views/UserProfile.vue'
@@ -123,18 +122,7 @@ const routes = [
     }
   },
 
-  {
-    path: '/formation-show/:id',
-    name: 'FormationShow',
-    component: FormationShow,
-    beforeEnter: (to, from, next) => {
-      if (localStorage.getItem('accessToken')) {
-        next();
-      } else {
-        next('/');
-      }
-    }
-  },
+  
 
   {
     path: '/formation-video',

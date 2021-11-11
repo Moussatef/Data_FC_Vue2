@@ -12,7 +12,7 @@
 import AppNavBoot from "@/components/layout/BootNav.vue";
 import { mapGetters, mapActions } from "vuex";
 export default {
-  data: function() {
+  data: function () {
     return {
       role: "",
       color: "#d5397b",
@@ -31,7 +31,9 @@ export default {
         loading.close();
       }, 600);
     },
-    ...mapActions(["getAuthinfo"]),
+    ...mapActions(["getAuthinfo","getCompnyInfo"]),
+
+    
 
     getInfoAuth() {
       this.$store
@@ -59,6 +61,7 @@ export default {
   created() {
     this.openLoading();
     this.getInfoAuth();
+    this.getCompnyInfo();
   },
   beforeMount() {
     this.getInfoAuth();

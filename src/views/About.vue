@@ -1,10 +1,10 @@
 <template>
-  <div class=" overflow-hidden">
+  <div class="overflow-hidden">
     <AppSection :titre="titre" />
-    <div class=" py-5 card_info">
+    <div class="py-5 card_info">
       <div class="container-fluid">
-        <div class="row ">
-          <div class="col-lg-6 col-md-8 col-sm-12 col-12 row ">
+        <div class="row">
+          <div class="col-lg-6 col-md-8 col-sm-12 col-12 row">
             <div>
               <img
                 src="../assets/atlassian_0.png"
@@ -15,7 +15,13 @@
             </div>
           </div>
           <div class="col-lg-6 col-md-8 col-sm-12 col-12 row">
-            <div class="col-12  fs-6 ">
+            <div
+              class="col-12 fs-6"
+              data-aos="fade-up"
+              data-aos-delay="50"
+              data-aos-duration="1000"
+              data-aos-easing="ease-in"
+            >
               <div class="p-3 info text-start">
                 <img src="../assets/info.png" width="50" alt="" />
                 <h3 class="my-3 h3-one">
@@ -37,10 +43,16 @@
               </div>
             </div>
 
-            <div class="col-12 fs-6">
+            <div
+              class="col-12 fs-6"
+              data-aos="fade-right"
+              data-aos-delay="50"
+              data-aos-duration="1000"
+              data-aos-easing="ease-in"
+            >
               <div class="p-4 info text-start">
                 <img src="../assets/group.png" width="50" alt="" />
-                <h3 class="my-3 h3-one ">
+                <h3 class="my-3 h3-one">
                   DATA FC dispose des outils particulièrement utiles et d’un
                   processus de gestion efficace pour
                 </h3>
