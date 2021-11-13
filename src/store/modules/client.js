@@ -1,7 +1,12 @@
-
+import axios from 'axios';
 
 const state = {
     client: [],
+    headers: {
+        'Accept': 'application/json',
+        'Authorization': 'Bearer ' + localStorage.getItem('accessToken'),
+        'Content-Type': 'application/json'
+    },
 }
 
 const getters = {
@@ -9,30 +14,30 @@ const getters = {
 }
 
 const actions = {
-    async getAllClient({ commit }) {
+    async getAllClient({
+        commit
+    }) {
         var token = localStorage.getItem('accessToken')
         if (token) {
-            var myHeaders = new Headers();
-            myHeaders.append("Authorization", "Bearer " + token);
 
             var requestOptions = {
-                method: 'GET',
-                headers: myHeaders,
-                redirect: 'follow'
+                headers: state.headers,
+
             };
 
-            const response = await fetch("client/info", requestOptions)
-            if (response.status === 200) {
-                const result = await response.json();
+            axios.get("client/info", requestOptions).then((result) => {
                 // console.log(result.data);
-                commit('setClient', result.data)
-
-            }
+                commit('setClient', result.data.data)
+            }).catch((error) => {
+                console.log(error);
+            })
         }
 
     },
 
-    async deletePersonne({ commit }, param) {
+    async deletePersonne({
+        commit
+    }, param) {
 
         const data = new FormData();
         data.append("personne_id", param[0]);
@@ -56,7 +61,7 @@ const actions = {
                 .then(response => {
                     let personne = response.data;
                     // consoled for testing
-                    console.log(personne);
+                    // console.log(personne);
                     commit('deletepersonne', param[0]);
                     resolve('Success')
                 })

@@ -1,3 +1,5 @@
+import axios from 'axios';
+
 const state = {
     auth: [],
     role: "",
@@ -29,7 +31,7 @@ const actions = {
 
         var config = {
             method: 'post',
-            url: process.env.VUE_APP_BASE_URL + "datafc/auth/admin-derct",
+            url: "datafc/auth/admin-derct",
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'
@@ -61,19 +63,13 @@ const actions = {
         var token = localStorage.getItem('accessToken')
         if (token) {
             var config = {
-                // method: 'post',
-                // url: process.env.VUE_APP_BASE_URL + 'datafc/auth/info',
+                method: 'post',
+                url: 'datafc/auth/info',
                 headers: state.headers,
             };
 
             return new Promise((resolve, reject) => {
-                axios.post('datafc/auth/info', {
-                        headers: {
-                            'Accept': 'application/json',
-                            'Authorization': 'Bearer ' + localStorage.getItem('accessToken'),
-                            'Content-Type': 'application/json'
-                        }
-                    })
+                axios(config)
                     .then(response => {
                         let aut_Info = response.data.data[0];
                         // consoled for testing
@@ -95,18 +91,17 @@ const actions = {
     }) {
 
         var config = {
-            method: 'GIT',
+            method: 'GET',
             url: 'company/info',
             headers: state.headers,
         };
 
         return new Promise((resolve, reject) => {
             axios(config)
-                .then((response) => response.json())
                 .then((result) => {
-                    console.log(result)
-                    commit('setCompany', result)
-                    resolve(result)
+                    // console.log(result.data)
+                    commit('setCompany', result.data)
+                    resolve(result.data)
                 })
                 .catch((error) => reject(error));
         })

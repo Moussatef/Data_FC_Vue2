@@ -206,7 +206,7 @@ export default {
         redirect: "follow",
       };
       const res = await fetch(
-        "datafc/auth/logout",
+        process.env.VUE_APP_BASE_URL+"datafc/auth/logout",
         requestOptions
       );
       if (res.status === 200) {

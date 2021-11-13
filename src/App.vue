@@ -9,6 +9,7 @@
 
 <script>
 // import AppNav from "@/components/layout/AppNav.vue";
+import AppSideNav from "@/components/Admin/AppSIdeNav.vue";
 import AppNavBoot from "@/components/layout/BootNav.vue";
 import { mapGetters, mapActions } from "vuex";
 export default {
@@ -40,10 +41,10 @@ export default {
         .dispatch("getAuthinfo")
         .then((res) => {
           // this.description =
-          //   "Type formation est ajoutée avec succès à la base de données";
+          // "Type formation est ajoutée avec succès à la base de données";
           // console.log(res.role);
           this.role = res.role;
-          console.log(res);
+          // console.log(res);
         })
         .catch((err) => {
           this.errorDesc = err.message;
@@ -56,6 +57,7 @@ export default {
   computed: {},
   components: {
     // AppNav,
+    AppSideNav,
     AppNavBoot,
   },
   mounted() {

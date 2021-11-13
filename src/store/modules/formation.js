@@ -23,13 +23,13 @@ const actions = {
             method: 'GET',
             redirect: 'follow'
         };
-        const response = await fetch("formation", requestOptions)
-        if (response.status === 200) {
-            const result = await response.json();
-            console.log(result.data);
+       
+        axios.get("formation", requestOptions).then((result) => {
+            // console.log(result.data);
             commit('setFormations', result.data)
-
-        }
+         }).catch((error) => {
+             console.log(error);
+         })
 
     },
 
@@ -39,12 +39,13 @@ const actions = {
             method: 'GET',
             redirect: 'follow'
         };
-        const response = await axios.get("formation/categories", requestOptions)
-        if (response.status === 200) {
-            const result = await response.json();
-            // console.log(result.data);
-            commit('setCategory', result.data)
-        }
+         axios.get("formation/categories", requestOptions).then((result) => {
+            // console.log(result.data.data);
+            commit('setCategory', result.data.data)
+         }).catch((error) => {
+             console.log(error);
+         })
+        
     },
 
     //function add type of formation
@@ -99,7 +100,7 @@ const actions = {
 
         axios(config).then((res) => {
             const formation = res.data.data[0]
-            console.log(formation);
+            // console.log(formation);
             commit('oneFormation', formation);
         }).catch((error) => {
             console.log(error);
@@ -179,7 +180,7 @@ const actions = {
                 .then(response => {
                     let formation = response.data;
                     // consoled for testing
-                    console.log(formation);
+                    // console.log(formation);
                     commit('updateFormation', formation.formation[0]);
                     resolve('Success')
                 })

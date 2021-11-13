@@ -7,8 +7,9 @@
       </template>
       
     </vs-alert> -->
+    <div if="!loading" class="box-loading" ref="content"></div>
 
-    <div v-if="formation && loading " class="container-fluid bg-white p-5 my-5">
+    <div v-if="formation  " class="container-fluid bg-white p-5 my-5">
       <div class="row justify-content-between">
         <div
           class="
@@ -174,14 +175,16 @@
                     v-if="formation.trailer"
                   >
                     <div class="col-5">
-                      <div class="card shadow">
-                        <div class="card-body text-center">
-                          <!-- <AppVimeo /> -->
+                      <div class="card shadow ">
                           <img
-                            src="../../assets/vimeo.png"
-                            width="100"
+                          class="mx-auto"
+                            src="../../assets/logo.jpg"
+                            width="300"
                             alt=""
                           />
+                        <div class="card-body text-center fs-4 text-muted">
+                          {{formation.trailer.title}}
+                          <!-- <AppVimeo /> -->
                         </div>
                         <div class="card-footer d-flex justify-content-end">
                           <vs-button
@@ -228,13 +231,14 @@
                       :key="index"
                     >
                       <div class="card shadow">
-                        <div class="card-body text-center">
-                          <!-- <AppVimeo /> -->
                           <img
                             src="../../assets/vimeo.png"
                             width="100"
                             alt=""
                           />
+                        <div class="card-body text-center">
+                          {{vd.title}}
+                          <!-- <AppVimeo /> -->
                         </div>
                         <div class="card-footer d-flex justify-content-end">
                           <vs-button
@@ -656,7 +660,7 @@
         </template>
       </vs-dialog>
     </div>
-    <div v-else-if="!loading" class="box-loading" ref="content"></div>
+    
     <div v-else>
       <img src="../../assets/OrongeUL/Questions-cuate.png" width="600" alt="" />
       <h2>La formation n'existe pas</h2>
@@ -665,6 +669,7 @@
 </template>
 
 <script>
+import axios from 'axios'
 import AppVimeo from "@/components/vimeo/AppVimeo.vue";
 import { mapGetters, mapActions } from "vuex";
 export default {
