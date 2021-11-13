@@ -21,7 +21,7 @@ const actions = {
                 redirect: 'follow'
             };
 
-            const response = await fetch("http://127.0.0.1:8000/api/client/info", requestOptions)
+            const response = await fetch("client/info", requestOptions)
             if (response.status === 200) {
                 const result = await response.json();
                 // console.log(result.data);
@@ -42,7 +42,7 @@ const actions = {
 
         var config = {
             method: "post",
-            url: "http://127.0.0.1:8000/api/admin/delete-personne",
+            url: "admin/delete-personne",
             headers: {
                 Accept: "application/json",
                 Authorization: "Bearer " + localStorage.getItem("accessToken"),

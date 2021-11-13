@@ -1,14 +1,14 @@
 <template>
-  <div class=" overflow-hidden">
-    <div class="limiter ">
+  <div class="overflow-hidden">
+    <div class="limiter">
       <div
         class="container-login100 bg-light"
         style="background-image url('images/bg-01.jpg');"
       >
-        <div class="wrap-login100 p-l-55 p-r-55 p-t-20 p-b-20 shadow ">
+        <div class="wrap-login100 p-l-55 p-r-55 p-t-20 p-b-20 shadow">
           <img src="../assets/logo.jpg" class="logo" alt="" />
           <hr />
-          <span class="login100-form-title p-b-50 m-b-50  mt-3">
+          <span class="login100-form-title p-b-50 m-b-50 mt-3">
             Connexion Administrateur
           </span>
 
@@ -20,17 +20,15 @@
             v-model="active"
             v-if="message_err"
           >
-            <template #title>
-              Erreur lors de l'inscription
-            </template>
+            <template #title> Erreur lors de l'inscription </template>
             {{ message_err }}
           </vs-alert>
 
           <div
-            class="  m-b-23 my-3 text-start"
+            class="m-b-23 my-3 text-start"
             data-validate="Username is reauired"
           >
-            <span class="mb-4 ">E-mail</span>
+            <span class="mb-4">E-mail</span>
             <!-- <input
                 class="input100"
                 type="email"
@@ -40,7 +38,7 @@
               <span class="focus-input100" ></span> -->
             <vs-input
               color="#25767a"
-              class="my-4 "
+              class="my-4"
               border
               type="email"
               v-model="email"
@@ -52,7 +50,7 @@
             </vs-input>
           </div>
           <div
-            class="wrap-input100  text-start "
+            class="wrap-input100 text-start"
             data-validate="Password is required"
           >
             <span class="my-2">Mot de passe</span>
@@ -66,7 +64,7 @@
             <vs-input
               color="#25767a"
               border
-              class="my-4 inp "
+              class="my-4 inp"
               type="password"
               v-model="password"
               placeholder="Écrivez votre mot de passe"
@@ -78,9 +76,7 @@
           </div>
 
           <div class="text-right p-t-8 p-b-31">
-            <a class="nav-link" href="#">
-              Mot de passe oublié?
-            </a>
+            <a class="nav-link" href="#"> Mot de passe oublié? </a>
           </div>
           <div class="">
             <div class="d-grid gap-2">
@@ -139,6 +135,7 @@
   </div>
 </template>
 <script>
+import { mapGetters, mapActions } from "vuex";
 export default {
   name: "LoginAdmin",
   data: () => ({
@@ -157,37 +154,21 @@ export default {
     progress: 0,
   }),
   methods: {
+    ...mapActions(["auth"]),
     async Auth(email, password) {
       if (email && password) {
-        var myHeaders = new Headers();
-        myHeaders.append("Accept", "application/json");
-        myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
-
-        var urlencoded = new URLSearchParams();
-        urlencoded.append("email", email);
-        urlencoded.append("password", password);
-
-        var requestOptions = {
-          method: "POST",
-          headers: myHeaders,
-          body: urlencoded,
-          redirect: "follow",
-        };
-        const result = await fetch(
-          "http://127.0.0.1:8000/api/datafc/auth/admin-derct",
-          requestOptions
-        );
-        if (result.status == 201) {
-          const res = await result.json();
-          console.log(res);
-          this.message_err = undefined;
-          localStorage.setItem("accessToken", res.Token);
-          location.replace("/admin-dashboard");
-        } else {
-          const err = await result.json();
-          console.log(err.message);
-          this.message_err = err.message;
-        }
+        this.$store
+          .dispatch("auth", [email, password])
+          .then((res) => {
+            console.log(res);
+            this.message_err = undefined;
+            localStorage.setItem("accessToken", res.Token);
+            location.replace("/admin-dashboard");
+          })
+          .catch((error) => {
+            console.log(error.message);
+            this.message_err = error.message;
+          });
       } else {
         this.message_err = "entrées vides";
       }

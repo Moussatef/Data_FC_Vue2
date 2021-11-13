@@ -23,7 +23,7 @@ const actions = {
             method: 'GET',
             redirect: 'follow'
         };
-        const response = await fetch("http://127.0.0.1:8000/api/formation", requestOptions)
+        const response = await fetch("formation", requestOptions)
         if (response.status === 200) {
             const result = await response.json();
             console.log(result.data);
@@ -39,7 +39,7 @@ const actions = {
             method: 'GET',
             redirect: 'follow'
         };
-        const response = await fetch("http://127.0.0.1:8000/api/formation/categories", requestOptions)
+        const response = await axios.get("formation/categories", requestOptions)
         if (response.status === 200) {
             const result = await response.json();
             // console.log(result.data);
@@ -58,7 +58,7 @@ const actions = {
 
         var config = {
             method: 'post',
-            url: 'http://127.0.0.1:8000/api/add/type-formation',
+            url: 'add/type-formation',
             headers: {
                 'Accept': 'application/json',
                 'Authorization': 'Bearer ' + localStorage.getItem('accessToken'),
@@ -88,7 +88,7 @@ const actions = {
 
         var config = {
             method: 'get',
-            url: 'http://127.0.0.1:8000/api/admin/formation/' + param,
+            url: 'admin/formation/' + param,
             headers: {
                 'Accept': 'application/json',
                 'Authorization': 'Bearer ' + localStorage.getItem('accessToken'),
@@ -125,7 +125,7 @@ const actions = {
 
         var config = {
             method: "post",
-            url: "http://127.0.0.1:8000/api/add/formation",
+            url: "add/formation",
             headers: {
                 Accept: "application/json",
                 Authorization: "Bearer " + localStorage.getItem("accessToken"),
@@ -165,7 +165,7 @@ const actions = {
 
         var config = {
             method: "post",
-            url: "http://127.0.0.1:8000/api/update/formation",
+            url: "update/formation",
             headers: {
                 Accept: "application/json",
                 Authorization: "Bearer " + localStorage.getItem("accessToken"),
@@ -201,7 +201,7 @@ const actions = {
 
         var config = {
             method: "post",
-            url: "http://127.0.0.1:8000/api/categories-remove",
+            url: "categories-remove",
             headers: {
                 Accept: "application/json",
                 Authorization: "Bearer " + localStorage.getItem("accessToken"),
@@ -235,7 +235,7 @@ const actions = {
         });
         var config = {
             method: "post",
-            url: "http://127.0.0.1:8000/api/formation-remove",
+            url: "formation-remove",
             headers: {
                 Accept: "application/json",
                 Authorization: "Bearer " + localStorage.getItem("accessToken"),

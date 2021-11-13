@@ -4,6 +4,9 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 
+import axios from 'axios'
+axios.defaults.baseURL = process.env.VUE_APP_BASE_URL;
+
 import 'jquery'
 import 'bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css'

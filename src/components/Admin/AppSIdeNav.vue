@@ -87,7 +87,7 @@ export default {
         redirect: "follow",
       };
       const res = await fetch(
-        "http://127.0.0.1:8000/api/datafc/auth/logout",
+        "datafc/auth/logout",
         requestOptions
       );
       if (res.status === 200) {

@@ -58,14 +58,12 @@ export default {
     // AppNav,
     AppNavBoot,
   },
-  created() {
+  mounted() {
     this.openLoading();
     this.getInfoAuth();
     this.getCompnyInfo();
   },
-  beforeMount() {
-    this.getInfoAuth();
-  },
+ 
 };
 </script>
 

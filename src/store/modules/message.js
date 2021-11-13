@@ -21,7 +21,7 @@ const actions = {
         });
         var config = {
             method: 'post',
-            url: 'http://127.0.0.1:8000/api/send-message',
+            url: 'send-message',
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'
@@ -56,7 +56,7 @@ const actions = {
         });
         var config = {
             method: 'post',
-            url: 'http://127.0.0.1:8000/api/admin/send-message',
+            url: 'admin/send-message',
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json',
@@ -98,7 +98,7 @@ const actions = {
     //             redirect: 'follow'
     //         };
 
-    //         const response = await fetch("http://127.0.0.1:8000/api/client/info", requestOptions)
+    //         const response = await fetch("client/info", requestOptions)
     //         if (response.status === 200) {
     //             const result = await response.json();
     //             console.log(result.data);
