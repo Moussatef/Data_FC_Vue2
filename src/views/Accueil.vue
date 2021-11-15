@@ -425,7 +425,7 @@
               data-aos-duration="1000"
               data-aos-easing="ease-in"
             >
-              <iframe
+              <!-- <iframe
                 class="video--player__vid"
                 allowfullscreen="1"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -436,14 +436,10 @@
                 width="640"
                 height="390"
                 frameborder="0"
-              ></iframe>
-              <!-- <v-pip
-                :video-options="videoOptions"
-                :button-options="buttonOptions"
-                
-              /> -->
+              ></iframe> -->
+              <AppVimeo :id_video="'645179394'" />
             </div>
-            <div class="col-lg-5 col-12 my-3">
+            <div class="col-lg-6 col-12 my-3">
               <div
                 class="shadow overflow-hidden"
                 data-aos="fade-left"
@@ -461,7 +457,7 @@
                 />
               </div>
             </div>
-            <div class="col-lg-5 col-12 my-3">
+            <div class="col-lg-6 col-12 my-3">
               <div
                 class="shadow overflow-hidden"
                 data-aos="fade-right"
@@ -482,181 +478,187 @@
           </div>
         </div>
 
-        <div>
-          <div class="row justify-content-center text-center my-5">
-            <div class="col-lg-4 col-sm-12 col-12 col-md-8 my-4">
-              <div
-                class="card p-2 border-0 rounded shadow"
-                data-aos="fade-right"
-                data-aos-delay="50"
-                data-aos-duration="1500"
-                data-aos-easing="ease-in"
-              >
-                <div>
-                  <img src="../assets/book.png" width="100" alt="" />
-                </div>
-                <div class="d-flex justify-content-center">
-                  <span id="count2" class="display-4 card_nb"></span>
-                  <span class="fs-1 pluss">+</span>
-                </div>
-
-                <div class="chiffre">FORMATIONS</div>
-              </div>
-            </div>
+        <!-- /END THE FEATURETTES -->
+      </div>
+      <div class="p-2">
+        <div class="row justify-content-center text-center my-5">
+          <div class="col-lg-3 col-sm-12 col-12 col-md-8 my-4">
             <div
-              class="col-lg-4 col-sm-12 col-12 col-md-8 my-4"
-              data-aos="fade-up"
-              data-aos-delay="50"
-              data-aos-duration="2000"
-              data-aos-easing="ease-in"
-            >
-              <div class="card p-2 border-0 rounded shadow">
-                <div class="mb-3">
-                  <img src="../assets/writing.png" width="84" alt="" />
-                </div>
-                <div class="d-flex justify-content-center">
-                  <span id="count3" class="display-4 card_nb"></span>
-                  <span class="fs-1 pluss">+</span>
-                </div>
-                <div class="chiffre text-uppercase">
-                  formations interentreprises
-                </div>
-              </div>
-            </div>
-            <div
-              class="col-lg-4 col-sm-12 col-12 col-md-8 my-4"
-              data-aos="fade-left"
+              class="card p-2 border-0 rounded-lg shadow"
+              data-aos="fade-right"
               data-aos-delay="50"
               data-aos-duration="1500"
               data-aos-easing="ease-in"
             >
-              <div class="card p-2 border-0 rounded shadow">
-                <div>
-                  <img src="../assets/group(1).png" width="100" alt="" />
-                </div>
-                <div class="d-flex justify-content-center">
-                  <span id="count4" class="display-4 card_nb"></span>
-                  <span class="fs-1 pluss">+</span>
-                </div>
+              <div class="mb-5">
+                <img src="../assets/book.png" width="80" alt="" />
+              </div>
+              <div class="d-flex justify-content-center">
+                <span id="count2" class="display-3 card_nb"></span>
+                <span class="fs-1 pluss">+</span>
+              </div>
 
-                <div class="chiffre">ENSEIGNANTS</div>
+              <div class="chiffre">FORMATIONS</div>
+            </div>
+          </div>
+          <div
+            class="col-lg-4 col-sm-12 col-12 col-md-8 my-4"
+            data-aos="fade-up"
+            data-aos-delay="50"
+            data-aos-duration="2000"
+            data-aos-easing="ease-in"
+          >
+            <div class="card p-2 border-0 rounded-lg shadow">
+              <div class="mb-5">
+                <img src="../assets/writing.png" width="80" alt="" />
+              </div>
+              <div class="d-flex justify-content-center">
+                <span id="count3" class="display-3 card_nb"></span>
+                <span class="fs-1 pluss">+</span>
+              </div>
+              <div class="chiffre text-uppercase">
+                formations interentreprises
               </div>
             </div>
           </div>
-        </div>
-
-        <hr class="featurette-divider" />
-
-        <div
-          class="row featurette"
-          data-aos="zoom-in-down"
-          data-aos-delay="50"
-          data-aos-duration="1400"
-          data-aos-easing="ease-in"
-        >
-          <div class="container px-4 py-5 card-futur bg-white" id="featured-3">
-            <h2 class="pb-2 border-bottom">Nos valeurs</h2>
-
-            <div
-              id="carouselExampleInterval"
-              class="carousel carousel-dark slide"
-              data-bs-ride="carousel"
-            >
-              <div class="carousel-inner">
-                <div class="carousel-item active" data-bs-interval="3000">
-                  <div class="slide-img">
-                    <img src="../assets/invoch.png" class="" alt="" />
-                  </div>
-
-                  <div class="titre-info">
-                    <p class="fs-3">L'innovation</p>
-                  </div>
-                </div>
-
-                <div class="carousel-item" data-bs-interval="3000">
-                  <div class="slide-img">
-                    <img src="../assets/conf.png" class="" alt="" />
-                  </div>
-
-                  <div class="container">
-                    <div class="titre-info">
-                      <p class="fs-3">La confidentialité et l'honnêteté</p>
-                    </div>
-                  </div>
-                </div>
-                <div class="carousel-item" data-bs-interval="3000">
-                  <div class="slide-img">
-                    <img src="../assets/resp.png" class="" alt="" />
-                  </div>
-
-                  <div class="container">
-                    <div class="titre-info">
-                      <p class="fs-3">La responsabilité</p>
-                    </div>
-                  </div>
-                </div>
-                <div class="carousel-item" data-bs-interval="3000">
-                  <div class="slide-img">
-                    <img src="../assets/cooperation.png" class="" alt="" />
-                  </div>
-
-                  <div class="container">
-                    <div class="titre-info">
-                      <p class="fs-3">Le respect</p>
-                    </div>
-                  </div>
-                </div>
-                <div class="carousel-item" data-bs-interval="3000">
-                  <div class="slide-img">
-                    <img src="../assets/dataanlity.png" class="" alt="" />
-                  </div>
-
-                  <div class="container">
-                    <div class="titre-info">
-                      <p class="fs-3">La performance</p>
-                    </div>
-                  </div>
-                </div>
+          <div
+            class="col-lg-3 col-sm-12 col-12 col-md-8 my-4"
+            data-aos="fade-left"
+            data-aos-delay="50"
+            data-aos-duration="1500"
+            data-aos-easing="ease-in"
+          >
+            <div class="card p-2 border-0 rounded-lg shadow">
+              <div class="mb-5">
+                <img src="../assets/group(1).png" width="80" alt="" />
               </div>
-              <button
-                class="carousel-control-prev"
-                type="button"
-                data-bs-target="#carouselExampleInterval"
-                data-bs-slide="prev"
-              >
-                <span class="" aria-hidden="true"
-                  ><img
-                    src="../assets/leftarrow.png"
-                    height="30"
-                    width="30"
-                    alt=""
-                /></span>
-                <span class="visually-hidden">Previous</span>
-              </button>
-              <button
-                class="carousel-control-next"
-                type="button"
-                data-bs-target="#carouselExampleInterval"
-                data-bs-slide="next"
-              >
-                <span class="" aria-hidden="true">
+              <div class="d-flex justify-content-center">
+                <span id="count4" class="display-3 card_nb"></span>
+                <span class="fs-1 pluss">+</span>
+              </div>
+
+              <div class="chiffre">ENSEIGNANTS</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <hr class="featurette-divider" />
+      <div
+        class="row featurette"
+        data-aos="zoom-in-down"
+        data-aos-delay="50"
+        data-aos-duration="1400"
+        data-aos-easing="ease-in"
+      >
+        <div class="container px-4 py-5 card-futur" id="featured-3">
+          <h2 class="pb-2 border-bottom">Nos valeurs</h2>
+
+          <div
+            id="carouselExampleInterval"
+            class="carousel carousel-dark slide"
+            data-bs-ride="carousel"
+          >
+            <div class="carousel-inner">
+              <div class="carousel-item active shadow" data-bs-interval="3000">
+                <div class="slide-img">
                   <img
-                    src="../assets/right-arrow.png"
-                    height="30"
-                    width="30"
+                    src="../assets/SvgUl/inspiration-pana.svg"
+                    class=""
                     alt=""
                   />
-                </span>
-                <span class="visually-hidden">Next</span>
-              </button>
+                </div>
+
+                <div class="titre-info">
+                  <p class="fs-3">L'innovation</p>
+                </div>
+              </div>
+
+              <div class="carousel-item shadow" data-bs-interval="3000">
+                <div class="slide-img">
+                  <img src="../assets/SvgUl/time-amico.svg" class="" alt="" />
+                </div>
+
+                <div class="container">
+                  <div class="titre-info">
+                    <p class="fs-3">La confidentialité et l'honnêteté</p>
+                  </div>
+                </div>
+              </div>
+              <div class="carousel-item shadow" data-bs-interval="3000">
+                <div class="slide-img">
+                  <img
+                    src="../assets/SvgUl/Webinar-rafiki.svg"
+                    class=""
+                    alt=""
+                  />
+                </div>
+
+                <div class="container">
+                  <div class="titre-info">
+                    <p class="fs-3">La responsabilité</p>
+                  </div>
+                </div>
+              </div>
+              <div class="carousel-item shadow" data-bs-interval="3000">
+                <div class="slide-img">
+                  <img src="../assets/cooperation.png" class="" alt="" />
+                </div>
+
+                <div class="container">
+                  <div class="titre-info">
+                    <p class="fs-3">Le respect</p>
+                  </div>
+                </div>
+              </div>
+              <div class="carousel-item shadow" data-bs-interval="3000">
+                <div class="slide-img">
+                  <img src="../assets/SvgUl/amico1.svg" class="" alt="" />
+                </div>
+
+                <div class="container">
+                  <div class="titre-info">
+                    <p class="fs-3">La performance</p>
+                  </div>
+                </div>
+              </div>
             </div>
+            <button
+              class="carousel-control-prev"
+              type="button"
+              data-bs-target="#carouselExampleInterval"
+              data-bs-slide="prev"
+            >
+              <span class="" aria-hidden="true"
+                ><img
+                  src="../assets/leftarrow.png"
+                  height="30"
+                  width="30"
+                  alt=""
+              /></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button
+              class="carousel-control-next"
+              type="button"
+              data-bs-target="#carouselExampleInterval"
+              data-bs-slide="next"
+            >
+              <span class="" aria-hidden="true">
+                <img
+                  src="../assets/right-arrow.png"
+                  height="30"
+                  width="30"
+                  alt=""
+                />
+              </span>
+              <span class="visually-hidden">Next</span>
+            </button>
           </div>
         </div>
-
-        <hr class="featurette-divider" />
-
-        <!-- /END THE FEATURETTES -->
       </div>
+
+      <hr class="featurette-divider" />
       <!-- Three columns of text below the carousel -->
       <div class="container-fluid card_Item">
         <div class="row">
@@ -763,7 +765,6 @@
             </div>
           </div>
         </div>
-        
       </div>
       <div class="card text-white border-0 overflow-hidden">
         <img
@@ -797,17 +798,18 @@
 </template>
 
 <script>
+import AppVimeo from "@/components/vimeo/AppVimeo.vue";
 export default {
   name: "Home",
   data() {
     return {
       active: false,
-     
     };
   },
-  components: {},
+  components: {
+    AppVimeo,
+  },
   methods: {
-   
     calculate() {
       //#region - start of - number counter animation
       const counterAnim = (qSelector, start = 0, end, duration = 1000) => {
@@ -860,6 +862,12 @@ export default {
   font-family: Poppins;
   margin: 0;
   padding: 0;
+}
+.vs-dialog {
+  max-width: 1800px !important;
+}
+.vs-input {
+  width: 100% !important;
 }
 .video--player__vid {
   width: 100%;

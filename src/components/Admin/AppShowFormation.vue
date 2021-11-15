@@ -151,22 +151,22 @@
             id="accordionFlushExample"
           >
             <div class="accordion-item">
-              <h2 class="accordion-header" :id="'flush-headingOne'">
+              <h2 class="accordion-header" :id="'flush-headingOneF'">
                 <button
                   class="accordion-button collapsed fs-4"
                   type="button"
                   data-bs-toggle="collapse"
-                  :data-bs-target="'#flush-collapseOne'"
+                  :data-bs-target="'#flush-collapseOneF'"
                   aria-expanded="false"
-                  :aria-controls="'flush-collapseOne'"
+                  :aria-controls="'flush-collapseOneF'"
                 >
                   Bande annonce
                 </button>
               </h2>
               <div
-                :id="'flush-collapseOne'"
+                :id="'flush-collapseOneF'"
                 class="accordion-collapse collapse"
-                :aria-labelledby="'flush-headingOne'"
+                :aria-labelledby="'flush-headingOneF'"
                 data-bs-parent="#accordionFlushExample"
               >
                 <div class="accordion-body p-3">

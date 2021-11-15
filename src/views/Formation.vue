@@ -22,7 +22,7 @@
               data-aos-duration="1000"
               data-aos-easing="ease-in"
             >
-              <div class="p-3 info text-start fs-5">
+              <div class="p-3 info_d text-start fs-5">
                 <img src="../assets/info.png" width="50" alt="" />
                 <h3 class="my-3 h3-one">
                   Vous cherchez à développer vos compétences et améliorer la
@@ -61,7 +61,7 @@
               data-aos-duration="1000"
               data-aos-easing="ease-in"
             >
-              <div class="p-3 info text-start fs-5 ">
+              <div class="p-3 info_d text-start fs-5 ">
                 <img src="../assets/info.png" width="50" alt="" />
                 <h3 class="my-3 h3-one">
                   Vous cherchez l’outil essentiel d’évolution de votre
@@ -94,7 +94,7 @@
               data-aos-duration="1000"
               data-aos-easing="ease-in"
             >
-              <div class="p-4 info text-start fs-5">
+              <div class="p-4 info_d text-start fs-5">
                 <img src="../assets/info.png" width="50" alt="" />
                 <h3 class="my-3 h3-one">
                   Vous voulez faire de votre entreprise une entreprise innovante
@@ -130,7 +130,7 @@
               data-aos-duration="1000"
               data-aos-easing="ease-in"
             >
-              <div class="p-3 info text-start fs-5">
+              <div class="p-3 info_d text-start fs-5">
                 <img src="../assets/info.png" width="50" alt="" />
                 <h3 class="my-3 h3-one">
                   Vous voulez générer de la valeur ajoutée dans votre entreprise
@@ -167,7 +167,7 @@
               data-aos-duration="1000"
               data-aos-easing="ease-in"
             >
-              <div class="p-3 info text-start fs-5 ">
+              <div class="p-3 info_d text-start fs-5 ">
                 <img src="../assets/info.png" width="50" alt="" />
                 <h3 class="my-3 h3-one">
                   Vous cherchez à contribuer à la progression des performances
@@ -226,7 +226,7 @@ export default {
     rgb(236, 236, 236) 100%
   );
 
-  .info {
+  .info_d {
     margin: 10px;
     background: rgba(255, 255, 255, 0.719);
     min-height: 300px;

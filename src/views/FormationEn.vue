@@ -2,10 +2,56 @@
   <div class="overflow-hidden">
     <AppSection :titre="titre" />
 
-    <div class=" py-5 bg-light">
+    <v-card  class="mx-auto my-12 text-start" max-width="374">
+      <template slot="progress">
+        <v-progress-linear
+          color="deep-purple"
+          height="10"
+          indeterminate
+        ></v-progress-linear>
+      </template>
+
+      <v-img
+        height="250"
+        src="../assets/cover/javier-quesada-qYfwGVNJqSA-unsplash.jpg"
+      ></v-img>
+
+      <v-card-title>Cafe Badilico</v-card-title>
+
+      <v-card-text>
+        <v-row align="center" class="mx-0">
+          <v-rating
+            :value="4.5"
+            color="amber"
+            dense
+            half-increments
+            readonly
+            size="14"
+          ></v-rating>
+
+          <div class="grey--text ms-3 mb-5">4.5 (413)</div>
+        </v-row>
+
+        <!-- <div class="my-4 text-subtitle-1">
+        $ • Italian, Cafe
+      </div> -->
+
+        <div>
+          Small plates, salads & sandwiches - an intimate setting with 12 indoor
+          seats plus patio seating.
+        </div>
+      </v-card-text>
+
+      <v-divider class="mx-4"></v-divider>
+      <v-card-actions>
+        <v-btn color="deep-purple lighten-2" text> Reserve </v-btn>
+      </v-card-actions>
+    </v-card>
+
+    <div class="py-5 bg-light">
       <div class="accordion accordion-flush m-5" id="accordionFlushExample">
         <div class="accordion-item" :key="x" v-for="(cat, x) in categories">
-          <h2 class="accordion-header " :id="'flush-headingOne' + cat.codeF">
+          <h2 class="accordion-header" :id="'flush-headingOne' + cat.codeF">
             <button
               class="accordion-button collapsed fs-4"
               type="button"
@@ -19,39 +65,72 @@
           </h2>
           <div
             :id="'flush-collapseOne' + cat.codeF"
-            class="accordion-collapse collapse "
+            class="accordion-collapse collapse"
             :class="{ show: cat.id == 1 }"
             :aria-labelledby="'flush-headingOne' + cat.codeF"
             data-bs-parent="#accordionFlushExample"
           >
             <div class="accordion-body p-3">
               <div
-                class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-5 m-3 justify-content-center"
+                class="
+                  row row-cols-1 row-cols-sm-2 row-cols-md-2 row-cols-lg-2  row-cols-xl-3 row-cols-xxl-4
+                  g-5
+                  m-3
+                  justify-content-center
+                "
               >
-                <div
-                  class="col card_formation"
-                  data-aos="zoom-out-down"
-                  data-aos-delay="50"
-                  data-aos-duration="1000"
-                  data-aos-easing="ease-in"
-                  :key="i"
-                  v-for="(tr, i) in cat.formation"
-                >
-                  <div class="card shadow">
-                    <img
-                      :src=" tr.imgFormation"
-                      height="300"
-                      alt=""
-                    />
+                <div :key="i" v-for="(tr, i) in cat.formation">
+                  <v-card
+                    class="mx-auto my-4 text-start card-form"
+                    data-aos="zoom-out-down"
+                    data-aos-delay="50"
+                    data-aos-duration="1000"
+                    data-aos-easing="ease-in"
+                  >
+                    <template slot="progress">
+                      <v-progress-linear
+                        color="deep-purple"
+                        height="10"
+                        indeterminate
+                      ></v-progress-linear>
+                    </template>
 
-                    <div class="card-body">
-                      <p class="card-text fs-4">
-                        {{ tr.titre }}
-                      </p>
-                    </div>
-                    <div class="card-footer  d-flex justify-content-end ">
+                    <v-img height="250" :src="tr.imgFormation"></v-img>
+
+                    <v-card-title>{{ tr.titre }}</v-card-title>
+
+                    <v-card-text>
+                      <v-row align="center" class="mx-0 mb-5">
+                        <v-rating
+                          :value="5"
+                          color="amber"
+                          dense
+                          half-increments
+                          readonly
+                          size="14"
+                        ></v-rating>
+
+                        <!-- <div class="grey--text ms-3 mb-5">4.5 (413)</div> -->
+                      </v-row>
+
+                      <!-- <div class="my-4 text-subtitle-1">
+        $ • Italian, Cafe
+      </div> -->
+
+                      <div>
+                        Small plates, salads & sandwiches - an intimate setting
+                        with 12 indoor seats plus patio seating.
+                      </div>
+                    </v-card-text>
+
+                    <v-divider class="mx-4"></v-divider>
+
+                    <v-card-actions
+                      class="justify-content-start align-items-end"
+                    >
                       <vs-button
-                        class=""
+                        class="py-1"
+                        square
                         @click="
                           activeVd = true;
                           formationShow = tr;
@@ -60,25 +139,7 @@
                       >
                         bande annonce
                       </vs-button>
-                      <vs-button
-                        @click="showFormation(tr)"
-                        class=""
-                        color="rgb(59,222,200)"
-                        
-                      >
-                        Visite
-                      </vs-button>
                       <div v-if="auth.role == 'client'">
-                        <vs-button
-                          v-if="tr.block == 1"
-                          icon
-                          color="danger"
-                          border
-                          active
-                        >
-                          <i class="bi bi-star-fill"></i>
-                        </vs-button>
-
                         <vs-button
                           v-if="tr.block == 0"
                           flat
@@ -88,39 +149,80 @@
                         >
                           <i class="bi bi-star"></i>
                         </vs-button>
+                        <vs-button
+                          v-if="tr.block == 1"
+                          icon
+                          color="danger"
+                          border
+                          active
+                        >
+                          <i class="bi bi-star-fill"></i>
+                        </vs-button>
                       </div>
+                      <v-btn color="deep-purple lighten-2 p-1" text>
+                        Reserve
+                      </v-btn>
+
+                      <v-btn
+                        elevation="2"
+                        large
+                        color="deep-purple lighten-2 p-1"
+                        text
+                      >
+                        Reserve
+                      </v-btn>
+                      <!--  -->
+                    </v-card-actions>
+                  </v-card>
+                </div>
+                <!-- <div
+                  class="col card_formation"
+                  data-aos="zoom-out-down"
+                  data-aos-delay="50"
+                  data-aos-duration="1000"
+                  data-aos-easing="ease-in"
+                  :key="i"
+                  v-for="(tr, i) in cat.formation"
+                >
+                  <div class="card shadow">
+                    <img :src="tr.imgFormation" height="300" alt="" />
+
+                    <div class="card-body">
+                      <p class="card-text fs-4">
+                        {{ tr.titre }}
+                      </p>
+                    </div>
+                    <div class="card-footer d-flex justify-content-end">
+                     
+                      <vs-button
+                        @click="showFormation(tr)"
+                        class=""
+                        color="rgb(59,222,200)"
+                      >
+                        Visite
+                      </vs-button>
+                      
                     </div>
                   </div>
-                </div>
+                </div> -->
               </div>
             </div>
           </div>
         </div>
       </div>
-      <vs-dialog width="1400px" not-center v-model="activeVd">
+      <vs-dialog v-if="formationShow" width="1400px" not-center v-model="activeVd">
         <template #header>
           <h4 class="not-margin">Bande <b> annonce </b></h4>
         </template>
 
         <div class="container">
-          <div class="row">
-            <iframe
-              class="video--player__vid"
-              allowfullscreen="1"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              title="YouTube video player"
-              src="https://www.youtube.com/embed/4e4PxhRcxHw?rel=0&amp;controls=2&amp;disablekb=0&amp;modestbranding=1&amp;enablejsapi=1&amp;origin=https%3A%2F%2Fwww.jechoisismontreal.com&amp;widgetid=1"
-              id="widget2"
-              data-gtm-yt-inspected-11225346_44="true"
-              width="640"
-              height="390"
-              frameborder="0"
-            ></iframe>
+          <div class="row" v-if="formationShow.trailer">
+            <AppVimeo :id_video="formationShow.trailer.videoID" />
           </div>
         </div>
 
         <template #footer>
-          <div class="d-flex  justify-content-end">
+          <div class="d-flex justify-content-end">
             <vs-button
               @click="
                 active2 = true;
@@ -146,9 +248,18 @@
         <template #header>
           <h4 class="not-margin">Formations<b> Interentreprises </b></h4>
         </template>
-        <div class="row justify-content-evenly">
+        <div class="row justify-content-between">
           <div
-            class="col-3 card border-0 shadow justify-content-center align-items-center "
+            class="
+              col-xxl-4 col-xl-8 col-lg-12 col-12
+              card
+              border-0
+              shadow
+              justify-content-center
+              align-items-center
+              my-4
+              mx-ms-auto
+            "
           >
             <img
               :src="formationShow.imgFormation"
@@ -159,9 +270,9 @@
               id="src_formation"
             />
           </div>
-          <div class="col-8 row text-start">
-            <div class="col-12 row   align-items-start ">
-              <div class="col-lg-5">
+          <div class="col-xxl-8 col-xl-12 col-lg-12 col-12 row text-start my-4">
+            <div class="col-12 row align-items-start">
+              <div class="col-lg-4">
                 <p><b>Code Formation :</b></p>
               </div>
               <div class="col-lg-7">
@@ -170,8 +281,8 @@
                 </p>
               </div>
             </div>
-            <div class="col-12 row   align-items-start">
-              <div class="col-lg-5">
+            <div class="col-12 row align-items-start">
+              <div class="col-lg-4">
                 <p><b>Titre :</b></p>
               </div>
               <div class="col-lg-7">
@@ -180,8 +291,8 @@
                 </p>
               </div>
             </div>
-            <div class="col-12 row   align-items-start">
-              <div class="col-lg-5">
+            <div class="col-12 row align-items-start">
+              <div class="col-lg-4">
                 <p><b>Objectifs :</b></p>
               </div>
               <div class="col-lg-7">
@@ -190,8 +301,8 @@
                 </p>
               </div>
             </div>
-            <div class="col-12 row   align-items-start">
-              <div class="col-lg-5">
+            <div class="col-12 row align-items-start">
+              <div class="col-lg-4">
                 <p><b>Population cible :</b></p>
               </div>
               <div class="col-lg-7">
@@ -201,8 +312,8 @@
               </div>
             </div>
 
-            <div class="col-12 row   align-items-start">
-              <div class="col-lg-5">
+            <div class="col-12 row align-items-start">
+              <div class="col-lg-4">
                 <p><b>Durée de la formation:</b></p>
               </div>
               <div class="col-lg-7">
@@ -212,8 +323,8 @@
               </div>
             </div>
 
-            <div class="col-12 row   align-items-start">
-              <div class="col-lg-5">
+            <div class="col-12 row align-items-start">
+              <div class="col-lg-4">
                 <p><b>Programme de formation :</b></p>
               </div>
               <div class="col-lg-7">
@@ -233,7 +344,7 @@
         </div>
 
         <template #footer>
-          <div class="d-flex  justify-content-end">
+          <div class="d-flex justify-content-end">
             <vs-button @click="active2 = false" transparent>
               Acheter
             </vs-button>
@@ -250,6 +361,7 @@
 <script>
 import { mapGetters, mapActions } from "vuex";
 import AppSection from "@/components/inc/AppSection.vue";
+import AppVimeo from "@/components/vimeo/AppVimeo.vue";
 
 export default {
   name: "FormationEn",
@@ -271,11 +383,12 @@ export default {
   },
 
   computed: {
-    ...mapGetters(["formationEnt", "categories", "auth"]),
+    ...mapGetters(["formationEnt", "categories", "auth", "loading"]),
   },
 
   components: {
     AppSection,
+    AppVimeo,
   },
 
   mounted() {
@@ -285,10 +398,26 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.vs-dialog {
+  background: rgba(var(--vs-background), 1);
+  color: rgba(var(--vs-text), 1);
+  position: relative;
+  min-width: 400px;
+  border-radius: var(--vs-radius);
+  -webkit-transition: all 0.25s ease;
+  transition: all 0.25s ease;
+  -webkit-box-shadow: 0px 5px 30px 0px rgba(0, 0, 0, var(--vs-shadow-opacity));
+  box-shadow: 0px 5px 30px 0px rgba(0, 0, 0, var(--vs-shadow-opacity));
+  max-width: 1800px;
+  margin: auto;
+}
 .video--player__vid {
   width: 100%;
   height: 600px;
   z-index: 0;
+}
+.card-form {
+  min-height: 620px;
 }
 .card_formation {
   transition: transform 250ms;
@@ -316,16 +445,15 @@ export default {
     overflow: hidden;
     transition: 0.8s;
     &:hover {
-    // transform: translateY(-13px);
-    // // cursor: pointer;
-    // transition: 0.8s;
+      // transform: translateY(-13px);
+      // // cursor: pointer;
+      // transition: 0.8s;
 
       transform: scaleX(1.2);
       transition: 0.8s;
-   
+    }
   }
-  }
-  
+
   .card-text {
     color: #266874;
   }

@@ -2,7 +2,6 @@ import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
 import store from './store'
-
 import axios from 'axios'
 axios.defaults.baseURL = process.env.VUE_APP_BASE_URL;
 
@@ -15,18 +14,13 @@ import 'normalize.css'
 import AOS from 'aos';
 import 'aos/dist/aos.css'; // You can also use <link> for styles
 import vuetify from './plugins/vuetify'
-
-//
 import vueVimeoPlayer from 'vue-vimeo-player'
-Vue.use(vueVimeoPlayer)
-// ..
-AOS.init();
-
 import Vuesax from 'vuesax'
 import 'vuesax/dist/vuesax.css' //Vuesax styles
 import 'material-icons/iconfont/material-icons.css';
 
-
+Vue.use(vueVimeoPlayer)
+AOS.init();
 Vue.use(Vuesax, {
     theme: {
         colors: {
@@ -38,19 +32,6 @@ Vue.use(Vuesax, {
         }
     }
 })
-
-
-
-// import Embed from 'v-video-embed'
-
-// // global register
-// Vue.use(Embed);
-
-import VuePlyr from 'vue-plyr';
-import 'vue-plyr/dist/vue-plyr.css';
-Vue.use(VuePlyr)
-
-
 
 Vue.config.productionTip = false
 

@@ -22,7 +22,7 @@
               data-aos-duration="1000"
               data-aos-easing="ease-in"
             >
-              <div class="p-3 info text-start">
+              <div class="p-3 info_d text-start">
                 <img src="../assets/info.png" width="50" alt="" />
                 <h3 class="my-3 h3-one">
                   Fondée en 2019, DATA FC est spécialisée dans
@@ -50,7 +50,7 @@
               data-aos-duration="1000"
               data-aos-easing="ease-in"
             >
-              <div class="p-4 info text-start">
+              <div class="p-4 info_d text-start">
                 <img src="../assets/group.png" width="50" alt="" />
                 <h3 class="my-3 h3-one">
                   DATA FC dispose des outils particulièrement utiles et d’un
@@ -109,7 +109,7 @@ export default {
     rgb(236, 236, 236) 100%
   );
 
-  .info {
+  .info_d {
     margin: 10px;
     background: rgba(255, 255, 255, 0.719);
     min-height: 300px;

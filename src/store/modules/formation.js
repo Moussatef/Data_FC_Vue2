@@ -6,6 +6,7 @@ const state = {
     categories: [],
     StatusCategory: false,
     AjouteErr: undefined,
+    loading: true,
 }
 
 const getters = {
@@ -27,6 +28,8 @@ const actions = {
         axios.get("formation", requestOptions).then((result) => {
             // console.log(result.data);
             commit('setFormations', result.data)
+            state.loading = false;
+
          }).catch((error) => {
              console.log(error);
          })
@@ -42,6 +45,7 @@ const actions = {
          axios.get("formation/categories", requestOptions).then((result) => {
             // console.log(result.data.data);
             commit('setCategory', result.data.data)
+            state.loading = false;
          }).catch((error) => {
              console.log(error);
          })

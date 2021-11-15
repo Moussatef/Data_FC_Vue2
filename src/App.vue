@@ -1,14 +1,46 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <AppNavBoot :role="role" />
+  <v-app>
+    <div id="app">
+      <div id="nav">
+        <AppNavBoot :role="role" />
+      </div>
+      <v-main>
+        <!-- Provides the application the proper gutter -->
+        
+          <!-- If using vue-router -->
+          <router-view />
+        
+      </v-main>
+
+      
+        <!-- -->
+        <footer class="py-3 my-4">
+        <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+          <li class="nav-item">
+            <a href="#" class="nav-link px-2 text-muted">Home</a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link px-2 text-muted">Features</a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link px-2 text-muted">Pricing</a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link px-2 text-muted">FAQs</a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link px-2 text-muted">About</a>
+          </li>
+        </ul>
+
+        <p class="text-center text-muted">&copy; 2021 DATA FC Company</p>
+        </footer>
+      
     </div>
-    <router-view />
-  </div>
+  </v-app>
 </template>
 
 <script>
-// import AppNav from "@/components/layout/AppNav.vue";
 import AppSideNav from "@/components/Admin/AppSIdeNav.vue";
 import AppNavBoot from "@/components/layout/BootNav.vue";
 import { mapGetters, mapActions } from "vuex";
@@ -32,9 +64,7 @@ export default {
         loading.close();
       }, 600);
     },
-    ...mapActions(["getAuthinfo","getCompnyInfo"]),
-
-    
+    ...mapActions(["getAuthinfo", "getCompnyInfo"]),
 
     getInfoAuth() {
       this.$store
@@ -60,12 +90,11 @@ export default {
     AppSideNav,
     AppNavBoot,
   },
-  mounted() {
+  created() {
     this.openLoading();
     this.getInfoAuth();
     this.getCompnyInfo();
   },
- 
 };
 </script>
 

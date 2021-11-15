@@ -79,15 +79,7 @@
             </div>
           </div>
 
-          <div class="col-12   mb-5 justify-content-center ">
-            <v-pip
-                :video-options="videoOptions"
-                :button-options="buttonOptions"
-                @video-in-pip="handlePIP"
-                @requesting-pip-failure="handlePipOpenFailure"
-                @exiting-pip-failure="handlePipExitFailure"
-              />
-          </div>
+          
         </div>
       </div>
     </div>
@@ -96,7 +88,7 @@
 
 <script>
 import AppSection from "@/components/inc/AppSection.vue";
-import VPip from "v-pip";
+
 export default {
   data() {
     return {
@@ -106,15 +98,7 @@ export default {
     };
   },
   methods: {
-    handlePIP(e) {
-      this.isPip = e;
-    },
-    handlePipOpenFailure(err) {
-      console.log("Video failed to enter Picture-in-Picture mode.", err);
-    },
-    handlePipExitFailure(err) {
-      console.log("Video failed to leave Picture-in-Picture mode.", err);
-    },
+  
   },
 
   components: {
