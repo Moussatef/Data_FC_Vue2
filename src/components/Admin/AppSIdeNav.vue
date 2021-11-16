@@ -1,7 +1,7 @@
 <template>
-  <div class="main ">
-    <div class="side-navbar">
-      <ul>
+  <div class="main-d ">
+    <div class="side-navbar-sd">
+      <ul style="padding-left: 0px;">
         <li class="my-5">
           <div class="bx bx-menu" @click="menu()" id="menu-icon"></div>
         </li>
@@ -69,7 +69,7 @@ export default {
 
   methods: {
     menu() {
-      let sidenavbar = document.querySelector(".side-navbar");
+      let sidenavbar = document.querySelector(".side-navbar-sd");
       let content = document.querySelector(".content");
       sidenavbar.classList.toggle("active");
       content.classList.toggle("active");
@@ -116,11 +116,11 @@ a {
   text-decoration: none;
   font-family: "Poppins", sans-serif;
 }
-.main {
+.main-d {
   width: 100%;
   background-color: #fff;
 }
-.side-navbar {
+.side-navbar-sd {
   position: fixed;
   height: 100vh;
   width: 200px;
@@ -128,12 +128,12 @@ a {
   overflow: hidden;
   transition: 0.5s ease;
 }
-.side-navbar ul {
+.side-navbar-sd ul {
   top: 0;
   left: 0;
   width: 100%;
 }
-.side-navbar ul li {
+.side-navbar-sd ul li {
   width: 100%;
   a {
     &.router-link-exact-active {
@@ -142,23 +142,23 @@ a {
   }
 }
 
-.side-navbar ul li:hover {
+.side-navbar-sd ul li:hover {
   background: #0f7892;
 }
 .isActive {
   background: #0f7892;
 }
-.side-navbar ul li:first-child {
+.side-navbar-sd ul li:first-child {
   margin-bottom: 1rem;
   background: none;
 }
-.side-navbar ul li a {
+.side-navbar-sd ul li a {
   display: block;
   width: 100%;
   display: flex;
   color: #fff;
 }
-.side-navbar ul li a .icon {
+.side-navbar-sd ul li a .icon {
   min-width: 60px;
   display: block;
   font-size: 25px;
@@ -166,7 +166,7 @@ a {
   height: 60px;
   text-align: center;
 }
-.side-navbar ul li a .text {
+.side-navbar-sd ul li a .text {
   display: block;
   padding: 0 10px;
   line-height: 60px;
@@ -189,16 +189,16 @@ a {
   width: calc(100% - 60px);
   left: 60px;
 }
-.side-navbar.active {
+.side-navbar-sd.active {
   width: 60px;
 }
 @media (max-width: 868px) {
-  .side-navbar {
+  .side-navbar-sd {
     width: 60px;
     left: -60px;
   }
 
-  .side-navbar.active {
+  .side-navbar-sd.active {
     left: 0;
   }
 

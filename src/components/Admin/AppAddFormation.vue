@@ -3,9 +3,7 @@
     <!-- Dialog for succes adding -->
     <vs-dialog width="550px" prevent-close not-center v-model="activeDilogS">
       <template #header>
-        <h4 class="not-margin">
-          Ajouter avec succès
-        </h4>
+        <h4 class="not-margin">Ajouter avec succès</h4>
       </template>
 
       <div class="con-content">
@@ -29,7 +27,7 @@
         </div>
       </template>
     </vs-dialog>
-<!-- Dialog if eny Error happened whene we adding -->
+    <!-- Dialog if eny Error happened whene we adding -->
     <vs-dialog
       width="550px"
       not-padding
@@ -39,19 +37,16 @@
     >
       <div>
         <vs-alert danger v-model="alertDanger">
-          <template #title>
-            Error message
-          </template>
+          <template #title> Error message </template>
           {{ errorDesc }}
         </vs-alert>
       </div>
     </vs-dialog>
 
-<!-- Container add formation an inputs Dailog -->
+    <!-- Container add formation an inputs Dailog -->
 
-    <div class="container my-4 ">
-      <div class="row justify-content-between  bg-white py-3 px-5">
-
+    <div class="container my-4">
+      <div class="row justify-content-between bg-white py-3 px-5">
         <div class="col-lg-10 col-10">
           <h2>Ajouter Formation</h2>
         </div>
@@ -62,12 +57,162 @@
             :active="activebtn == 1"
             @click="
               activebtn = 1;
-              openM();
+              dialog_v = true;
             "
           >
             Ajouter
           </vs-button>
         </div>
+        <v-dialog v-model="dialog_v" persistent max-width="1200px">
+          <v-card>
+            <v-card-title>
+              <span class="text-h5">Ajouter une formation</span>
+            </v-card-title>
+            <v-card-text>
+              <v-container>
+                <v-row>
+                  <v-col cols="12" sm="12" md="10" lg="8" xl="5">
+                    <div
+                      class="
+                        card
+                        border-0
+                        shadow
+                        justify-content-center
+                        align-items-center
+                      "
+                    >
+                      <img
+                        v-if="img_src == false"
+                        src="../../assets/OrongeUL/Attheofficerafiki.png"
+                        width="200"
+                        height="200"
+                        class="rounded-lg"
+                        alt=""
+                        id="src_formation"
+                      />
+                      <img
+                        v-if="img_src == true"
+                        :src="imagepreview"
+                        width="200"
+                        height="200"
+                        class="rounded-lg mt-2"
+                        alt=""
+                        id="src_formation"
+                      />
+                      <input
+                        type="file"
+                        accept="image/*"
+                        ref="formation_img"
+                        class="invisible"
+                        id="img_formation"
+                        @change="imageSelected"
+                      />
+                      <vs-button
+                        class="col-lg-6 col-md-8 col-12"
+                        circle
+                        success
+                        border
+                        :active="activeImg == 6"
+                        @click="
+                          activeImg = 6;
+                          $refs.formation_img.click();
+                        "
+                      >
+                        <i class="fa fa-upload"></i>
+                      </vs-button>
+                    </div>
+                  </v-col>
+                  <v-col cols="12" sm="12" md="10" lg="8" xl="7">
+                    <h5>Type de formation</h5>
+                    <div class="d-flex">
+                      <!-- <vs-select
+                      placeholder="sélectionner le type de formation"
+                      v-model="value1"
+                    >
+                      <vs-option
+                        class="overflow-hidden mb-2 py-4"
+                        v-for="cat in categories"
+                        :key="cat.id"
+                        :label="cat.codeF + ' : ' + cat.titre"
+                        :value="cat.id"
+                      >
+                        {{ cat.codeF }} : {{ cat.titre }}
+                      </vs-option>
+                    </vs-select> -->
+
+                      <v-select
+                        v-model="value1"
+                        :items="categories"
+                        :item-text="title"
+                        :item-value="value"
+                        label="sélectionner le type de formation"
+                        data-vv-name="select"
+                        required
+                      ></v-select>
+                      <div class="mx-3 py-4">
+                        <vs-button border @click="activeTypeF = !activeTypeF">
+                          <i class="fa fa-plus" aria-hidden="true"></i>
+                        </vs-button>
+                      </div>
+                    </div>
+                  </v-col>
+                  <v-col cols="12" sm="6" md="4">
+                    <v-text-field
+                      label="Legal last name*"
+                      hint="example of persistent helper text"
+                      persistent-hint
+                      required
+                    ></v-text-field>
+                  </v-col>
+                  <v-col cols="12">
+                    <v-text-field label="Email*" required></v-text-field>
+                  </v-col>
+                  <v-col cols="12">
+                    <v-text-field
+                      label="Password*"
+                      type="password"
+                      required
+                    ></v-text-field>
+                  </v-col>
+                  <v-col cols="12" sm="6">
+                    <v-select
+                      :items="['0-17', '18-29', '30-54', '54+']"
+                      label="Age*"
+                      required
+                    ></v-select>
+                  </v-col>
+                  <v-col cols="12" sm="6">
+                    <v-autocomplete
+                      :items="[
+                        'Skiing',
+                        'Ice hockey',
+                        'Soccer',
+                        'Basketball',
+                        'Hockey',
+                        'Reading',
+                        'Writing',
+                        'Coding',
+                        'Basejump',
+                      ]"
+                      label="Interests"
+                      multiple
+                    ></v-autocomplete>
+                  </v-col>
+                </v-row>
+              </v-container>
+              <small>*indicates required field</small>
+            </v-card-text>
+            <v-card-actions>
+              <v-spacer></v-spacer>
+              <v-btn color="blue darken-1" text @click="dialog_v = false">
+                Close
+              </v-btn>
+              <v-btn color="blue darken-1" text @click="dialog_v = false">
+                Save
+              </v-btn>
+            </v-card-actions>
+          </v-card>
+        </v-dialog>
       </div>
 
       <!-- Dialog for adding type formation -->
@@ -76,7 +221,7 @@
           <h4 class="not-margin">Type de <b>Formation</b></h4>
         </template>
 
-        <div class="row px-4 ">
+        <div class="row px-4">
           <div class="col-12 my-3">
             <vs-input
               v-model="inpCodeType"
@@ -109,7 +254,12 @@
 
         <template #footer>
           <div
-            class="d-flex align-items-center justify-content-center flex-direction-column"
+            class="
+              d-flex
+              align-items-center
+              justify-content-center
+              flex-direction-column
+            "
           >
             <vs-button @click="addType" class="px-2 py-1" transparent>
               Ok
@@ -131,13 +281,12 @@
         <!-- Modal content -->
         <div class="modal-content">
           <div class="row justify-content-between">
-            <div class="col-10 "></div>
+            <div class="col-10"></div>
 
             <vs-button
               class="close float-right col-2"
               squire
               shadow
-              
               @click="closeM()"
             >
               <i class="fa fa-close"></i>
@@ -146,10 +295,16 @@
           <div class="con-form">
             <h2 class="text-center mb-4">Ajouter une formation</h2>
             <div class="row justify-content-evnly align-items-center">
-              <div class="col-12  row justify-content-between mb-5">
-                <div class="col-lg-5 col-md-12 col-12  ">
+              <div class="col-12 row justify-content-between mb-5">
+                <div class="col-lg-5 col-md-12 col-12">
                   <div
-                    class="card border-0 shadow justify-content-center align-items-center "
+                    class="
+                      card
+                      border-0
+                      shadow
+                      justify-content-center
+                      align-items-center
+                    "
                   >
                     <img
                       v-if="img_src == false"
@@ -173,12 +328,12 @@
                       type="file"
                       accept="image/*"
                       ref="formation_img"
-                      class=" invisible "
+                      class="invisible"
                       id="img_formation"
                       @change="imageSelected"
                     />
                     <vs-button
-                      class="col-lg-6 col-md-8 col-12  "
+                      class="col-lg-6 col-md-8 col-12"
                       circle
                       success
                       border
@@ -195,12 +350,12 @@
                 <div class="col-lg-7 col-md-12 col-sm-12 col-12 my-4">
                   <h5>Type de formation</h5>
                   <div class="d-flex">
-                   <vs-select
+                    <!-- <vs-select
                       placeholder="sélectionner le type de formation"
                       v-model="value1"
                     >
                       <vs-option
-                        class=" overflow-hidden mb-2 py-4"
+                        class="overflow-hidden mb-2 py-4"
                         v-for="cat in categories"
                         :key="cat.id"
                         :label="cat.codeF + ' : ' + cat.titre"
@@ -208,21 +363,16 @@
                       >
                         {{ cat.codeF }} : {{ cat.titre }}
                       </vs-option>
-                    </vs-select>
+                    </vs-select> -->
 
+                    <v-select
+                      v-model="select"
+                      :items="items"
+                      label="Select"
+                      data-vv-name="select"
+                      required
+                    ></v-select>
 
-                    <!-- <select class="form-select form-select-sm" v-model="value1" aria-label=".form-select-sm example">
-  <option selected >sélectionner le type de formation</option>
-  
-  <option
-                        v-for="cat in categories"
-                        :key="cat.id"
-                        :label="cat.codeF + ' : ' + cat.titre"
-                        :value="cat.id"
-                      >
-                        {{ cat.codeF }} : {{ cat.titre }}
-                      </option>
-</select> -->
                     <vs-button
                       class="mx-3"
                       size="large"
@@ -302,7 +452,12 @@
                 </vs-input>
               </div>
               <div
-                class="col-lg-12 col-12 row  justify-content-between align-items-center"
+                class="
+                  col-lg-12 col-12
+                  row
+                  justify-content-between
+                  align-items-center
+                "
               >
                 <div class="col-10">
                   <vs-input
@@ -325,13 +480,25 @@
                 </div>
               </div>
               <div
-                class="col-lg-12 d-flex flex-wrap justify-content-center align-items-center"
+                class="
+                  col-lg-12
+                  d-flex
+                  flex-wrap
+                  justify-content-center
+                  align-items-center
+                "
               >
-                
-                  <vs-alert shadow>
-                    <template #title> </template>
-                    <div v-for="(pro, i) in programme" :key="i" class="m-1">
-                    <div class=" d-flex justify-content-start align-items-center fs-6">
+                <vs-alert shadow>
+                  <template #title> </template>
+                  <div v-for="(pro, i) in programme" :key="i" class="m-1">
+                    <div
+                      class="
+                        d-flex
+                        justify-content-start
+                        align-items-center
+                        fs-6
+                      "
+                    >
                       <i class="fa fa-check mt-1 mx-2"></i>
 
                       {{ pro }}
@@ -343,19 +510,19 @@
                         <i class="fa fa-close"></i>
                       </vs-button>
                     </div>
-                    </div>
-                  </vs-alert>
+                  </div>
+                </vs-alert>
               </div>
               <div
                 class="row col-4 offset-md-8"
                 v-if="
                   inpCodeF &&
-                    inpTitre &&
-                    inpObj &&
-                    inpPc &&
-                    inpDf &&
-                    programme.length &&
-                    value1
+                  inpTitre &&
+                  inpObj &&
+                  inpPc &&
+                  inpDf &&
+                  programme.length &&
+                  value1
                 "
               >
                 <vs-button
@@ -421,6 +588,11 @@ export default {
     alertDanger: false,
 
     description: "",
+
+    select: null,
+    items: ["Item 1", "Item 2", "Item 3", "Item 4"],
+
+    dialog_v: false,
   }),
 
   methods: {
@@ -446,6 +618,8 @@ export default {
       // this.addTypeFormation([this.inpCodeType, this.inpTitreType])
       // this.$store.dispatch()
     },
+    title: (item) => item.codeF + " : " + item.titre,
+    value: (item) => item.id,
     async addFormation(param) {
       this.$store
         .dispatch("addFormation", param)
@@ -497,7 +671,7 @@ export default {
     },
     exitModal() {
       var modal = document.getElementById("myModal");
-      window.onclick = function(event) {
+      window.onclick = function (event) {
         if (event.target == modal) {
           modal.style.display = "none";
         }

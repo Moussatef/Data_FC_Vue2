@@ -7,9 +7,8 @@
       </template>
       
     </vs-alert> -->
-    <div if="!loading" class="box-loading" ref="content"></div>
 
-    <div v-if="formation  " class="container-fluid bg-white p-5 my-5">
+    <div v-if="formation" class="container-fluid bg-white p-5 my-5">
       <div class="row justify-content-between">
         <div
           class="
@@ -105,49 +104,60 @@
         </div>
       </div>
       <hr />
+      <v-progress-linear
+        v-if="!loading"
+        indeterminate
+        color="yellow darken-2"
+      ></v-progress-linear>
 
       <div class="row justify-content-between">
-        <div class="col-xxl-4 col-lg-12 col-12 my-5 row">
-          <div
-            class="
-              col-lg-12 col-12
-              p-3
-              mb-4
-              shadow
-              d-flex
-              align-items-center
-              justify-content-between
-            "
-          >
-            <p class="mt-2 me-2">Ajouter bande annonce</p>
-            <vs-button
-              class="px-2"
-              square
-              color="#7d33ff"
-              @click="annanceAdd = true"
-              gradient
+        <div class="col-xxl-4 col-lg-12 col-12 my-5">
+          <div class="col-lg-12 col-12 p-3 mb-4 d-flex">
+            <div
+              class="row shadow p-3 align-items-center justify-content-between"
             >
-              Ajouter <i class="bi bi-plus-circle-dotted ms-2"></i>
-            </vs-button>
+              <div class="col-xxl-7 col-lg-10 col-12">
+                <p>Ajouter bande annonce</p>
+              </div>
+
+              <div class="px-2 col-xxl-3 col-lg-10 col-12">
+                <vs-button
+                  class="px-2"
+                  square
+                  color="#7d33ff"
+                  @click="annanceAdd = true"
+                  gradient
+                >
+                  Ajouter <i class="bi bi-plus-circle-dotted ms-2"></i>
+                </vs-button>
+              </div>
+            </div>
           </div>
-          <div
-            class="p-3 shadow d-flex align-items-center justify-content-between"
-          >
-            <p class="mt-2 me-2">Ajouter formation video</p>
-            <vs-button
-              class="px-2"
-              @click="formationAdd = true"
-              square
-              color="#7d33ff"
-              gradient
+          <div class="col-lg-12 col-12 p-3 mb-4 d-flex">
+            <div
+              class="row shadow p-3 align-items-center justify-content-between"
             >
-              Ajouter <i class="bi bi-plus-circle-dotted ms-2"></i>
-            </vs-button>
+              <div class="col-xxl-7 col-lg-10 col-12">
+                <p class="">Ajouter formation video</p>
+              </div>
+
+              <div class="px-2 col-xxl-3 col-lg-10 col-12">
+                <vs-button
+                  class="px-2"
+                  @click="formationAdd = true"
+                  square
+                  color="#7d33ff"
+                  gradient
+                >
+                  Ajouter <i class="bi bi-plus-circle-dotted ms-2"></i>
+                </vs-button>
+              </div>
+            </div>
           </div>
         </div>
         <div class="col-xxl-8 col-lg-12 col-12 my-5">
           <div
-            class="accordion accordion-flush shadow"
+            class="accordion accordion-flush shadow mt-3"
             id="accordionFlushExample"
           >
             <div class="accordion-item">
@@ -175,15 +185,15 @@
                     v-if="formation.trailer"
                   >
                     <div class="col-5">
-                      <div class="card shadow ">
-                          <img
+                      <div class="card shadow">
+                        <img
                           class="mx-auto"
-                            src="../../assets/logo.jpg"
-                            width="300"
-                            alt=""
-                          />
+                          src="../../assets/logo.jpg"
+                          width="300"
+                          alt=""
+                        />
                         <div class="card-body text-center fs-4 text-muted">
-                          {{formation.trailer.title}}
+                          {{ formation.trailer.title }}
                           <!-- <AppVimeo /> -->
                         </div>
                         <div class="card-footer d-flex justify-content-end">
@@ -231,13 +241,14 @@
                       :key="index"
                     >
                       <div class="card shadow">
-                          <img
-                            src="../../assets/vimeo.png"
-                            width="100"
-                            alt=""
-                          />
+                        <img
+                          class="mx-auto"
+                          src="../../assets/logo.jpg"
+                          width="300"
+                          alt=""
+                        />
                         <div class="card-body text-center">
-                          {{vd.title}}
+                          {{ vd.title }}
                           <!-- <AppVimeo /> -->
                         </div>
                         <div class="card-footer d-flex justify-content-end">
@@ -292,7 +303,6 @@
 
       <!-- Afficher formation video -->
       <vs-dialog
-        scroll
         width="1000px"
         v-if="formation.videoFormation && video_formation"
         not-center
@@ -468,6 +478,7 @@
                 >
                   <i class="fa fa-save"></i>
                 </vs-button>
+                <div v-if="loading" class="box-loading" ref="content"></div>
               </div>
             </div>
           </div>
@@ -485,7 +496,7 @@
       <!-- Dialog Ajouter formation video  -->
       <vs-dialog width="1000px" not-center v-model="formationAdd">
         <template #header>
-          <h4 class="not-margin">Bande <b> annonce </b></h4>
+          <h4 class="not-margin">Ajouter <b> formation video </b></h4>
         </template>
 
         <div class="container">
@@ -636,7 +647,7 @@
                 addVideo(
                   formation_id,
                   Fvideodata,
-                  inpVideoID,
+                  FinpVideoID,
                   FinpTitre,
                   FinpDesc,
                   FinpPassword
@@ -650,17 +661,32 @@
 
         <template #footer>
           <div class="d-flex justify-content-end">
-            <vs-button @click="formationAdd = false" transparent>
-              Suivant
-            </vs-button>
             <vs-button @click="formationAdd = false" dark transparent>
               Annuler
             </vs-button>
           </div>
         </template>
       </vs-dialog>
+
+      <v-dialog v-model="v_dialog" max-width="290">
+        <v-card>
+          <v-card-title class="text-h5"> Message de réussite </v-card-title>
+
+          <v-card-text>
+            terminer le téléchargement de la vidéo avec succès
+          </v-card-text>
+
+          <v-card-actions>
+            <v-spacer></v-spacer>
+
+            <v-btn color="green darken-1" text @click="v_dialog = false">
+              D'accord
+            </v-btn>
+          </v-card-actions>
+        </v-card>
+      </v-dialog>
     </div>
-    
+
     <div v-else>
       <img src="../../assets/OrongeUL/Questions-cuate.png" width="600" alt="" />
       <h2>La formation n'existe pas</h2>
@@ -669,7 +695,7 @@
 </template>
 
 <script>
-import axios from 'axios'
+import axios from "axios";
 import AppVimeo from "@/components/vimeo/AppVimeo.vue";
 import { mapGetters, mapActions } from "vuex";
 export default {
@@ -701,7 +727,8 @@ export default {
       formationAdd: false,
       video_formation: undefined,
 
-      loading:true,
+      loading: true,
+      v_dialog: false,
     };
   },
   components: {
@@ -718,7 +745,8 @@ export default {
       this.annance = true;
     },
     async addAnnance(id, video, videoID, titre, descriptions) {
-      this.loading=false
+      this.loading = false;
+      this.openLoading();
       let data = new FormData();
       data.append("formation_id", id);
       if (video) data.append("video", video);
@@ -737,7 +765,6 @@ export default {
         },
         data: data,
       };
-      
 
       axios(config)
         .then((response) => {
@@ -746,16 +773,19 @@ export default {
           console.log(formation);
           // commit('setCategory', formation);
           // resolve('Success')
-          this.loading=true
+          this.loading = this.v_dialog = true;
+          this.closeLoading();
         })
         .catch((error) => {
           // reject(error)
           console.log(error);
-          this.loading=true
+          this.loading = true;
         });
     },
     async addVideo(id, video, videoID, titre, descriptions, password) {
-      this.loading=false
+      this.loading = false;
+      this.closeLoading();
+      this.openNotification('none','null');
       let data = new FormData();
       data.append("formation_id", id);
       if (video) data.append("video", video);
@@ -763,6 +793,14 @@ export default {
       data.append("title", titre);
       data.append("description", descriptions);
       data.append("password", password);
+
+      this.Fvideodata = undefined;
+      this.FinpTitre = undefined;
+      this.FinpDesc = undefined;
+      this.FinpVideoID = undefined;
+      this.Fvideopreview = undefined;
+      this.FinpPassword = undefined;
+      this.formationAdd = false;
 
       var config = {
         method: "post",
@@ -783,40 +821,55 @@ export default {
           console.log(formation);
           // commit('setCategory', formation);
           // resolve('Success')
-          this.loading=true
+          this.loading = this.v_dialog = true;
         })
         .catch((error) => {
           // reject(error)
           console.log(error);
-          this.loading=true
+          this.loading = true;
         });
+    },
+
+    openNotification(duration,position='null') {
+      const noti = this.$vs.notification({
+        loading: true,
+        duration,
+        position,
+        progress: "auto",
+        title: "Documentation Vuesax 4.0+",
+        text: `These documents refer to the latest version of vuesax (4.0+),
+            to see the documents of the previous versions you can do it here 👉 Vuesax3.x`,
+      });
     },
 
     videoSelected(e) {
       this.videodata = e.target.files[0];
       let reader = new FileReader();
-      reader.readAsDataURL(this.videodata);
-      reader.onload = (e) => {
-        this.videopreview = e.target.result;
-      };
+      // reader.readAsDataURL(this.videodata);
+      // reader.onload = (e) => {
+      //   this.videopreview = e.target.result;
+      // };
     },
     FvideoSelected(e) {
       this.Fvideodata = e.target.files[0];
       let reader = new FileReader();
-      reader.readAsDataURL(this.videodata);
-      reader.onload = (e) => {
-        this.videopreview = e.target.result;
-      };
+      // reader.readAsDataURL(this.videodata);
+      // reader.onload = (e) => {
+      //   this.videopreview = e.target.result;
+      // };
     },
     openLoading() {
       const loading = this.$vs.loading({
-        text: "Loading",
-        color: "#d5397b",
-        circles,
+        target: this.$refs.content,
+        text: "Loading..",
+        color: "#257579",
+        type: "circles",
       });
-      // setTimeout(() => {
-      //   loading.close();
-      // }, 3000);
+      if (this.loading) {
+        setTimeout(() => {
+          loading.close();
+        }, 3000);
+      }
     },
     closeLoading() {
       const loading = this.$vs.loading({
@@ -825,9 +878,10 @@ export default {
         color: "#257579",
         type: "circles",
       });
+
       setTimeout(() => {
         loading.close();
-      }, 6000);
+      }, 100);
     },
   },
   computed: {

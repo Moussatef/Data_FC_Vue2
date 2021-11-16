@@ -32,13 +32,7 @@
               alt=""
             />
             <div class="container">
-              <div
-                class="carousel-caption text-start"
-                data-aos="fade-up"
-                data-aos-delay="50"
-                data-aos-duration="2000"
-                data-aos-easing="ease-in-out"
-              >
+              <div class="carousel-caption text-start">
                 <h1 class="text-uppercase h1-one-slide">
                   Ingénierie de formation
                 </h1>
@@ -50,11 +44,9 @@
                 </p>
 
                 <p>
-                  <router-link
-                    class="btn btn-lg btn-primary"
-                    to="/ingenierie-de-formation"
-                    >Lire la suite</router-link
-                  >
+                  <vs-button to="/ingenierie-de-formation" size="xl">
+                    Lire la suite
+                  </vs-button>
                 </p>
               </div>
             </div>
@@ -80,9 +72,9 @@
                 </p>
 
                 <p>
-                  <router-link class="btn btn-lg btn-primary" to="/formation"
-                    >Apprendre encore plus</router-link
-                  >
+                  <vs-button to="/formation" size="xl">
+                    Apprendre encore plus
+                  </vs-button>
                 </p>
               </div>
             </div>
@@ -109,11 +101,9 @@
                 </p>
 
                 <p>
-                  <router-link
-                    class="btn btn-lg btn-primary"
-                    to="/l-externalisation"
-                    >Apprendre encore plus</router-link
-                  >
+                  <vs-button to="/l-externalisation" size="xl">
+                    Apprendre encore plus
+                  </vs-button>
                 </p>
               </div>
             </div>
@@ -417,6 +407,50 @@
         </div>
 
         <div class="container-fluid">
+          <v-sheet
+    class="mx-auto"
+    elevation="8"
+    max-width="1200"
+  >
+    <v-slide-group
+      v-model="model"
+      class="pa-4"
+      center-active
+      show-arrows
+    >
+      <v-slide-item
+        v-for="n in 15"
+        :key="n"
+        v-slot="{ active, toggle }"
+      >
+        <v-card
+          :color="active ? 'primary' : 'grey lighten-1'"
+          class="ma-4"
+          height="200"
+          width="100"
+          @click="toggle"
+        >
+          <v-row
+            class="fill-height"
+            align="center"
+            justify="center"
+          >
+            <v-scale-transition>
+              <v-icon
+                v-if="active"
+                color="white"
+                size="48"
+                v-text="'mdi-close-circle-outline'"
+              ></v-icon>
+            </v-scale-transition>
+          </v-row>
+        </v-card>
+      </v-slide-item>
+    </v-slide-group>
+  </v-sheet>
+        </div>
+
+        <div class="container-fluid">
           <div class="row justify-content-center">
             <div
               class="col-12"
@@ -560,7 +594,7 @@
             data-bs-ride="carousel"
           >
             <div class="carousel-inner">
-              <div class="carousel-item active shadow" data-bs-interval="3000">
+              <div class="carousel-item active" data-bs-interval="2000">
                 <div class="slide-img">
                   <img
                     src="../assets/SvgUl/inspiration-pana.svg"
@@ -574,7 +608,7 @@
                 </div>
               </div>
 
-              <div class="carousel-item shadow" data-bs-interval="3000">
+              <div class="carousel-item" data-bs-interval="3000">
                 <div class="slide-img">
                   <img src="../assets/SvgUl/time-amico.svg" class="" alt="" />
                 </div>
@@ -804,6 +838,7 @@ export default {
   data() {
     return {
       active: false,
+      model: null,
     };
   },
   components: {
@@ -869,11 +904,16 @@ export default {
 .vs-input {
   width: 100% !important;
 }
+.vs-select-content {
+  width: 100%;
+  max-width: 100% !important;
+}
 .video--player__vid {
   width: 100%;
   height: 600px;
   z-index: 0;
 }
+
 .scale-img {
   transition: 1s;
   &:hover {

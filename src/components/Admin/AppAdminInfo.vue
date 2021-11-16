@@ -1,6 +1,6 @@
 <template>
   <div class="row justify-content-evenly">
-    <div class="col-xxl-4 col-lg-8 col-12 bg-white">
+    <div class="col-xxl-4 col-lg-8 col-12 bg-white mb-3">
       <div class="text-center p-2 shadow-md">
         <img
           v-if="!imagepreview"

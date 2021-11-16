@@ -9,9 +9,9 @@
           <div class="profile"></div>
         </div>
         <div class="ms-5">
-          <h1 class="my-5">FORMATIONS INTERENTREPRISES</h1>
           <div class=" container-fluid">
-            <AppStatus />
+            <AppStatus class="mt-15" />
+          <h1 class="my-5">FORMATIONS INTERENTREPRISES</h1>
             <div class="row justify-content-center text-start mt-4">
               <div class="col-lg-7">
                 <AppGestionCategory />

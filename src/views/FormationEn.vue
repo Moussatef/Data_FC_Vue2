@@ -2,54 +2,10 @@
   <div class="overflow-hidden">
     <AppSection :titre="titre" />
 
-    <v-card  class="mx-auto my-12 text-start" max-width="374">
-      <template slot="progress">
-        <v-progress-linear
-          color="deep-purple"
-          height="10"
-          indeterminate
-        ></v-progress-linear>
-      </template>
+   
 
-      <v-img
-        height="250"
-        src="../assets/cover/javier-quesada-qYfwGVNJqSA-unsplash.jpg"
-      ></v-img>
-
-      <v-card-title>Cafe Badilico</v-card-title>
-
-      <v-card-text>
-        <v-row align="center" class="mx-0">
-          <v-rating
-            :value="4.5"
-            color="amber"
-            dense
-            half-increments
-            readonly
-            size="14"
-          ></v-rating>
-
-          <div class="grey--text ms-3 mb-5">4.5 (413)</div>
-        </v-row>
-
-        <!-- <div class="my-4 text-subtitle-1">
-        $ • Italian, Cafe
-      </div> -->
-
-        <div>
-          Small plates, salads & sandwiches - an intimate setting with 12 indoor
-          seats plus patio seating.
-        </div>
-      </v-card-text>
-
-      <v-divider class="mx-4"></v-divider>
-      <v-card-actions>
-        <v-btn color="deep-purple lighten-2" text> Reserve </v-btn>
-      </v-card-actions>
-    </v-card>
-
-    <div class="py-5 bg-light">
-      <div class="accordion accordion-flush m-5" id="accordionFlushExample">
+    <div class="pb-5 bg-light">
+      <div class="accordion accordion-flush mx-1" id="accordionFlushExample">
         <div class="accordion-item" :key="x" v-for="(cat, x) in categories">
           <h2 class="accordion-header" :id="'flush-headingOne' + cat.codeF">
             <button
@@ -73,14 +29,15 @@
             <div class="accordion-body p-3">
               <div
                 class="
-                  row row-cols-1 row-cols-sm-2 row-cols-md-2 row-cols-lg-2  row-cols-xl-3 row-cols-xxl-4
+                  row row-cols-1  row-cols-md-1 row-cols-lg-2  row-cols-xl-3 row-cols-xxl-4
                   g-5
-                  m-3
+                  
                   justify-content-center
                 "
               >
                 <div :key="i" v-for="(tr, i) in cat.formation">
                   <v-card
+                  max-width="374"
                     class="mx-auto my-4 text-start card-form"
                     data-aos="zoom-out-down"
                     data-aos-delay="50"
@@ -126,10 +83,10 @@
                     <v-divider class="mx-4"></v-divider>
 
                     <v-card-actions
-                      class="justify-content-start align-items-end"
+                      class="justify-content-start align-items-center"
                     >
                       <vs-button
-                        class="py-1"
+                        class="py-1 "
                         square
                         @click="
                           activeVd = true;
@@ -159,17 +116,16 @@
                           <i class="bi bi-star-fill"></i>
                         </vs-button>
                       </div>
-                      <v-btn color="deep-purple lighten-2 p-1" text>
-                        Reserve
-                      </v-btn>
+                      
 
                       <v-btn
-                        elevation="2"
-                        large
+                        elevation="1"
+                        class="p-3"
+                        
                         color="deep-purple lighten-2 p-1"
                         text
                       >
-                        Reserve
+                        Réserve
                       </v-btn>
                       <!--  -->
                     </v-card-actions>
