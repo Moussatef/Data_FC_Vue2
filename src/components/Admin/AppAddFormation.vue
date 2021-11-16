@@ -42,27 +42,31 @@
         </vs-alert>
       </div>
     </vs-dialog>
-
-    <!-- Container add formation an inputs Dailog -->
-
-    <div class="container my-4">
-      <div class="row justify-content-between bg-white py-3 px-5">
+    <div class="container ">
+      <div class="row justify-content-between bg-white py-3 shadow px-5">
         <div class="col-lg-10 col-10">
-          <h2>Ajouter Formation</h2>
+          <h2 class="text-muted">Ajouter <span style="color: #25767a">Formation</span></h2>
         </div>
         <div class="col-lg-2 col-2">
           <vs-button
             size="large"
+            square
             gradient
-            :active="activebtn == 1"
+            color="#25767a"
             @click="
               activebtn = 1;
+              active = true;
               dialog_v = true;
             "
           >
             Ajouter
           </vs-button>
         </div>
+      </div>
+    </div>
+    <!-- Container add formation an inputs Dailog -->
+    <div class="container   ">
+      <div class="row justify-content-between bg-white">
         <v-dialog v-model="dialog_v" persistent max-width="1200px">
           <v-card>
             <v-card-title>
@@ -123,23 +127,8 @@
                     </div>
                   </v-col>
                   <v-col cols="12" sm="12" md="10" lg="8" xl="7">
-                    <h5>Type de formation</h5>
+                    <h5 class="mb-3">Type de formation</h5>
                     <div class="d-flex">
-                      <!-- <vs-select
-                      placeholder="sélectionner le type de formation"
-                      v-model="value1"
-                    >
-                      <vs-option
-                        class="overflow-hidden mb-2 py-4"
-                        v-for="cat in categories"
-                        :key="cat.id"
-                        :label="cat.codeF + ' : ' + cat.titre"
-                        :value="cat.id"
-                      >
-                        {{ cat.codeF }} : {{ cat.titre }}
-                      </vs-option>
-                    </vs-select> -->
-
                       <v-select
                         v-model="value1"
                         :items="categories"
@@ -156,47 +145,138 @@
                       </div>
                     </div>
                   </v-col>
-                  <v-col cols="12" sm="6" md="4">
-                    <v-text-field
-                      label="Legal last name*"
-                      hint="example of persistent helper text"
-                      persistent-hint
-                      required
-                    ></v-text-field>
+                  <v-col cols="12" sm="12" md="6">
+                    <vs-input
+                      v-model="inpCodeF"
+                      class="my-3"
+                      border
+                      primary
+                      icon-after
+                      label-placeholder="Code formation"
+                    >
+                      <template #icon>
+                        <i class="fa fa-tag"></i>
+                      </template>
+                    </vs-input>
+                  </v-col>
+                  <v-col cols="12" sm="12" md="6">
+                    <vs-input
+                      v-model="inpTitre"
+                      class="my-3"
+                      border
+                      primary
+                      icon-after
+                      label-placeholder="Titre"
+                    >
+                      <template #icon>
+                        <i class="fa fa-sticky-note-o"></i>
+                      </template>
+                    </vs-input>
+                  </v-col>
+                  <v-col cols="12" sm="12" md="6">
+                    <textarea
+                      v-model="inpObj"
+                      class="form-control mb-2"
+                      placeholder="objectifs"
+                      rows="3"
+                    ></textarea>
+                  </v-col>
+                  <v-col cols="12" sm="12" md="6">
+                    <vs-input
+                      v-model="inpPc"
+                      class="my-3"
+                      border
+                      primary
+                      icon-after
+                      label-placeholder="Population cible"
+                    >
+                      <template #icon>
+                        <i class="fa fa-tasks"></i>
+                      </template>
+                    </vs-input>
                   </v-col>
                   <v-col cols="12">
-                    <v-text-field label="Email*" required></v-text-field>
+                    <vs-input
+                      v-model="inpDf"
+                      class="my-3"
+                      border
+                      primary
+                      icon-after
+                      label-placeholder="Durée de la formation"
+                    >
+                      <template #icon>
+                        <i class="fa fa-clock-o"></i>
+                      </template>
+                    </vs-input>
                   </v-col>
                   <v-col cols="12">
-                    <v-text-field
-                      label="Password*"
-                      type="password"
-                      required
-                    ></v-text-field>
+                    <div
+                      class="
+                        col-lg-12 col-12
+                        row
+                        justify-content-between
+                        align-items-center
+                      "
+                    >
+                      <div class="col-10">
+                        <vs-input
+                          v-model="inpProgramme"
+                          class="my-3"
+                          border
+                          primary
+                          icon-after
+                          label-placeholder="Programme de formation"
+                        >
+                          <template #icon>
+                            <i class="fa fa-puzzle-piece"></i>
+                          </template>
+                        </vs-input>
+                      </div>
+                      <div class="col-1">
+                        <vs-button
+                          size="large"
+                          @click="putProgramme(inpProgramme)"
+                        >
+                          <i class="fa fa-plus" aria-hidden="true"></i>
+                        </vs-button>
+                      </div>
+                    </div>
                   </v-col>
-                  <v-col cols="12" sm="6">
-                    <v-select
-                      :items="['0-17', '18-29', '30-54', '54+']"
-                      label="Age*"
-                      required
-                    ></v-select>
-                  </v-col>
-                  <v-col cols="12" sm="6">
-                    <v-autocomplete
-                      :items="[
-                        'Skiing',
-                        'Ice hockey',
-                        'Soccer',
-                        'Basketball',
-                        'Hockey',
-                        'Reading',
-                        'Writing',
-                        'Coding',
-                        'Basejump',
-                      ]"
-                      label="Interests"
-                      multiple
-                    ></v-autocomplete>
+                  <v-col cols="12">
+                    <div
+                      class="
+                        col-lg-12
+                        d-flex
+                        flex-wrap
+                        justify-content-center
+                        align-items-center
+                      "
+                    >
+                      <vs-alert shadow>
+                        <template #title> </template>
+                        <div v-for="(pro, i) in programme" :key="i" class="m-1">
+                          <div
+                            class="
+                              d-flex
+                              justify-content-start
+                              align-items-center
+                              fs-6
+                            "
+                          >
+                            <i class="fa fa-check mt-1 mx-2"></i>
+
+                            {{ pro }}
+                            <vs-button
+                              size="small"
+                              class="ms-5"
+                              @click="removeEl(pro)"
+                            >
+                              <i class="fa fa-close"></i>
+                            </vs-button>
+                          </div>
+                        </div>
+                      </vs-alert>
+                    </div>
                   </v-col>
                 </v-row>
               </v-container>
@@ -205,10 +285,34 @@
             <v-card-actions>
               <v-spacer></v-spacer>
               <v-btn color="blue darken-1" text @click="dialog_v = false">
-                Close
+                Quitter
               </v-btn>
-              <v-btn color="blue darken-1" text @click="dialog_v = false">
-                Save
+              <v-btn
+                color="blue darken-1"
+                v-if="
+                  inpCodeF &&
+                  inpTitre &&
+                  inpObj &&
+                  inpPc &&
+                  inpDf &&
+                  programme.length &&
+                  value1
+                "
+                text
+                @click="
+                  addFormation([
+                    inpCodeF,
+                    inpTitre,
+                    inpObj,
+                    inpPc,
+                    inpDf,
+                    programme,
+                    image,
+                    value1,
+                  ])
+                "
+              >
+                Ajouter
               </v-btn>
             </v-card-actions>
           </v-card>
@@ -541,7 +645,7 @@
                     ])
                   "
                 >
-                  <i class="fa fa-plus me-3" aria-hidden="true"></i>Ajouter
+                  <i class="fa fa-save me-3" aria-hidden="true"></i>Ajouter
                 </vs-button>
               </div>
             </div>
@@ -634,7 +738,7 @@ export default {
           this.inpPc = undefined;
           this.inpObj = undefined;
           this.programme.splice(0, this.programme.length);
-          this.closeM();
+          this.dialog_v = false;
         })
         .catch((err) => {
           this.errorDesc = err;

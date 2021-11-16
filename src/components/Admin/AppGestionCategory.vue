@@ -1,14 +1,17 @@
 <template>
   <div class="overflow-hidden">
-    <div class="container my-4 ">
-      <div class="row justify-content-between  bg-white py-3 px-5">
+    <div class="container  ">
+      <div class="row justify-content-between bg-white py-3 shadow px-5">
         <div class="col-lg-10 col-10">
-          <h2>Gestion de Type du Formation</h2>
+          <h2 class="text-muted">Gestion de Type du <span style="color:#25767a;">Formation</span> </h2>
         </div>
         <div class="col-lg-2 col-2">
           <vs-button
             size="large"
-            :active="activebtn == 1"
+            square
+            gradient
+            color="#25767a"
+            
             @click="
               activebtn = 1;
               active = true;
@@ -17,6 +20,11 @@
             Gestion
           </vs-button>
         </div>
+      </div>
+    </div>
+    <div class="container  ">
+      <div class="row justify-content-between  bg-white ">
+        
 
         <vs-dialog class="m-t-20" prevent-close width="1200px" v-model="active">
           <template #header>
