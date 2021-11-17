@@ -1,0 +1,200 @@
+
+
+
+
+
+
+<!-- -->
+      <!-- <footer class="py-3 my-4">
+        <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+          <li class="nav-item">
+            <a href="#" class="nav-link px-2 text-muted">Home</a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link px-2 text-muted">Features</a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link px-2 text-muted">Pricing</a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link px-2 text-muted">FAQs</a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link px-2 text-muted">About</a>
+          </li>
+        </ul>
+
+        <p class="text-center text-muted">&copy; 2021 DATA FC Company</p>
+        </footer> -->
+
+      <!-- <footer class="container-fluid bg-grey py-5 position-relative">
+        <div class="container text-start">
+          <div class="row">
+            <div class="col-md-6">
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="logo-part">
+                    
+                    <img class="logo-footer"  src="https://scontent.frak1-1.fna.fbcdn.net/v/t1.6435-9/254447339_3049937998582581_4080174660758581209_n.jpg?_nc_cat=111&ccb=1-5&_nc_sid=730e14&_nc_ohc=8UKx6tYLNwsAX_ILRil&_nc_ht=scontent.frak1-1.fna&oh=ac526439725685a6395e5857adc54411&oe=61B0DBC6"  alt="DATA FORMATION & CONSULTING ">
+        
+                    <p>Avenue de La Liberté ,Immeuble Goumrizid 03 éme étage N° 13 Ville Nouvelle - Safi Maroc</p>
+                    <p>
+                      Use this tool as test data for an automated system or find
+                      your next pen
+                    </p>
+                  </div>
+                </div>
+                <div class="col-md-6 px-4">
+                  <h6>À propos de la société</h6>
+                  <p>But horizontal lines can only be a full pixel high.</p>
+                  <router-link to="/sommes-nous" class="btn-footer"> Plus d'informations </router-link><br />
+                  <router-link to="/contact-nous" class="btn-footer"> Nous contacter</router-link >
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="row">
+                <div class="col-md-6 px-4">
+                  <h6>Help us</h6>
+                  <div class="row">
+                    <div class="col-md-6">
+                      <ul>
+                        <li><a href="#"> Accueil</a></li>
+                        <li><a href="#"> Qui sommes nous</a></li>
+                        <li><a href="#"> Service</a></li>
+                        <li><a href="#"> Contact</a></li>
+                      </ul>
+                    </div>
+                    <div class="col-md-6 px-4">
+                      <ul>
+                        <li><a href="#"> Cab Faciliy</a></li>
+                        <li><a href="#"> Fax</a></li>
+                        <li><a href="#"> Terms</a></li>
+                        <li><a href="#"> Policy</a></li>
+                        <li><a href="#"> Refunds</a></li>
+                        <li><a href="#"> Paypal</a></li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <h6>Newsletter</h6>
+                  <div class="social">
+                    <a href="https://www.facebook.com/DATA-FC-107230434780916" target="blanck"
+                      ><i class="fa fa-facebook" aria-hidden="true"></i
+                    ></a>
+                    <a href="#"
+                      ><i class="fa fa-instagram" aria-hidden="true"></i
+                    ></a>
+                  </div>
+                  
+                </div>
+                     <p class="text-center text-muted mt-10">&copy; 2021 DATA FC Company</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </footer> -->
+
+
+
+
+
+
+
+
+
+
+
+
+// body {
+//   // font-family: "Signika", sans-serif;
+// }
+// .bg-grey {
+//   background: linear-gradient(90deg, #288b9298 0%, #92feec88 100%);
+// }
+// .logo-footer {
+//   margin-bottom: 40px;
+//   width: 60%;
+// }
+// footer {
+//   color: rgb(92, 92, 92);
+// }
+// footer p,
+// a {
+//   font-size: 14px;
+//   font-family: "Poppins";
+// }
+// footer h6 {
+//   font-family: "Poppins";
+//   margin-bottom: 40px;
+//   position: relative;
+// }
+// footer h6:after {
+//   position: absolute;
+//   content: "";
+//   background: grey;
+//   width: 12%;
+//   height: 1px;
+//   left: 0;
+//   bottom: -20px;
+// }
+// .btn-footer {
+//   color: grey;
+
+//   text-decoration: none;
+//   border: 1px solid;
+//   border-radius: 43px;
+//   font-size: 13px;
+//   padding: 7px 30px;
+//   line-height: 47px;
+// }
+// .btn-footer:hover {
+//   text-decoration: none;
+// }
+// .form-footer input[type="text"] {
+//   border: none;
+//   border-radius: 16px 0 0 16px;
+//   outline: none;
+//   padding-left: 10px;
+// }
+// ::placeholder {
+//   font-size: 10px;
+//   padding-left: 10px;
+//   font-style: italic;
+// }
+// .form-footer input[type="button"] {
+//   border: none;
+//   background: #232323;
+//   margin-left: -5px;
+//   color: #fff;
+//   outline: none;
+//   border-radius: 0 16px 16px 0;
+//   padding: 2px 12px;
+// }
+// .social .fa {
+//   color: rgb(12, 12, 12);
+//   font-size: 22px;
+//   padding: 10px 15px;
+//   background: #797979;
+// }
+// footer ul li {
+//   list-style: none;
+//   display: block;
+// }
+// footer ul {
+//   padding-left: 0;
+// }
+// footer ul li a {
+//   text-decoration: none;
+//   color: grey;
+//   text-decoration: none;
+// }
+// a:hover {
+//   text-decoration: none;
+//   color: #2b2b2b !important;
+// }
+// .logo-part {
+//   border-right: 1px solid grey;
+//   height: 100%;
+// }

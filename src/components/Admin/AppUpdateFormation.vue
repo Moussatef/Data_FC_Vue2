@@ -107,6 +107,256 @@
         </template>
       </vs-dialog>
       <!-- Model for adding formation -->
+      <v-dialog v-model="dialog_v" persistent max-width="1200px">
+          <v-card>
+            <v-card-title>
+              <span class="text-h5">Ajouter une formation</span>
+            </v-card-title>
+            <v-card-text>
+              <v-container>
+                <v-row>
+                  <v-col cols="12" sm="12" md="10" lg="8" xl="5">
+                    <div
+                      class="
+                        card
+                        border-0
+                        shadow
+                        justify-content-center
+                        align-items-center
+                      "
+                    >
+                      <img
+                      v-if="img_src == false"
+                      :src="imgFormation"
+                      width="200"
+                      height="200"
+                      class="rounded-lg"
+                      alt=""
+                      id="src_formation"
+                    />
+                    <img
+                      v-if="img_src == true"
+                      :src="imagepreview"
+                      width="200"
+                      height="200"
+                      class="rounded-lg mt-2"
+                      alt=""
+                      id="src_formation"
+                    />
+                    <input
+                      type="file"
+                      accept="image/*"
+                      ref="formation_img"
+                      class=" invisible "
+                      id="img_formation"
+                      @change="imageSelected"
+                    />
+                    <vs-button
+                      class="col-lg-6 col-md-8 col-12  "
+                      circle
+                      success
+                      border
+                      :active="activeImg == 6"
+                      @click="
+                        activeImg = 6;
+                        $refs.formation_img.click();
+                      "
+                    >
+                      <i class="fa fa-upload"></i>
+                    </vs-button>
+                    </div>
+                  </v-col>
+                  <v-col cols="12" sm="12" md="10" lg="8" xl="7">
+                    <h5 class="mb-3">Type de formation</h5>
+                    <div class="d-flex">
+                      <v-select
+                        v-model="valueSe"
+                        :items="categories"
+                        :item-text="title"
+                        :item-value="value"
+                        label="sélectionner le type de formation"
+                        data-vv-name="select"
+                        required
+                      ></v-select>
+                      <div class="mx-3 py-4">
+                        <vs-button border @click="activeTypeF = !activeTypeF">
+                          <i class="fa fa-plus" aria-hidden="true"></i>
+                        </vs-button>
+                      </div>
+                    </div>
+                  </v-col>
+                  <v-col cols="12" sm="12" md="6">
+                    <vs-input
+                      v-model="inpCodeF"
+                      class="my-3"
+                      border
+                      primary
+                      icon-after
+                      label-placeholder="Code formation"
+                    >
+                      <template #icon>
+                        <i class="fa fa-tag"></i>
+                      </template>
+                    </vs-input>
+                  </v-col>
+                  <v-col cols="12" sm="12" md="6">
+                    <vs-input
+                      v-model="inpTitre"
+                      class="my-3"
+                      border
+                      primary
+                      icon-after
+                      label-placeholder="Titre"
+                    >
+                      <template #icon>
+                        <i class="fa fa-sticky-note-o"></i>
+                      </template>
+                    </vs-input>
+                  </v-col>
+                  <v-col cols="12" sm="12" md="6">
+                    <textarea
+                      v-model="inpObj"
+                      class="form-control mb-2"
+                      placeholder="objectifs"
+                      rows="3"
+                    ></textarea>
+                  </v-col>
+                  <v-col cols="12" sm="12" md="6">
+                    <vs-input
+                      v-model="inpPc"
+                      class="my-3"
+                      border
+                      primary
+                      icon-after
+                      label-placeholder="Population cible"
+                    >
+                      <template #icon>
+                        <i class="fa fa-tasks"></i>
+                      </template>
+                    </vs-input>
+                  </v-col>
+                  <v-col cols="12">
+                    <vs-input
+                      v-model="inpDf"
+                      class="my-3"
+                      border
+                      primary
+                      icon-after
+                      label-placeholder="Durée de la formation"
+                    >
+                      <template #icon>
+                        <i class="fa fa-clock-o"></i>
+                      </template>
+                    </vs-input>
+                  </v-col>
+                  <v-col cols="12">
+                    <div
+                      class="
+                        col-lg-12 col-12
+                        row
+                        justify-content-between
+                        align-items-center
+                      "
+                    >
+                      <div class="col-10">
+                        <vs-input
+                          v-model="inpProgramme"
+                          class="my-3"
+                          border
+                          primary
+                          icon-after
+                          label-placeholder="Programme de formation"
+                        >
+                          <template #icon>
+                            <i class="fa fa-puzzle-piece"></i>
+                          </template>
+                        </vs-input>
+                      </div>
+                      <div class="col-1">
+                        <vs-button
+                          size="large"
+                          @click="putProgramme(inpProgramme)"
+                        >
+                          <i class="fa fa-plus" aria-hidden="true"></i>
+                        </vs-button>
+                      </div>
+                    </div>
+                  </v-col>
+                  <v-col cols="12">
+                    <div
+                      class="
+                        col-lg-12
+                        d-flex
+                        flex-wrap
+                        justify-content-center
+                        align-items-center
+                      "
+                    >
+                      <vs-alert shadow>
+                        <template #title> </template>
+                        <div v-for="(pro, i) in programme" :key="i" class="m-1">
+                          <div
+                            class="
+                              d-flex
+                              justify-content-start
+                              align-items-center
+                              fs-6
+                            "
+                          >
+                            <i class="fa fa-check mt-1 mx-2"></i>
+
+                            {{ pro }}
+                            <vs-button
+                              size="small"
+                              class="ms-5"
+                              @click="removeEl(pro)"
+                            >
+                              <i class="fa fa-close"></i>
+                            </vs-button>
+                          </div>
+                        </div>
+                      </vs-alert>
+                    </div>
+                  </v-col>
+                </v-row>
+              </v-container>
+              <small>*indicates required field</small>
+            </v-card-text>
+            <v-card-actions>
+              <v-spacer></v-spacer>
+              <v-btn color="blue darken-1" text @click="dialog_v = false">
+                Quitter
+              </v-btn>
+              <v-btn
+                color="blue darken-1"
+                v-if="
+                  inpCodeF &&
+                  inpTitre &&
+                  inpObj &&
+                  inpPc &&
+                  inpDf &&
+                  programme.length &&
+                  value1
+                "
+                text
+                @click="
+                  addFormation([
+                    inpCodeF,
+                    inpTitre,
+                    inpObj,
+                    inpPc,
+                    inpDf,
+                    programme,
+                    image,
+                    value1,
+                  ])
+                "
+              >
+                Ajouter
+              </v-btn>
+            </v-card-actions>
+          </v-card>
+        </v-dialog>
 
       <div id="myModal" class="modal">
         <!-- Modal content -->
@@ -408,6 +658,8 @@ export default {
 
   methods: {
     ...mapActions(["getAllCategories", "addTypeFormation"]),
+    title: (item) => item.codeF + " : " + item.titre,
+    value: (item) => item.id,
     addType() {
       this.$store
         .dispatch("addTypeFormation", [this.inpCodeType, this.inpTitreType])

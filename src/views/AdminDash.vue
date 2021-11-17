@@ -1,18 +1,18 @@
 <template>
   <div>
-    <div v-if="auth.role == 'admin'" class=" overflow-hidden bg-light">
+    <div v-if="auth.role == 'admin'" class="overflow-hidden bg-light">
       <div class="mt-4"></div>
 
       <AppSideNav />
 
-      <div class="content ">
-        <div class="top-navbar position-fixed bg-light ">
+      <div class="content">
+        <div class="top-navbar position-fixed bg-light">
           <div class="bx bx-menu btn_nav" @click="menu()"></div>
         </div>
-        <h1 class="my-5">Administrateur</h1>
-        <div class=" container-fluid">
+        <h1 class="my-10">Administrateur</h1>
+        <div class="container-fluid">
           <AppStatus />
-          <AppAdminInfo/>
+          <AppAdminInfo />
 
           <div
             v-if="homeAct"
@@ -82,14 +82,14 @@ export default {
     AppStatus,
     AppAdminInfo,
   },
-  data: function() {
+  data: function () {
     return {
       homeAct: true,
       formationAct: false,
       participantsAct: false,
       activeSidebar: false,
       profile: false,
-      openN:true,
+      openN: true,
     };
   },
   computed: {
@@ -142,7 +142,7 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss" >
 .top-10 {
   top: 5rem;
   position: sticky;
@@ -194,22 +194,26 @@ export default {
 }
 
 @media (max-width: 868px) {
-  .content {
-    width: 100%;
-    left: 0;
-  }
+  // .content {
+  //   width: 90%;
+  //   left: 60px;
+  // }
 
-  .content.active {
+  // .content.active {
+  //   width: calc(100% - 60px);
+  //   left: 60px;
+  // }
+  .content {
     width: calc(100% - 60px);
     left: 60px;
   }
-  .btn_nav {
-    display: block;
-    margin-left: 10px;
-  }
+  // .btn_nav {
+  //   display: block;
+  //   margin-left: 10px;
+  // }
 
-  #menu-icon {
-    display: none;
-  }
+  // #menu-icon {
+  //   display: none;
+  // }
 }
 </style>

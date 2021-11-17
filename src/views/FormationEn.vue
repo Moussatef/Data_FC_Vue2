@@ -2,8 +2,6 @@
   <div class="overflow-hidden">
     <AppSection :titre="titre" />
 
-   
-
     <div class="pb-5 bg-light">
       <div class="accordion accordion-flush mx-1" id="accordionFlushExample">
         <div class="accordion-item" :key="x" v-for="(cat, x) in categories">
@@ -29,15 +27,19 @@
             <div class="accordion-body p-3">
               <div
                 class="
-                  row row-cols-1  row-cols-md-1 row-cols-lg-2  row-cols-xl-3 row-cols-xxl-4
+                  row
+                  row-cols-1
+                  row-cols-md-1
+                  row-cols-lg-2
+                  row-cols-xl-3
+                  row-cols-xxl-4
                   g-5
-                  
                   justify-content-center
                 "
               >
                 <div :key="i" v-for="(tr, i) in cat.formation">
                   <v-card
-                  max-width="374"
+                    max-width="374"
                     class="mx-auto my-4 text-start card-form"
                     data-aos="zoom-out-down"
                     data-aos-delay="50"
@@ -71,12 +73,11 @@
                       </v-row>
 
                       <!-- <div class="my-4 text-subtitle-1">
-        $ • Italian, Cafe
-      </div> -->
+                          $ • Italian, Cafe
+                           </div> -->
 
                       <div>
-                        Small plates, salads & sandwiches - an intimate setting
-                        with 12 indoor seats plus patio seating.
+                        <b>Objectifs </b>{{ tr.objectifs}}
                       </div>
                     </v-card-text>
 
@@ -86,7 +87,7 @@
                       class="justify-content-start align-items-center"
                     >
                       <vs-button
-                        class="py-1 "
+                        class="py-1"
                         square
                         @click="
                           activeVd = true;
@@ -116,12 +117,10 @@
                           <i class="bi bi-star-fill"></i>
                         </vs-button>
                       </div>
-                      
 
                       <v-btn
                         elevation="1"
                         class="p-3"
-                        
                         color="deep-purple lighten-2 p-1"
                         text
                       >
@@ -166,7 +165,12 @@
           </div>
         </div>
       </div>
-      <vs-dialog v-if="formationShow" width="1400px" not-center v-model="activeVd">
+      <vs-dialog
+        v-if="formationShow"
+        width="1400px"
+        not-center
+        v-model="activeVd"
+      >
         <template #header>
           <h4 class="not-margin">Bande <b> annonce </b></h4>
         </template>

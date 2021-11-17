@@ -2,7 +2,7 @@
   <div class="main-d ">
     <div class="side-navbar-sd">
       <ul style="padding-left: 0px;">
-        <li class="my-5">
+        <li class="my-5 ms-3 text-left">
           <div class="bx bx-menu" @click="menu()" id="menu-icon"></div>
         </li>
         <li>
@@ -101,7 +101,7 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss" >
 a {
   cursor: pointer;
 }
@@ -124,9 +124,10 @@ a {
   position: fixed;
   height: 100vh;
   width: 200px;
-  background: linear-gradient(130deg, #25767a 0%, #52a79888 100%);
+  background: linear-gradient(130deg, #25767a 0%, #52a797 100%);
   overflow: hidden;
   transition: 0.5s ease;
+  
 }
 .side-navbar-sd ul {
   top: 0;
@@ -136,6 +137,7 @@ a {
 .side-navbar-sd ul li {
   width: 100%;
   a {
+    text-decoration: none;
     &.router-link-exact-active {
       background: #0f7892;
     }
@@ -195,15 +197,17 @@ a {
 @media (max-width: 868px) {
   .side-navbar-sd {
     width: 60px;
-    left: -60px;
+    left: 0px;
+  }
+   .content {
+    width: calc(100% - 60px);
+    left: 60px;
   }
 
-  .side-navbar-sd.active {
-    left: 0;
-  }
 
-  #menu-icon {
-    display: none;
-  }
+
+  // #menu-icon {
+  //   display: none;
+  // }
 }
 </style>

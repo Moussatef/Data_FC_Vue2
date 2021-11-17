@@ -2,16 +2,15 @@
   <div class="overflow-hidden">
     <div class="container  ">
       <div class="row justify-content-between bg-white py-3 shadow px-5">
-        <div class="col-lg-10 col-10">
+        <div class="col-xxl-10  col-12">
           <h2 class="text-muted">Gestion de Type du <span style="color:#25767a;">Formation</span> </h2>
         </div>
-        <div class="col-lg-2 col-2">
+        <div class="col-xxl-2 col-12">
           <vs-button
             size="large"
             square
             gradient
             color="#25767a"
-            
             @click="
               activebtn = 1;
               active = true;

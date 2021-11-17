@@ -407,47 +407,42 @@
         </div>
 
         <div class="container-fluid">
-          <v-sheet
-    class="mx-auto"
-    elevation="8"
-    max-width="1200"
-  >
-    <v-slide-group
-      v-model="model"
-      class="pa-4"
-      center-active
-      show-arrows
-    >
-      <v-slide-item
-        v-for="n in 15"
-        :key="n"
-        v-slot="{ active, toggle }"
-      >
-        <v-card
-          :color="active ? 'primary' : 'grey lighten-1'"
-          class="ma-4"
-          height="200"
-          width="100"
-          @click="toggle"
-        >
-          <v-row
-            class="fill-height"
-            align="center"
-            justify="center"
-          >
-            <v-scale-transition>
-              <v-icon
-                v-if="active"
-                color="white"
-                size="48"
-                v-text="'mdi-close-circle-outline'"
-              ></v-icon>
-            </v-scale-transition>
-          </v-row>
-        </v-card>
-      </v-slide-item>
-    </v-slide-group>
-  </v-sheet>
+          <v-sheet class="mx-auto" elevation="8" max-width="1200">
+            <v-slide-group v-model="model" class="pa-4" show-arrows>
+              <v-slide-item
+                v-for="n in 15"
+                :key="n"
+                v-slot="{ active, toggle }"
+              >
+                <v-card
+                  :color="active ? 'primary' : 'grey lighten-1'"
+                  class="ma-4"
+                  height="200"
+                  width="250"
+                  @click="toggle"
+                >
+                  <v-row class="fill-height" align="center" justify="center">
+                    <v-scale-transition>
+                      <v-icon
+                        v-if="active"
+                        color="white"
+                        size="48"
+                        v-text="'mdi-close-circle-outline'"
+                      ></v-icon>
+                    </v-scale-transition>
+                  </v-row>
+                </v-card>
+              </v-slide-item>
+            </v-slide-group>
+
+            <v-expand-transition>
+              <v-sheet v-if="model != null" height="200" tile>
+                <v-row class="fill-height" align="center" justify="center">
+                  <h3 class="text-h6">Selected {{ model }}</h3>
+                </v-row>
+              </v-sheet>
+            </v-expand-transition>
+          </v-sheet>
         </div>
 
         <div class="container-fluid">
@@ -459,18 +454,6 @@
               data-aos-duration="1000"
               data-aos-easing="ease-in"
             >
-              <!-- <iframe
-                class="video--player__vid"
-                allowfullscreen="1"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                title="YouTube video player"
-                src="https://www.youtube.com/embed/4e4PxhRcxHw?rel=0&amp;controls=2&amp;disablekb=0&amp;modestbranding=1&amp;enablejsapi=1&amp;origin=https%3A%2F%2Fwww.jechoisismontreal.com&amp;widgetid=1"
-                id="widget2"
-                data-gtm-yt-inspected-11225346_44="true"
-                width="640"
-                height="390"
-                frameborder="0"
-              ></iframe> -->
               <AppVimeo :id_video="'645179394'" />
             </div>
             <div class="col-lg-6 col-12 my-3">
@@ -820,13 +803,6 @@
           </div>
         </div>
       </div>
-
-      <!-- FOOTER -->
-      <div class="container">
-        <div class="float-end p-2 bg-white">
-          <a href="#" class="btn btn-secander">Back to top</a>
-        </div>
-      </div>
     </main>
   </div>
 </template>
@@ -924,6 +900,9 @@ export default {
 .responsive_img {
   width: 100%;
   height: 700px;
+}
+ul {
+  padding-left: 0px !important;
 }
 .card_Item {
   background: linear-gradient(90deg, #288b9298 0%, #92feec88 100%);

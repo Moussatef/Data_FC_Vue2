@@ -6,36 +6,82 @@
       </div>
       <v-main>
         <!-- Provides the application the proper gutter -->
-        
-          <!-- If using vue-router -->
-          <router-view />
-        
+
+        <!-- If using vue-router -->
+        <router-view />
       </v-main>
+      <footer class="footer-distributed">
+        <div class="footer-left">
+          <!-- <h3>DATA<span>FC</span></h3> -->
+          <img
+            class="logo-footer"
+            src="https://scontent.frak1-1.fna.fbcdn.net/v/t1.6435-9/254447339_3049937998582581_4080174660758581209_n.jpg?_nc_cat=111&ccb=1-5&_nc_sid=730e14&_nc_ohc=8UKx6tYLNwsAX_ILRil&_nc_ht=scontent.frak1-1.fna&oh=ac526439725685a6395e5857adc54411&oe=61B0DBC6"
+            alt="DATA FORMATION & CONSULTING "
+          />
 
-      
-        <!-- -->
-        <footer class="py-3 my-4">
-        <ul class="nav justify-content-center border-bottom pb-3 mb-3">
-          <li class="nav-item">
-            <a href="#" class="nav-link px-2 text-muted">Home</a>
-          </li>
-          <li class="nav-item">
-            <a href="#" class="nav-link px-2 text-muted">Features</a>
-          </li>
-          <li class="nav-item">
-            <a href="#" class="nav-link px-2 text-muted">Pricing</a>
-          </li>
-          <li class="nav-item">
-            <a href="#" class="nav-link px-2 text-muted">FAQs</a>
-          </li>
-          <li class="nav-item">
-            <a href="#" class="nav-link px-2 text-muted">About</a>
-          </li>
-        </ul>
+          <p class="footer-links">
+            <router-link class="nav-link mynaviItem" to="/"
+              >Accueil</router-link
+            >
+            ·
+            <router-link class="nav-link" to="/sommes-nous"
+              >Qui sommes nous</router-link
+            >
+            ·
+            <router-link to="/nos-formations">Nos formations</router-link>
+            ·
+            <router-link to="/formations-interentreprises"
+              >Formations interentreprises</router-link
+            >
+            ·
+            <router-link to="/assistance-conseil-en-recrutement"
+              >Assistance conseil en recrutement</router-link
+            >
+            ·
+            <router-link class="nav-link" to="/contact-nous"
+              >Contact</router-link
+            >
+          </p>
 
-        <p class="text-center text-muted">&copy; 2021 DATA FC Company</p>
-        </footer>
-      
+          <p class="footer-company-name">DATA FC &copy; 2021</p>
+        </div>
+
+        <div class="footer-center">
+          <div class="row justify-content-start align-items-start" >
+            <i class="fa fa-map-marker col-2"></i>
+            <p class="col-10">
+              <span>{{ company.adresse }}</span> {{ company.ville }}
+            </p>
+          </div>
+
+          <div>
+            <i class="fa fa-phone"></i>
+            <p>Fixe :{{ company.fixe }}</p> /
+            <p>Telephone : {{ company.tele }}</p>
+          </div>
+
+          <div>
+            <i class="fa fa-envelope"></i>
+            <p>
+              <a :href="'mailto:'+company.email">{{ company.email }}</a>
+            </p>
+          </div>
+        </div>
+
+        <div class="footer-right">
+          <p class="footer-company-about">
+            <span>À propos de la société</span>
+            Fondée en 2019, DATA FC est spécialisée dans
+          </p>
+
+          <div class="footer-icons">
+            <a href="#"><i class="fa fa-facebook"></i></a>
+            <a href="#"><i class="fa fa-twitter"></i></a>
+            <a href="#"><i class="fa fa-linkedin"></i></a>
+            <a href="#"><i class="fa fa-github"></i></a>
+          </div>
+        </div>
+      </footer>
     </div>
   </v-app>
 </template>
@@ -84,7 +130,7 @@ export default {
         });
     },
   },
-  computed: {},
+  computed: { ...mapGetters(["company" ])},
   components: {
     // AppNav,
     AppSideNav,
@@ -158,5 +204,184 @@ export default {
 }
 .navbar .dropdown-menu li:hover {
   background-color: #000000;
+}
+
+.logo-footer {
+  margin-bottom: 40px;
+  width: 60%;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+.main {
+  max-height: 550px;
+  background: linear-gradient(90deg, #288b9298 0%, #92feec88 100%);
+  color: white;
+  font-size: 38pt;
+  text-align: center;
+  line-height: 550px;
+}
+footer {
+  position: relative;
+  bottom: 0;
+}
+.footer-distributed {
+  background: linear-gradient(90deg, #063a31 10%, #288b92 100%);
+  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);
+  box-sizing: border-box;
+  width: 100%;
+  text-align: left;
+  font: bold 16px sans-serif;
+
+  padding: 55px 50px;
+  margin-top: 80px;
+}
+
+.footer-distributed .footer-left,
+.footer-distributed .footer-center,
+.footer-distributed .footer-right {
+  display: inline-block;
+  vertical-align: top;
+}
+
+.footer-distributed .footer-left {
+  width: 42%;
+}
+
+.footer-distributed h3 {
+  color: #252525;
+  font: normal 36px "Cookie", cursive;
+  margin: 0;
+}
+
+.footer-distributed h3 span {
+  color: #5383d3;
+}
+
+.footer-distributed .footer-links {
+  color: #ffffff;
+  margin: 20px 0 12px;
+  padding: 0;
+}
+
+.footer-distributed .footer-links a {
+  display: inline-block;
+  line-height: 1.8;
+  text-decoration: none;
+  color: inherit;
+}
+
+.footer-distributed .footer-company-name {
+  color: #8f9296;
+  font-size: 16px;
+  font-weight: normal;
+  margin: 0;
+}
+
+.footer-distributed .footer-center {
+  width: 35%;
+}
+
+.footer-distributed .footer-center i {
+  // background-color: #33383b;
+  color: #ffffff;
+  font-size: 25px;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 42px;
+  margin: 15px 10px;
+  vertical-align: middle;
+}
+
+.footer-distributed .footer-center i.fa-envelope {
+  font-size: 17px;
+  line-height: 38px;
+}
+
+.footer-distributed .footer-center p {
+  display: inline-block;
+  color: #ffffff;
+  vertical-align: middle;
+  margin: 0;
+}
+
+.footer-distributed .footer-center p span {
+  display: block;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 2;
+}
+
+.footer-distributed .footer-center p a {
+  color: #5383d3;
+  text-decoration: none;
+}
+
+.footer-distributed .footer-right {
+  width: 20%;
+}
+
+.footer-distributed .footer-company-about {
+  line-height: 20px;
+  color: #b5babe;
+  font-size: 15px;
+  font-weight: normal;
+  margin: 0;
+}
+
+.footer-distributed .footer-company-about span {
+  display: block;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.footer-distributed .footer-icons {
+  margin-top: 25px;
+}
+
+.footer-distributed .footer-icons a {
+  display: inline-block;
+  width: 35px;
+  height: 35px;
+  cursor: pointer;
+  background-color: #33383b;
+  border-radius: 2px;
+
+  font-size: 20px;
+  color: #ffffff;
+  text-align: center;
+  line-height: 35px;
+
+  margin-right: 3px;
+  margin-bottom: 5px;
+}
+
+@media (max-width: 880px) {
+  .footer-distributed {
+    font: bold 14px sans-serif;
+  }
+
+  .footer-distributed .footer-left,
+  .footer-distributed .footer-center,
+  .footer-distributed .footer-right {
+    display: block;
+    width: 100%;
+    margin-bottom: 40px;
+    text-align: center;
+  }
+
+  .footer-distributed .footer-center i {
+    margin-left: 0;
+  }
+  .main {
+    line-height: normal;
+    font-size: auto;
+  }
 }
 </style>

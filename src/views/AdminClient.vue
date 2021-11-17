@@ -94,7 +94,7 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss" >
 .top-10 {
   top: 5rem;
   position: sticky;
@@ -145,22 +145,22 @@ export default {
 }
 
 @media (max-width: 868px) {
-  .content {
-    width: 100%;
-    left: 0;
-  }
+  // .content {
+  //   width: 100%;
+  //   left: 0;
+  // }
 
-  .content.active {
+   .content {
     width: calc(100% - 60px);
     left: 60px;
   }
-  .btn_nav {
-    display: block;
-    margin-left: 10px;
-  }
+  // .btn_nav {
+  //   display: block;
+  //   margin-left: 10px;
+  // }
 
-  #menu-icon {
-    display: none;
-  }
+  // #menu-icon {
+  //   display: none;
+  // }
 }
 </style>

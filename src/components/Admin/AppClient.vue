@@ -1,10 +1,10 @@
 <template>
-  <div class=" py-5 bg-light">
+  <div class="py-5 bg-light">
     <h2 class="">Les Participants</h2>
     <hr />
-    <div class="accordion accordion-flush " id="accordionFlushExample">
+    <div class="accordion accordion-flush" id="accordionFlushExample">
       <div class="accordion-item">
-        <h2 class="accordion-header " id="'flush-headingOne'">
+        <h2 class="accordion-header" id="'flush-headingOne'">
           <button
             class="accordion-button collapsed fs-4"
             type="button"
@@ -44,7 +44,7 @@
                   </template>
                   <template #tbody>
                     <vs-tr
-                      class="bg-white "
+                      class="bg-white"
                       :key="i"
                       v-for="(tr, i) in $vs.getSearch(client, search)"
                       :data="tr"
@@ -56,10 +56,7 @@
                       <vs-td class="text-start fs-6">
                         <div class="d-flex align-items-center">
                           <vs-avatar class="me-4">
-                            <img
-                              :src="tr.image"
-                              alt=""
-                            />
+                            <img :src="tr.image" alt="" />
                           </vs-avatar>
                           {{ tr.nom }}
                         </div>
@@ -90,11 +87,22 @@
                         </vs-button>
                       </vs-td>
                       <vs-td>
-                        <vs-button v-if="tr.block == 1" danger flat icon>
+                        <vs-button
+                          v-if="tr.block == 1"
+                          @click="ShowDisbockConf(tr)"
+                          danger
+                          flat
+                          icon
+                        >
                           <i class="bx bx-lock"></i>
                         </vs-button>
 
-                        <vs-button v-if="tr.block == 0" flat icon>
+                        <vs-button
+                          v-if="tr.block == 0"
+                          @click="ShowBockConf(tr)"
+                          flat
+                          icon
+                        >
                           <i class="bx bx-lock-open-alt"></i>
                         </vs-button>
                       </vs-td>
@@ -109,25 +117,27 @@
     </div>
 
     <vs-dialog square not-padding v-model="activeAlert">
-      
       <vs-alert dark :progress="progress" v-model="activeAlert">
-        <template #title>
-          Succès
-        </template>
+        <template #title> Succès </template>
         la personne a été supprimée avec succès
       </vs-alert>
     </vs-dialog>
-
-    <vs-dialog v-if="clientInfo" width="1000px" v-model="activeDelete">
+    <!-- messgae confirmaton for remove persone -->
+    <vs-dialog
+      v-if="clientInfo"
+      width="1000px"
+     
+      v-model="activeDelete"
+    >
       <template #header>
-        <h4 class="not-margin">Confirmation de <b> la suppression </b></h4>
+        <h4 style="color: red" ><b> Confirmation </b></h4>
       </template>
       <div class="text-center">
-        <h4>Voulez-vous supprimer cette personne</h4>
+        <h4 >Voulez-vous supprimer cette personne</h4>
       </div>
 
       <template #footer>
-        <div class="d-flex  justify-content-end">
+        <div class="d-flex justify-content-end">
           <vs-button
             @click="
               deleteClient(
@@ -148,6 +158,57 @@
       </template>
     </vs-dialog>
 
+    <!-- messgae confirmaton for block persone -->
+
+    <vs-dialog
+      v-if="clientInfo"
+      width="1000px"
+      
+      v-model="activeBlock"
+    >
+      <template #header>
+        <h4 style="color: red"><b> Confirmation </b></h4>
+      </template>
+      <div class="text-center">
+        <!-- <h4>Voulez-vous supprimer cette personne</h4> -->
+        <h4 >{{ messageConfirmation }}</h4>
+      </div>
+
+      <template #footer>
+        <div class="d-flex justify-content-end">
+          <vs-button @click="blockClient(clientInfo.id)" transparent>
+            Oui
+          </vs-button>
+          <vs-button @click="activeBlock = false" dark transparent>
+            Non
+          </vs-button>
+        </div>
+      </template>
+    </vs-dialog>
+
+    <!-- messgae confirmaton for diblock persone -->
+
+    <vs-dialog v-if="clientInfo" width="1000px" v-model="activeDisblock">
+      <template #header>
+        <h4 class="not-margin"><b> Confirmation </b></h4>
+      </template>
+      <div class="text-center">
+        <h4>{{ messageConfirmation }}</h4>
+      </div>
+
+      <template #footer>
+        <div class="d-flex justify-content-end">
+          <vs-button @click="disblockClient(clientInfo.id)" transparent>
+            Oui
+          </vs-button>
+          <vs-button @click="activeDisblock = false" dark transparent>
+            Non
+          </vs-button>
+        </div>
+      </template>
+    </vs-dialog>
+
+    <!-- Dialog for sanding message -->
     <vs-dialog v-if="clientInfo" width="1000px" v-model="activeEmail">
       <template #header>
         <h4 class="not-margin">Envoyer un <b> e-mail </b></h4>
@@ -156,10 +217,8 @@
       <div class="container">
         <div class="row text-start">
           <div class="center col-12">
-            <vs-alert primary :progress="progress" v-model="activeAlert">
-              <template #title>
-                Succès
-              </template>
+            <vs-alert primary :progress="progress" v-model="activeMail">
+              <template #title> Succès </template>
               <p>
                 {{ clientInfo.nom }} {{ clientInfo.prenom }} <br />
                 Votre e-mail : {{ clientInfo.email }} <br />
@@ -184,8 +243,8 @@
             </div>
           </div>
 
-          <div class="col-lg-12 col-md-12 col-sm-12  justify-content-center ">
-            <div class="contact-inp p-3 ">
+          <div class="col-lg-12 col-md-12 col-sm-12 justify-content-center">
+            <div class="contact-inp p-3">
               <div class="row g-3">
                 <div class="col-12">
                   <input
@@ -196,9 +255,7 @@
                     placeholder="titre"
                     required
                   />
-                  <div class="invalid-feedback">
-                    Please enter title.
-                  </div>
+                  <div class="invalid-feedback">Please enter title.</div>
                 </div>
                 <div class="col-12">
                   <input
@@ -209,9 +266,7 @@
                     placeholder="Subject"
                     required
                   />
-                  <div class="invalid-feedback">
-                    Please enter subject.
-                  </div>
+                  <div class="invalid-feedback">Please enter subject.</div>
                 </div>
 
                 <div class="col-12">
@@ -225,9 +280,9 @@
                     rows="10"
                   ></textarea>
                 </div>
-                <div class="text-center col-3 offset-lg-10  ">
+                <div class="text-center col-3 offset-lg-10">
                   <vs-button
-                  v-if="inpttitre && inptsubject && inptmessage && clientInfo  "
+                    v-if="inpttitre && inptsubject && inptmessage && clientInfo"
                     border
                     @click="
                       addMessage(
@@ -237,7 +292,7 @@
                         inptmessage
                       )
                     "
-                    class="btn btn-lg btn-send "
+                    class="btn btn-lg btn-send"
                   >
                     Send Message
                   </vs-button>
@@ -250,8 +305,7 @@
       </div>
 
       <template #footer>
-        <div class="d-flex  justify-content-end">
-          
+        <div class="d-flex justify-content-end">
           <vs-button @click="activeEmail = false" dark transparent>
             Cancel
           </vs-button>
@@ -275,6 +329,10 @@ export default {
       activeEmail: false,
       activeDelete: false,
       activeAlert: false,
+
+      activeBlock: false,
+      activeDisblock: false,
+
       time: 2500,
       progress: 0,
 
@@ -285,31 +343,44 @@ export default {
       inptsubject: undefined,
       inptmessage: undefined,
       formobj: undefined,
+
+      messageConfirmation: undefined,
     };
   },
   methods: {
-    ...mapActions(["getAllClient", "adminSendMessage"]),
+    ...mapActions([
+      "getAllClient",
+      "adminSendMessage",
+      "disblockPersonne",
+      "blockPersonne",
+    ]),
     ShowSendMessage(client) {
       this.clientInfo = client;
       this.activeEmail = true;
     },
     ShowDeleteConf(client) {
       this.clientInfo = client;
+      this.messageConfirmation = "Voulez-vous supprimer cette personne";
       this.activeDelete = true;
     },
-    addMessage(id, title, subject, message) {
+
+    ShowBockConf(client) {
+      this.clientInfo = client;
+      this.messageConfirmation = "Voulez-vous bloquer cette personne ?";
+      this.activeBlock = true;
+    },
+    ShowDisbockConf(client) {
+      this.clientInfo = client;
+      this.messageConfirmation = "Voulez-vous débloquer cette personne ?";
+      this.activeDisblock = true;
+    },
+    async addMessage(id, title, subject, message) {
       if (id && title && subject && message) {
         this.$store
           .dispatch("adminSendMessage", [id, title, subject, message])
           .then((res) => {
             console.log(res);
-            this.activeAlert = true;
-
-            // this.formobj = {
-            //   nom: nom,
-            //   prenom: prenom,
-            //   email: email,
-            // };
+            this.activeMail = true;
 
             this.inptnom = undefined;
             this.inptprenom = undefined;
@@ -319,6 +390,39 @@ export default {
             this.inptmessage = undefined;
           });
       }
+    },
+    async blockClient(id) {
+      this.$store
+        .dispatch("blockPersonne", [id])
+        .then((result) => {
+          console.log(result);
+          this.activeBlock = false;
+          this.clientInfo = this.messageConfirmation = undefined;
+
+          // this.activeConfirmation = false;
+          // this.idFormation = undefined;
+        })
+        .catch((err) => {
+          this.errorDesc = err.message;
+          this.alertDanger = true;
+        });
+    },
+    async disblockClient(id) {
+      this.$store
+        .dispatch("disblockPersonne", [id])
+        .then((result) => {
+          console.log(result);
+          // this.activeConfirmation = false;
+          // this.idFormation = undefined;
+
+          // this.activeConfirmation = false;
+          // this.activeDelete = false;
+          // this.activeAlert = true;
+        })
+        .catch((err) => {
+          this.errorDesc = err.message;
+          this.alertDanger = true;
+        });
     },
     async deleteClient(id, nom, prenom, email) {
       this.$store
@@ -338,6 +442,7 @@ export default {
         });
     },
   },
+
   watch: {
     activeAlert(val) {
       if (val) {

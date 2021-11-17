@@ -68,9 +68,7 @@
           <p class="text-uppercase text-start col-lg-8 col-10">
             {{ company.personne.nom }} {{ company.personne.prenom }}
           </p>
-          <vs-button class=" col-1" shadow>
-            <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
-          </vs-button>
+          
         </div>
         <div class="row justify-content-start align-items-start mt-3">
           <h5 class="col-lg-2 col-12 text-start">Adresse :</h5>

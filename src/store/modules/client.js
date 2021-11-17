@@ -34,6 +34,72 @@ const actions = {
         }
 
     },
+    async disblockPersonne({
+        commit
+    }, param) {
+
+
+        const data = new FormData();
+        data.append("personne_id", param[0]);
+        var config = {
+            method: 'post',
+            url: 'admin/disblock-personne',
+            headers: {
+                'Accept': 'application/json',
+                'Authorization': "Bearer " + localStorage.getItem("accessToken"),
+                'Content-Type': 'application/json'
+            },
+            data: data
+        };
+
+
+        return new Promise((resolve, reject) => {
+            axios(config)
+                .then(response => {
+                    let personne = response.data;
+                    // consoled for testing
+                    console.log(personne);
+                    commit('updatePersonne', personne.personne[0]);
+                    resolve('Success')
+                })
+                .catch(error => {
+                    reject(error)
+                })
+        })
+    },
+    async blockPersonne({
+        commit
+    }, param) {
+
+
+        const data = new FormData();
+        data.append("personne_id", param[0]);
+        var config = {
+            method: 'post',
+            url: 'admin/block-personne',
+            headers: {
+                'Accept': 'application/json',
+                'Authorization': "Bearer " + localStorage.getItem("accessToken"),
+                'Content-Type': 'application/json'
+            },
+            data: data
+        };
+
+
+        return new Promise((resolve, reject) => {
+            axios(config)
+                .then(response => {
+                    let personne = response.data;
+                    // consoled for testing
+                    console.log(personne);
+                    commit('updatePersonne', personne.personne[0]);
+                    resolve('Success')
+                })
+                .catch(error => {
+                    reject(error)
+                })
+        })
+    },
 
     async deletePersonne({
         commit
@@ -74,8 +140,17 @@ const actions = {
 }
 
 const mutations = {
+    //set all client in table
     setClient: (state, client) => (state.client = client),
 
+
+    updatePersonne: (state, param) => {
+        let clientIndex = state.client.findIndex(el => el.id == param.id)
+        state.client.splice(clientIndex, 1, param)
+
+    },
+
+    //delete client from table
     deletepersonne: (state, client) => {
 
         state.client.splice(state.client.findIndex(el => el.id == client), 1);
