@@ -121,26 +121,7 @@
               </vs-button>
             </div>
           </div>
-          <!-- 
-					<div class="txt1 text-center p-t-54 p-b-20">
-						<span>
-							Or Sign Up Using
-						</span>
-					</div> -->
-          <!-- 
-					<div class="flex-c-m">
-						<a href="#" class="login100-social-item bg1">
-							<i class="fa fa-facebook"></i>
-						</a>
-
-						<a href="#" class="login100-social-item bg2">
-							<i class="fa fa-twitter"></i>
-						</a>
-
-						<a href="#" class="login100-social-item bg3">
-							<i class="fa fa-google"></i>
-						</a>
-					</div> -->
+          
           <div class="flex-col-c p-t-55"></div>
         </div>
       </div>
@@ -148,27 +129,7 @@
   </div>
 </template>
 <script>
-// const CryptoJS = require("crypto-js");
-// //The Function Below To Encrypt Text
-// const encryptWithAES = (text) => {
-//   const passphrase = "myBestEverForEver2017";
-//   return CryptoJS.AES.encrypt(text, passphrase).toString();
-// };
-// //The Function Below To Decrypt Text
-// const decryptWithAES = (ciphertext) => {
-//   const passphrase = "myBestEverForEver2017";
-//   const bytes = CryptoJS.AES.decrypt(ciphertext, passphrase);
-//   const originalText = bytes.toString(CryptoJS.enc.Utf8);
-//   return originalText;
-// };
 
-// let encryptText = encryptWithAES("YAZAN");
-// //EncryptedText==>  //U2FsdGVkX19GgWeS66m0xxRUVxfpI60uVkWRedyU15I=
-
-// let decryptText = decryptWithAES(encryptText);
-// //decryptText==>  //YAZAN
-
-// console.log(decryptText);
 
 export default {
   name: "login",
@@ -203,7 +164,7 @@ export default {
           redirect: "follow",
         };
         const result = await fetch(
-          "login/client",
+          "https://datafc.herokuapp.com/api/login/client",
           requestOptions
         );
         if (result.status == 201) {

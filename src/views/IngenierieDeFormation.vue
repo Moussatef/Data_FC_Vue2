@@ -114,7 +114,7 @@ img {
 .info-one {
   min-height: 400px;
   p {
-    color: rgb(107, 107, 107);
+    color: rgb(46, 145, 79);
     text-align: initial;
     text-justify: auto;
   }

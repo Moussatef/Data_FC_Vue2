@@ -722,7 +722,7 @@ export default {
       FinpPassword: undefined,
 
       annance: false,
-      annanceAdd: undefined,
+      annanceAdd: false,
       formationVD: false,
       formationAdd: false,
       video_formation: undefined,
@@ -735,7 +735,7 @@ export default {
     AppVimeo,
   },
   methods: {
-    ...mapActions(["formationParam", "getAllFormationEn"]),
+    ...mapActions(["formationParam", "getAllFormationEn", "postAnnance"]),
     geVideoFormation(video) {
       console.log(video);
       this.video_formation = video;
@@ -746,46 +746,34 @@ export default {
     },
     async addAnnance(id, video, videoID, titre, descriptions) {
       this.loading = false;
-      this.openLoading();
-      let data = new FormData();
-      data.append("formation_id", id);
-      if (video) data.append("video", video);
-      if (videoID) data.append("videoID", videoID);
+      this.closeLoading();
+      this.openNotification("none", "null");
 
-      data.append("title", titre);
-      data.append("description", descriptions);
-      var config = {
-        method: "post",
-        url: "admin/add-annance",
-        headers: {
-          Accept: "application/json",
-          Authorization: "Bearer " + localStorage.getItem("accessToken"),
-          "Content-Type": "multipart/form-data",
-          Connection: "keep-alive",
-        },
-        data: data,
-      };
-
-      axios(config)
+      this.$store
+        .dispatch("postAnnance", [id, video, videoID, titre, descriptions])
         .then((response) => {
           let formation = response;
-          // consoled for testing
           console.log(formation);
-          // commit('setCategory', formation);
-          // resolve('Success')
           this.loading = this.v_dialog = true;
           this.closeLoading();
+          this.annanceAdd = false;
+
+          this.videodata = undefined;
+          this.inpTitre = undefined;
+          this.inpDesc = undefined;
+          this.inpVideoID = undefined;
+          this.videopreview = undefined;
         })
         .catch((error) => {
           // reject(error)
           console.log(error);
-          this.loading = true;
+          // this.loading = true;
         });
     },
     async addVideo(id, video, videoID, titre, descriptions, password) {
       this.loading = false;
       this.closeLoading();
-      this.openNotification('none','null');
+      this.openNotification("none", "null");
       let data = new FormData();
       data.append("formation_id", id);
       if (video) data.append("video", video);
@@ -830,17 +818,27 @@ export default {
         });
     },
 
-    openNotification(duration,position='null') {
-      const noti = this.$vs.notification({
-        loading: true,
-        duration,
-        position,
-        progress: "auto",
-        title: "Documentation Vuesax 4.0+",
-        text: `These documents refer to the latest version of vuesax (4.0+),
-            to see the documents of the previous versions you can do it here 👉 Vuesax3.x`,
-      });
-    },
+    // openNotification(duration, position = "null") {
+    //   const noti = this.$vs.notification({
+    //     loading: true,
+    //     duration,
+    //     position,
+    //     progress: "auto",
+    //    });
+    // },
+
+      openNotification() {
+        const noti = this.$vs.notification({
+          duration: 'none',
+          loading: true
+        })
+
+        setTimeout(() => {
+          noti.close()
+        }, 5000)
+      },
+ 
+
 
     videoSelected(e) {
       this.videodata = e.target.files[0];
@@ -885,7 +883,7 @@ export default {
     },
   },
   computed: {
-    ...mapGetters(["formation"]),
+    ...mapGetters(["formation", "loading_vd"]),
   },
   created() {
     this.formationParam(this.id);

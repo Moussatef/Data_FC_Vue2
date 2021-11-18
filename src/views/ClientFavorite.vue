@@ -325,6 +325,9 @@ export default {
     ) !important;
   }
 }
+.nav_z{
+  z-index: 9999;
+}
 .top-10 {
   top: 5rem;
   position: sticky;
@@ -374,23 +377,13 @@ export default {
   left: 60px;
 }
 
-@media (max-width: 868px) {
-  .content {
-    width: 100%;
-    left: 0;
-  }
+@media (max-width: 1200px) {
+  
 
-  .content.active {
+  .content {
     width: calc(100% - 60px);
     left: 60px;
   }
-  .btn_nav {
-    display: block;
-    margin-left: 10px;
-  }
-
-  #menu-icon {
-    display: none;
-  }
+ 
 }
 </style>

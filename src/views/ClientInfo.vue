@@ -7,10 +7,10 @@
         <div class="top-navbar position-fixed  ">
           <div class="bx bx-menu btn_nav" @click="menu()"></div>
         </div>
-        <h1 class="my-5">Client Information</h1>
-        <div class="container ">
+        <h1 class="my-15">Client Information</h1>
+        <div class="container-fluid ">
           <div class="row  justify-content-evenly">
-            <div class="col-3 bg-white">
+            <div class="col-xxl-3 col-12 bg-white">
               <div class=" text-center p-2 shadow-md">
                 <vs-avatar
                   class="rounded-circle my-3 mx-auto"
@@ -64,7 +64,7 @@
                 <p>Client</p>
               </div>
             </div>
-            <div class="col-8 bg-white">
+            <div class="col-xxl-8 col-12 bg-white">
               <div class="p-2">
                 <div class="row justify-content-start align-items-start mt-3 ">
                   <h5 class="col-2 text-start">Adresse :</h5>
@@ -200,6 +200,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.nav_z{
+  z-index: 9999;
+}
 .top-10 {
   top: 5rem;
   position: sticky;
@@ -249,23 +252,13 @@ export default {
   left: 60px;
 }
 
-@media (max-width: 868px) {
-  .content {
-    width: 100%;
-    left: 0;
-  }
+@media (max-width: 1200px) {
+  
 
-  .content.active {
+  .content {
     width: calc(100% - 60px);
     left: 60px;
   }
-  .btn_nav {
-    display: block;
-    margin-left: 10px;
-  }
-
-  #menu-icon {
-    display: none;
-  }
+ 
 }
 </style>

@@ -4,7 +4,7 @@
       <AppNavS class="nav_z poition-fixed" />
 
       <div class="content">
-        <h1 class="my-5">Participants</h1>
+        <h1 class="my-15">Participants</h1>
         <div class=" d-flex justify-content-center text-start mt-4">
           <div class="col-lg-12">
             <AppFormation />
@@ -149,20 +149,16 @@ export default {
   width: calc(100% - 60px);
   left: 60px;
 }
+.nav_z{
+  z-index: 9999;
+}
+@media (max-width: 1200px) {
+  
 
-@media (max-width: 868px) {
   .content {
-    width: 100%;
-    left: 0;
-  }
-
-  .content.active {
     width: calc(100% - 60px);
     left: 60px;
   }
-
-  #menu-icon {
-    display: none;
-  }
+ 
 }
 </style>

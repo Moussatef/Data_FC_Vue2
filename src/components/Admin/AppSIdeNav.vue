@@ -48,7 +48,7 @@
         <li>
           <a @click="logout()">
             <span class="icon"><i class="bx bxs-log-out"></i></span>
-            <span class="text">Log-Out</span>
+            <span class="text">Se déconnecter</span>
           </a>
         </li>
       </ul>

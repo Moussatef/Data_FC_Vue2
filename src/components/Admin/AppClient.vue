@@ -329,6 +329,7 @@ export default {
       activeEmail: false,
       activeDelete: false,
       activeAlert: false,
+      activeMail: false,
 
       activeBlock: false,
       activeDisblock: false,

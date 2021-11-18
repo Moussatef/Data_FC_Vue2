@@ -24,22 +24,22 @@
             >
               <div class="p-3 info_d text-start">
                 <img src="../assets/info.png" width="50" alt="" />
-                <h3 class="my-3 h3-one">
+                <h3 class="my-3 h3-one fs-2">
                   Fondée en 2019, DATA FC est spécialisée dans
                 </h3>
 
-                <p>
+                <p class=" fs-4">
                   L’Ingénierie de formation et l’assistance conseil en
                   recrutement
                 </p>
-                <p>
+                <p class=" fs-4">
                   L’Assistance conseil en création et pilotage des entreprises
                 </p>
-                <p>Le placement ou l’externalisation de ressources humaines</p>
-                <p>L’Assistance technique dans le domaine informatique</p>
-                <p>La Fourniture du personnel intérimaire</p>
-                <p>Le Management des organisations</p>
-                <p>La Formation continue</p>
+                <p class=" fs-4">Le placement ou l’externalisation de ressources humaines</p>
+                <p class=" fs-4">L’Assistance technique dans le domaine informatique</p>
+                <p class=" fs-4">La Fourniture du personnel intérimaire</p>
+                <p class=" fs-4">Le Management des organisations</p>
+                <p class=" fs-4">La Formation continue</p>
               </div>
             </div>
 
@@ -52,22 +52,22 @@
             >
               <div class="p-4 info_d text-start">
                 <img src="../assets/group.png" width="50" alt="" />
-                <h3 class="my-3 h3-one">
+                <h3 class="my-3 h3-one fs-2">
                   DATA FC dispose des outils particulièrement utiles et d’un
                   processus de gestion efficace pour
                 </h3>
-                <p>
+                <p class=" fs-4">
                   Accompagner ses clients via une approche innovante à booster
                   les performances de leurs entreprises et à contribuer à la
                   réussite de leurs projets.
                 </p>
-                <p>
+                <p class=" fs-4">
                   Proposer aux entreprises clientes des solutions efficaces
                   contribuant à leur évolution et à l’amélioration de leur
                   compétitivité, en faisant preuve d’éthique et de
                   confidentialité.
                 </p>
-                <p>
+                <p class=" fs-4">
                   Entretenir une relation durable et personnalisée avec ses
                   clients, en faisant preuve de transparence et de disponibilité
                 </p>

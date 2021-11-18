@@ -235,7 +235,7 @@ export default {
         redirect: "follow",
       };
       const result = await fetch(
-        "client/register",
+        "https://datafc.herokuapp.com/api/client/register",
         requestOptions
       );
       if (result.status === 201) {

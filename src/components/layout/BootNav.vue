@@ -158,7 +158,7 @@
               aria-labelledby="dropdownUser2"
             >
               <li v-if="auth.role == 'client'">
-                <router-link class="dropdown-item" to="/client-profile"
+                <router-link class="dropdown-item" to="/info-client"
                   ><i class="bx bxs-user me-2"></i>{{ auth.nom }}
                 </router-link>
               </li>

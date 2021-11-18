@@ -7,6 +7,7 @@ const state = {
     StatusCategory: false,
     AjouteErr: undefined,
     loading: true,
+    loading_vd: false,
 }
 
 const getters = {
@@ -14,47 +15,54 @@ const getters = {
     formation: state => state.formation,
     categories: state => state.categories,
     StatusCategory: state => state.statusCategory,
-    AjouteErr: state => state.ajouteErr
+    AjouteErr: state => state.ajouteErr,
+    loading_vd: state => state.loading,
 }
 
 const actions = {
     // get all formation
-    async getAllFormationEn({ commit }) {
+    async getAllFormationEn({
+        commit
+    }) {
         var requestOptions = {
             method: 'GET',
             redirect: 'follow'
         };
-       
+
         axios.get("formation", requestOptions).then((result) => {
             // console.log(result.data);
             commit('setFormations', result.data)
             state.loading = false;
 
-         }).catch((error) => {
-             console.log(error);
-         })
+        }).catch((error) => {
+            console.log(error);
+        })
 
     },
 
     //obtenir toutes les catégories avec des formations
-    async getAllCategories({ commit }) {
+    async getAllCategories({
+        commit
+    }) {
         var requestOptions = {
             method: 'GET',
             redirect: 'follow'
         };
-         axios.get("formation/categories", requestOptions).then((result) => {
+        axios.get("formation/categories", requestOptions).then((result) => {
             // console.log(result.data.data);
             commit('setCategory', result.data.data)
             state.loading = false;
-         }).catch((error) => {
-             console.log(error);
-         })
-        
+        }).catch((error) => {
+            console.log(error);
+        })
+
     },
 
     //function add type of formation
 
-    async addTypeFormation({ commit }, param) {
+    async addTypeFormation({
+        commit
+    }, param) {
 
         var data = JSON.stringify({
             "codeType": param[0],
@@ -88,7 +96,9 @@ const actions = {
         })
     },
 
-    async formationParam({ commit }, param) {
+    async formationParam({
+        commit
+    }, param) {
 
 
         var config = {
@@ -116,7 +126,9 @@ const actions = {
 
 
     //function add  formation
-    async addFormation({ commit }, param) {
+    async addFormation({
+        commit
+    }, param) {
 
         const data = new FormData();
         data.append("codeFormation", param[0]);
@@ -155,7 +167,9 @@ const actions = {
     },
 
     //update formation
-    async updateFormation({ commit }, param) {
+    async updateFormation({
+        commit
+    }, param) {
 
         const data = new FormData();
         data.append("codeFormation", param[0]);
@@ -197,7 +211,9 @@ const actions = {
 
 
     // function remove category
-    async removeCategorie({ commit }, param) {
+    async removeCategorie({
+        commit
+    }, param) {
 
 
         var data = JSON.stringify({
@@ -234,7 +250,9 @@ const actions = {
 
 
     // function remove formation
-    async removeFormation({ commit }, param) {
+    async removeFormation({
+        commit
+    }, param) {
         var data = JSON.stringify({
             "formation_id": param[0],
         });
@@ -263,6 +281,50 @@ const actions = {
         })
 
     },
+
+    //add annance video formaton :
+    async postAnnance({
+        commit
+    }, param) {
+        state.loading_vd = true;
+        let data = new FormData();
+        data.append("formation_id", param[0]);
+        if (param[1]) data.append("video", param[1]);
+        if (param[2]) data.append("videoID", param[2]);
+
+        data.append("title", param[3]);
+        data.append("description", param[4]);
+        var config = {
+            method: "post",
+            url: "admin/add-annance",
+            headers: {
+                Accept: "application/json",
+                Authorization: "Bearer " + localStorage.getItem("accessToken"),
+                "Content-Type": "multipart/form-data",
+                Connection: "keep-alive",
+            },
+            data: data,
+        };
+
+        return new Promise((resolve, reject) => {
+            axios(config)
+                .then(response => {
+                    let formation = response.data;
+                    state.loading_vd = false;
+                    // consoled for testing
+                    console.log(formation.formation[0]);
+                    commit('oneFormation', formation.formation[0]);
+                    resolve(formation.formation[0])
+                })
+                .catch(error => {
+                    reject(error)
+                })
+        })
+
+    },
+
+
+
 }
 const mutations = {
     setFormations: (state, formations) => (state.formationEnt = formations),
@@ -277,7 +339,9 @@ const mutations = {
         state.categories.unshift(categories[0]);
     },
     addFormation: (state, formation) => {
-        state.categories[state.categories.findIndex(el => el.id == formation.formationcategorie_id)].formation.push({ ...formation });
+        state.categories[state.categories.findIndex(el => el.id == formation.formationcategorie_id)].formation.push({
+            ...formation
+        });
         // console.log(res);
     },
 
