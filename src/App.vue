@@ -158,6 +158,7 @@ export default {
 }
 #nav {
   padding: 30px;
+  z-index: 9999999 !important;
   a {
     // font-weight: bold;
     // color: #5f5f5f;
@@ -174,6 +175,7 @@ export default {
   }
 }
 #mynavi {
+  z-index: 9999999 !important;
   background-color: white;
   // box-shadow: 0 0.1rem 0.3rem rgba(0, 0, 0, 0.3);
 }

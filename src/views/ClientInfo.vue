@@ -201,7 +201,7 @@ export default {
 
 <style lang="scss" scoped>
 .nav_z{
-  z-index: 9999;
+  z-index: 100;
 }
 .top-10 {
   top: 5rem;
