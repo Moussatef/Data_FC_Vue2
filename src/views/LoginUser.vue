@@ -147,28 +147,31 @@ export default {
         myHeaders.append("Accept", "application/json");
         myHeaders.append("Content-Type", "application/json");
 
-        var urlencoded = new URLSearchParams();
-        urlencoded.append("email", email);
-        urlencoded.append("password", password);
+        var data = JSON.stringify({
+          email: email,
+          password: password,
+        });
 
         var requestOptions = {
           method: "POST",
           headers: myHeaders,
-          body: urlencoded,
+          body: data,
           redirect: "follow",
         };
-        fetch("login/personne", requestOptions).then((result)=>{
-          this.message_err = "";
-          this.active = false;
-          console.log(result);
-          this.message_err = undefined;
-          // const tokenUser = encryptWithAES("tokenUserEncry");
-          localStorage.setItem("accessToken", res.Token);
-          this.$router.push({ name: "Accueil" });
-        }).catch((err)=>{
-          // console.log(err.message);
-          this.message_err = err.message;
-        });
+        fetch("login/personne", requestOptions)
+          .then((result) => {
+            this.message_err = "";
+            this.active = false;
+            console.log(result);
+            this.message_err = undefined;
+            // const tokenUser = encryptWithAES("tokenUserEncry");
+            localStorage.setItem("accessToken", res.Token);
+            this.$router.push({ name: "Accueil" });
+          })
+          .catch((err) => {
+            // console.log(err.message);
+            this.message_err = err.message;
+          });
       }
     },
   },
