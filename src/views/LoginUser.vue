@@ -145,7 +145,7 @@ export default {
       if (email && password) {
         var myHeaders = new Headers();
         myHeaders.append("Accept", "application/json");
-        myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
+        myHeaders.append("Content-Type", "application/json");
 
         var urlencoded = new URLSearchParams();
         urlencoded.append("email", email);
@@ -157,26 +157,18 @@ export default {
           body: urlencoded,
           redirect: "follow",
         };
-        const result = await fetch(
-          "login/personne",
-          requestOptions
-        );
-        if (result.status == 201) {
+        fetch("login/personne", requestOptions).then((result)=>{
           this.message_err = "";
           this.active = false;
-          const res = await result.json();
-          console.log(res);
+          console.log(result);
           this.message_err = undefined;
           // const tokenUser = encryptWithAES("tokenUserEncry");
           localStorage.setItem("accessToken", res.Token);
           this.$router.push({ name: "Accueil" });
-        } else {
-          const err = await result.json();
+        }).catch((err)=>{
           // console.log(err.message);
           this.message_err = err.message;
-        }
-      } else {
-        this.message_err = "entrées vides";
+        });
       }
     },
   },
