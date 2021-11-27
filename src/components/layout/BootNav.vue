@@ -2,7 +2,7 @@
   <nav id="mynavi" class="navbar navbar-expand-xxl fixed-top navbar-light">
     <div class="container-fluid">
       <a class="navbar-brand" to="/">
-        <img src="../../assets/logo.jpg" width="300" alt="" />
+        <img src="../../assets/logo.jpg"  class="logo" alt="" />
       </a>
 
       <button
@@ -22,7 +22,7 @@
       >
         <ul class="navbar-nav">
           <li class="nav-item">
-            <router-link class="nav-link  mynaviItem" to="/"
+            <router-link class="nav-link mynaviItem" to="/"
               >Accueil</router-link
             >
           </li>
@@ -114,24 +114,16 @@
             >
           </li> -->
           <div v-if="!token" class="d-flex btn-conx">
-             <vs-button
+            <vs-button
               color="rgba(35, 138, 145, 1) "
               class="p-1 fs-6 btn-conx"
-              
-              
               to="/register"
             >
               S'inscrire
             </vs-button>
-            <vs-button
-              border
-              class="p-1 fs-6  "
-              
-              to="/login"
-            >
+            <vs-button border class="p-1 fs-6" to="/login">
               Se connecter
             </vs-button>
-           
           </div>
 
           <div
@@ -150,7 +142,7 @@
                 :alt="auth.nom[0] + '.' + auth.prenom[0]"
                 width="40"
                 height="40"
-                class="rounded-circle border border-success "
+                class="rounded-circle border border-success"
               />
             </a>
             <ul
@@ -183,7 +175,7 @@
 <script>
 import { mapGetters, mapActions } from "vuex";
 export default {
-  data: function() {
+  data: function () {
     return {
       active: 0,
       active_con: 0,
@@ -206,7 +198,7 @@ export default {
         redirect: "follow",
       };
       const res = await fetch(
-        process.env.VUE_APP_BASE_URL+"datafc/auth/logout",
+        process.env.VUE_APP_BASE_URL + "datafc/auth/logout",
         requestOptions
       );
       if (res.status === 200) {
@@ -224,6 +216,9 @@ export default {
 a {
   cursor: pointer;
 }
+.logo {
+    width: 300px;
+  }
 .btn-conx {
   margin-left: 7rem;
 }
@@ -235,6 +230,9 @@ a {
 }
 
 @media screen and (max-width: 1400px) {
+  .logo {
+    width: 200px;
+  }
   .btn-conx {
     margin: 5px auto;
   }

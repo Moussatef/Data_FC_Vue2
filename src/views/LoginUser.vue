@@ -158,7 +158,7 @@ export default {
           redirect: "follow",
         };
         const result = await fetch(
-          "https://datafc.herokuapp.com/api/login/client",
+          "login/personne",
           requestOptions
         );
         if (result.status == 201) {
@@ -169,7 +169,7 @@ export default {
           this.message_err = undefined;
           // const tokenUser = encryptWithAES("tokenUserEncry");
           localStorage.setItem("accessToken", res.Token);
-          this.$router.push({ name: "InfoClient" });
+          this.$router.push({ name: "Accueil" });
         } else {
           const err = await result.json();
           // console.log(err.message);

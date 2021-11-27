@@ -67,7 +67,7 @@
             <div class="col-xxl-8 col-12 bg-white">
               <div class="p-2">
                 <div class="row justify-content-start align-items-start mt-3 ">
-                  <h5 class="col-2 text-start">Adresse :</h5>
+                  <h5 class="col-xxl-2 col-12 text-start">Adresse :</h5>
                   <p
                     v-if="auth.adresse"
                     class="text-uppercase text-start  col-8 "
@@ -80,7 +80,7 @@
                   <i class="fa fa-pencil-square-o col-2" aria-hidden="true"></i>
                 </div>
                 <div class="row justify-content-start align-items-start mt-3 ">
-                  <h5 class="col-2 text-start">Ville :</h5>
+                  <h5 class="col-xxl-2 col-12  text-start">Ville :</h5>
                   <p
                     v-if="auth.adresse"
                     class="text-uppercase text-start  col-4 "
@@ -93,14 +93,14 @@
                   <i class="fa fa-pencil-square-o col-2" aria-hidden="true"></i>
                 </div>
                 <div class="row justify-content-start align-items-start mt-3 ">
-                  <h5 class="col-2 text-start">Genre :</h5>
+                  <h5 class="col-xxl-2 col-12  text-start">Genre :</h5>
                   <p class="text-uppercase text-start col-4 ">
                     {{ auth.genre }}
                   </p>
                   <i class="fa fa-pencil-square-o col-2" aria-hidden="true"></i>
                 </div>
                 <div class="row justify-content-start align-items-start mt-3 ">
-                  <h5 class="col-2 text-start">Telephone:</h5>
+                  <h5 class="col-xxl-2 col-12  text-start">Telephone:</h5>
                   <p class="text-uppercase text-start  col-4 ">
                     {{ auth.telephone }}
                   </p>
@@ -108,7 +108,7 @@
                 </div>
 
                 <div class="row justify-content-center align-items-start my-3  ">
-                  <div class="card col-4 text-center shadow border-none">
+                  <div class="card col-xxl-4 col-12  text-center shadow border-none">
                     <p class="text-muted ">NB° Formation Favorits</p>
                     <p class="text-uppercase text-muted    fs-2">
                       <b>{{ auth.favorit.length }}</b>

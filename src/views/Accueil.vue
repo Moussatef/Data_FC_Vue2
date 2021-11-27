@@ -214,7 +214,7 @@
             />
           </div>
           <div
-            class="col-lg-6 m-1"
+            class="col-lg-6 col-12 "
             data-aos="zoom-in"
             data-aos-delay="50"
             data-aos-duration="1500"
@@ -222,8 +222,8 @@
           >
             <h2 class="featurette-heading h2-one mb-4">Nos engagements</h2>
             <div class="list-group row mb-2">
-              <div class="row justify-content-evenly align-items-center">
-                <div class="col-lg-1 col-md-1 col-sm-1 col-1">
+              <div class="row justify-content-between align-items-center">
+                <div class="col-lg-1 col-md-1 col-sm-1 col-2">
                   <div class="icon_span">
                     <img src="../assets/guarante.png" class="" />
                   </div>
@@ -232,7 +232,8 @@
                   class="
                     list-group-item
                     py-3
-                    col-lg-10 col-md-9 col-sm-8 col-7
+                    col-xxl-10  col-9
+                    mb-2
                     border-0
                   "
                 >
@@ -244,8 +245,8 @@
               </div>
             </div>
             <div class="list-group row mb-2">
-              <div class="row justify-content-evenly align-items-center">
-                <div class="col-lg-1 col-md-1 col-sm-1 col-1">
+              <div class="row justify-content-between align-items-center">
+                <div class="col-xxl-1 col-2">
                   <div class="icon_span">
                     <img src="../assets/cooperation.png" altr="" />
                   </div>
@@ -256,7 +257,8 @@
                     border-0
                     shadow
                     py-3
-                    col-lg-10 col-md-9 col-sm-8 col-7
+                    col-xxl-10  col-9
+                    mb-2
                   "
                 >
                   <span class="d-block fs-6 text-start text-start opacity-90"
@@ -266,8 +268,8 @@
               </div>
             </div>
             <div class="list-group row mb-2">
-              <div class="row justify-content-evenly align-items-center">
-                <div class="col-lg-1 col-md-1 col-sm-1 col-1">
+              <div class="row justify-content-between align-items-center">
+                <div class="col-xxl-1 col-2">
                   <div class="icon_span">
                     <img src="../assets/idea.png" altr="" />
                   </div>
@@ -278,7 +280,8 @@
                     border-0
                     shadow
                     py-3
-                    col-lg-10 col-md-9 col-sm-8 col-7
+                    col-xxl-10  col-9
+                    mb-2
                   "
                 >
                   <span class="d-block fs-6 text-start text-start opacity-90"
@@ -289,8 +292,8 @@
               </div>
             </div>
             <div class="list-group row mb-2">
-              <div class="row justify-content-evenly align-items-center">
-                <div class="col-lg-1 col-md-1 col-sm-1 col-1">
+              <div class="row justify-content-between align-items-center">
+                <div class="col-xxl-1 col-2">
                   <div class="icon_span">
                     <img src="../assets/like.png" altr="" />
                   </div>
@@ -301,7 +304,8 @@
                     border-0
                     shadow
                     py-3
-                    col-lg-10 col-md-9 col-sm-8 col-7
+                    col-xxl-10  col-9
+                    mb-2
                   "
                 >
                   <span class="d-block fs-6 text-start text-start opacity-90"
@@ -312,8 +316,8 @@
               </div>
             </div>
             <div class="list-group row mb-2">
-              <div class="row justify-content-evenly align-items-center">
-                <div class="col-lg-1 col-md-1 col-sm-1 col-1">
+              <div class="row justify-content-between align-items-center">
+                <div class="col-xxl-1 col-2">
                   <div class="icon_span">
                     <img src="../assets/technology.png" altr="" />
                   </div>
@@ -324,7 +328,8 @@
                     border-0
                     shadow
                     py-3
-                    col-lg-10 col-md-9 col-sm-8 col-7
+                    col-xxl-10  col-9
+                    mb-2
                   "
                 >
                   <span class="d-block fs-6 text-start text-start opacity-90"
@@ -335,8 +340,8 @@
               </div>
             </div>
             <div class="list-group row mb-2">
-              <div class="row justify-content-evenly align-items-center">
-                <div class="col-lg-1 col-md-1 col-sm-1 col-1">
+              <div class="row justify-content-between align-items-center">
+                <div class="col-xxl-1 col-2">
                   <div class="icon_span">
                     <img src="../assets/balance-scale.png" altr="" />
                   </div>
@@ -347,7 +352,8 @@
                     border-0
                     shadow
                     py-3
-                    col-lg-10 col-md-9 col-sm-8 col-7
+                    col-xxl-10  col-9
+                    mb-2
                   "
                 >
                   <span class="d-block fs-6 text-start text-start opacity-90"
@@ -358,8 +364,8 @@
               </div>
             </div>
             <div class="list-group row mb-2">
-              <div class="row justify-content-evenly align-items-center">
-                <div class="col-lg-1 col-md-1 col-sm-1 col-1">
+              <div class="row justify-content-between align-items-center">
+                <div class="col-xxl-1 col-2">
                   <div class="icon_span">
                     <img src="../assets/consult.png" altr="" />
                   </div>
@@ -370,7 +376,9 @@
                     border-0
                     shadow
                     py-3
-                    col-lg-10 col-md-9 col-sm-8 col-7
+                    col-xxl-10  col-9
+                    mb-2
+                    
                   "
                 >
                   <span class="d-block fs-6 text-start text-start opacity-90"
@@ -380,9 +388,9 @@
                 </label>
               </div>
             </div>
-            <div class="list-group row mb-2">
-              <div class="row justify-content-evenly align-items-center">
-                <div class="col-lg-1 col-md-1 col-sm-1 col-1">
+            <div class="list-group row ">
+              <div class="row justify-content-between align-items-center">
+                <div class="col-xxl-1 col-2">
                   <div class="icon_span">
                     <img src="../assets/authorized-dealer.png" altr="" />
                   </div>
@@ -393,7 +401,9 @@
                     border-0
                     shadow
                     py-3
-                    col-lg-10 col-md-9 col-sm-8 col-7
+                    col-xxl-10  col-9
+                    mb-2
+                    
                   "
                 >
                   <span class="d-block fs-6 text-start text-start opacity-90"
@@ -679,11 +689,11 @@
       <!-- Three columns of text below the carousel -->
       <div class="container-fluid card_Item">
         <div class="row">
-          <div class="col-lg-12">
-            <div class="p-5 my-4">
-              <div class="container-fluid py-5 h2-two">
-                <h2 class="display-5 fw-bold">Notre vivier de compétences</h2>
-                <p class="col-md-8 fs-4">
+          <div class=" col-12">
+            <div class=" my-4">
+              <div class="h2-two">
+                <h2 class="display-5 fw-bold ">Notre vivier de compétences</h2>
+                <p class="col-md-8 col-12 fs-4">
                   Nous disposons d’un ensemble d’intervenants composés de
                 </p>
               </div>
@@ -1092,6 +1102,22 @@ ul {
     font-size: 3.5rem;
   }
 }
+@media (max-width: 968px) {
+  
+  .h2-two {
+    
+    h2 {
+      font-size: 22px;
+      text-align: left;
+    }
+    p {
+      color: #fff;
+      font-size: 18px !important;
+      text-justify: distribute;
+      text-align: left !important;
+    }
+  }
+}
 
 @media screen and (max-width: 478px) {
   .carousel-item {
@@ -1105,5 +1131,6 @@ ul {
       font-size: 0.905rem;
     }
   }
+  
 }
 </style>

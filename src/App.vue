@@ -43,7 +43,7 @@
             >
           </p>
 
-          <p class="footer-company-name">DATA FC &copy; 2021</p>
+          
         </div>
 
         <div class="footer-center">
@@ -79,7 +79,9 @@
             <a href="#"><i class="fa fa-twitter"></i></a>
             <a href="#"><i class="fa fa-linkedin"></i></a>
             <a href="#"><i class="fa fa-github"></i></a>
+
           </div>
+          <p class="footer-company-name">DATA FC &copy; 2021</p>
         </div>
       </footer>
     </div>
@@ -116,17 +118,13 @@ export default {
       this.$store
         .dispatch("getAuthinfo")
         .then((res) => {
-          // this.description =
-          // "Type formation est ajoutée avec succès à la base de données";
-          // console.log(res.role);
           this.role = res.role;
           // console.log(res);
         })
         .catch((err) => {
           this.errorDesc = err.message;
-          // this.alertDanger = true;
           localStorage.clear();
-          console.log(err);
+          this.$router.push({ name: "Accueil" });
         });
     },
   },

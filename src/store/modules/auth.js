@@ -61,7 +61,7 @@ const actions = {
         commit
     }) {
         var token = localStorage.getItem('accessToken')
-        if (token) {
+        
             var config = {
                 method: 'post',
                 url: 'datafc/auth/info',
@@ -79,10 +79,11 @@ const actions = {
                         state.loading = false;
                     })
                     .catch(error => {
-                        reject(error)
+                        reject(error);
+                        // this.$router.push({ name: "Accueil" });
                     })
             })
-        }
+        
 
     },
 
