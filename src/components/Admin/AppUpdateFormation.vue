@@ -107,8 +107,8 @@
           </div>
         </template>
       </vs-dialog>
-      <!-- Model for adding formation -->
-      <v-dialog v-model="dialog_v" persistent max-width="1200px" class="z_index">
+      <!-- Model for Update formation -->
+      <vs-dialog v-model="dialog_v" persistent max-width="1200px" class="z_index">
         <v-card>
           <v-card-title>
             <span class="text-h5">Ajouter une formation</span>
@@ -356,7 +356,7 @@
             </v-btn>
           </v-card-actions>
         </v-card>
-      </v-dialog>
+      </vs-dialog>
     </div>
   </div>
 </template>

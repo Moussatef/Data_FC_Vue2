@@ -125,6 +125,7 @@
   </div>
 </template>
 <script>
+import axios from "axios";
 export default {
   name: "login",
   data: () => ({
@@ -143,33 +144,32 @@ export default {
   methods: {
     async Auth(email, password) {
       if (email && password) {
-        var myHeaders = new Headers();
-        myHeaders.append("Accept", "application/json");
-        myHeaders.append("Content-Type", "application/json");
-
         var data = JSON.stringify({
           email: email,
           password: password,
         });
-
-        var requestOptions = {
-          method: "POST",
-          headers: myHeaders,
-          body: data,
-          redirect: "follow",
+        var config = {
+          method: "post",
+          data: data,
+          url: "login/personne",
+          headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json",
+          },
         };
-        fetch("login/personne", requestOptions)
+        axios(config)
           .then((result) => {
             this.message_err = "";
             this.active = false;
-            console.log(result);
+            
+            console.log(result.data.Token);
             this.message_err = undefined;
             // const tokenUser = encryptWithAES("tokenUserEncry");
-            localStorage.setItem("accessToken", res.Token);
+            localStorage.setItem("accessToken", result.data.Token);
             this.$router.push({ name: "Accueil" });
           })
           .catch((err) => {
-            // console.log(err.message);
+            console.log(err.message);
             this.message_err = err.message;
           });
       }

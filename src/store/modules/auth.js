@@ -80,7 +80,7 @@ const actions = {
                     })
                     .catch(error => {
                         reject(error);
-                        // this.$router.push({ name: "Accueil" });
+                        this.$router.push({ name: "Accueil" });
                     })
             })
         

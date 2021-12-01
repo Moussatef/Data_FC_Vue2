@@ -2,13 +2,13 @@
   <div class="overflow-hidden">
     <AppSection :titre="titre" />
 
-    <div class="  bg-light">
+    <div class="bg-light text-wrap">
       <div class="container">
-        <div class="row">
+        <div class="row justify-content-center">
           <div
-            class="col-12 row  overflow-hidden my-5 justify-content-center  "
+            class="col-12 row overflow-hidden my-5 justify-content-center  "
           >
-            <div class="col-lg-6  order-lg-2">
+            <div class="col-lg-6 order-lg-2">
               <img
                 src="../assets/cover/info1.jpg"
                 class="d-block mx-lg-auto img-fluid "
@@ -18,7 +18,7 @@
             </div>
             <div class="col-lg-6 info-one bg-white row align-items-center  ">
               <div class="col-lg-12 col-12 ">
-                <p class="fs-4 text-center">
+                <p class="fs-4 text-start">
                   Les actions de formation continue n’ont de sens que si elles
                   sont étroitement intégrées dans un processus visant l'atteinte
                   des orientations stratégiques de l’entreprise
@@ -116,7 +116,9 @@ img {
   p {
     color: rgb(46, 145, 79);
     text-align: initial;
-    text-justify: auto;
+    text-justify:initial !important;
+    
+    
   }
 }
 .w-1\/2 {

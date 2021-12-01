@@ -1,8 +1,8 @@
 <template>
   <div class="py-5 bg-light">
-    <div class="text-center z_index">
-      <v-dialog class="z_index" v-if="formationObj" v-model="dialog" width="1200px">
-        <v-card class="z_index">
+    <div class="text-center ">
+      <vs-dialog class="" not-padding v-if="formationObj" v-model="dialog" width="1200px">
+        <v-card class="">
           <v-card-title>
             <span class="text-h5">Modifier formation</span>
           </v-card-title>
@@ -245,11 +245,11 @@
                 ])
               "
             >
-              Ajouter
+              Enregistrer
             </v-btn>
           </v-card-actions>
         </v-card>
-      </v-dialog>
+      </vs-dialog>
     </div>
     <h2 class="">Formations interentreprises</h2>
     <hr />

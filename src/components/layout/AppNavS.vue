@@ -3,7 +3,6 @@
     <vs-sidebar
       hover-expand
       reduce
-      v-model="active"
       style="padding-top:70px"
       class=""
       open
