@@ -25,7 +25,7 @@
               <div class="p-3 info_d text-start">
                 <img src="../assets/info.png" width="50" alt="" />
                 <h3 class="my-3 h3-one fs-2">
-                  Fondée en 2019, DATA FC est spécialisée dans
+                  Fondée en 2019, DATA FC est spécialisée dans :
                 </h3>
 
                 <p class=" fs-4">
@@ -56,7 +56,7 @@
                 <img src="../assets/group.png" width="50" alt="" />
                 <h3 class="my-3 h3-one fs-2">
                 DATA FC dispose des outils particulièrement utiles et d’un
-                  processus de gestion efficace pour
+                  processus de gestion efficace pour :
                 </h3>
                 <p class=" fs-4">
                   <i class="bi bi-check"></i>
