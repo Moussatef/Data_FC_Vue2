@@ -1,7 +1,14 @@
 <template>
   <div class="py-5 bg-light">
-    <div class="text-center ">
-      <vs-dialog class="" not-padding v-if="formationObj" v-model="dialog" width="1200px">
+    <div class="text-center">
+      <vs-dialog
+        class="py-5"
+        prevent-close
+        not-padding
+        v-if="formationObj"
+        v-model="dialog"
+        width="1200px"
+      >
         <v-card class="">
           <v-card-title>
             <span class="text-h5">Modifier formation</span>
@@ -391,7 +398,7 @@
       v-model="activeDilogS"
     >
       <template #header>
-        <h4 class="not-margin">Modifier avec succès</h4>
+        <h4 class="not-margin">Ajouter avec succès</h4>
       </template>
 
       <div class="con-content">
@@ -415,6 +422,38 @@
         </div>
       </template>
     </vs-dialog>
+    <vs-dialog
+      v-if="formationObj"
+      width="550px"
+      prevent-close
+      not-center
+      v-model="activeDilogF"
+    >
+      <template #header>
+        <h4 class="not-margin">Modifier avec succès</h4>
+      </template>
+
+      <div class="con-content">
+        <p>
+          {{ description }}
+        </p>
+      </div>
+
+      <template #footer>
+        <div class="">
+          <vs-button
+            class="px-2 py-1"
+            @click="
+              activeDilogF = false;
+              dialog = false;
+            "
+            transparent
+          >
+            Ok
+          </vs-button>
+        </div>
+      </template>
+    </vs-dialog>
     <!-- Dialog if eny Error happened whene we adding -->
     <vs-dialog
       width="550px"
@@ -426,7 +465,7 @@
       <div>
         <vs-alert danger v-model="alertDanger">
           <template #title> Error message </template>
-          {{ errorDesc }}
+          mise à jour a échoué
         </vs-alert>
       </div>
     </vs-dialog>
@@ -508,8 +547,6 @@
       @closeMl="closeMl"
     /> -->
 
-    
-
     <vs-dialog width="550px" not-center v-model="activeConfirmation">
       <template #header>
         <h4 class="not-margin" style="color: red">
@@ -563,6 +600,7 @@ export default {
       dialog_v: false,
       value3: "",
       activeDilogS: false,
+      activeDilogF: false,
       activebtn: 0,
       activeDlg: false,
       programme: undefined,
@@ -595,6 +633,14 @@ export default {
 
       imgFormation: undefined,
     };
+  },
+  watch: {
+    dialog: function(val) {
+      if (val==false) {
+        this.imagepreview = null;
+        this.img_src = false;
+      }
+    },
   },
   methods: {
     ...mapActions(["getAllFormationEn", "getAllCategories", "removeFoemation"]),
@@ -666,7 +712,7 @@ export default {
         .then((res) => {
           this.description =
             "La formation est modifié avec succès à la base de données";
-          this.activeDilogS = true;
+          this.activeDilogF = true;
           this.inpProgramme = undefined;
           this.inpCodeF = undefined;
           this.inpTitre = undefined;
@@ -719,7 +765,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.z_index{
+.z_index {
   z-index: 9999999999999999999999 !important;
 }
 </style>

@@ -29,17 +29,19 @@
                 </h3>
 
                 <p class=" fs-4">
+                  <i class="bi bi-check"></i>
                   L’Ingénierie de formation et l’assistance conseil en
                   recrutement
                 </p>
+                <p class=" fs-4"><i class="bi bi-check"></i> La Formation continue</p>
                 <p class=" fs-4">
+                  <i class="bi bi-check"></i>
                   L’Assistance conseil en création et pilotage des entreprises
                 </p>
-                <p class=" fs-4">Le placement ou l’externalisation de ressources humaines</p>
-                <p class=" fs-4">L’Assistance technique dans le domaine informatique</p>
-                <p class=" fs-4">La Fourniture du personnel intérimaire</p>
-                <p class=" fs-4">Le Management des organisations</p>
-                <p class=" fs-4">La Formation continue</p>
+                <p class=" fs-4"><i class="bi bi-check"></i>L’Assistance technique dans le domaine informatique</p>
+                <p class=" fs-4"><i class="bi bi-check"></i>Le placement ou l’externalisation de ressources humaines</p>
+                <p class=" fs-4"><i class="bi bi-check"></i>Le Management des organisations</p>
+                <p class=" fs-4"><i class="bi bi-check"></i>La Fourniture du personnel intérimaire</p>
               </div>
             </div>
 
@@ -53,21 +55,24 @@
               <div class="p-4 info_d text-start">
                 <img src="../assets/group.png" width="50" alt="" />
                 <h3 class="my-3 h3-one fs-2">
-                  DATA FC dispose des outils particulièrement utiles et d’un
+                DATA FC dispose des outils particulièrement utiles et d’un
                   processus de gestion efficace pour
                 </h3>
                 <p class=" fs-4">
+                  <i class="bi bi-check"></i>
                   Accompagner ses clients via une approche innovante à booster
                   les performances de leurs entreprises et à contribuer à la
                   réussite de leurs projets.
                 </p>
                 <p class=" fs-4">
+                  <i class="bi bi-check"></i>
                   Proposer aux entreprises clientes des solutions efficaces
                   contribuant à leur évolution et à l’amélioration de leur
                   compétitivité, en faisant preuve d’éthique et de
                   confidentialité.
                 </p>
                 <p class=" fs-4">
+                  <i class="bi bi-check"></i>
                   Entretenir une relation durable et personnalisée avec ses
                   clients, en faisant preuve de transparence et de disponibilité
                 </p>

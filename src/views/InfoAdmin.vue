@@ -10,8 +10,8 @@
         <h1 class="my-5">Administrateur Information</h1>
         <div class="container">
           <div class="row justify-content-center">
-            <div class="col-4">
-              <div class="bg-white text-center p-2 shadow-md">
+            <div class="col-xxl-3 col-12 bg-white">
+              <div class="text-center p-2 shadow-md">
                 <vs-avatar
                   class="rounded-circle my-3 mx-auto"
                   size="150"
@@ -56,84 +56,105 @@
                     {{ auth.nom }} {{ auth.prenom }}
                   </h5>
                   <vs-button class="" shadow>
-                    <i
-                      class="fa fa-pencil-square-o "
-                      aria-hidden="true"
-                    ></i>
+                    <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
                   </vs-button>
                 </div>
                 <div class="d-flex justify-content-center align-items-center">
                   <h6>{{ auth.email }}</h6>
                   <vs-button class="" shadow>
-                    <i
-                      class="fa fa-pencil-square-o "
-                      aria-hidden="true"
-                    ></i>
+                    <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
                   </vs-button>
                 </div>
                 <p>Administrateur</p>
               </div>
             </div>
-            <div class="col-8 bg-white">
+            <div class="col-xxl-1 col-12 -mx-8"></div>
+            <div class="col-xxl-8 col-12 bg-white">
               <div class="p-2">
                 <div class="row justify-content-start align-items-start mt-3">
-                  <h5 class="col-2 text-start">Adresse :</h5>
-                  <p
-                    class="text-uppercase text-start col-8"
-                    v-if="auth.adresse"
-                  >
-                    {{ auth.adresse.adresse }}
-                  </p>
-                  <p class="text-uppercase text-start col-4 text-muted" v-else>
-                    Ajouter votre adresse
-                  </p>
-                  <vs-button class="col-2" shadow>
-                    <i
-                      class="fa fa-pencil-square-o "
-                      aria-hidden="true"
-                    ></i>
-                  </vs-button>
+                  
+                  <div class="row col-xxl-12 col-12" v-if="!editAdrress">
+                    <h5 class="col-xxl-2 col-12 text-start ">Adresse :</h5>
+                    <p
+                      class="text-uppercase text-start col-xxl-8 col-12"
+                      v-if="auth.adresse"
+                    >
+                      {{ auth.adresse.adresse }}
+                    </p>
+                    <p
+                      class="text-uppercase text-start col-4 text-muted"
+                      v-else
+                    >
+                      Ajouter votre adresse
+                    </p>
+                    <vs-button class="col-xxl-1 col-12" @click="editAdrress=true; inpAdresse = auth.adresse.adresse " shadow>
+                      <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                    </vs-button>
+                  </div>
+                  <div class="row col-xxl-12 col-12 justify-content-start align-items-center" v-else>
+
+                    <h5 class="col-xxl-2 col-12 text-start ">Adresse :</h5>
+
+                    <vs-input class="col-xxl-7 col-12" border v-model="inpAdresse" placeholder="Adresse" />
+
+                    <vs-button v-if=" inpAdresse != auth.adresse.adresse && inpAdresse.length > 4  " class="col-xxl-1 col-12 mt-4 " border shadow>
+                      <i class="bi bi-check2-square"  aria-hidden="true"></i>
+                    </vs-button>
+
+                    <vs-button  class="col-xxl-1 col-12 mt-4 " @click="editAdrress=false" danger border  shadow>
+                      <i class="bi bi-x-octagon "  ></i>
+                    </vs-button>
+
+                  </div>
                 </div>
                 <div class="row justify-content-start align-items-start mt-3">
-                  <h5 class="col-2 text-start">Ville :</h5>
+                  <h5 class="col-xxl-2 col-12 text-start">Ville :</h5>
                   <p
-                    class="text-uppercase text-start col-4"
+                    class="text-uppercase text-start col-xxl-4 col-12"
                     v-if="auth.adresse"
                   >
                     {{ auth.adresse.ville }}
                   </p>
-                  <p class="text-uppercase text-start col-4 text-muted" v-else>
+                  <p
+                    class="
+                      text-uppercase text-start
+                      col-xxl-4 col-12
+                      text-muted
+                    "
+                    v-else
+                  >
                     Ajoute votre ville
                   </p>
-                  <vs-button class="col-2" shadow>
-                    <i
-                      class="fa fa-pencil-square-o "
-                      aria-hidden="true"
-                    ></i>
+                  <vs-button class="col-xxl-1 col-12" shadow>
+                    <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
                   </vs-button>
                 </div>
                 <div class="row justify-content-start align-items-start mt-3">
-                  <h5 class="col-2 text-start">Genre :</h5>
-                  <p class="text-uppercase text-start text-muted col-4">
+                  <h5 class="col-xxl-2 col-12 text-start">Genre :</h5>
+                  <p
+                    class="
+                      text-uppercase text-start text-muted
+                      col-xxl-4 col-12
+                    "
+                  >
                     {{ auth.genre }}
                   </p>
-                  <vs-button class="col-2" shadow>
-                    <i
-                      class="fa fa-pencil-square-o "
-                      aria-hidden="true"
-                    ></i>
+                  <vs-button class="col-xxl-1 col-12" shadow>
+                    <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
                   </vs-button>
                 </div>
                 <div class="row justify-content-start align-items-start mt-3">
-                  <h5 class="col-2 text-start">Telephone:</h5>
-                  <p class="text-uppercase text-start text-muted col-4">
+                  <h5 class="col-xxl-2 col-12 text-start">Telephone:</h5>
+                  <p
+                    class="
+                      text-uppercase text-start text-muted
+                      col-xxl-4 col-12
+                    "
+                  >
                     {{ auth.telephone }}
                   </p>
-                  <vs-button class="col-2" shadow>
-                    <i
-                      class="fa fa-pencil-square-o "
-                      aria-hidden="true"
-                    ></i>
+                  <vs-button class="col-xxl-1 col-12" shadow>
+                    <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
                   </vs-button>
                 </div>
               </div>
@@ -170,6 +191,8 @@ export default {
   data: function () {
     return {
       imagepreview: undefined,
+      inpAdresse: undefined,
+      editAdrress:false,
     };
   },
   computed: {
@@ -270,11 +293,9 @@ export default {
 }
 
 @media (max-width: 868px) {
-
   .content {
     width: calc(100% - 60px);
     left: 60px;
   }
-
 }
 </style>

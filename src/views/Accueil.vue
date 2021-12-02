@@ -415,6 +415,119 @@
             </div>
           </div>
         </div>
+        <div
+        class="row featurette"
+        data-aos="zoom-in-down"
+        data-aos-delay="50"
+        data-aos-duration="1400"
+        data-aos-easing="ease-in"
+      >
+        <div class="container px-4 py-5 card-futur" id="featured-3">
+          <h2 class="pb-2 border-bottom">Nos valeurs</h2>
+
+          <div
+            id="carouselExampleInterval"
+            class="carousel carousel-dark slide"
+            data-bs-ride="carousel"
+          >
+            <div class="carousel-inner">
+              <div class="carousel-item active" data-bs-interval="2000">
+                <div class="slide-img">
+                  <img
+                    src="../assets/SvgUl/inspiration-pana.svg"
+                    class=""
+                    alt=""
+                  />
+                </div>
+
+                <div class="titre-info">
+                  <p class="fs-3">L'innovation</p>
+                </div>
+              </div>
+
+              <div class="carousel-item" data-bs-interval="3000">
+                <div class="slide-img">
+                  <img src="../assets/SvgUl/time-amico.svg" class="" alt="" />
+                </div>
+
+                <div class="container">
+                  <div class="titre-info">
+                    <p class="fs-3">La confidentialité et l'honnêteté</p>
+                  </div>
+                </div>
+              </div>
+              <div class="carousel-item shadow" data-bs-interval="3000">
+                <div class="slide-img">
+                  <img
+                    src="../assets/SvgUl/Webinar-rafiki.svg"
+                    class=""
+                    alt=""
+                  />
+                </div>
+
+                <div class="container">
+                  <div class="titre-info">
+                    <p class="fs-3">La responsabilité</p>
+                  </div>
+                </div>
+              </div>
+              <div class="carousel-item shadow" data-bs-interval="3000">
+                <div class="slide-img">
+                  <img src="../assets/cooperation.png" class="" alt="" />
+                </div>
+
+                <div class="container">
+                  <div class="titre-info">
+                    <p class="fs-3">Le respect</p>
+                  </div>
+                </div>
+              </div>
+              <div class="carousel-item shadow" data-bs-interval="3000">
+                <div class="slide-img">
+                  <img src="../assets/SvgUl/amico1.svg" class="" alt="" />
+                </div>
+
+                <div class="container">
+                  <div class="titre-info">
+                    <p class="fs-3">La performance</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <button
+              class="carousel-control-prev"
+              type="button"
+              data-bs-target="#carouselExampleInterval"
+              data-bs-slide="prev"
+            >
+              <span class="" aria-hidden="true"
+                ><img
+                  src="../assets/leftarrow.png"
+                  height="30"
+                  width="30"
+                  alt=""
+              /></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button
+              class="carousel-control-next"
+              type="button"
+              data-bs-target="#carouselExampleInterval"
+              data-bs-slide="next"
+            >
+              <span class="" aria-hidden="true">
+                <img
+                  src="../assets/right-arrow.png"
+                  height="30"
+                  width="30"
+                  alt=""
+                />
+              </span>
+              <span class="visually-hidden">Next</span>
+            </button>
+          </div>
+        </div>
+      </div>
 
         <div class="container-fluid">
           <v-sheet class="mx-auto" elevation="8" max-width="1200">
@@ -571,119 +684,7 @@
       </div>
 
       <hr class="featurette-divider" />
-      <div
-        class="row featurette"
-        data-aos="zoom-in-down"
-        data-aos-delay="50"
-        data-aos-duration="1400"
-        data-aos-easing="ease-in"
-      >
-        <div class="container px-4 py-5 card-futur" id="featured-3">
-          <h2 class="pb-2 border-bottom">Nos valeurs</h2>
-
-          <div
-            id="carouselExampleInterval"
-            class="carousel carousel-dark slide"
-            data-bs-ride="carousel"
-          >
-            <div class="carousel-inner">
-              <div class="carousel-item active" data-bs-interval="2000">
-                <div class="slide-img">
-                  <img
-                    src="../assets/SvgUl/inspiration-pana.svg"
-                    class=""
-                    alt=""
-                  />
-                </div>
-
-                <div class="titre-info">
-                  <p class="fs-3">L'innovation</p>
-                </div>
-              </div>
-
-              <div class="carousel-item" data-bs-interval="3000">
-                <div class="slide-img">
-                  <img src="../assets/SvgUl/time-amico.svg" class="" alt="" />
-                </div>
-
-                <div class="container">
-                  <div class="titre-info">
-                    <p class="fs-3">La confidentialité et l'honnêteté</p>
-                  </div>
-                </div>
-              </div>
-              <div class="carousel-item shadow" data-bs-interval="3000">
-                <div class="slide-img">
-                  <img
-                    src="../assets/SvgUl/Webinar-rafiki.svg"
-                    class=""
-                    alt=""
-                  />
-                </div>
-
-                <div class="container">
-                  <div class="titre-info">
-                    <p class="fs-3">La responsabilité</p>
-                  </div>
-                </div>
-              </div>
-              <div class="carousel-item shadow" data-bs-interval="3000">
-                <div class="slide-img">
-                  <img src="../assets/cooperation.png" class="" alt="" />
-                </div>
-
-                <div class="container">
-                  <div class="titre-info">
-                    <p class="fs-3">Le respect</p>
-                  </div>
-                </div>
-              </div>
-              <div class="carousel-item shadow" data-bs-interval="3000">
-                <div class="slide-img">
-                  <img src="../assets/SvgUl/amico1.svg" class="" alt="" />
-                </div>
-
-                <div class="container">
-                  <div class="titre-info">
-                    <p class="fs-3">La performance</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <button
-              class="carousel-control-prev"
-              type="button"
-              data-bs-target="#carouselExampleInterval"
-              data-bs-slide="prev"
-            >
-              <span class="" aria-hidden="true"
-                ><img
-                  src="../assets/leftarrow.png"
-                  height="30"
-                  width="30"
-                  alt=""
-              /></span>
-              <span class="visually-hidden">Previous</span>
-            </button>
-            <button
-              class="carousel-control-next"
-              type="button"
-              data-bs-target="#carouselExampleInterval"
-              data-bs-slide="next"
-            >
-              <span class="" aria-hidden="true">
-                <img
-                  src="../assets/right-arrow.png"
-                  height="30"
-                  width="30"
-                  alt=""
-                />
-              </span>
-              <span class="visually-hidden">Next</span>
-            </button>
-          </div>
-        </div>
-      </div>
+      
 
       <hr class="featurette-divider" />
       <!-- Three columns of text below the carousel -->

@@ -54,6 +54,13 @@
                   >FORMATION</router-link
                 >
               </li>
+               <li>
+                <router-link
+                  class="dropdown-item"
+                  to="/assistance-conseil-en-recrutement"
+                  >Assistance conseil en recrutement</router-link
+                >
+              </li>
               <li>
                 <router-link class="dropdown-item" to="/l-externalisation"
                   >L’EXTERNALISATION</router-link
@@ -66,13 +73,7 @@
                   >L’INTERIM POUR L’ENTREPRISE</router-link
                 >
               </li>
-              <li>
-                <router-link
-                  class="dropdown-item"
-                  to="/assistance-conseil-en-recrutement"
-                  >Assistance conseil en recrutement</router-link
-                >
-              </li>
+             
             </ul>
           </li>
           <li class="nav-item dropdown">
