@@ -570,7 +570,7 @@
 
         <div class="container-fluid">
           <div class="row justify-content-center">
-            <div
+            <!-- <div
               class="col-12"
               data-aos="fade-up"
               data-aos-delay="50"
@@ -578,7 +578,7 @@
               data-aos-easing="ease-in"
             >
               <AppVimeo :id_video="'645179394'" />
-            </div>
+            </div> -->
             <div class="col-lg-6 col-12 my-3">
               <div
                 class="shadow overflow-hidden"

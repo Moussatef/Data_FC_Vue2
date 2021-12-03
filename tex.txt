@@ -198,3 +198,14 @@
 //   border-right: 1px solid grey;
 //   height: 100%;
 // }
+
+
+
+
+
+
+google-site-verification=rCQb9srMutZnpkEUZkC3z4pLcm9Y7ALcA3LYfZ9jCv0
+
+
+	ns1.datafc.ma. 41.77.115.74
+ns2.datafc.ma.   41.77.115.74
