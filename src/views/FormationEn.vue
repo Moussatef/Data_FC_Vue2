@@ -56,7 +56,12 @@
 
                     <v-img height="250" :src="tr.imgFormation"></v-img>
 
-                    <v-card-title>{{ tr.titre }}</v-card-title>
+                    <v-card-title class="text-center text-wrap">
+                      <h4>
+                         {{ tr.titre }}
+                      </h4>
+                     
+                      </v-card-title>
 
                     <v-card-text>
                       <v-row align="center" class="mx-0 mb-5">
@@ -77,7 +82,7 @@
                            </div> -->
 
                       <div>
-                        <b>Objectifs </b>{{ tr.objectifs}}
+                        
                       </div>
                     </v-card-text>
 
@@ -90,12 +95,12 @@
                         class="py-1"
                         square
                         @click="
-                          activeVd = true;
+                          active2 = true;
                           formationShow = tr;
                         "
                         gradient
                       >
-                        bande annonce
+                        Voir fiche technique de la formation
                       </vs-button>
                       <div v-if="auth.role == 'client'">
                         <vs-button
@@ -124,7 +129,7 @@
                         color="deep-purple lighten-2 p-1"
                         text
                       >
-                        Réserve
+                        Demander un devis
                       </v-btn>
                       <!--  -->
                     </v-card-actions>
