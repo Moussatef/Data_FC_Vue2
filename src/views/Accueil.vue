@@ -27,7 +27,7 @@
         <div class="carousel-inner">
           <div class="carousel-item active">
             <img
-              src="../assets/company/cover20.png"
+              src="../assets/company/cover200.jpg"
               class="responsive_img"
               alt=""
             />
@@ -57,7 +57,7 @@
           </div>
           <div class="carousel-item">
             <img
-              src="../assets/company/cover3.png"
+              src="../assets/company/cover3.jpg"
               class="responsive_img"
               alt=""
             />
@@ -89,7 +89,7 @@
           </div>
           <div class="carousel-item">
             <img
-              src="../assets/company/cover2.png"
+              src="../assets/company/cover2.jpg"
               class="responsive_img"
               alt=""
             />
@@ -197,7 +197,7 @@
           >
             <img
               src="../assets/prof1.png"
-              class="d-block mx-lg-auto img-fluid rounded "
+              class="d-block mx-lg-auto img-fluid rounded"
               alt="Bootstrap Themes"
               width="700"
               height="500"
@@ -217,7 +217,7 @@
             data-aos-easing="ease-in-out"
           >
             <img
-              src="../assets/ong1.png"
+              src="../assets/ong1.jpg"
               class="d-block mx-lg-auto img-fluid rounded"
               alt="Bootstrap Themes"
               width="700"
