@@ -58,20 +58,19 @@
 
                     <v-card-title class="text-center text-wrap">
                       <h4>
-                         {{ tr.titre }}
+                        {{ tr.titre }}
                       </h4>
-                     
-                      </v-card-title>
+                    </v-card-title>
 
                     <v-card-text>
-                      <v-row align="center" class="mx-0 mb-5">
+                      <v-row align="center" class="mx-0 mb-1">
                         <v-rating
                           :value="5"
                           color="amber"
                           dense
                           half-increments
                           readonly
-                          size="14"
+                          size="22"
                         ></v-rating>
 
                         <!-- <div class="grey--text ms-3 mb-5">4.5 (413)</div> -->
@@ -80,28 +79,45 @@
                       <!-- <div class="my-4 text-subtitle-1">
                           $ • Italian, Cafe
                            </div> -->
-
-                      <div>
-                        
-                      </div>
                     </v-card-text>
 
                     <v-divider class="mx-4"></v-divider>
 
-                    <v-card-actions
-                      class="justify-content-start align-items-center"
-                    >
-                      <vs-button
-                        class="py-1"
-                        square
-                        @click="
-                          active2 = true;
-                          formationShow = tr;
+                    <v-card-actions>
+                      <div
+                        class="
+                          container
+                          row
+                          justify-content-start
+                          align-items-center
                         "
-                        gradient
                       >
-                        Voir fiche technique de la formation
-                      </vs-button>
+                        <vs-button
+                          border
+                          square
+                          class="p-1"
+                          color="#25767a"
+                          @click="
+                            active2 = true;
+                            formationShow = tr;
+                          "
+                        >
+                          Voir fiche technique de la formation
+                        </vs-button>
+                        <vs-button
+                          border
+                          square
+                          class="p-1"
+                          color="#fe6f2e"
+                          @click="
+                            active2 = true;
+                            formationShow = tr;
+                          "
+                        >
+                          Demander un devis
+                        </vs-button>
+                      </div>
+
                       <div v-if="auth.role == 'client'">
                         <vs-button
                           v-if="tr.block == 0"
@@ -123,14 +139,6 @@
                         </vs-button>
                       </div>
 
-                      <v-btn
-                        elevation="1"
-                        class="p-3"
-                        color="deep-purple lighten-2 p-1"
-                        text
-                      >
-                        Demander un devis
-                      </v-btn>
                       <!--  -->
                     </v-card-actions>
                   </v-card>
@@ -382,7 +390,7 @@ export default {
   z-index: 0;
 }
 .card-form {
-  min-height: 620px;
+  min-height: 580px;
 }
 .card_formation {
   transition: transform 250ms;
