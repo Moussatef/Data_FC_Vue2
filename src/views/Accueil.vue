@@ -32,11 +32,11 @@
               alt=""
             />
             <div class="container">
-              <div class="carousel-caption text-start">
+              <div class="carousel-caption text-start position-absolute top-10">
                 <h1 class="text-uppercase h1-one-slide">
                   Ingénierie de formation
                 </h1>
-                <p class="p-one-slide fs-5">
+                <p class="p-one-slide fs-5 mb-15">
                   Les actions de formation continue n’ont de sens que si elles
                   sont étroitement intégrées dans un processus visant l'atteinte
                   des orientations stratégiques de l’entreprise (ou de
@@ -44,7 +44,11 @@
                 </p>
 
                 <p>
-                  <vs-button to="/ingenierie-de-formation" size="xl">
+                  <vs-button
+                    color="rgba(35, 138, 145, 1) "
+                    to="/ingenierie-de-formation"
+                    size="xl"
+                  >
                     Lire la suite
                   </vs-button>
                 </p>
@@ -59,20 +63,24 @@
             />
 
             <div class="container">
-              <div class="carousel-caption text-start">
+              <div class="carousel-caption text-start position-absolute top-10">
                 <h1 class="h1-one-slide">FORMATION</h1>
                 <h5 class="h5-one-slide">
                   Vous cherchez à développer vos compétences et améliorer la
                   compétitivité de votre entreprise ?
                 </h5>
-                <p class="p-one-slide fs-5">
+                <p class="p-one-slide fs-5 mb-15">
                   La formation est le moyen idéal pour y aboutir, elle constitue
                   l’un des principaux leviers de management de votre capital
                   humain
                 </p>
 
                 <p>
-                  <vs-button to="/formation" size="xl">
+                  <vs-button
+                    to="/formation"
+                    color="rgba(35, 138, 145, 1) "
+                    size="xl"
+                  >
                     Apprendre encore plus
                   </vs-button>
                 </p>
@@ -86,7 +94,7 @@
               alt=""
             />
             <div class="container">
-              <div class="carousel-caption text-start">
+              <div class="carousel-caption text-start position-absolute top-10">
                 <h1 class="h1-one-slide">L’EXTERNALISATION</h1>
                 <h4 class="h5-one-slide">Vous avez une entreprise :</h4>
 
@@ -94,14 +102,18 @@
                   vous cherchez à vous concentrer sur votre cœur de métier
                 </p>
 
-                <p class="p-one-slide fs-5">
+                <p class="p-one-slide fs-5 mb-15">
                   Vous cherchez l’accès à des compétences nouvelles ou
                   supérieures, mais aussi de répondre aux évolutions
                   technologiques
                 </p>
 
                 <p>
-                  <vs-button to="/l-externalisation" size="xl">
+                  <vs-button
+                    color="rgba(35, 138, 145, 1) "
+                    to="/l-externalisation"
+                    size="xl"
+                  >
                     Apprendre encore plus
                   </vs-button>
                 </p>
@@ -159,7 +171,7 @@
             </div>
 
             <div
-              class="my-4 pt-4"
+              class="mt-4 pt-4"
               data-aos="zoom-in"
               data-aos-delay="50"
               data-aos-duration="2000"
@@ -185,7 +197,7 @@
           >
             <img
               src="../assets/prof1.png"
-              class="d-block mx-lg-auto img-fluid rounded mt-5"
+              class="d-block mx-lg-auto img-fluid rounded "
               alt="Bootstrap Themes"
               width="700"
               height="500"
@@ -214,7 +226,7 @@
             />
           </div>
           <div
-            class="col-lg-6 col-12 "
+            class="col-lg-6 col-12"
             data-aos="zoom-in"
             data-aos-delay="50"
             data-aos-duration="1500"
@@ -229,13 +241,7 @@
                   </div>
                 </div>
                 <label
-                  class="
-                    list-group-item
-                    py-3
-                    col-xxl-10  col-9
-                    mb-2
-                    border-0
-                  "
+                  class="list-group-item py-3 col-xxl-10 col-9 mb-2 border-0"
                 >
                   <span class="d-block fs-6 text-start text-start opacity-90"
                     >Garantir des prestations de qualité répondant aux exigences
@@ -257,7 +263,7 @@
                     border-0
                     shadow
                     py-3
-                    col-xxl-10  col-9
+                    col-xxl-10 col-9
                     mb-2
                   "
                 >
@@ -280,7 +286,7 @@
                     border-0
                     shadow
                     py-3
-                    col-xxl-10  col-9
+                    col-xxl-10 col-9
                     mb-2
                   "
                 >
@@ -304,7 +310,7 @@
                     border-0
                     shadow
                     py-3
-                    col-xxl-10  col-9
+                    col-xxl-10 col-9
                     mb-2
                   "
                 >
@@ -328,7 +334,7 @@
                     border-0
                     shadow
                     py-3
-                    col-xxl-10  col-9
+                    col-xxl-10 col-9
                     mb-2
                   "
                 >
@@ -352,7 +358,7 @@
                     border-0
                     shadow
                     py-3
-                    col-xxl-10  col-9
+                    col-xxl-10 col-9
                     mb-2
                   "
                 >
@@ -376,9 +382,8 @@
                     border-0
                     shadow
                     py-3
-                    col-xxl-10  col-9
+                    col-xxl-10 col-9
                     mb-2
-                    
                   "
                 >
                   <span class="d-block fs-6 text-start text-start opacity-90"
@@ -388,7 +393,7 @@
                 </label>
               </div>
             </div>
-            <div class="list-group row ">
+            <div class="list-group row">
               <div class="row justify-content-between align-items-center">
                 <div class="col-xxl-1 col-2">
                   <div class="icon_span">
@@ -401,9 +406,8 @@
                     border-0
                     shadow
                     py-3
-                    col-xxl-10  col-9
+                    col-xxl-10 col-9
                     mb-2
-                    
                   "
                 >
                   <span class="d-block fs-6 text-start text-start opacity-90"
@@ -416,118 +420,118 @@
           </div>
         </div>
         <div
-        class="row featurette"
-        data-aos="zoom-in-down"
-        data-aos-delay="50"
-        data-aos-duration="1400"
-        data-aos-easing="ease-in"
-      >
-        <div class="container px-4 py-5 card-futur" id="featured-3">
-          <h2 class="pb-2 border-bottom">Nos valeurs</h2>
+          class="row featurette"
+          data-aos="zoom-in-down"
+          data-aos-delay="50"
+          data-aos-duration="1400"
+          data-aos-easing="ease-in"
+        >
+          <div class="container px-4 py-5 card-futur" id="featured-3">
+            <h2 class="pb-2 border-bottom">Nos valeurs</h2>
 
-          <div
-            id="carouselExampleInterval"
-            class="carousel carousel-dark slide"
-            data-bs-ride="carousel"
-          >
-            <div class="carousel-inner">
-              <div class="carousel-item active" data-bs-interval="2000">
-                <div class="slide-img">
+            <div
+              id="carouselExampleInterval"
+              class="carousel carousel-dark slide"
+              data-bs-ride="carousel"
+            >
+              <div class="carousel-inner">
+                <div class="carousel-item active" data-bs-interval="2000">
+                  <div class="slide-img">
+                    <img
+                      src="../assets/SvgUl/inspiration-pana.svg"
+                      class=""
+                      alt=""
+                    />
+                  </div>
+
+                  <div class="titre-info">
+                    <p class="fs-3">L'innovation</p>
+                  </div>
+                </div>
+
+                <div class="carousel-item" data-bs-interval="3000">
+                  <div class="slide-img">
+                    <img src="../assets/SvgUl/time-amico.svg" class="" alt="" />
+                  </div>
+
+                  <div class="container">
+                    <div class="titre-info">
+                      <p class="fs-3">La confidentialité et l'honnêteté</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="carousel-item shadow" data-bs-interval="3000">
+                  <div class="slide-img">
+                    <img
+                      src="../assets/SvgUl/Webinar-rafiki.svg"
+                      class=""
+                      alt=""
+                    />
+                  </div>
+
+                  <div class="container">
+                    <div class="titre-info">
+                      <p class="fs-3">La responsabilité</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="carousel-item shadow" data-bs-interval="3000">
+                  <div class="slide-img">
+                    <img src="../assets/cooperation.png" class="" alt="" />
+                  </div>
+
+                  <div class="container">
+                    <div class="titre-info">
+                      <p class="fs-3">Le respect</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="carousel-item shadow" data-bs-interval="3000">
+                  <div class="slide-img">
+                    <img src="../assets/SvgUl/amico1.svg" class="" alt="" />
+                  </div>
+
+                  <div class="container">
+                    <div class="titre-info">
+                      <p class="fs-3">La performance</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <button
+                class="carousel-control-prev"
+                type="button"
+                data-bs-target="#carouselExampleInterval"
+                data-bs-slide="prev"
+              >
+                <span class="" aria-hidden="true"
+                  ><img
+                    src="../assets/leftarrow.png"
+                    height="30"
+                    width="30"
+                    alt=""
+                /></span>
+                <span class="visually-hidden">Previous</span>
+              </button>
+              <button
+                class="carousel-control-next"
+                type="button"
+                data-bs-target="#carouselExampleInterval"
+                data-bs-slide="next"
+              >
+                <span class="" aria-hidden="true">
                   <img
-                    src="../assets/SvgUl/inspiration-pana.svg"
-                    class=""
+                    src="../assets/right-arrow.png"
+                    height="30"
+                    width="30"
                     alt=""
                   />
-                </div>
-
-                <div class="titre-info">
-                  <p class="fs-3">L'innovation</p>
-                </div>
-              </div>
-
-              <div class="carousel-item" data-bs-interval="3000">
-                <div class="slide-img">
-                  <img src="../assets/SvgUl/time-amico.svg" class="" alt="" />
-                </div>
-
-                <div class="container">
-                  <div class="titre-info">
-                    <p class="fs-3">La confidentialité et l'honnêteté</p>
-                  </div>
-                </div>
-              </div>
-              <div class="carousel-item shadow" data-bs-interval="3000">
-                <div class="slide-img">
-                  <img
-                    src="../assets/SvgUl/Webinar-rafiki.svg"
-                    class=""
-                    alt=""
-                  />
-                </div>
-
-                <div class="container">
-                  <div class="titre-info">
-                    <p class="fs-3">La responsabilité</p>
-                  </div>
-                </div>
-              </div>
-              <div class="carousel-item shadow" data-bs-interval="3000">
-                <div class="slide-img">
-                  <img src="../assets/cooperation.png" class="" alt="" />
-                </div>
-
-                <div class="container">
-                  <div class="titre-info">
-                    <p class="fs-3">Le respect</p>
-                  </div>
-                </div>
-              </div>
-              <div class="carousel-item shadow" data-bs-interval="3000">
-                <div class="slide-img">
-                  <img src="../assets/SvgUl/amico1.svg" class="" alt="" />
-                </div>
-
-                <div class="container">
-                  <div class="titre-info">
-                    <p class="fs-3">La performance</p>
-                  </div>
-                </div>
-              </div>
+                </span>
+                <span class="visually-hidden">Next</span>
+              </button>
             </div>
-            <button
-              class="carousel-control-prev"
-              type="button"
-              data-bs-target="#carouselExampleInterval"
-              data-bs-slide="prev"
-            >
-              <span class="" aria-hidden="true"
-                ><img
-                  src="../assets/leftarrow.png"
-                  height="30"
-                  width="30"
-                  alt=""
-              /></span>
-              <span class="visually-hidden">Previous</span>
-            </button>
-            <button
-              class="carousel-control-next"
-              type="button"
-              data-bs-target="#carouselExampleInterval"
-              data-bs-slide="next"
-            >
-              <span class="" aria-hidden="true">
-                <img
-                  src="../assets/right-arrow.png"
-                  height="30"
-                  width="30"
-                  alt=""
-                />
-              </span>
-              <span class="visually-hidden">Next</span>
-            </button>
           </div>
         </div>
-      </div>
 
         <div class="container-fluid">
           <v-sheet class="mx-auto" elevation="8" max-width="1200">
@@ -684,16 +688,15 @@
       </div>
 
       <hr class="featurette-divider" />
-      
 
       <hr class="featurette-divider" />
       <!-- Three columns of text below the carousel -->
       <div class="container-fluid card_Item">
         <div class="row">
-          <div class=" col-12">
-            <div class=" my-4">
+          <div class="col-12">
+            <div class="my-4">
               <div class="h2-two">
-                <h2 class="display-5 fw-bold ">Notre vivier de compétences</h2>
+                <h2 class="display-5 fw-bold">Notre vivier de compétences</h2>
                 <p class="col-md-8 col-12 fs-4">
                   Nous disposons d’un ensemble d’intervenants composés de
                 </p>
@@ -1104,9 +1107,7 @@ ul {
   }
 }
 @media (max-width: 968px) {
-  
   .h2-two {
-    
     h2 {
       font-size: 22px;
       text-align: left;
@@ -1123,7 +1124,7 @@ ul {
 @media screen and (max-width: 478px) {
   .carousel-item {
     h1 {
-      font-size: 1.4rem;
+      font-size: 1.7rem;
     }
     h5 {
       font-size: 1.1rem;
@@ -1132,6 +1133,5 @@ ul {
       font-size: 0.905rem;
     }
   }
-  
 }
 </style>

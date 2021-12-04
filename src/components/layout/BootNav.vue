@@ -122,7 +122,7 @@
             >
               S'inscrire
             </vs-button>
-            <vs-button border class="p-1 fs-6" to="/login">
+            <vs-button border color="rgba(35, 138, 145, 1) " class="p-1 fs-6" to="/login">
               Se connecter
             </vs-button>
           </div>

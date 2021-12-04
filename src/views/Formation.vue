@@ -30,6 +30,12 @@
                 </h3>
 
                 <p class="fs-3">
+                  <img
+                      src="../assets/check-mark.png"
+                      width="26"
+                      class="me-3"
+                      alt=""
+                    />
                   La formation est le moyen idéal pour y aboutir, elle constitue
                   l’un des principaux leviers de management de votre capital
                   humain.
@@ -69,6 +75,12 @@
                 </h3>
 
                 <p class="fs-3">
+                  <img
+                      src="../assets/check-mark.png"
+                      width="26"
+                      class="me-3"
+                      alt=""
+                    />
                   Le meilleur moyen c’est d’adopter une meilleure prise en
                   charge de la formation de vos collaborateurs.
                 </p>
@@ -102,6 +114,12 @@
                 </h3>
 
                 <p class="fs-3">
+                  <img
+                      src="../assets/check-mark.png"
+                      width="26"
+                      class="me-3"
+                      alt=""
+                    />
                   Attachez de l’importance à la formation de vos employés.
                 </p>
               </div>
@@ -138,6 +156,12 @@
                 </h3>
 
                 <p class="fs-3">
+                  <img
+                      src="../assets/check-mark.png"
+                      width="26"
+                      class="me-3"
+                      alt=""
+                    />
                   La formation est l’investissement le plus sûr pour y arriver .
                 </p>
               </div>
@@ -175,6 +199,12 @@
                 </h3>
 
                 <p class="fs-3">
+                  <img
+                      src="../assets/check-mark.png"
+                      width="26"
+                      class="me-3"
+                      alt=""
+                    />
                   Adopter une politique de formation continue est la solution.
                 </p>
               </div>

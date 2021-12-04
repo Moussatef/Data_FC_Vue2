@@ -426,7 +426,7 @@ iframe {
 }
 .img-l {
   height: 770px;
-  background: url(../assets/cover/l1.png);
+  background: url(../assets/cover/l1a.jpg);
   background-size: cover;
 }
 
