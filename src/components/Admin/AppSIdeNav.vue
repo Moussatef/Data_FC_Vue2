@@ -45,12 +45,7 @@
             <span class="text">Setting</span>
           </router-link>
         </li>
-        <li>
-          <a @click="logout()">
-            <span class="icon"><i class="bx bxs-log-out"></i></span>
-            <span class="text">Se déconnecter</span>
-          </a>
-        </li>
+        
       </ul>
     </div>
   </div>
