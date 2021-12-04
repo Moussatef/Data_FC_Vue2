@@ -161,12 +161,13 @@ export default {
           .then((result) => {
             this.message_err = "";
             this.active = false;
-            
+
             console.log(result.data.Token);
             this.message_err = undefined;
             // const tokenUser = encryptWithAES("tokenUserEncry");
             localStorage.setItem("accessToken", result.data.Token);
-            this.$router.push({ name: "Accueil" });
+            // this.$router.push({ name: "Accueil" });
+            location.replace("/");
           })
           .catch((err) => {
             console.log(err.message);
