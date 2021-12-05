@@ -33,10 +33,8 @@
             />
             <div class="container">
               <div class="carousel-caption text-start position-absolute top-10">
-                <h1 class="text-uppercase h1-one-slide">
-                  Ingénierie de formation
-                </h1>
-                <p class="p-one-slide fs-5 mb-15">
+                <h1 class="text-uppercase">Ingénierie de formation</h1>
+                <p class=" mb-15">
                   Les actions de formation continue n’ont de sens que si elles
                   sont étroitement intégrées dans un processus visant l'atteinte
                   des orientations stratégiques de l’entreprise (ou de
@@ -64,12 +62,12 @@
 
             <div class="container">
               <div class="carousel-caption text-start position-absolute top-10">
-                <h1 class="h1-one-slide">FORMATION</h1>
-                <h5 class="h5-one-slide">
+                <h1 class="">FORMATION</h1>
+                <h5 class="">
                   Vous cherchez à développer vos compétences et améliorer la
                   compétitivité de votre entreprise ?
                 </h5>
-                <p class="p-one-slide fs-5 mb-15">
+                <p class=" mb-15">
                   La formation est le moyen idéal pour y aboutir, elle constitue
                   l’un des principaux leviers de management de votre capital
                   humain
@@ -95,14 +93,14 @@
             />
             <div class="container">
               <div class="carousel-caption text-start position-absolute top-10">
-                <h1 class="h1-one-slide">L’EXTERNALISATION</h1>
-                <h4 class="h5-one-slide">Vous avez une entreprise :</h4>
+                <h1 class="">L’EXTERNALISATION</h1>
+                <h4 class="">Vous avez une entreprise :</h4>
 
-                <p class="p-one-slide fs-5">
+                <p class=" ">
                   vous cherchez à vous concentrer sur votre cœur de métier
                 </p>
 
-                <p class="p-one-slide fs-5 mb-15">
+                <p class="  mb-15">
                   Vous cherchez l’accès à des compétences nouvelles ou
                   supérieures, mais aussi de répondre aux évolutions
                   technologiques
@@ -144,13 +142,10 @@
       <div class="container marketing my-2">
         <!-- START THE FEATURETTES -->
 
-        <hr class="featurette-divider my-5" />
 
-        <div class="row featurette my-5">
+        <div class="row featurette my-3">
           <div class="col-md-7 my-5 py-5 position-relative">
-            <div
-              class="care bg-white p-5 position-absolute top-0 start-0 shadow"
-            ></div>
+            
             <div
               class="my-3"
               data-aos="zoom-in"
@@ -533,8 +528,6 @@
           </div>
         </div>
 
-       
-
         <div class="container-fluid">
           <div class="row justify-content-center">
             <!-- <div
@@ -675,7 +668,7 @@
                   <div class="p-5 card_cmp">
                     <img src="../assets/formation.png" alt="" />
                     <h2>Formation</h2>
-                    <p class="fs-4">
+                    <p class="">
                       Formateurs expérimentés dans le domaine de la formation
                       continue .
                     </p>
@@ -691,7 +684,7 @@
                   <div class="p-5 card_cmp">
                     <img src="../assets/pos.png" alt="" />
                     <h2>Consultants</h2>
-                    <p class="fs-4">
+                    <p class="">
                       Consultants en Droit, marketing, ressources humaines,
                       communication, recrutement, informatique, ingénierie,
                       management
@@ -709,7 +702,7 @@
                   <div class="p-5 card_cmp">
                     <img src="../assets/acmp.png" alt="" />
                     <h2>Enseignants</h2>
-                    <p class="fs-4">
+                    <p class="">
                       Enseignants universitaires expérimentés dans les domaines
                       de la formation l’accompagnement et d’interventions
                       formatives.
@@ -851,6 +844,21 @@ export default {
   margin: 0;
   padding: 0;
 }
+
+.carousel-item {
+  h1 {
+    font-size: 5.7rem;
+  }
+  h5 {
+    font-size: 2.1rem;
+  }
+  h4 {
+    font-size: 2.1rem;
+  }
+  p {
+    font-size: 1.5rem;
+  }
+}
 .vs-dialog {
   max-width: 1800px !important;
 }
@@ -860,11 +868,6 @@ export default {
 .vs-select-content {
   width: 100%;
   max-width: 100% !important;
-}
-.video--player__vid {
-  width: 100%;
-  height: 600px;
-  z-index: 0;
 }
 
 .scale-img {
@@ -886,8 +889,8 @@ ul {
   .card_cmp {
     background: #fff;
     box-shadow: 10px 10px 25px -5px rgba(100, 100, 100, 0.644);
-    border-radius: 15px;
-    min-height: 380px;
+    
+    min-height: 450px;
     margin: 10px 5px;
     position: relative;
     transition: 1s box-shadow;
@@ -896,6 +899,9 @@ ul {
       width: 70px;
       height: 70px;
       margin: 5px;
+    }
+    p{
+      font-size: 22px;
     }
   }
   .card_cmp:hover {
@@ -921,13 +927,12 @@ ul {
   .card_cmp:before {
     content: "";
     position: absolute;
-    border-radius: 15px;
     z-index: -1;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(90deg, #8e2de9a8 0%, #00ff889f 100%);
+    background: linear-gradient(90deg, #237979a8 0%, #00ccff9f 100%);
     -webkit-transform: scaleY(0);
     transform: scaleY(0);
     -webkit-transform-origin: 50% 100%;
@@ -1082,18 +1087,29 @@ ul {
       text-align: left !important;
     }
   }
-}
-
-@media screen and (max-width: 478px) {
   .carousel-item {
     h1 {
-      font-size: 1.7rem;
+      font-size: 5vw;
     }
     h5 {
-      font-size: 1.1rem;
+      font-size: 3vw;
     }
     p {
-      font-size: 0.905rem;
+      font-size: 3vw;
+    }
+  }
+}
+
+@media screen and (max-width: 578px) {
+  .carousel-item {
+    h1 {
+      font-size: 8.7vw;
+    }
+    h5 {
+      font-size: 6vw;
+    }
+    p {
+      font-size: 4vw;
     }
   }
 }
