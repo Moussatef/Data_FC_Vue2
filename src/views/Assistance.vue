@@ -1,15 +1,15 @@
 <template>
   <div class="overflow-hidden">
     <AppSection :titre="titre" />
-    <div class="bg-light p-5 ">
-      <h2 class="h2-one text-center my-3 pb-5">
+    <div class="bg-light  ">
+      <h2 class="h2-one text-center my-3 pt-5">
         Le recrutement des compétences demande du temps, de la rigueur et de la
         méthode
       </h2>
       <div class=" container-fluid  position-relative">
         <div class="row  main-timeline">
           <div
-            class=" col-lg-6 offset-lg-1   "
+            class=" col-lg-6 offset-lg-0   "
             data-aos="fade-right"
             data-aos-delay="50"
             data-aos-duration="1000"
@@ -27,7 +27,7 @@
                 <div class="col-md-8 a">
                   <div class="card-body">
                     <h5 class="card-title text-end">01</h5>
-                    <p class="card-text fs-4 ">
+                    <p class="card-text fs-4 text-start ">
                       Disposant des outils et des compétences nécessaires, DATA
                       FC vous apporte conseil et soutien lors de votre processus
                       de recrutement pour vous aider dans le cadre de votre
@@ -61,7 +61,7 @@
                 <div class="col-md-8">
                   <div class="card-body">
                     <h5 class="card-title text-end">02</h5>
-                    <p class="card-text fs-4">
+                    <p class="card-text fs-4 text-start">
                       Les conseillers de DATA FC adoptent les démarches et les
                       outils appropriés pour mener à bien l’action d’assistance
                       au recrutement pour votre entreprise.
@@ -73,7 +73,7 @@
           </div>
 
           <div
-            class="   col-lg-6 offset-lg-1 "
+            class="   col-lg-6 offset-lg-0 "
             data-aos="fade-right"
             data-aos-delay="50"
             data-aos-duration="1000"
@@ -91,7 +91,7 @@
                 <div class="col-md-8">
                   <div class="card-body">
                     <h5 class="card-title text-end">03</h5>
-                    <p class="card-text fs-4">
+                    <p class="card-text fs-4 text-start">
                       Partant de votre demande DATA FC peut intervenir pour tout
                       ou partie du processus de recrutement. De l’analyse des
                       taches et des missions relatives au poste à pourvoir, la
@@ -123,7 +123,7 @@
                 <div class="col-md-8">
                   <div class="card-body">
                     <h5 class="card-title text-end">04</h5>
-                    <p class="card-text fs-4">
+                    <p class="card-text fs-4 text-start">
                       Après chaque action de recrutement, DATA FC vous livre un
                       rapport détaillant les caractéristiques des profils des
                       candidats retenus et s’engage à faire le suivi de
@@ -174,6 +174,6 @@ export default {
 }
 
 .card {
-  min-height: 250px;
+  min-height: 400px;
 }
 </style>
