@@ -889,18 +889,22 @@ ul {
   .card_cmp {
     background: #fff;
     box-shadow: 10px 10px 25px -5px rgba(100, 100, 100, 0.644);
-    
     min-height: 450px;
     margin: 10px 5px;
     position: relative;
     transition: 1s box-shadow;
 
     img {
-      width: 70px;
-      height: 70px;
+      width: 100px;
+      height: 100px;
       margin: 5px;
+      margin-bottom: 25px;
+    }
+    h2 {
+      color: rgb(42, 115, 124);
     }
     p{
+      margin-top: 25px;
       font-size: 22px;
     }
   }
@@ -948,6 +952,10 @@ ul {
   .card_cmp:focus,
   .card_cmp:active {
     color: white;
+    h2 {
+      transition: 0.6s;
+      color: rgb(255, 255, 255);
+    }
   }
   .card_cmp:hover:before,
   .card_cmp:focus:before,
