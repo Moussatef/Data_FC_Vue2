@@ -124,7 +124,7 @@ export default {
         .catch((err) => {
           this.errorDesc = err.message;
           localStorage.clear();
-          this.$router.push({ name: "Accueil" });
+          // this.$router.push({ name: "Accueil" });
         });
     },
   },
