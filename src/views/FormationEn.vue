@@ -311,18 +311,18 @@
                       {{ person }}
                       <v-radio-group v-model="person" column>
                         <v-radio
-                          label="Personne physique"
-                          color="info"
-                          value="physique"
-                        ></v-radio>
-                        <v-radio
                           label="Personne morale"
                           color="info"
                           value="morale"
                         ></v-radio>
+                        <v-radio
+                          label="Personne physique"
+                          color="info"
+                          value="physique"
+                        ></v-radio>
                       </v-radio-group>
                     </v-row>
-                    <v-row v-if="person == 'physique'">
+                    <v-row v-if="person == 'morale'">
                       <v-col cols="12" sm="6" md="6">
                         <v-text-field
                           :counter="20"
@@ -364,6 +364,15 @@
                         ></v-text-field>
                       </v-col>
                       <v-col cols="12">
+                        <v-select
+                          v-model="select"
+                          :items="items"
+                          :rules="[(v) => !!v || 'L’article est requis']"
+                          label="Pour quel type d’organisme travaillez-vous ? "
+                          required
+                        ></v-select>
+                      </v-col>
+                      <v-col cols="12">
                         <v-text-field
                           label="Prestation demandée "
                           persistent-hint
@@ -381,7 +390,7 @@
                       <v-col cols="12" sm="6"> </v-col>
                       <v-col cols="12" sm="6"> </v-col>
                     </v-row>
-                    <v-row v-if="person == 'morale'">
+                    <v-row v-if="person == 'physique'">
                       <v-col cols="12" sm="6" md="12">
                         <v-text-field
                           v-model="entrepriseName"
@@ -466,6 +475,7 @@ export default {
   data() {
     return {
       titre: "Formations Interentreprises",
+
       active2: false,
       formationShow: undefined,
       btnactive: false,
@@ -473,6 +483,8 @@ export default {
       dialog_devis: false,
       person: undefined,
       valid: true,
+      select:null,
+      items: ["Entreprise privée ", "Administration publique "],
       name: "",
       entrepriseName: undefined,
       nameRules: [
@@ -497,6 +509,7 @@ export default {
     person: function (val) {
       this.reset;
       this.resetValidation();
+      this.select=null;
     },
   },
   methods: {
