@@ -15,7 +15,7 @@
           <!-- <h3>DATA<span>FC</span></h3> -->
           <img
             class="logo-footer"
-            src="https://scontent.frak1-1.fna.fbcdn.net/v/t1.6435-9/254447339_3049937998582581_4080174660758581209_n.jpg?_nc_cat=111&ccb=1-5&_nc_sid=730e14&_nc_ohc=8UKx6tYLNwsAX_ILRil&_nc_ht=scontent.frak1-1.fna&oh=ac526439725685a6395e5857adc54411&oe=61B0DBC6"
+            src="https://scontent.frak1-2.fna.fbcdn.net/v/t39.30808-6/255570158_3049937985249249_4316897670181420191_n.jpg?_nc_cat=107&ccb=1-5&_nc_sid=730e14&_nc_ohc=IA_tuWRZfiIAX9m3YIQ&_nc_ht=scontent.frak1-2.fna&oh=9fb8a98ff4f1bae1d0e7ab17eee734a9&oe=61BC1741"
             alt="DATA FORMATION & CONSULTING "
           />
 
@@ -74,12 +74,23 @@
           </p>
 
           <div class="footer-icons">
-            <a href="#"><i class="fa fa-facebook"></i></a>
-            <a href="#"><i class="fa fa-twitter"></i></a>
+            <a
+              href="https://www.facebook.com/DATA-FC-107230434780916"
+              target="blanck"
+              ><i class="fa fa-facebook"></i
+            ></a>
+            <a href="https://www.instagram.com/data.fc/" target="blanck"
+              ><i class="fa fa-instagram"></i
+            ></a>
             <a href="#"><i class="fa fa-linkedin"></i></a>
-            <a href="#"><i class="fa fa-github"></i></a>
           </div>
+          <br />
           <p class="footer-company-name">DATA FC &copy; 2021</p>
+          <br />
+          <p class="footer-company-name">
+            Le site est crée par
+            <a href="mailto:otman.moussetaf@gmail.com">Moussatef Othman</a>
+          </p>
         </div>
       </footer>
     </div>
@@ -272,10 +283,14 @@ footer {
 }
 
 .footer-distributed .footer-company-name {
-  color: #8f9296;
-  font-size: 16px;
+  color: #dddddd;
+  font-size: 18px;
   font-weight: normal;
   margin: 0;
+  a {
+    text-decoration: underline;
+    color: #aaaaaa;
+  }
 }
 
 .footer-distributed .footer-center {
@@ -325,8 +340,8 @@ footer {
 
 .footer-distributed .footer-company-about {
   line-height: 20px;
-  color: #b5babe;
-  font-size: 15px;
+  color: #dddddd;
+  font-size: 18px;
   font-weight: normal;
   margin: 0;
 }
@@ -334,7 +349,7 @@ footer {
 .footer-distributed .footer-company-about span {
   display: block;
   color: #ffffff;
-  font-size: 14px;
+  font-size: 18px;
   font-weight: bold;
   margin-bottom: 20px;
 }
