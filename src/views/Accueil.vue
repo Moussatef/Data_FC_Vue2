@@ -717,9 +717,9 @@
       </div>
 
       <!-- /.row -->
-      <div class="container col-xxl-8 px-4 py-5">
+      <div class="container-fluid col-xxl-10 px-4 py-5">
         <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
-          <div class="col-10 col-sm-8 col-lg-6">
+          <div class="col-12  col-xxl-6">
             <img
               src="../assets/h16.jpg"
               class="d-block mx-lg-auto img-fluid"
@@ -729,13 +729,12 @@
               loading="lazy"
             />
           </div>
-          <div class="col-lg-6">
+          <div class="col-12 col-xxl-6">
             <h1 class="display-5 fw-bold lh-1 mb-3 h2-one">
               Formations Interentreprises
             </h1>
             <p class="lead">
-              Quickly design and customize responsive mobile-first sites with
-              Bootstrap, the world’s most popular front-end open source toolkit,
+             
             </p>
             <div class="d-grid gap-2 d-md-flex justify-content-md-start">
               <vs-button

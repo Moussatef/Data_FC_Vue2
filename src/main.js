@@ -21,6 +21,8 @@ import 'material-icons/iconfont/material-icons.css';
 
 Vue.use(vueVimeoPlayer)
 AOS.init();
+
+
 Vue.use(Vuesax, {
     theme: {
         colors: {

@@ -42,12 +42,10 @@
               >Contact</router-link
             >
           </p>
-
-          
         </div>
 
         <div class="footer-center">
-          <div class="row justify-content-start align-items-start" >
+          <div class="row justify-content-start align-items-start">
             <i class="fa fa-map-marker col-2"></i>
             <p class="col-10">
               <span>{{ company.adresse }}</span> {{ company.ville }}
@@ -56,14 +54,15 @@
 
           <div>
             <i class="fa fa-phone"></i>
-            <p>Fixe :{{ company.fixe }}</p> /
+            <p>Fixe :{{ company.fixe }}</p>
+            /
             <p>Telephone : {{ company.tele }}</p>
           </div>
 
           <div>
             <i class="fa fa-envelope"></i>
             <p>
-              <a :href="'mailto:'+company.email">{{ company.email }}</a>
+              <a :href="'mailto:' + company.email">{{ company.email }}</a>
             </p>
           </div>
         </div>
@@ -79,7 +78,6 @@
             <a href="#"><i class="fa fa-twitter"></i></a>
             <a href="#"><i class="fa fa-linkedin"></i></a>
             <a href="#"><i class="fa fa-github"></i></a>
-
           </div>
           <p class="footer-company-name">DATA FC &copy; 2021</p>
         </div>
@@ -128,7 +126,7 @@ export default {
         });
     },
   },
-  computed: { ...mapGetters(["company" ])},
+  computed: { ...mapGetters(["company"]) },
   components: {
     // AppNav,
     AppSideNav,
@@ -156,7 +154,7 @@ export default {
 }
 #nav {
   padding: 30px;
-  z-index: 9999999 !important;
+  z-index: 9900 !important;
   a {
     // font-weight: bold;
     // color: #5f5f5f;
@@ -173,7 +171,7 @@ export default {
   }
 }
 #mynavi {
-  z-index: 9999999 !important;
+  z-index: 900 !important;
   background-color: white;
   // box-shadow: 0 0.1rem 0.3rem rgba(0, 0, 0, 0.3);
 }

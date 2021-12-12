@@ -111,7 +111,7 @@
                           color="#fe6f2e"
                           @click="
                             active2 = true;
-                            formationShow = tr;
+                            showFormDevis(tr);
                           "
                         >
                           Demander un devis
@@ -138,41 +138,9 @@
                           <i class="bi bi-star-fill"></i>
                         </vs-button>
                       </div>
-
-                      <!--  -->
                     </v-card-actions>
                   </v-card>
                 </div>
-                <!-- <div
-                  class="col card_formation"
-                  data-aos="zoom-out-down"
-                  data-aos-delay="50"
-                  data-aos-duration="1000"
-                  data-aos-easing="ease-in"
-                  :key="i"
-                  v-for="(tr, i) in cat.formation"
-                >
-                  <div class="card shadow">
-                    <img :src="tr.imgFormation" height="300" alt="" />
-
-                    <div class="card-body">
-                      <p class="card-text fs-4">
-                        {{ tr.titre }}
-                      </p>
-                    </div>
-                    <div class="card-footer d-flex justify-content-end">
-                     
-                      <vs-button
-                        @click="showFormation(tr)"
-                        class=""
-                        color="rgb(59,222,200)"
-                      >
-                        Visite
-                      </vs-button>
-                      
-                    </div>
-                  </div>
-                </div> -->
               </div>
             </div>
           </div>
@@ -318,8 +286,8 @@
 
         <template #footer>
           <div class="d-flex justify-content-end">
-            <vs-button @click="active2 = false" transparent>
-              Acheter
+            <vs-button @click="dialog_devis = true" transparent>
+              Demander un devis
             </vs-button>
             <vs-button @click="active2 = false" dark transparent>
               Annuler
@@ -327,6 +295,163 @@
           </div>
         </template>
       </vs-dialog>
+      <!-- dialog for domand -->
+      <template>
+        <v-row justify="center">
+          <v-dialog v-model="dialog_devis" persistent max-width="600px">
+            <v-card>
+              <v-card-title>
+                <span class="text-h5">Demander un devis</span>
+              </v-card-title>
+
+              <v-form ref="form" v-model="valid" lazy-validation>
+                <v-card-text>
+                  <v-container>
+                    <v-row>
+                      {{ person }}
+                      <v-radio-group v-model="person" column>
+                        <v-radio
+                          label="Personne physique"
+                          color="info"
+                          value="physique"
+                        ></v-radio>
+                        <v-radio
+                          label="Personne morale"
+                          color="info"
+                          value="morale"
+                        ></v-radio>
+                      </v-radio-group>
+                    </v-row>
+                    <v-row v-if="person == 'physique'">
+                      <v-col cols="12" sm="6" md="6">
+                        <v-text-field
+                          :counter="20"
+                          :rules="nameRules"
+                          label="Nom *"
+                          required
+                        ></v-text-field>
+                      </v-col>
+                      <v-col cols="12" sm="6" md="6">
+                        <v-text-field
+                          :counter="20"
+                          :rules="nameRules"
+                          label="Prenom *"
+                          persistent-hint
+                          required
+                        ></v-text-field>
+                      </v-col>
+                      <v-col cols="12">
+                        <v-text-field
+                          label="Adresse"
+                          v-model="email"
+                          :rules="emailRules"
+                          required
+                        ></v-text-field>
+                      </v-col>
+                      <v-col cols="12">
+                        <v-text-field
+                          label="Email*"
+                          v-model="email"
+                          :rules="emailRules"
+                          required
+                        ></v-text-field>
+                      </v-col>
+                      <v-col cols="12">
+                        <v-text-field
+                          label="Téléphone"
+                          persistent-hint
+                          required
+                        ></v-text-field>
+                      </v-col>
+                      <v-col cols="12">
+                        <v-text-field
+                          label="Prestation demandée "
+                          persistent-hint
+                          required
+                        ></v-text-field>
+                      </v-col>
+                      <v-col cols="12" md="12">
+                        <label for="" class="mb-2">Message</label>
+                        <v-textarea
+                          solo
+                          name="input-7-4"
+                          label="Message"
+                        ></v-textarea>
+                      </v-col>
+                      <v-col cols="12" sm="6"> </v-col>
+                      <v-col cols="12" sm="6"> </v-col>
+                    </v-row>
+                    <v-row v-if="person == 'morale'">
+                      <v-col cols="12" sm="6" md="12">
+                        <v-text-field
+                          v-model="entrepriseName"
+                          :counter="20"
+                          :rules="nameRules"
+                          label="Entreprise *"
+                          required
+                        ></v-text-field>
+                      </v-col>
+
+                      <v-col cols="12">
+                        <v-text-field
+                          label="Email*"
+                          v-model="emailEn"
+                          :rules="emailRules"
+                          required
+                        ></v-text-field>
+                      </v-col>
+                      <v-col cols="12">
+                        <v-text-field
+                          label="Téléphone"
+                          :counter="20"
+                          persistent-hint
+                          required
+                        ></v-text-field>
+                      </v-col>
+                      <v-col cols="12">
+                        <v-text-field
+                          label="Prestation(s) demandée(s) "
+                          persistent-hint
+                          required
+                        ></v-text-field>
+                      </v-col>
+                      <v-col cols="12" md="12">
+                        <label for="" class="mb-2">Message</label>
+                        <v-textarea
+                          solo
+                          name="input-7-4"
+                          label="Votre message"
+                        ></v-textarea>
+                      </v-col>
+                      <v-col cols="12" sm="6"> </v-col>
+                      <v-col cols="12" sm="6"> </v-col>
+                    </v-row>
+                  </v-container>
+                  <small>*indique un champ obligatoire</small>
+                </v-card-text>
+                <v-card-actions>
+                  <v-spacer></v-spacer>
+                  <v-btn
+                    color="blue darken-1"
+                    text
+                    @click="dialog_devis = false"
+                  >
+                    Annuler
+                  </v-btn>
+                  <v-btn
+                    color="blue darken-1"
+                    text
+                    :disabled="!valid"
+                    @click="validate"
+                  >
+                    Demander
+                  </v-btn>
+                </v-card-actions>
+              </v-form>
+            </v-card>
+          </v-dialog>
+        </v-row>
+      </template>
     </div>
   </div>
 </template>
@@ -345,13 +470,53 @@ export default {
       formationShow: undefined,
       btnactive: false,
       activeVd: false,
+      dialog_devis: false,
+      person: undefined,
+      valid: true,
+      name: "",
+      entrepriseName: undefined,
+      nameRules: [
+        (v) => !!v || "Le nom est requis",
+        (v) =>
+          (v && v.length <= 20) ||
+          "Le nom doit comporter moins de 20 caractères",
+      ],
+      email: "",
+      emailEn: "",
+      emailRules: [
+        (v) => !!v || "L'e-mail est requis",
+        (v) => /.+@.+\..+/.test(v) || "L'email doit être valide",
+      ],
+      teleRules: [
+        (v) => !!v || "Name is required",
+        (v) => (v && v.length <= 10) || "Name must be less than 10 characters",
+      ],
     };
+  },
+  watch: {
+    person: function (val) {
+      this.reset;
+      this.resetValidation();
+    },
   },
   methods: {
     ...mapActions(["getAllFormationEn", "getAllCategories"]),
     showFormation(formation) {
       this.formationShow = formation;
       this.active2 = true;
+    },
+    showFormDevis(formation) {
+      this.person = undefined;
+      this.dialog_devis = true;
+    },
+    validate() {
+      this.$refs.form.validate();
+    },
+    reset() {
+      this.$refs.form.reset();
+    },
+    resetValidation() {
+      this.$refs.form.resetValidation();
     },
   },
 
