@@ -16,7 +16,7 @@
 
           <div class="row justify-content-center text-start mt-4 bg-white p-4">
             <div class="col-12 text-center">
-              <AppVimeo />
+            
             </div>
             <div class="col-lg-6">
               <vs-input
@@ -82,7 +82,6 @@
 <script>
 import AppSideNav from "@/components/Admin/AppSIdeNav.vue";
 import AppStatus from "@/components/Admin/AppStatus.vue";
-import AppVimeo from "@/components/vimeo/AppVimeo.vue";
 import { mapGetters, mapActions } from "vuex";
 import axios from "axios";
 export default {
@@ -102,7 +101,6 @@ export default {
   components: {
     AppSideNav,
     AppStatus,
-    AppVimeo,
   },
   computed: {
     ...mapGetters(["auth", "loading"]),

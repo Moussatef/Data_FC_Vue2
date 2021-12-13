@@ -14,12 +14,10 @@ import 'normalize.css'
 import AOS from 'aos';
 import 'aos/dist/aos.css'; // You can also use <link> for styles
 import vuetify from './plugins/vuetify'
-import vueVimeoPlayer from 'vue-vimeo-player'
 import Vuesax from 'vuesax'
 import 'vuesax/dist/vuesax.css' //Vuesax styles
 import 'material-icons/iconfont/material-icons.css';
 
-Vue.use(vueVimeoPlayer)
 AOS.init();
 
 

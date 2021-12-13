@@ -34,7 +34,7 @@
             <div class="container">
               <div class="carousel-caption text-start position-absolute top-10">
                 <h1 class="text-uppercase">Ingénierie de formation</h1>
-                <p class=" mb-15">
+                <p class="mb-15">
                   Les actions de formation continue n’ont de sens que si elles
                   sont étroitement intégrées dans un processus visant l'atteinte
                   des orientations stratégiques de l’entreprise (ou de
@@ -67,7 +67,7 @@
                   Vous cherchez à développer vos compétences et améliorer la
                   compétitivité de votre entreprise ?
                 </h5>
-                <p class=" mb-15">
+                <p class="mb-15">
                   La formation est le moyen idéal pour y aboutir, elle constitue
                   l’un des principaux leviers de management de votre capital
                   humain
@@ -96,11 +96,11 @@
                 <h1 class="">L’EXTERNALISATION</h1>
                 <h4 class="">Vous avez une entreprise :</h4>
 
-                <p class=" ">
+                <p class="">
                   vous cherchez à vous concentrer sur votre cœur de métier
                 </p>
 
-                <p class="  mb-15">
+                <p class="mb-15">
                   Vous cherchez l’accès à des compétences nouvelles ou
                   supérieures, mais aussi de répondre aux évolutions
                   technologiques
@@ -142,10 +142,8 @@
       <div class="container marketing my-2">
         <!-- START THE FEATURETTES -->
 
-
         <div class="row featurette my-3">
           <div class="col-md-7 my-5 py-5 position-relative">
-            
             <div
               class="my-3"
               data-aos="zoom-in"
@@ -719,7 +717,7 @@
       <!-- /.row -->
       <div class="container-fluid col-xxl-10 px-4 py-5">
         <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
-          <div class="col-12  col-xxl-6">
+          <div class="col-12 col-xxl-6">
             <img
               src="../assets/h16.jpg"
               class="d-block mx-lg-auto img-fluid"
@@ -733,9 +731,7 @@
             <h1 class="display-5 fw-bold lh-1 mb-3 h2-one">
               Formations Interentreprises
             </h1>
-            <p class="lead">
-             
-            </p>
+            <p class="lead"></p>
             <div class="d-grid gap-2 d-md-flex justify-content-md-start">
               <vs-button
                 to="/formations-interentreprises"
@@ -777,7 +773,6 @@
 </template>
 
 <script>
-import AppVimeo from "@/components/vimeo/AppVimeo.vue";
 export default {
   name: "Home",
   data() {
@@ -787,7 +782,6 @@ export default {
     };
   },
   components: {
-    AppVimeo,
   },
   methods: {
     calculate() {
@@ -902,7 +896,7 @@ ul {
     h2 {
       color: rgb(42, 115, 124);
     }
-    p{
+    p {
       margin-top: 25px;
       font-size: 22px;
     }

@@ -696,7 +696,6 @@
 
 <script>
 import axios from "axios";
-import AppVimeo from "@/components/vimeo/AppVimeo.vue";
 import { mapGetters, mapActions } from "vuex";
 export default {
   name: "FormationShow",
@@ -732,7 +731,6 @@ export default {
     };
   },
   components: {
-    AppVimeo,
   },
   methods: {
     ...mapActions(["formationParam", "getAllFormationEn", "postAnnance"]),

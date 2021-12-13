@@ -53,7 +53,6 @@
                         indeterminate
                       ></v-progress-linear>
                     </template>
-
                     <v-img height="250" :src="tr.imgFormation"></v-img>
 
                     <v-card-title class="text-center text-wrap">
@@ -61,7 +60,6 @@
                         {{ tr.titre }}
                       </h4>
                     </v-card-title>
-
                     <v-card-text>
                       <v-row align="center" class="mx-0 mb-1">
                         <v-rating
@@ -72,17 +70,13 @@
                           readonly
                           size="22"
                         ></v-rating>
-
                         <!-- <div class="grey--text ms-3 mb-5">4.5 (413)</div> -->
                       </v-row>
-
                       <!-- <div class="my-4 text-subtitle-1">
                           $ • Italian, Cafe
                            </div> -->
                     </v-card-text>
-
                     <v-divider class="mx-4"></v-divider>
-
                     <v-card-actions>
                       <div
                         class="
@@ -98,8 +92,8 @@
                           class="p-1"
                           color="#25767a"
                           @click="
-                            active2 = true;
                             formationShow = tr;
+                            active2 = true;
                           "
                         >
                           Voir fiche technique de la formation
@@ -109,15 +103,11 @@
                           square
                           class="p-1"
                           color="#fe6f2e"
-                          @click="
-                            active2 = true;
-                            showFormDevis(tr);
-                          "
+                          @click="showFormDevis(tr)"
                         >
                           Demander un devis
                         </vs-button>
                       </div>
-
                       <div v-if="auth.role == 'client'">
                         <vs-button
                           v-if="tr.block == 0"
@@ -146,7 +136,7 @@
           </div>
         </div>
       </div>
-      <vs-dialog
+      <!-- <vs-dialog
         v-if="formationShow"
         width="1400px"
         not-center
@@ -157,11 +147,8 @@
         </template>
 
         <div class="container">
-          <div class="row" v-if="formationShow.trailer">
-            <AppVimeo :id_video="formationShow.trailer.videoID" />
-          </div>
+          <div class="row" v-if="formationShow.trailer"></div>
         </div>
-
         <template #footer>
           <div class="d-flex justify-content-end">
             <vs-button
@@ -178,13 +165,13 @@
             </vs-button>
           </div>
         </template>
-      </vs-dialog>
+      </vs-dialog> -->
 
       <vs-dialog
         v-if="formationShow"
         width="1600px"
         not-center
-        v-model="active2"
+        v-model="active22"
       >
         <template #header>
           <h4 class="not-margin">Formations<b> Interentreprises </b></h4>
@@ -298,6 +285,144 @@
       <!-- dialog for domand -->
       <template>
         <v-row justify="center">
+          <v-dialog v-model="active2" persistent max-width="1600px">
+            <v-card>
+              <v-card-title>
+                <span class="text-h5">Demander un devis</span>
+              </v-card-title>
+
+              <v-form ref="form" v-model="valid" lazy-validation>
+                <v-card-text>
+                  <v-container>
+                    <div
+                      v-if="formationShow"
+                      class="row justify-content-between"
+                    >
+                      <div
+                        class="
+                          col-xxl-4 col-xl-8 col-lg-12 col-12
+                          card
+                          border-0
+                          shadow
+                          justify-content-center
+                          align-items-center
+                          my-4
+                          mx-ms-auto
+                        "
+                      >
+                        <img
+                          :src="formationShow.imgFormation"
+                          width="400"
+                          height="400"
+                          class="rounded-lg mt-2"
+                          alt=""
+                          id="src_formation"
+                        />
+                      </div>
+                      <div
+                        class="
+                          col-xxl-8 col-xl-12 col-lg-12 col-12
+                          row
+                          text-start
+                          my-4
+                        "
+                      >
+                        <div class="col-12 row align-items-start">
+                          <div class="col-lg-4">
+                            <p><b>Code Formation :</b></p>
+                          </div>
+                          <div class="col-lg-7">
+                            <p>
+                              {{ formationShow.codeF }}
+                            </p>
+                          </div>
+                        </div>
+                        <div class="col-12 row align-items-start">
+                          <div class="col-lg-4">
+                            <p><b>Titre :</b></p>
+                          </div>
+                          <div class="col-lg-7">
+                            <p>
+                              {{ formationShow.titre }}
+                            </p>
+                          </div>
+                        </div>
+                        <div class="col-12 row align-items-start">
+                          <div class="col-lg-4">
+                            <p><b>Objectifs :</b></p>
+                          </div>
+                          <div class="col-lg-7">
+                            <p>
+                              {{ formationShow.objectifs }}
+                            </p>
+                          </div>
+                        </div>
+                        <div class="col-12 row align-items-start">
+                          <div class="col-lg-4">
+                            <p><b>Population cible :</b></p>
+                          </div>
+                          <div class="col-lg-7">
+                            <p>
+                              {{ formationShow.population_cible }}
+                            </p>
+                          </div>
+                        </div>
+
+                        <div class="col-12 row align-items-start">
+                          <div class="col-lg-4">
+                            <p><b>Durée de la formation:</b></p>
+                          </div>
+                          <div class="col-lg-7">
+                            <p>
+                              {{ formationShow.duree_dormation }}
+                            </p>
+                          </div>
+                        </div>
+
+                        <div class="col-12 row align-items-start">
+                          <div class="col-lg-4">
+                            <p><b>Programme de formation :</b></p>
+                          </div>
+                          <div class="col-lg-7">
+                            <div
+                              class="d-flex align-items-start"
+                              :key="j"
+                              v-for="(li, j) in formationShow.programme"
+                            >
+                              <i
+                                class="fa fa-check mt-1 me-3"
+                                aria-hidden="true"
+                              ></i>
+                              <p>
+                                {{ li.description }}
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </v-container>
+                </v-card-text>
+                <v-card-actions>
+                  <v-spacer></v-spacer>
+                  <v-btn color="blue darken-1" text @click="active2 = false">
+                    Annuler
+                  </v-btn>
+                  <v-btn
+                    color="blue darken-1"
+                    text
+                    @click="dialog_devis = true"
+                  >
+                    Demander un devis
+                  </v-btn>
+                </v-card-actions>
+              </v-form>
+            </v-card>
+          </v-dialog>
+        </v-row>
+      </template>
+      <template>
+        <v-row justify="center">
           <v-dialog v-model="dialog_devis" persistent max-width="600px">
             <v-card>
               <v-card-title>
@@ -308,7 +433,6 @@
                 <v-card-text>
                   <v-container>
                     <v-row>
-                      {{ person }}
                       <v-radio-group v-model="person" column>
                         <v-radio
                           label="Personne morale"
@@ -443,7 +567,9 @@
                   <v-btn
                     color="blue darken-1"
                     text
-                    @click="dialog_devis = false"
+                    @click="
+                      dialog_devis = false;
+                    "
                   >
                     Annuler
                   </v-btn>
@@ -468,7 +594,6 @@
 <script>
 import { mapGetters, mapActions } from "vuex";
 import AppSection from "@/components/inc/AppSection.vue";
-import AppVimeo from "@/components/vimeo/AppVimeo.vue";
 
 export default {
   name: "FormationEn",
@@ -483,7 +608,7 @@ export default {
       dialog_devis: false,
       person: undefined,
       valid: true,
-      select:null,
+      select: null,
       items: ["Entreprise privée ", "Administration publique "],
       name: "",
       entrepriseName: undefined,
@@ -509,14 +634,14 @@ export default {
     person: function (val) {
       this.reset;
       this.resetValidation();
-      this.select=null;
+      this.select = null;
     },
   },
   methods: {
     ...mapActions(["getAllFormationEn", "getAllCategories"]),
     showFormation(formation) {
       this.formationShow = formation;
-      this.active2 = true;
+      // this.active2 = true;
     },
     showFormDevis(formation) {
       this.person = undefined;
@@ -539,7 +664,6 @@ export default {
 
   components: {
     AppSection,
-    AppVimeo,
   },
 
   mounted() {
