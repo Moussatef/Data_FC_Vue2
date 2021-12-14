@@ -55,10 +55,8 @@
                     </template>
                     <v-img height="250" :src="tr.imgFormation"></v-img>
 
-                    <v-card-title class="text-center text-wrap">
-                      <h4>
-                        {{ tr.titre }}
-                      </h4>
+                    <v-card-title class="text-start text-wrap">
+                      <h4>{{ tr.codeF }} : {{ tr.titre }}</h4>
                     </v-card-title>
                     <v-card-text>
                       <v-row align="center" class="mx-0 mb-1">
@@ -103,7 +101,10 @@
                           square
                           class="p-1"
                           color="#fe6f2e"
-                          @click="showFormDevis(tr)"
+                          @click="
+                            showFormDevis(tr);
+                            formationShow = tr;
+                          "
                         >
                           Demander un devis
                         </vs-button>
@@ -423,7 +424,7 @@
       </template>
       <template>
         <v-row justify="center">
-          <v-dialog v-model="dialog_devis" persistent max-width="600px">
+          <v-dialog v-model="dialog_devis" persistent max-width="900px">
             <v-card>
               <v-card-title>
                 <span class="text-h5">Demander un devis</span>
@@ -432,6 +433,22 @@
               <v-form ref="form" v-model="valid" lazy-validation>
                 <v-card-text>
                   <v-container>
+                    <v-row v-if="formationShow" class="text-start">
+                      <v-col cols="12" sm="6" md="5">
+                        <h6>Code de Formation :</h6>
+                      </v-col>
+                      <v-col cols="12" sm="6" md="7">
+                        <p>{{ formationShow.codeF }}</p>
+                      </v-col>
+                    </v-row>
+                    <v-row v-if="formationShow" class="text-start">
+                      <v-col cols="12" sm="6" md="4">
+                        <h6>Thème de l’action :</h6>
+                      </v-col>
+                      <v-col cols="12" sm="6" md="8">
+                        <p>{{ formationShow.titre }}</p>
+                      </v-col>
+                    </v-row>
                     <v-row>
                       <v-radio-group v-model="person" column>
                         <v-radio
@@ -446,12 +463,13 @@
                         ></v-radio>
                       </v-radio-group>
                     </v-row>
+
                     <v-row v-if="person == 'morale'">
                       <v-col cols="12" sm="6" md="6">
                         <v-text-field
                           :counter="20"
                           :rules="nameRules"
-                          label="Nom *"
+                          label="ENTREPRISE  *"
                           required
                         ></v-text-field>
                       </v-col>
@@ -459,7 +477,7 @@
                         <v-text-field
                           :counter="20"
                           :rules="nameRules"
-                          label="Prenom *"
+                          label="Raison sociale *"
                           persistent-hint
                           required
                         ></v-text-field>
@@ -474,35 +492,52 @@
                       </v-col>
                       <v-col cols="12">
                         <v-text-field
-                          label="Email*"
-                          v-model="email"
-                          :rules="emailRules"
-                          required
-                        ></v-text-field>
-                      </v-col>
-                      <v-col cols="12">
-                        <v-text-field
                           label="Téléphone"
                           persistent-hint
                           required
                         ></v-text-field>
                       </v-col>
                       <v-col cols="12">
-                        <v-select
-                          v-model="select"
-                          :items="items"
-                          :rules="[(v) => !!v || 'L’article est requis']"
-                          label="Pour quel type d’organisme travaillez-vous ? "
-                          required
-                        ></v-select>
-                      </v-col>
-                      <v-col cols="12">
                         <v-text-field
-                          label="Prestation demandée "
+                          label="Email*"
+                          v-model="email"
+                          :rules="emailRules"
+                          required
+                        ></v-text-field>
+                      </v-col>
+
+                      <v-col cols="12" md="6">
+                        <v-text-field
+                          label="Responsable ou Interlocuteur :"
                           persistent-hint
                           required
                         ></v-text-field>
                       </v-col>
+                      <v-col cols="12" md="6">
+                        <v-text-field
+                          label="TEL :"
+                          persistent-hint
+                          required
+                        ></v-text-field>
+                      </v-col>
+                      <v-col cols="12" >
+
+                      <v-row class=" align-items-center justify-content-start">
+                         <v-col cols="12" md="6">
+                        <label for="participants_nb">Nombre de participants à former :</label>
+                      </v-col>
+                      <v-col cols="12" md="6">
+                        
+                        <v-text-field
+                          v-model="participants_nb"
+                          id="participants_nb"
+                          type="number"
+                          style="width: 100px"
+                        ></v-text-field>
+                      </v-col>
+                    </v-row>
+                     </v-col>
+                     
                       <v-col cols="12" md="12">
                         <label for="" class="mb-2">Message</label>
                         <v-textarea
@@ -542,12 +577,21 @@
                         ></v-text-field>
                       </v-col>
                       <v-col cols="12">
+                        <v-select
+                          v-model="select"
+                          :items="items"
+                          :rules="[(v) => !!v || 'L’article est requis']"
+                          label="Pour quel type d’organisme travaillez-vous ? "
+                          required
+                        ></v-select>
+                      </v-col>
+                      <!-- <v-col cols="12">
                         <v-text-field
                           label="Prestation(s) demandée(s) "
                           persistent-hint
                           required
                         ></v-text-field>
-                      </v-col>
+                      </v-col> -->
                       <v-col cols="12" md="12">
                         <label for="" class="mb-2">Message</label>
                         <v-textarea
@@ -567,9 +611,7 @@
                   <v-btn
                     color="blue darken-1"
                     text
-                    @click="
-                      dialog_devis = false;
-                    "
+                    @click="dialog_devis = false"
                   >
                     Annuler
                   </v-btn>
@@ -600,7 +642,7 @@ export default {
   data() {
     return {
       titre: "Formations Interentreprises",
-
+      participants_nb: 1,
       active2: false,
       formationShow: undefined,
       btnactive: false,
