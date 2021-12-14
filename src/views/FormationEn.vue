@@ -434,11 +434,11 @@
                 <v-card-text>
                   <v-container>
                     <v-row v-if="formationShow" class="text-start">
-                      <v-col cols="12" sm="6" md="5">
+                      <v-col cols="12" sm="6" md="4">
                         <h6>Code de Formation :</h6>
                       </v-col>
-                      <v-col cols="12" sm="6" md="7">
-                        <p>{{ formationShow.codeF }}</p>
+                      <v-col cols="12" sm="6" md="8">
+                        <p class="fs-5">{{ formationShow.codeF }}</p>
                       </v-col>
                     </v-row>
                     <v-row v-if="formationShow" class="text-start">
@@ -446,7 +446,7 @@
                         <h6>Thème de l’action :</h6>
                       </v-col>
                       <v-col cols="12" sm="6" md="8">
-                        <p>{{ formationShow.titre }}</p>
+                        <p class="fs-5">{{ formationShow.titre }}</p>
                       </v-col>
                     </v-row>
                     <v-row>
@@ -469,7 +469,7 @@
                         <v-text-field
                           :counter="20"
                           :rules="nameRules"
-                          label="ENTREPRISE  *"
+                          label="Entreprise*"
                           required
                         ></v-text-field>
                       </v-col>
@@ -520,35 +520,31 @@
                           required
                         ></v-text-field>
                       </v-col>
-                      <v-col cols="12" >
-
-                      <v-row class=" align-items-center justify-content-start">
-                         <v-col cols="12" md="6">
-                        <label for="participants_nb">Nombre de participants à former :</label>
+                      <v-col cols="12">
+                        <v-row class="align-items-center">
+                          <v-col cols="12" md="6">
+                            <h6>Nombre de participants à former :</h6>
+                          </v-col>
+                          <v-col cols="12" md="6">
+                            <v-text-field
+                              v-model="participants_nb_mo"
+                              id="participants_nb"
+                              type="number"
+                              style="width: 100px"
+                              min="1"
+                            ></v-text-field>
+                          </v-col>
+                        </v-row>
                       </v-col>
-                      <v-col cols="12" md="6">
-                        
-                        <v-text-field
-                          v-model="participants_nb"
-                          id="participants_nb"
-                          type="number"
-                          style="width: 100px"
-                        ></v-text-field>
-                      </v-col>
-                    </v-row>
-                     </v-col>
-                     
                       <v-col cols="12" md="12">
-                        <label for="" class="mb-2">Message</label>
-                        <v-textarea
-                          solo
-                          name="input-7-4"
-                          label="Message"
-                        ></v-textarea>
+                        <label for="" class="mb-2"
+                          >Lieux ou ville souhaitée pour la formation : possible
+                          partout au Maroc
+                        </label>
                       </v-col>
-                      <v-col cols="12" sm="6"> </v-col>
-                      <v-col cols="12" sm="6"> </v-col>
                     </v-row>
+
+                    <!-- person == 'physique' -->
                     <v-row v-if="person == 'physique'">
                       <v-col cols="12" sm="6" md="12">
                         <v-text-field
@@ -576,14 +572,22 @@
                           required
                         ></v-text-field>
                       </v-col>
-                      <v-col cols="12">
+                      <v-col cols="12" md="6">
                         <v-select
-                          v-model="select"
+                          v-model="select_organism"
                           :items="items"
                           :rules="[(v) => !!v || 'L’article est requis']"
                           label="Pour quel type d’organisme travaillez-vous ? "
                           required
                         ></v-select>
+                      </v-col>
+                      <v-col cols="12" md="6" v-if="select_organism">
+                        <v-text-field
+                          :label="'Nom de ' + select_organism"
+                          :counter="20"
+                          persistent-hint
+                          required
+                        ></v-text-field>
                       </v-col>
                       <!-- <v-col cols="12">
                         <v-text-field
@@ -593,15 +597,41 @@
                         ></v-text-field>
                       </v-col> -->
                       <v-col cols="12" md="12">
-                        <label for="" class="mb-2">Message</label>
-                        <v-textarea
-                          solo
-                          name="input-7-4"
-                          label="Votre message"
-                        ></v-textarea>
+                        <v-radio-group v-model="devis_participant" column>
+                          <v-radio
+                            label="Pour moi seul "
+                            color="info"
+                            value="seul"
+                          ></v-radio>
+                          <v-radio
+                            label="Pour un groupe de participants,"
+                            color="info"
+                            value="groupe"
+                          ></v-radio>
+                        </v-radio-group>
                       </v-col>
-                      <v-col cols="12" sm="6"> </v-col>
-                      <v-col cols="12" sm="6"> </v-col>
+                      <v-col cols="12" v-if="devis_participant == 'groupe'">
+                        <v-row class="align-items-center">
+                          <v-col cols="12" md="6">
+                            <h6>Indiquez le nombre de participants :</h6>
+                          </v-col>
+                          <v-col cols="12" md="6">
+                            <v-text-field
+                              v-model="participants_nb_ph"
+                              id="participants_nb"
+                              type="number"
+                              style="width: 100px"
+                              min="1"
+                            ></v-text-field>
+                          </v-col>
+                        </v-row>
+                      </v-col>
+                      <v-col cols="12" md="12">
+                        <label for="" class="mb-2"
+                          >Lieux ou ville souhaitée pour la formation : possible
+                          partout au Maroc
+                        </label>
+                      </v-col>
                     </v-row>
                   </v-container>
                   <small>*indique un champ obligatoire</small>
@@ -642,16 +672,23 @@ export default {
   data() {
     return {
       titre: "Formations Interentreprises",
-      participants_nb: 1,
+      participants_nb_mo: 1,
       active2: false,
       formationShow: undefined,
       btnactive: false,
       activeVd: false,
       dialog_devis: false,
       person: undefined,
+      devis_participant: undefined,
+      participants_nb_ph: 1,
       valid: true,
-      select: null,
-      items: ["Entreprise privée ", "Administration publique "],
+      select_organism: null,
+      items: [
+        "Entreprise privée",
+        "Administration publique",
+        "Association",
+        "Fondation",
+      ],
       name: "",
       entrepriseName: undefined,
       nameRules: [
