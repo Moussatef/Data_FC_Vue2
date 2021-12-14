@@ -546,20 +546,28 @@
 
                     <!-- person == 'physique' -->
                     <v-row v-if="person == 'physique'">
-                      <v-col cols="12" sm="6" md="12">
+                      <v-col cols="12" sm="6" md="6">
                         <v-text-field
-                          v-model="entrepriseName"
+                          v-model="prenom"
                           :counter="20"
                           :rules="nameRules"
-                          label="Entreprise *"
+                          label="Nom *"
                           required
                         ></v-text-field>
                       </v-col>
-
+                      <v-col cols="12" sm="6" md="6">
+                        <v-text-field
+                          v-model="nom"
+                          :counter="20"
+                          :rules="nameRules"
+                          label="Prenom *"
+                          required
+                        ></v-text-field>
+                      </v-col>
                       <v-col cols="12">
                         <v-text-field
-                          label="Email*"
-                          v-model="emailEn"
+                          label="Adresse"
+                          v-model="email"
                           :rules="emailRules"
                           required
                         ></v-text-field>
@@ -572,6 +580,16 @@
                           required
                         ></v-text-field>
                       </v-col>
+
+                      <v-col cols="12">
+                        <v-text-field
+                          label="Email*"
+                          v-model="emailEn"
+                          :rules="emailRules"
+                          required
+                        ></v-text-field>
+                      </v-col>
+
                       <v-col cols="12" md="6">
                         <v-select
                           v-model="select_organism"
@@ -651,7 +669,7 @@
                     :disabled="!valid"
                     @click="validate"
                   >
-                    Demander
+                    Envoyer la demande
                   </v-btn>
                 </v-card-actions>
               </v-form>
