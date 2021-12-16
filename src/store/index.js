@@ -4,6 +4,7 @@ import formation from './modules/formation';
 import client from './modules/client';
 import message from './modules/message';
 import auth from './modules/auth';
+import demandDevis from './modules/demandDevis';
 
 Vue.use(Vuex)
 
@@ -19,5 +20,6 @@ export default new Vuex.Store({
     client,
     message,
     auth,
+    demandDevis,
   }
 })

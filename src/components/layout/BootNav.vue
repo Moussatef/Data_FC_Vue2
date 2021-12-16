@@ -219,6 +219,7 @@ a {
 }
 .logo {
     width: 300px;
+    
   }
 .btn-conx {
   margin-left: 7rem;

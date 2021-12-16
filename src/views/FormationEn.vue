@@ -289,7 +289,7 @@
           <v-dialog v-model="active2" persistent max-width="1600px">
             <v-card>
               <v-card-title>
-                <span class="text-h5">Demander un devis</span>
+                <span class="text-h5">Formation programme</span>
               </v-card-title>
 
               <v-form ref="form" v-model="valid" lazy-validation>
@@ -426,12 +426,12 @@
         <v-row justify="center">
           <v-dialog v-model="dialog_devis" persistent max-width="900px">
             <v-card>
-              <v-card-title>
-                <span class="text-h5">Demander un devis</span>
+              <v-card-title >
+                <span class="text-h4">Demander un devis</span>
               </v-card-title>
 
-              <v-form ref="form" v-model="valid" lazy-validation>
-                <v-card-text>
+              <v-form ref="form"  v-model="valid" lazy-validation>
+                <v-card-text >
                   <v-container>
                     <v-row v-if="formationShow" class="text-start">
                       <v-col cols="12" sm="6" md="4">
@@ -520,7 +520,7 @@
                           required
                         ></v-text-field>
                       </v-col>
-                      <v-col cols="12">
+                      
                         <v-row class="align-items-center">
                           <v-col cols="12" md="6">
                             <h6>Nombre de participants à former :</h6>
@@ -535,7 +535,6 @@
                             ></v-text-field>
                           </v-col>
                         </v-row>
-                      </v-col>
                       <v-col cols="12" md="12">
                         <label for="" class="mb-2"
                           >Lieux ou ville souhaitée pour la formation : possible
@@ -614,8 +613,18 @@
                           required
                         ></v-text-field>
                       </v-col> -->
-                      <v-col cols="12" md="12">
-                        <v-radio-group v-model="devis_participant" column>
+
+                      <v-col cols="12" md="12" class="text-start">
+                        <label for="" class="fs-5"
+                          >Souhaitez-vous un devis pour vous seul ou pour un
+                          groupe de participants ?</label
+                        >
+
+                        <v-radio-group
+                          v-model="devis_participant"
+                          column
+                          class="ms-4"
+                        >
                           <v-radio
                             label="Pour moi seul "
                             color="info"
@@ -627,23 +636,24 @@
                             value="groupe"
                           ></v-radio>
                         </v-radio-group>
-                      </v-col>
-                      <v-col cols="12" v-if="devis_participant == 'groupe'">
-                        <v-row class="align-items-center">
+                        <v-row
+                          class="align-items-center m-0 p-0"
+                          v-if="devis_participant == 'groupe'"
+                        >
                           <v-col cols="12" md="6">
                             <h6>Indiquez le nombre de participants :</h6>
                           </v-col>
-                          <v-col cols="12" md="6">
+                          <v-col cols="12" md="2">
                             <v-text-field
                               v-model="participants_nb_ph"
                               id="participants_nb"
                               type="number"
-                              style="width: 100px"
                               min="1"
                             ></v-text-field>
                           </v-col>
                         </v-row>
                       </v-col>
+                      <v-col cols="12" class="mt-0"> </v-col>
                       <v-col cols="12" md="12">
                         <label for="" class="mb-2"
                           >Lieux ou ville souhaitée pour la formation : possible
