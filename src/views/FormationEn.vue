@@ -137,37 +137,6 @@
           </div>
         </div>
       </div>
-      <!-- <vs-dialog
-        v-if="formationShow"
-        width="1400px"
-        not-center
-        v-model="activeVd"
-      >
-        <template #header>
-          <h4 class="not-margin">Bande <b> annonce </b></h4>
-        </template>
-
-        <div class="container">
-          <div class="row" v-if="formationShow.trailer"></div>
-        </div>
-        <template #footer>
-          <div class="d-flex justify-content-end">
-            <vs-button
-              @click="
-                active2 = true;
-                activeVd = false;
-              "
-              transparent
-            >
-              Suivant
-            </vs-button>
-            <vs-button @click="activeVd = false" dark transparent>
-              Annuler
-            </vs-button>
-          </div>
-        </template>
-      </vs-dialog> -->
-
       <vs-dialog
         v-if="formationShow"
         width="1600px"
@@ -422,16 +391,18 @@
           </v-dialog>
         </v-row>
       </template>
+
+      <!-- Demande devis Dialog -->
       <template>
         <v-row justify="center">
           <v-dialog v-model="dialog_devis" persistent max-width="900px">
             <v-card>
-              <v-card-title >
-                <span class="text-h4">Demander un devis</span>
-              </v-card-title>
+              <v-toolbar color="primary" dark
+                ><span class="text-h4">Demander un devis</span></v-toolbar
+              >
 
-              <v-form ref="form"  v-model="valid" lazy-validation>
-                <v-card-text >
+              <v-form ref="form" v-model="valid" lazy-validation>
+                <v-card-text>
                   <v-container>
                     <v-row v-if="formationShow" class="text-start">
                       <v-col cols="12" sm="6" md="4">
@@ -520,21 +491,21 @@
                           required
                         ></v-text-field>
                       </v-col>
-                      
-                        <v-row class="align-items-center">
-                          <v-col cols="12" md="6">
-                            <h6>Nombre de participants à former :</h6>
-                          </v-col>
-                          <v-col cols="12" md="6">
-                            <v-text-field
-                              v-model="participants_nb_mo"
-                              id="participants_nb"
-                              type="number"
-                              style="width: 100px"
-                              min="1"
-                            ></v-text-field>
-                          </v-col>
-                        </v-row>
+
+                      <v-row class="align-items-center">
+                        <v-col cols="12" md="6">
+                          <h6>Nombre de participants à former :</h6>
+                        </v-col>
+                        <v-col cols="12" md="6">
+                          <v-text-field
+                            v-model="participants_nb_mo"
+                            id="participants_nb"
+                            type="number"
+                            style="width: 100px"
+                            min="1"
+                          ></v-text-field>
+                        </v-col>
+                      </v-row>
                       <v-col cols="12" md="12">
                         <label for="" class="mb-2"
                           >Lieux ou ville souhaitée pour la formation : possible
@@ -547,7 +518,7 @@
                     <v-row v-if="person == 'physique'">
                       <v-col cols="12" sm="6" md="6">
                         <v-text-field
-                          v-model="prenom"
+                          v-model="firstname_Ph"
                           :counter="20"
                           :rules="nameRules"
                           label="Nom *"
@@ -556,7 +527,7 @@
                       </v-col>
                       <v-col cols="12" sm="6" md="6">
                         <v-text-field
-                          v-model="nom"
+                          v-model="lastname_Ph"
                           :counter="20"
                           :rules="nameRules"
                           label="Prenom *"
@@ -566,15 +537,17 @@
                       <v-col cols="12">
                         <v-text-field
                           label="Adresse"
-                          v-model="email"
-                          :rules="emailRules"
+                          v-model="address_Ph"
+                          :rules="addressRules"
                           required
                         ></v-text-field>
                       </v-col>
                       <v-col cols="12">
                         <v-text-field
+                          v-model="phone_Ph"
                           label="Téléphone"
                           :counter="20"
+                          :rules="teleRules"
                           persistent-hint
                           required
                         ></v-text-field>
@@ -583,7 +556,7 @@
                       <v-col cols="12">
                         <v-text-field
                           label="Email*"
-                          v-model="emailEn"
+                          v-model="email_Ph"
                           :rules="emailRules"
                           required
                         ></v-text-field>
@@ -591,28 +564,25 @@
 
                       <v-col cols="12" md="6">
                         <v-select
-                          v-model="select_organism"
+                          v-model="typedorganisme_ph"
                           :items="items"
-                          :rules="[(v) => !!v || 'L’article est requis']"
+                          :rules="[(v) => !!v || 'd’organisme est requis']"
                           label="Pour quel type d’organisme travaillez-vous ? "
                           required
                         ></v-select>
                       </v-col>
-                      <v-col cols="12" md="6" v-if="select_organism">
+                      <v-col cols="12" md="6" v-if="typedorganisme_ph">
                         <v-text-field
-                          :label="'Nom de ' + select_organism"
+                          v-model="organismename_ph"
+                          :label="'Nom de ' + typedorganisme_ph"
+                          :rules="[
+                            (v) => !!v || 'Nom de d’organisme est requis',
+                          ]"
                           :counter="20"
                           persistent-hint
                           required
                         ></v-text-field>
                       </v-col>
-                      <!-- <v-col cols="12">
-                        <v-text-field
-                          label="Prestation(s) demandée(s) "
-                          persistent-hint
-                          required
-                        ></v-text-field>
-                      </v-col> -->
 
                       <v-col cols="12" md="12" class="text-start">
                         <label for="" class="fs-5"
@@ -645,7 +615,7 @@
                           </v-col>
                           <v-col cols="12" md="2">
                             <v-text-field
-                              v-model="participants_nb_ph"
+                              v-model="nbperson_ph"
                               id="participants_nb"
                               type="number"
                               min="1"
@@ -676,8 +646,17 @@
                   <v-btn
                     color="blue darken-1"
                     text
-                    :disabled="!valid"
-                    @click="validate"
+                    :disabled="
+                      !valid ||
+                      !devis_participant ||
+                      !validNbparticipant ||
+                      !typedorganisme_ph ||
+                      !organismename_ph
+                    "
+                    @click="
+                      validate;
+                      dialog_confirmation = true;
+                    "
                   >
                     Envoyer la demande
                   </v-btn>
@@ -687,9 +666,52 @@
           </v-dialog>
         </v-row>
       </template>
+      <template>
+        <v-row justify="center">
+          <v-dialog v-model="dialog_confirmation" persistent max-width="590">
+            <v-card>
+              <v-card-title class="text-h5">
+                Confirmation de demande
+              </v-card-title>
+              <v-card-text>Je confirme ma demande</v-card-text>
+              <v-card-actions>
+                <v-spacer></v-spacer>
+                <v-btn
+                  color="green darken-1"
+                  text
+                  @click="dialog_confirmation = false"
+                >
+                  Annuler
+                </v-btn>
+                <v-btn
+                  color="green darken-1"
+                  text
+                  @click="
+                    dialog_confirmation = false;
+                    demandEnvoyer(
+                      formationShow.id,
+                      firstname_Ph,
+                      lastname_Ph,
+                      email_Ph,
+                      phone_Ph,
+                      address_Ph,
+                      typedorganisme_ph,
+                      organismename_ph,
+                      nbperson_ph
+                    );
+                  "
+                >
+                  Agréé
+                </v-btn>
+              </v-card-actions>
+            </v-card>
+          </v-dialog>
+        </v-row>
+      </template>
     </div>
   </div>
 </template>
+
 
 <script>
 import { mapGetters, mapActions } from "vuex";
@@ -701,16 +723,33 @@ export default {
     return {
       titre: "Formations Interentreprises",
       participants_nb_mo: 1,
+
       active2: false,
+      active22: false,
+      dialog_confirmation: false,
+
       formationShow: undefined,
+
       btnactive: false,
       activeVd: false,
       dialog_devis: false,
+
       person: undefined,
       devis_participant: undefined,
-      participants_nb_ph: 1,
-      valid: true,
+
+      valid: false,
       select_organism: null,
+
+      firstname_Ph: undefined,
+      lastname_Ph: undefined,
+      email_Ph: undefined,
+      phone_Ph: undefined,
+      address_Ph: undefined,
+      typedorganisme_ph: null,
+      organismename_ph: undefined,
+      nbperson_ph: 1,
+      validNbparticipant: false,
+
       items: [
         "Entreprise privée",
         "Administration publique",
@@ -719,6 +758,12 @@ export default {
       ],
       name: "",
       entrepriseName: undefined,
+      addressRules: [
+        (v) => !!v || "adresse est requis",
+        (v) =>
+          (v && v.length <= 100) ||
+          "Adresse doit comporter moins de 100 caractères",
+      ],
       nameRules: [
         (v) => !!v || "Le nom est requis",
         (v) =>
@@ -732,9 +777,10 @@ export default {
         (v) => /.+@.+\..+/.test(v) || "L'email doit être valide",
       ],
       teleRules: [
-        (v) => !!v || "Name is required",
-        (v) => (v && v.length <= 10) || "Name must be less than 10 characters",
+        (v) => !!v || "Téléphone is required",
+        (v) => (v && v.length <= 20) || "Téléphone doit être valide",
       ],
+      description: "",
     };
   },
   watch: {
@@ -743,9 +789,102 @@ export default {
       this.resetValidation();
       this.select = null;
     },
+
+    nbperson_ph: function (val) {
+      if (this.devis_participant == "groupe") {
+        if (val == 1) {
+          this.validNbparticipant = false;
+        } else this.validNbparticipant = true;
+      }
+    },
+
+    devis_participant: function (val) {
+      if (val != "groupe") {
+        this.validNbparticipant = true;
+      }
+    },
   },
   methods: {
-    ...mapActions(["getAllFormationEn", "getAllCategories"]),
+    ...mapActions([
+      "getAllFormationEn",
+      "getAllCategories",
+      "sendDemandPersonPh",
+    ]),
+
+    demandEnvoyer(
+      formation_id,
+      firstname,
+      lastname,
+      email,
+      phone,
+      address,
+      typedorganisme,
+      organismename,
+      nbperson
+    ) {
+      if (
+        formation_id &&
+        firstname &&
+        lastname &&
+        email &&
+        phone &&
+        address &&
+        typedorganisme &&
+        organismename &&
+        nbperson &&
+        this.devis_participant
+      ) {
+        this.$store
+          .dispatch("sendDemandPersonPh", [
+            formation_id,
+            firstname,
+            lastname,
+            email,
+            phone,
+            address,
+            typedorganisme,
+            organismename,
+            nbperson,
+          ])
+          .then((res) => {
+            this.description =
+              "La demande a été envoyée avec succès";
+            this.dialog_devis = false;
+            this.showAlert();
+
+            this.formationShow.id =
+              this.firstname_Ph =
+              this.lastname_Ph =
+              this.email_Ph =
+              this.phone_Ph =
+              this.address_Ph =
+              this.typedorganisme_ph =
+              this.organismename_ph =
+                undefined;
+
+            this.nbperson_ph = 1;
+          })
+          .catch((err) => {
+            this.errorDesc = err.message;
+            this.alertDanger = true;
+          });
+      } else {
+      }
+    },
+
+    showAlert() {
+      // Use sweetalert2
+      // this.$swal('Hello Vue world!!!');
+
+      this.$swal.fire({
+        position: "center",
+        icon: "success",
+        title: this.description,
+        showConfirmButton: false,
+        timer: 1500,
+      });
+    },
+
     showFormation(formation) {
       this.formationShow = formation;
       // this.active2 = true;

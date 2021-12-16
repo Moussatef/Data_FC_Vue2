@@ -2,13 +2,15 @@ import axios from 'axios'
 
 const state = {
 
-    demandsDevis: [],
+    demandsDevisPhy: [],
+    demandsDevisMo : [],
 
 
 }
 
 const getters = {
-    demandsDevis: state => state.demandsDevis,
+    demandsDevisPhy: state => state.demandsDevisPhy,
+    demandsDevisMo: state => state.demandsDevisMo,
 
 }
 
@@ -53,11 +55,61 @@ const actions = {
                 })
 
         })
+    },
+
+
+    async sendDemandPersonMo({
+        commit
+    }, param) {
+        var data = JSON.stringify({
+            "formation_id": param[0],
+            "companyname": param[1],
+            "raisonsociale": param[2],
+            "email": param[3],
+            "phone": param[4],
+            "address": param[5],
+            "responsable": param[6],
+            "responsablephone": param[7],
+            "nbperson": param[8]
+        });
+
+        var config = {
+            method: 'post',
+            url: 'demand-devis/person-morale',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            data: data
+        };
+        return new Promise((resolve, reject) => {
+
+            axios(config)
+                .then(response => {
+                    let demand = response.data;
+                    // consoled for testing
+                    console.log(demand);
+                    commit('setDemandMo', demand);
+                    resolve('Success')
+                })
+                .catch(error => {
+                    reject(error)
+                })
+
+        })
     }
 
 }
 
 const mutations = {
-    setDemand: (state, demand) => (state.demand = demand)
+    setDemand: (state, demand) => (state.demandsDevisPhy = demand),
+    setDemandMo: (state, demand) => (state.demandsDevisMo = demand)
 
+}
+
+export default {
+    state,
+    getters,
+    actions,
+    mutations
 }
