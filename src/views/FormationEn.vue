@@ -438,6 +438,7 @@
                     <v-row v-if="person == 'morale'">
                       <v-col cols="12" sm="6" md="6">
                         <v-text-field
+                          v-model="companyname_Mo"
                           :counter="20"
                           :rules="nameRules"
                           label="Entreprise*"
@@ -446,6 +447,7 @@
                       </v-col>
                       <v-col cols="12" sm="6" md="6">
                         <v-text-field
+                          v-model="raisonsociale_Mo"
                           :counter="20"
                           :rules="nameRules"
                           label="Raison sociale *"
@@ -455,15 +457,17 @@
                       </v-col>
                       <v-col cols="12">
                         <v-text-field
-                          label="Adresse"
-                          v-model="email"
-                          :rules="emailRules"
+                          label="Adresse*"
+                          v-model="address_Mo"
+                          :rules="addressRules"
                           required
                         ></v-text-field>
                       </v-col>
                       <v-col cols="12">
                         <v-text-field
-                          label="Téléphone"
+                          v-model="phone_Mo"
+                          label="Téléphone*"
+                          :rules="teleRules"
                           persistent-hint
                           required
                         ></v-text-field>
@@ -471,7 +475,7 @@
                       <v-col cols="12">
                         <v-text-field
                           label="Email*"
-                          v-model="email"
+                          v-model="email_Mo"
                           :rules="emailRules"
                           required
                         ></v-text-field>
@@ -479,6 +483,7 @@
 
                       <v-col cols="12" md="6">
                         <v-text-field
+                          v-model="responsable_Mo"
                           label="Responsable ou Interlocuteur :"
                           persistent-hint
                           required
@@ -486,7 +491,8 @@
                       </v-col>
                       <v-col cols="12" md="6">
                         <v-text-field
-                          label="TEL :"
+                          v-model="responsablephone_Mo"
+                          label="Téléphone :"
                           persistent-hint
                           required
                         ></v-text-field>
@@ -498,7 +504,7 @@
                         </v-col>
                         <v-col cols="12" md="6">
                           <v-text-field
-                            v-model="participants_nb_mo"
+                            v-model="nbperson_Mo"
                             id="participants_nb"
                             type="number"
                             style="width: 100px"
@@ -644,6 +650,7 @@
                     Annuler
                   </v-btn>
                   <v-btn
+                    v-if="person == 'physique'"
                     color="blue darken-1"
                     text
                     :disabled="
@@ -660,12 +667,25 @@
                   >
                     Envoyer la demande
                   </v-btn>
+                  <v-btn
+                    v-if="person == 'morale'"
+                    color="blue darken-1"
+                    text
+                    :disabled="!valid"
+                    @click="
+                      validate;
+                      dialog_confirmation_mo = valid ? !true : false;
+                    "
+                  >
+                    Envoyer la demande
+                  </v-btn>
                 </v-card-actions>
               </v-form>
             </v-card>
           </v-dialog>
         </v-row>
       </template>
+      <!-- confiramstion for person physique -->
       <template>
         <v-row justify="center">
           <v-dialog v-model="dialog_confirmation" persistent max-width="590">
@@ -708,6 +728,49 @@
           </v-dialog>
         </v-row>
       </template>
+      <!-- confirmation for person morale -->
+      <template>
+        <v-row justify="center">
+          <v-dialog v-model="dialog_confirmation_mo" persistent max-width="590">
+            <v-card>
+              <v-card-title class="text-h5">
+                Confirmation de demande
+              </v-card-title>
+              <v-card-text>Je confirme ma demande</v-card-text>
+              <v-card-actions>
+                <v-spacer></v-spacer>
+                <v-btn
+                  color="green darken-1"
+                  text
+                  @click="dialog_confirmation_mo = false"
+                >
+                  Annuler
+                </v-btn>
+                <v-btn
+                  color="green darken-1"
+                  text
+                  @click="
+                    dialog_confirmation_mo = false;
+                    demandEnvoyerMo(
+                      formationShow.id,
+                      companyname_Mo,
+                      raisonsociale_Mo,
+                      email_Mo,
+                      phone_Mo,
+                      address_Mo,
+                      responsable_Mo,
+                      responsablephone_Mo,
+                      nbperson_Mo
+                    );
+                  "
+                >
+                  Agréé
+                </v-btn>
+              </v-card-actions>
+            </v-card>
+          </v-dialog>
+        </v-row>
+      </template>
     </div>
   </div>
 </template>
@@ -722,11 +785,9 @@ export default {
   data() {
     return {
       titre: "Formations Interentreprises",
-      participants_nb_mo: 1,
 
       active2: false,
       active22: false,
-      dialog_confirmation: false,
 
       formationShow: undefined,
 
@@ -740,15 +801,28 @@ export default {
       valid: false,
       select_organism: null,
 
-      firstname_Ph: undefined,
-      lastname_Ph: undefined,
-      email_Ph: undefined,
-      phone_Ph: undefined,
-      address_Ph: undefined,
+      // Varibals for person physique
+      firstname_Ph: null,
+      lastname_Ph: null,
+      email_Ph: null,
+      phone_Ph: null,
+      address_Ph: null,
       typedorganisme_ph: null,
-      organismename_ph: undefined,
+      organismename_ph: null,
       nbperson_ph: 1,
       validNbparticipant: false,
+      dialog_confirmation: false,
+
+      // Varibals for person morale
+      companyname_Mo: null,
+      raisonsociale_Mo: null,
+      email_Mo: null,
+      phone_Mo: null,
+      address_Mo: null,
+      responsable_Mo: null,
+      responsablephone_Mo: null,
+      nbperson_Mo: 1,
+      dialog_confirmation_mo: false,
 
       items: [
         "Entreprise privée",
@@ -847,13 +921,11 @@ export default {
             nbperson,
           ])
           .then((res) => {
-            this.description =
-              "La demande a été envoyée avec succès";
+            this.description = "La demande a été envoyée avec succès";
             this.dialog_devis = false;
             this.showAlert();
 
-            this.formationShow.id =
-              this.firstname_Ph =
+            this.firstname_Ph =
               this.lastname_Ph =
               this.email_Ph =
               this.phone_Ph =
@@ -867,6 +939,63 @@ export default {
           .catch((err) => {
             this.errorDesc = err.message;
             this.alertDanger = true;
+          });
+      } else {
+      }
+    },
+
+    demandEnvoyerMo(
+      formation_id,
+      companyname,
+      raisonsociale,
+      email,
+      phone,
+      address,
+      responsable,
+      responsablephone,
+      nbperson
+    ) {
+      if (
+        formation_id &&
+        companyname &&
+        raisonsociale &&
+        email &&
+        phone &&
+        address &&
+        responsable &&
+        responsablephone &&
+        nbperson
+      ) {
+        this.$store
+          .dispatch("sendDemandPersonMo", [
+            formation_id,
+            companyname,
+            raisonsociale,
+            email,
+            phone,
+            address,
+            responsable,
+            responsablephone,
+            nbperson,
+          ])
+          .then((res) => {
+            this.description = "La demande a été envoyée avec succès";
+            this.dialog_devis = false;
+            this.showAlert();
+
+            this.firstname_Ph =
+              this.lastname_Ph =
+              this.email_Ph =
+              this.phone_Ph =
+              this.address_Ph =
+              this.typedorganisme_ph =
+              this.organismename_ph =
+                undefined;
+
+            this.nbperson_ph = 1;
+          })
+          .catch((err) => {
+            console.log(err.message);
           });
       } else {
       }

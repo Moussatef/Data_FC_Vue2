@@ -28,7 +28,7 @@ const actions = {
             "address": param[5],
             "typedorganisme": param[6],
             "organismename": param[7],
-            "nbperson": param[8]
+            "nbperson": param[8],
         });
 
         var config = {

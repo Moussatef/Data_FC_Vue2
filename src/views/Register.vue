@@ -1,5 +1,5 @@
 <template>
-  <div class=" overflow-hidden">
+  <div class="overflow-hidden">
     <vs-dialog width="550px" not-close blur v-model="active_dlg">
       <template #header>
         <h4 class="not-margin">Message <b>succès</b></h4>
@@ -20,26 +20,24 @@
         </div>
       </template>
     </vs-dialog>
-    <div class="limiter ">
+    <div class="limiter">
       <div
         class="container-login100 bg-light"
         style="background-image url('images/bg-01.jpg');"
       >
         <div class="wrap-login100 mt-5 p-l-55 p-r-55 p-t-20 p-b-20">
           <img src="../assets/logo.jpg" class="logo" alt="" />
-          <span class="login100-form-title p-b-50">
-            S'inscrire
-          </span>
+          <span class="login100-form-title p-b-50"> S'inscrire </span>
 
           <div
             class="wrap-input100 validate-input m-b-23 text-start"
             data-validate="Username is reauired"
           >
-            <span class=" my-2">Nom</span>
+            <span class="my-2">Nom</span>
             <vs-input
               color="#25767a"
               name="first-name"
-              class="my-4 "
+              class="my-4"
               border
               type="text"
               v-model="nom"
@@ -55,10 +53,10 @@
             class="wrap-input100 validate-input m-b-23 text-start"
             data-validate="Username is reauired"
           >
-            <span class=" my-2">Prénom</span>
+            <span class="my-2">Prénom</span>
             <vs-input
               color="#25767a"
-              class="my-4 "
+              class="my-4"
               border
               type="text"
               name="last-name"
@@ -75,10 +73,10 @@
             class="wrap-input100 validate-input m-b-23 text-start"
             data-validate="Username is reauired"
           >
-            <span class=" my-2">Email</span>
+            <span class="my-2">Email</span>
             <vs-input
               color="#25767a"
-              class="my-4 "
+              class="my-4"
               border
               type="email"
               v-model="email"
@@ -94,7 +92,7 @@
             class="wrap-input100 validate-input text-start"
             data-validate="Password is required"
           >
-            <span class=" ">Mot de passe</span>
+            <span class="">Mot de passe</span>
             <vs-input
               color="#25767a"
               border
@@ -113,7 +111,7 @@
             class="wrap-input100 validate-input text-start mt-3"
             data-validate="Password is required"
           >
-            <span class=" ">Confirmez le mot de passe</span>
+            <span class="">Confirmez le mot de passe</span>
             <vs-input
               color="#25767a"
               border
@@ -133,8 +131,8 @@
             class="wrap-input100 validate-input text-start mt-3"
             data-validate="Password is required"
           >
-            <span class=" ">Genre</span>
-            <div class="text-start mt-3  ">
+            <span class="">Genre</span>
+            <div class="text-start mt-3">
               <vs-radio
                 class="justify-content-start mb-2"
                 v-model="genre"
@@ -153,9 +151,9 @@
           </div>
 
           <div class="mt-5">
-            <div class="d-grid gap-2 ">
+            <div class="d-grid gap-2">
               <button
-                class="btn btn-conx  rounded-pill py-2"
+                class="btn btn-conx rounded-pill py-2"
                 @click="
                   register(
                     nom,
@@ -235,7 +233,7 @@ export default {
         redirect: "follow",
       };
       const result = await fetch(
-        "https://datafc.herokuapp.com/api/client/register",
+        "https://backend-data-fc.herokuapp.com/api/client/register",
         requestOptions
       );
       if (result.status === 201) {
