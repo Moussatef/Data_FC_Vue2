@@ -5,12 +5,15 @@ const state = {
     demandsDevisPhy: [],
     demandsDevisMo : [],
 
+    demandLoading: false,
+
 
 }
 
 const getters = {
     demandsDevisPhy: state => state.demandsDevisPhy,
     demandsDevisMo: state => state.demandsDevisMo,
+    demandLoading: state => state.demandLoading,
 
 }
 
@@ -30,6 +33,7 @@ const actions = {
             "organismename": param[7],
             "nbperson": param[8],
         });
+        state.demandLoading = true;
 
         var config = {
             method: 'post',
@@ -49,9 +53,11 @@ const actions = {
                     console.log(demand);
                     commit('setDemand', demand);
                     resolve('Success')
+                    state.demandLoading =false;
                 })
                 .catch(error => {
                     reject(error)
+                    state.demandLoading =false;
                 })
 
         })

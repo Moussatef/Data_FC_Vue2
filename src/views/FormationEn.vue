@@ -37,6 +37,37 @@
                   justify-content-center
                 "
               >
+                <v-sheet
+                  v-if="!loading_F"
+                  :color="`grey ${isDark ? 'darken-2' : 'lighten-4'}`"
+                  class="pa-3"
+                >
+                  <v-skeleton-loader
+                    class="mx-auto"
+                    max-width="300"
+                    type="card"
+                  ></v-skeleton-loader> </v-sheet
+                ><v-sheet
+                  v-if="!loading_F"
+                  :color="`grey ${isDark ? 'darken-2' : 'lighten-4'}`"
+                  class="pa-3"
+                >
+                  <v-skeleton-loader
+                    class="mx-auto"
+                    max-width="300"
+                    type="card"
+                  ></v-skeleton-loader> </v-sheet
+                ><v-sheet
+                  v-if="!loading_F"
+                  :color="`grey ${isDark ? 'darken-2' : 'lighten-4'}`"
+                  class="pa-3"
+                >
+                  <v-skeleton-loader
+                    class="mx-auto"
+                    max-width="300"
+                    type="card"
+                  ></v-skeleton-loader>
+                </v-sheet>
                 <div :key="i" v-for="(tr, i) in cat.formation">
                   <v-card
                     max-width="374"
@@ -674,7 +705,7 @@
                     :disabled="!valid"
                     @click="
                       validate;
-                      dialog_confirmation_mo = valid ? !true : false;
+                      dialog_confirmation_mo = true;
                     "
                   >
                     Envoyer la demande
@@ -690,6 +721,12 @@
         <v-row justify="center">
           <v-dialog v-model="dialog_confirmation" persistent max-width="590">
             <v-card>
+              <v-overlay :value="overlay">
+                <v-progress-circular
+                  indeterminate
+                  size="64"
+                ></v-progress-circular>
+              </v-overlay>
               <v-card-title class="text-h5">
                 Confirmation de demande
               </v-card-title>
@@ -707,7 +744,7 @@
                   color="green darken-1"
                   text
                   @click="
-                    dialog_confirmation = false;
+                    overlay = !overlay;
                     demandEnvoyer(
                       formationShow.id,
                       firstname_Ph,
@@ -733,6 +770,12 @@
         <v-row justify="center">
           <v-dialog v-model="dialog_confirmation_mo" persistent max-width="590">
             <v-card>
+              <v-overlay :value="overlay">
+                <v-progress-circular
+                  indeterminate
+                  size="64"
+                ></v-progress-circular>
+              </v-overlay>
               <v-card-title class="text-h5">
                 Confirmation de demande
               </v-card-title>
@@ -750,7 +793,7 @@
                   color="green darken-1"
                   text
                   @click="
-                    dialog_confirmation_mo = false;
+                    overlay = true;
                     demandEnvoyerMo(
                       formationShow.id,
                       companyname_Mo,
@@ -771,6 +814,10 @@
           </v-dialog>
         </v-row>
       </template>
+
+      <v-overlay :value="overlay">
+        <v-progress-circular indeterminate size="64"></v-progress-circular>
+      </v-overlay>
     </div>
   </div>
 </template>
@@ -785,6 +832,13 @@ export default {
   data() {
     return {
       titre: "Formations Interentreprises",
+      inject: {
+        theme: {
+          default: { isDark: false },
+        },
+      },
+
+      overlay: false,
 
       active2: false,
       active22: false,
@@ -923,6 +977,8 @@ export default {
           .then((res) => {
             this.description = "La demande a été envoyée avec succès";
             this.dialog_devis = false;
+            this.dialog_confirmation = false;
+            this.overlay = false;
             this.showAlert();
 
             this.firstname_Ph =
@@ -937,8 +993,7 @@ export default {
             this.nbperson_ph = 1;
           })
           .catch((err) => {
-            this.errorDesc = err.message;
-            this.alertDanger = true;
+            console.log(err);
           });
       } else {
       }
@@ -981,18 +1036,20 @@ export default {
           .then((res) => {
             this.description = "La demande a été envoyée avec succès";
             this.dialog_devis = false;
+            this.dialog_confirmation_mo = false;
+            this.overlay = false;
             this.showAlert();
 
-            this.firstname_Ph =
-              this.lastname_Ph =
-              this.email_Ph =
-              this.phone_Ph =
-              this.address_Ph =
-              this.typedorganisme_ph =
-              this.organismename_ph =
+            this.companyname_Mo =
+              this.raisonsociale_Mo =
+              this.email_Mo =
+              this.phone_Mo =
+              this.address_Mo =
+              this.responsable_Mo =
+              this.responsablephone_Mo =
                 undefined;
 
-            this.nbperson_ph = 1;
+            this.nbperson_Mo = 1;
           })
           .catch((err) => {
             console.log(err.message);
@@ -1034,7 +1091,13 @@ export default {
   },
 
   computed: {
-    ...mapGetters(["formationEnt", "categories", "auth", "loading"]),
+    ...mapGetters([
+      "formationEnt",
+      "categories",
+      "auth",
+      "loading_F",
+      "demandLoading",
+    ]),
   },
 
   components: {

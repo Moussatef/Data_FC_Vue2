@@ -6,7 +6,7 @@ const state = {
     categories: [],
     StatusCategory: false,
     AjouteErr: undefined,
-    loading: true,
+    loading_F: true,
     loading_vd: false,
 }
 
@@ -16,7 +16,8 @@ const getters = {
     categories: state => state.categories,
     StatusCategory: state => state.statusCategory,
     AjouteErr: state => state.ajouteErr,
-    loading_vd: state => state.loading,
+    loading_vd: state => state.loading_vd,
+    loading_F: state => state.loading_F,
 }
 
 const actions = {
