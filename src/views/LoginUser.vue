@@ -29,7 +29,7 @@
             v-model="active"
             v-if="message_err"
           >
-            <template #title> Erreur lors de l'inscription </template>
+            <template #title> Erreur lors de l'Connexion </template>
             {{ message_err }}
           </vs-alert>
 
@@ -143,6 +143,7 @@ export default {
   }),
   methods: {
     async Auth(email, password) {
+      this.message_err = "";
       if (email && password) {
         var data = JSON.stringify({
           email: email,
@@ -159,7 +160,7 @@ export default {
         };
         axios(config)
           .then((result) => {
-            this.message_err = "";
+            
             this.active = false;
 
             console.log(result.data.Token);
@@ -170,8 +171,8 @@ export default {
             location.replace("/");
           })
           .catch((err) => {
-            console.log(err.message);
-            this.message_err = err.message;
+            console.log(err.response.data.message);
+            this.message_err = err.response.data.message;
           });
       }
     },

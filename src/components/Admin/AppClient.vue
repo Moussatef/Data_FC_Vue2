@@ -123,17 +123,12 @@
       </vs-alert>
     </vs-dialog>
     <!-- messgae confirmaton for remove persone -->
-    <vs-dialog
-      v-if="clientInfo"
-      width="1000px"
-     
-      v-model="activeDelete"
-    >
+    <vs-dialog v-if="clientInfo" width="1000px" v-model="activeDelete">
       <template #header>
-        <h4 style="color: red" ><b> Confirmation </b></h4>
+        <h4 style="color: red"><b> Confirmation </b></h4>
       </template>
       <div class="text-center">
-        <h4 >Voulez-vous supprimer cette personne</h4>
+        <h4>Voulez-vous supprimer cette personne</h4>
       </div>
 
       <template #footer>
@@ -160,18 +155,13 @@
 
     <!-- messgae confirmaton for block persone -->
 
-    <vs-dialog
-      v-if="clientInfo"
-      width="1000px"
-      
-      v-model="activeBlock"
-    >
+    <vs-dialog v-if="clientInfo" width="1000px" v-model="activeBlock">
       <template #header>
         <h4 style="color: red"><b> Confirmation </b></h4>
       </template>
       <div class="text-center">
         <!-- <h4>Voulez-vous supprimer cette personne</h4> -->
-        <h4 >{{ messageConfirmation }}</h4>
+        <h4>{{ messageConfirmation }}</h4>
       </div>
 
       <template #footer>
@@ -413,12 +403,7 @@ export default {
         .dispatch("disblockPersonne", [id])
         .then((result) => {
           console.log(result);
-          // this.activeConfirmation = false;
-          // this.idFormation = undefined;
-
-          // this.activeConfirmation = false;
-          // this.activeDelete = false;
-          // this.activeAlert = true;
+          this.activeDisblock = false;
         })
         .catch((err) => {
           this.errorDesc = err.message;
@@ -432,7 +417,6 @@ export default {
           console.log(result);
           // this.activeConfirmation = false;
           // this.idFormation = undefined;
-
           // this.activeConfirmation = false;
           this.activeDelete = false;
           this.activeAlert = true;

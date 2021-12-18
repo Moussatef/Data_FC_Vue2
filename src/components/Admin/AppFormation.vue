@@ -223,7 +223,7 @@
           </v-card-text>
           <v-card-actions>
             <v-spacer></v-spacer>
-            <v-btn color="blue darken-1" text @click="dialog_v = false">
+            <v-btn color="blue darken-1" text @click="dialog = false">
               Quitter
             </v-btn>
             <v-btn
@@ -539,14 +539,6 @@
     </vs-dialog>
     <!-- Model for adding formation -->
 
-    <!-- <AppUpdateFormation
-      v-if="openModel"
-      :formation="formationObj"
-      :categorie="categorieName"
-      @closeModel="closeModel"
-      @closeMl="closeMl"
-    /> -->
-
     <vs-dialog width="550px" not-center v-model="activeConfirmation">
       <template #header>
         <h4 class="not-margin" style="color: red">
@@ -628,15 +620,12 @@ export default {
       alertDanger: false,
 
       description: "",
-
-      closeMl: false,
-
       imgFormation: undefined,
     };
   },
   watch: {
-    dialog: function(val) {
-      if (val==false) {
+    dialog: function (val) {
+      if (val == false) {
         this.imagepreview = null;
         this.img_src = false;
       }
@@ -656,8 +645,6 @@ export default {
           console.log(result);
           this.activeConfirmation = false;
           this.idFormation = undefined;
-
-          // this.activeConfirmation = false;
         })
         .catch((err) => {
           this.errorDesc = err.message;
@@ -681,12 +668,7 @@ export default {
     closeModel() {
       this.openModel = false;
     },
-    // closeMl(param) {
-    //   console.log(param);
-    //   if (param) {
-    //     this.openModel = false;
-    //   }
-    // },
+
     title: (item) => item.codeF + " : " + item.titre,
     value: (item) => item.id,
     addType() {
@@ -703,8 +685,6 @@ export default {
           this.errorDesc = err.message;
           this.alertDanger = true;
         });
-      // this.addTypeFormation([this.inpCodeType, this.inpTitreType])
-      // this.$store.dispatch()
     },
     async upFormation(param) {
       this.$store
@@ -720,10 +700,11 @@ export default {
           this.inpPc = undefined;
           this.inpObj = undefined;
           this.programme.splice(0, this.programme.length);
-          this.closeMl = true;
+
+          this.dialog = false;
         })
         .catch((err) => {
-          this.errorDesc = err;
+          this.errorDesc = err.response.data.message;
           this.alertDanger = true;
         });
     },
@@ -766,6 +747,6 @@ export default {
 
 <style lang="scss" scoped>
 .z_index {
-  z-index: 9999999999999999999999 !important;
+  z-index: 9999 !important;
 }
 </style>

@@ -15,7 +15,7 @@
           <!-- <h3>DATA<span>FC</span></h3> -->
           <img
             class="logo-footer"
-            src="https://scontent.frak1-2.fna.fbcdn.net/v/t39.30808-6/255570158_3049937985249249_4316897670181420191_n.jpg?_nc_cat=107&ccb=1-5&_nc_sid=730e14&_nc_ohc=IA_tuWRZfiIAX9m3YIQ&_nc_ht=scontent.frak1-2.fna&oh=9fb8a98ff4f1bae1d0e7ab17eee734a9&oe=61BC1741"
+            src="https://backend-data-fc.herokuapp.com/storage/logo/logo.jpg"
             alt="DATA FORMATION & CONSULTING "
           />
 
