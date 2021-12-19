@@ -42,10 +42,12 @@
         </vs-alert>
       </div>
     </vs-dialog>
-    <div class="container ">
+    <div class="container">
       <div class="row justify-content-between bg-white py-3 shadow px-5">
-        <div class="col-xxl-10   col-12">
-          <h2 class="text-muted">Ajouter <span style="color: #25767a">Formation</span></h2>
+        <div class="col-xxl-10 col-12">
+          <h2 class="text-muted">
+            Ajouter <span style="color: #25767a">Formation</span>
+          </h2>
         </div>
         <div class="col-lg-2 col-12">
           <vs-button
@@ -65,7 +67,7 @@
       </div>
     </div>
     <!-- Container add formation an inputs Dailog -->
-    <div class="container   ">
+    <div class="container">
       <div class="row justify-content-between bg-white">
         <v-dialog v-model="dialog_v" persistent max-width="1200px">
           <v-card>
@@ -87,14 +89,14 @@
                     >
                       <img
                         v-if="img_src == false"
-                        src="../../assets/OrongeUL/Attheofficerafiki.png"
+                        src="../../assets/cover/formation.jpg"
                         width="200"
                         height="200"
                         class="rounded-lg"
                         alt=""
                         id="src_formation"
                       />
-                      <img
+                      <!-- <img
                         v-if="img_src == true"
                         :src="imagepreview"
                         width="200"
@@ -102,8 +104,8 @@
                         class="rounded-lg mt-2"
                         alt=""
                         id="src_formation"
-                      />
-                      <input
+                      /> -->
+                      <!-- <input
                         type="file"
                         accept="image/*"
                         ref="formation_img"
@@ -123,7 +125,7 @@
                         "
                       >
                         <i class="fa fa-upload"></i>
-                      </vs-button>
+                      </vs-button> -->
                     </div>
                   </v-col>
                   <v-col cols="12" sm="12" md="10" lg="8" xl="7">
@@ -383,7 +385,6 @@
 
       <div id="myModal" class="modal">
         <!-- Modal content -->
-        
       </div>
     </div>
     <!-- <AppDenger title="Error" :description="errorDesc" :activeDang="alertDanger"/> -->
@@ -497,8 +498,6 @@ export default {
       this.programme = this.programme.filter((e) => e !== element);
       //   e.preventDefault();
     },
-
-   
   },
   create() {
     this.exitModal();

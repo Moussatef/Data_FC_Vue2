@@ -27,15 +27,14 @@
                     "
                   >
                     <img
-                      v-if="img_src == false"
-                      :src="imgFormation"
+                      src="../../assets/cover/formation.jpg"
                       width="200"
                       height="200"
                       class="rounded-lg"
                       alt=""
                       id="src_formation"
                     />
-                    <img
+                    <!-- <img
                       v-if="img_src == true"
                       :src="imagepreview"
                       width="200"
@@ -64,7 +63,7 @@
                       "
                     >
                       <i class="fa fa-upload"></i>
-                    </vs-button>
+                    </vs-button> -->
                   </div>
                 </v-col>
                 <v-col cols="12" sm="12" md="10" lg="8" xl="7">
@@ -389,7 +388,7 @@
       </vs-button>
       <FormationShow :formation_id="formation_id" />
     </div>
-
+    <!-- notification success -->
     <vs-dialog
       v-if="formationObj"
       width="550px"

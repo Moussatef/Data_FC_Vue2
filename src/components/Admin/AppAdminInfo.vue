@@ -5,7 +5,7 @@
         <img
           v-if="!imagepreview"
           :src="company.img"
-          class=" my-3 mx-auto"
+          class="my-3 mx-auto"
           width="300"
           height="80"
           alt=""
@@ -45,15 +45,11 @@
         />
         <div class="d-flex justify-content-center align-items-center">
           <h5 class="text-uppercase">{{ company.nom }}</h5>
-          <vs-button class="" shadow>
-            <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
-          </vs-button>
+          
         </div>
         <div class="d-flex justify-content-center align-items-center">
           <h6>{{ company.email }}</h6>
-          <vs-button class="" shadow>
-            <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
-          </vs-button>
+          
         </div>
         <p>Entreprise</p>
       </div>
@@ -62,37 +58,41 @@
       <div class="p-2">
         <div
           class="row justify-content-start align-items-start mt-3"
-          v-if="company.adresse"
+          v-if="company.personne && company.personne.nom"
         >
           <h5 class="col-lg-2 col-12 text-start">Directeur :</h5>
           <p class="text-uppercase text-start col-lg-8 col-10">
             {{ company.personne.nom }} {{ company.personne.prenom }}
           </p>
-          
         </div>
         <div class="row justify-content-start align-items-start mt-3">
           <h5 class="col-lg-2 col-12 text-start">Adresse :</h5>
-          <p class="text-uppercase text-start col-lg-8 col-10" v-if="company.adresse">
+          <p
+            class="text-uppercase text-start col-lg-8 col-10"
+            v-if="company.adresse"
+          >
             {{ company.adresse }}
           </p>
           <p class="text-uppercase text-start col-4 text-muted" v-else>
             Ajouter entreprise adresse
           </p>
-          <vs-button class="col-1" shadow>
-            <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
-          </vs-button>
+          
         </div>
         <div class="row justify-content-start align-items-start mt-3">
           <h5 class="col-lg-2 col-12 text-start">Ville :</h5>
-          <p class="text-uppercase text-start col-lg-4 col-10" v-if="company.ville">
+          <p
+            class="text-uppercase text-start col-lg-4 col-10"
+            v-if="company.ville"
+          >
             {{ company.ville }}
           </p>
-          <p class="text-uppercase text-start col-lg-4 col-10 text-muted" v-else>
+          <p
+            class="text-uppercase text-start col-lg-4 col-10 text-muted"
+            v-else
+          >
             Ajoute entreprise ville
           </p>
-          <vs-button class="col-1" shadow>
-            <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
-          </vs-button>
+          
         </div>
 
         <div class="row justify-content-start align-items-start mt-3">
@@ -100,18 +100,20 @@
           <p class="text-uppercase text-start text-muted col-lg-4 col-10">
             {{ company.tele }}
           </p>
-          <vs-button class="col-1" shadow>
-            <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
-          </vs-button>
+          
         </div>
         <div class="row justify-content-start align-items-start mt-3">
           <h5 class="col-lg-2 col-12 text-start">Fixe:</h5>
           <p class="text-uppercase text-start text-muted col-lg-4 col-10">
             {{ company.fixe }}
           </p>
-          <vs-button class="col-1" shadow>
+          
+        </div>
+        <div class="row justify-content-end align-items-start mt-3">
+          <vs-button class="col-1" size="xl" border shadow>
             <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
           </vs-button>
+          
         </div>
       </div>
     </div>

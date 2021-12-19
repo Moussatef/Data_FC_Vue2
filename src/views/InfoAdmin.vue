@@ -55,15 +55,11 @@
                   <h5 class="text-uppercase">
                     {{ auth.nom }} {{ auth.prenom }}
                   </h5>
-                  <vs-button class="" shadow>
-                    <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
-                  </vs-button>
+                 
                 </div>
                 <div class="d-flex justify-content-center align-items-center">
                   <h6>{{ auth.email }}</h6>
-                  <vs-button class="" shadow>
-                    <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
-                  </vs-button>
+                  
                 </div>
                 <p>Administrateur</p>
               </div>
@@ -87,25 +83,9 @@
                     >
                       Ajouter votre adresse
                     </p>
-                    <vs-button class="col-xxl-1 col-12" @click="editAdrress=true; inpAdresse = auth.adresse.adresse " shadow>
-                      <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
-                    </vs-button>
+                    
                   </div>
-                  <div class="row col-xxl-12 col-12 justify-content-start align-items-center" v-else>
-
-                    <h5 class="col-xxl-2 col-12 text-start ">Adresse :</h5>
-
-                    <vs-input class="col-xxl-7 col-12" border v-model="inpAdresse" placeholder="Adresse" />
-
-                    <vs-button v-if=" inpAdresse != auth.adresse.adresse && inpAdresse.length > 4  " class="col-xxl-1 col-12 mt-4 " border shadow>
-                      <i class="bi bi-check2-square"  aria-hidden="true"></i>
-                    </vs-button>
-
-                    <vs-button  class="col-xxl-1 col-12 mt-4 " @click="editAdrress=false" danger border  shadow>
-                      <i class="bi bi-x-octagon "  ></i>
-                    </vs-button>
-
-                  </div>
+                  
                 </div>
                 <div class="row justify-content-start align-items-start mt-3">
                   <h5 class="col-xxl-2 col-12 text-start">Ville :</h5>
@@ -125,9 +105,7 @@
                   >
                     Ajoute votre ville
                   </p>
-                  <vs-button class="col-xxl-1 col-12" shadow>
-                    <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
-                  </vs-button>
+                  
                 </div>
                 <div class="row justify-content-start align-items-start mt-3">
                   <h5 class="col-xxl-2 col-12 text-start">Genre :</h5>
@@ -139,9 +117,7 @@
                   >
                     {{ auth.genre }}
                   </p>
-                  <vs-button class="col-xxl-1 col-12" shadow>
-                    <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
-                  </vs-button>
+                 
                 </div>
                 <div class="row justify-content-start align-items-start mt-3">
                   <h5 class="col-xxl-2 col-12 text-start">Telephone:</h5>
@@ -153,10 +129,15 @@
                   >
                     {{ auth.telephone }}
                   </p>
-                  <vs-button class="col-xxl-1 col-12" shadow>
-                    <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
-                  </vs-button>
+                
                 </div>
+                <div class="row justify-content-end align-items-start mt-3">
+                  <vs-button class="col-1" size="lg" border shadow>
+            <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+          </vs-button>
+          
+          
+        </div>
               </div>
             </div>
           </div>
