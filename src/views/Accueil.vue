@@ -1,11 +1,15 @@
 <template>
   <div class="home bg-light overflow-hidden square">
     <main>
-      <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
+      <div
+        id="carouselExampleCaptions"
+        class="carousel slide"
+        data-bs-ride="carousel"
+      >
         <div class="carousel-indicators">
           <button
             type="button"
-            data-bs-target="#myCarousel"
+            data-bs-target="#carouselExampleCaptions"
             data-bs-slide-to="0"
             class="active"
             aria-current="true"
@@ -13,116 +17,173 @@
           ></button>
           <button
             type="button"
-            data-bs-target="#myCarousel"
+            data-bs-target="#carouselExampleCaptions"
             data-bs-slide-to="1"
             aria-label="Slide 2"
           ></button>
           <button
             type="button"
-            data-bs-target="#myCarousel"
+            data-bs-target="#carouselExampleCaptions"
             data-bs-slide-to="2"
             aria-label="Slide 3"
+          ></button>
+          <button
+            type="button"
+            data-bs-target="#carouselExampleCaptions"
+            data-bs-slide-to="3"
+            aria-label="Slide 4"
+          ></button>
+          <button
+            type="button"
+            data-bs-target="#carouselExampleCaptions"
+            data-bs-slide-to="4"
+            aria-label="Slide 5"
           ></button>
         </div>
         <div class="carousel-inner">
           <div class="carousel-item active">
             <img
-              src="../assets/company/cover200.jpg"
-              class="responsive_img"
-              alt=""
+              src="../assets/company/offic2.jpg"
+              class="d-block responsive_img"
+              alt="..."
             />
-            <div class="container">
-              <div class="carousel-caption text-start position-absolute top-10">
-                <h1 class="text-uppercase">Ingénierie de formation</h1>
-                <p class="mb-15">
-                  Les actions de formation continue n’ont de sens que si elles
-                  sont étroitement intégrées dans un processus visant l'atteinte
-                  des orientations stratégiques de l’entreprise (ou de
-                  l’organisation) .
-                </p>
-
-                <p>
-                  <vs-button
-                    color="rgba(35, 138, 145, 1) "
-                    to="/ingenierie-de-formation"
-                    size="xl"
-                  >
-                    Lire la suite
-                  </vs-button>
-                </p>
-              </div>
+            <div class="carousel-caption d-none d-md-block">
+              <h1 class="text-uppercase">Ingénierie de formation</h1>
+              <p>
+                Les actions de formation continue n’ont de sens que si elles
+                sont étroitement intégrées dans un processus visant l'atteinte
+                des orientations stratégiques de l’entreprise (ou de
+                l’organisation) .
+              </p>
+              <p>
+                <vs-button
+                  class="text-center mx-auto"
+                  color="rgba(35, 138, 145, 1) "
+                  to="/ingenierie-de-formation"
+                  size="xl"
+                >
+                  Lire la suite
+                </vs-button>
+              </p>
             </div>
           </div>
           <div class="carousel-item">
             <img
               src="../assets/company/cover3.jpg"
-              class="responsive_img"
-              alt=""
+              class="d-block responsive_img"
+              alt="..."
             />
-
-            <div class="container">
-              <div class="carousel-caption text-start position-absolute top-10">
-                <h1 class="">FORMATION</h1>
-                <h5 class="">
-                  Vous cherchez à développer vos compétences et améliorer la
-                  compétitivité de votre entreprise ?
-                </h5>
-                <p class="mb-15">
-                  La formation est le moyen idéal pour y aboutir, elle constitue
-                  l’un des principaux leviers de management de votre capital
-                  humain
-                </p>
-
-                <p>
-                  <vs-button
-                    to="/formation"
-                    color="rgba(35, 138, 145, 1) "
-                    size="xl"
-                  >
-                    Apprendre encore plus
-                  </vs-button>
-                </p>
-              </div>
+            <div class="carousel-caption d-none d-md-block">
+              <h1>FORMATION</h1>
+              <h5>
+                Vous cherchez à développer vos compétences et améliorer la
+                compétitivité de votre entreprise ?
+              </h5>
+              <p>
+                La formation est le moyen idéal pour y aboutir, elle constitue
+                l’un des principaux leviers de management de votre capital
+                humain
+              </p>
+              <p>
+                <vs-button
+                  class="text-center mx-auto"
+                  to="/formation"
+                  color="rgba(35, 138, 145, 1) "
+                  size="xl"
+                >
+                  Apprendre encore plus
+                </vs-button>
+              </p>
             </div>
           </div>
           <div class="carousel-item">
             <img
-              src="../assets/company/cover2.jpg"
-              class="responsive_img"
-              alt=""
+              src="../assets/company/offic1.jpg"
+              class="d-block responsive_img"
+              alt="..."
             />
-            <div class="container">
-              <div class="carousel-caption text-start position-absolute top-10">
-                <h1 class="">L’EXTERNALISATION</h1>
-                <h4 class="">Vous avez une entreprise :</h4>
-
-                <p class="">
-                  vous cherchez à vous concentrer sur votre cœur de métier
-                </p>
-
-                <p class="mb-15">
-                  Vous cherchez l’accès à des compétences nouvelles ou
-                  supérieures, mais aussi de répondre aux évolutions
-                  technologiques
-                </p>
-
-                <p>
-                  <vs-button
-                    color="rgba(35, 138, 145, 1) "
-                    to="/l-externalisation"
-                    size="xl"
-                  >
-                    Apprendre encore plus
-                  </vs-button>
-                </p>
-              </div>
+            <div class="carousel-caption d-none d-md-block">
+              <h1>ASSISTANCE CONSEIL EN RECRUTEMENT</h1>
+              <p>
+                Disposant des outils et des compétences nécessaires, DATA FC
+                vous apporte conseil et soutien lors de votre processus de
+                recrutement pour vous aider dans le cadre de votre stratégie de
+                développement, à optimiser la gestion de vos ressources
+                humaines.
+              </p>
+              <p>
+                <vs-button
+                  class="text-center mx-auto"
+                  to="/assistance-conseil-en-recrutement"
+                  color="rgba(35, 138, 145, 1) "
+                  size="xl"
+                >
+                  Apprendre encore plus
+                </vs-button>
+              </p>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img
+              src="../assets/company/cover200.jpg"
+              class="d-block responsive_img"
+              alt="..."
+            />
+            <div class="carousel-caption d-none d-md-block">
+              <h1>L’EXTERNALISATION</h1>
+              <h4 class="">Vous avez une entreprise :</h4>
+              <p>vous cherchez à vous concentrer sur votre cœur de métier</p>
+              <p class="">
+                Vous cherchez l’accès à des compétences nouvelles ou
+                supérieures, mais aussi de répondre aux évolutions
+                technologiques
+              </p>
+              <p>
+                <vs-button
+                  class="text-center mx-auto"
+                  to="/assistance-conseil-en-recrutement"
+                  color="rgba(35, 138, 145, 1) "
+                  size="xl"
+                >
+                  Apprendre encore plus
+                </vs-button>
+              </p>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img
+              src="../assets/company/offic2.jpg"
+              class="d-block responsive_img"
+              alt="..."
+            />
+            <div class="carousel-caption d-none d-md-block">
+              <h1>L'INTERIM POUR L'ENTREPRISE</h1>
+              <h4 class="">Vous êtes une entreprise et :</h4>
+              <p>
+                - Vous avez des besoins ponctuels en termes de qualifications ou
+                de personnel ?
+              </p>
+              <p class="">
+                - Vous cherchez à gérer des besoins non planifiés en main
+                d’œuvre ?
+              </p>
+              <p>
+                <vs-button
+                  class="text-center mx-auto"
+                  to="/l-interim-pour-l-entreprise"
+                  color="rgba(35, 138, 145, 1) "
+                  size="xl"
+                >
+                  Apprendre encore plus
+                </vs-button>
+              </p>
             </div>
           </div>
         </div>
         <button
           class="carousel-control-prev"
           type="button"
-          data-bs-target="#myCarousel"
+          data-bs-target="#carouselExampleCaptions"
           data-bs-slide="prev"
         >
           <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -131,7 +192,7 @@
         <button
           class="carousel-control-next"
           type="button"
-          data-bs-target="#myCarousel"
+          data-bs-target="#carouselExampleCaptions"
           data-bs-slide="next"
         >
           <span class="carousel-control-next-icon" aria-hidden="true"></span>
@@ -781,8 +842,7 @@ export default {
       model: null,
     };
   },
-  components: {
-  },
+  components: {},
   methods: {
     calculate() {
       //#region - start of - number counter animation

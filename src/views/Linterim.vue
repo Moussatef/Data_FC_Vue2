@@ -4,11 +4,6 @@
     <div class="bg-light p-5">
       <div class="container-fluid bg-white p-3">
         <div class="row">
-          <div class="col-12">
-            <h2 class="h2-one text-center my-3 pb-5 fs-1">
-              L’intérim est la solution idéale pour vous
-            </h2>
-          </div>
           <div class="col-lg-6 col-md-6 col-sm-12 col-12">
             <div class="text-start m-5">
               <h3 class="h2-one fs-1">Vous êtes une entreprise et :</h3>
@@ -79,7 +74,11 @@
               <img src="../assets/business.png" width="500" alt="" />
             </div>
           </div>
-          
+          <div class="col-12">
+            <h2 class="h2-one text-center my-3 pb-5 fs-1">
+              L’intérim est la solution idéale pour vous
+            </h2>
+          </div>
         </div>
       </div>
     </div>
