@@ -2,7 +2,7 @@
   <nav id="mynavi" class="navbar navbar-expand-xxl fixed-top navbar-light">
     <div class="container-fluid">
       <a class="navbar-brand" to="/">
-        <img src="../../assets/logo.jpg"  class="logo" alt="" />
+        <img src="../../assets/logo.jpg" class="logo" alt="" />
       </a>
 
       <button
@@ -54,7 +54,7 @@
                   >FORMATION</router-link
                 >
               </li>
-               <li>
+              <li>
                 <router-link
                   class="dropdown-item"
                   to="/assistance-conseil-en-recrutement"
@@ -73,7 +73,6 @@
                   >L’INTERIM POUR L’ENTREPRISE</router-link
                 >
               </li>
-             
             </ul>
           </li>
           <li class="nav-item dropdown">
@@ -122,7 +121,12 @@
             >
               S'inscrire
             </vs-button>
-            <vs-button border color="rgba(35, 138, 145, 1) " class="p-1 fs-6" to="/login">
+            <vs-button
+              border
+              color="rgba(35, 138, 145, 1) "
+              class="p-1 fs-6"
+              to="/login"
+            >
               Se connecter
             </vs-button>
           </div>
@@ -218,11 +222,10 @@ a {
   cursor: pointer;
 }
 .logo {
-    width: 300px;
-    
-  }
+  width: 300px;
+}
 .btn-conx {
-  margin-left: 7rem;
+  margin-left: 3rem;
 }
 #mynavi {
   // z-index: 9999999;

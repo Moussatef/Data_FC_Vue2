@@ -47,7 +47,7 @@
               class="d-block responsive_img"
               alt="..."
             />
-            <div class="carousel-caption d-none d-md-block">
+            <div class="carousel-caption d-md-block">
               <h1 class="text-uppercase">Ingénierie de formation</h1>
               <p>
                 Les actions de formation continue n’ont de sens que si elles
@@ -73,7 +73,7 @@
               class="d-block responsive_img"
               alt="..."
             />
-            <div class="carousel-caption d-none d-md-block">
+            <div class="carousel-caption d-md-block">
               <h1>FORMATION</h1>
               <h5>
                 Vous cherchez à développer vos compétences et améliorer la
@@ -102,7 +102,7 @@
               class="d-block responsive_img"
               alt="..."
             />
-            <div class="carousel-caption d-none d-md-block">
+            <div class="carousel-caption d-md-block">
               <h1>ASSISTANCE CONSEIL EN RECRUTEMENT</h1>
               <p>
                 Disposant des outils et des compétences nécessaires, DATA FC
@@ -129,7 +129,7 @@
               class="d-block responsive_img"
               alt="..."
             />
-            <div class="carousel-caption d-none d-md-block">
+            <div class="carousel-caption d-md-block">
               <h1>L’EXTERNALISATION</h1>
               <h4 class="">Vous avez une entreprise :</h4>
               <p>vous cherchez à vous concentrer sur votre cœur de métier</p>
@@ -156,7 +156,7 @@
               class="d-block responsive_img"
               alt="..."
             />
-            <div class="carousel-caption d-none d-md-block">
+            <div class="carousel-caption d-md-block">
               <h1>L'INTERIM POUR L'ENTREPRISE</h1>
               <h4 class="">Vous êtes une entreprise et :</h4>
               <p>
