@@ -43,7 +43,7 @@
         <div class="carousel-inner">
           <div class="carousel-item active">
             <img
-              src="../assets/company/offic2.jpg"
+              src="../assets/company/cover33.jpg"
               class="d-block responsive_img"
               alt="..."
             />
@@ -152,7 +152,7 @@
           </div>
           <div class="carousel-item">
             <img
-              src="../assets/company/offic2.jpg"
+              src="../assets/company/cover22.jpg"
               class="d-block responsive_img"
               alt="..."
             />
