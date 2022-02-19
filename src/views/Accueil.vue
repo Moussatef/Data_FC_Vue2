@@ -829,6 +829,47 @@
           </div>
         </div>
       </div>
+      <div class="my-5">
+        <v-sheet class="mx-auto pt-3" elevation="8" max-width="900">
+          <h2 class="text-center mt-3 text-muted">Notre clients</h2>
+          <hr />
+          <v-slide-group
+            v-model="model"
+            class="pa-4"
+            active-class="success"
+            show-arrows
+          >
+            <v-slide-item class="text-center">
+              <v-card class="ma-4" height="200" width="200">
+                <v-row class="fill-height" align="center" justify="center">
+                  <v-scale-transition>
+                    <img
+                      height="200"
+                      width="200"
+                      src="@/assets/company/itpm.png"
+                      alt=""
+                    />
+                  </v-scale-transition>
+                </v-row>
+              </v-card>
+            </v-slide-item>
+            <v-slide-item class="text-center">
+              <v-card class="ma-4" height="200" width="200">
+                <v-row class="fill-height" align="center" justify="center">
+                  <v-scale-transition>
+                    <img
+                      height="200"
+                      width="200"
+                      src="@/assets/company/fertitiech.png"
+                      alt=""
+                    />
+                  </v-scale-transition>
+                </v-row>
+              </v-card>
+            </v-slide-item>
+          </v-slide-group>
+        </v-sheet>
+      </div>
     </main>
   </div>
 </template>
@@ -865,9 +906,9 @@ export default {
       document.addEventListener("scroll", () => {
         if (window.scrollY > 1400 && isOk == false) {
           isOk = true;
-          counterAnim("#count2", 0, 16, 3000);
-          counterAnim("#count3", 0, 25, 2500);
-          counterAnim("#count4", 0, 20, 2500);
+          counterAnim("#count2", 0, 100, 4000);
+          counterAnim("#count3", 0, 125, 3500);
+          counterAnim("#count4", 0, 30, 3500);
         }
       });
     },

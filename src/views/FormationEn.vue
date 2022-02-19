@@ -3,171 +3,155 @@
     <AppSection :titre="titre" />
 
     <div class="pb-5 bg-light">
-      <div class="accordion accordion-flush mx-1" id="accordionFlushExample">
-        <div class="accordion-item" :key="x" v-for="(cat, x) in categories">
-          <h2 class="accordion-header" :id="'flush-headingOne' + cat.codeF">
-            <button
-              class="accordion-button collapsed fs-4"
-              type="button"
-              data-bs-toggle="collapse"
-              :data-bs-target="'#flush-collapseOne' + cat.codeF"
-              aria-expanded="false"
-              :aria-controls="'flush-collapseOne' + cat.codeF"
+      <v-expansion-panels>
+        <v-expansion-panel v-for="(cat, x) in categories" :key="x">
+          <v-expansion-panel-header class="fs-4">
+            {{ cat.codeF }} : {{ cat.titre }}
+          </v-expansion-panel-header>
+          <v-expansion-panel-content>
+            <div
+              class="
+                row
+                row-cols-1
+                row-cols-md-1
+                row-cols-lg-2
+                row-cols-xl-3
+                row-cols-xxl-4
+                g-5
+                justify-content-center
+              "
             >
-              {{ cat.codeF }} : {{ cat.titre }}
-            </button>
-          </h2>
-          <div
-            :id="'flush-collapseOne' + cat.codeF"
-            class="accordion-collapse collapse"
-            :class="{ show: cat.id == 1 }"
-            :aria-labelledby="'flush-headingOne' + cat.codeF"
-            data-bs-parent="#accordionFlushExample"
-          >
-            <div class="accordion-body p-3">
-              <div
-                class="
-                  row
-                  row-cols-1
-                  row-cols-md-1
-                  row-cols-lg-2
-                  row-cols-xl-3
-                  row-cols-xxl-4
-                  g-5
-                  justify-content-center
-                "
+              <v-sheet
+                v-if="!loading_F"
+                :color="`grey ${isDark ? 'darken-2' : 'lighten-4'}`"
+                class="pa-3"
               >
-                <v-sheet
-                  v-if="!loading_F"
-                  :color="`grey ${isDark ? 'darken-2' : 'lighten-4'}`"
-                  class="pa-3"
+                <v-skeleton-loader
+                  class="mx-auto"
+                  max-width="300"
+                  type="card"
+                ></v-skeleton-loader> </v-sheet
+              ><v-sheet
+                v-if="!loading_F"
+                :color="`grey ${isDark ? 'darken-2' : 'lighten-4'}`"
+                class="pa-3"
+              >
+                <v-skeleton-loader
+                  class="mx-auto"
+                  max-width="300"
+                  type="card"
+                ></v-skeleton-loader> </v-sheet
+              ><v-sheet
+                v-if="!loading_F"
+                :color="`grey ${isDark ? 'darken-2' : 'lighten-4'}`"
+                class="pa-3"
+              >
+                <v-skeleton-loader
+                  class="mx-auto"
+                  max-width="300"
+                  type="card"
+                ></v-skeleton-loader>
+              </v-sheet>
+              <div :key="i" v-for="(tr, i) in cat.formation">
+                <v-card
+                  max-width="374"
+                  class="mx-auto my-4 text-start card-form"
+                  data-aos="zoom-out-down"
+                  data-aos-delay="50"
+                  data-aos-duration="1000"
+                  data-aos-easing="ease-in"
                 >
-                  <v-skeleton-loader
-                    class="mx-auto"
-                    max-width="300"
-                    type="card"
-                  ></v-skeleton-loader> </v-sheet
-                ><v-sheet
-                  v-if="!loading_F"
-                  :color="`grey ${isDark ? 'darken-2' : 'lighten-4'}`"
-                  class="pa-3"
-                >
-                  <v-skeleton-loader
-                    class="mx-auto"
-                    max-width="300"
-                    type="card"
-                  ></v-skeleton-loader> </v-sheet
-                ><v-sheet
-                  v-if="!loading_F"
-                  :color="`grey ${isDark ? 'darken-2' : 'lighten-4'}`"
-                  class="pa-3"
-                >
-                  <v-skeleton-loader
-                    class="mx-auto"
-                    max-width="300"
-                    type="card"
-                  ></v-skeleton-loader>
-                </v-sheet>
-                <div :key="i" v-for="(tr, i) in cat.formation">
-                  <v-card
-                    max-width="374"
-                    class="mx-auto my-4 text-start card-form"
-                    data-aos="zoom-out-down"
-                    data-aos-delay="50"
-                    data-aos-duration="1000"
-                    data-aos-easing="ease-in"
-                  >
-                    <template slot="progress">
-                      <v-progress-linear
-                        color="deep-purple"
-                        height="10"
-                        indeterminate
-                      ></v-progress-linear>
-                    </template>
-                    <v-img height="250" :src="tr.imgFormation"></v-img>
+                  <template slot="progress">
+                    <v-progress-linear
+                      color="deep-purple"
+                      height="10"
+                      indeterminate
+                    ></v-progress-linear>
+                  </template>
+                  <v-img height="250" :src="tr.imgFormation"></v-img>
 
-                    <v-card-title class="text-start text-wrap">
-                      <h4>{{ tr.codeF }} : {{ tr.titre }}</h4>
-                    </v-card-title>
-                    <v-card-text>
-                      <v-row align="center" class="mx-0 mb-1">
-                        <v-rating
-                          :value="5"
-                          color="amber"
-                          dense
-                          half-increments
-                          readonly
-                          size="22"
-                        ></v-rating>
-                        <!-- <div class="grey--text ms-3 mb-5">4.5 (413)</div> -->
-                      </v-row>
-                      <!-- <div class="my-4 text-subtitle-1">
+                  <v-card-title class="text-start text-wrap">
+                    <h4>{{ tr.codeF }} : {{ tr.titre }}</h4>
+                  </v-card-title>
+                  <v-card-text>
+                    <v-row align="center" class="mx-0 mb-1">
+                      <v-rating
+                        :value="5"
+                        color="amber"
+                        dense
+                        half-increments
+                        readonly
+                        size="22"
+                      ></v-rating>
+                      <!-- <div class="grey--text ms-3 mb-5">4.5 (413)</div> -->
+                    </v-row>
+                    <!-- <div class="my-4 text-subtitle-1">
                           $ • Italian, Cafe
                            </div> -->
-                    </v-card-text>
-                    <v-divider class="mx-4"></v-divider>
-                    <v-card-actions>
-                      <div
-                        class="
-                          container
-                          row
-                          justify-content-start
-                          align-items-center
+                  </v-card-text>
+                  <v-divider class="mx-4"></v-divider>
+                  <v-card-actions>
+                    <div
+                      class="
+                        container
+                        row
+                        justify-content-start
+                        align-items-center
+                      "
+                    >
+                      <vs-button
+                        border
+                        square
+                        class="p-1"
+                        color="#25767a"
+                        @click="
+                          formationShow = tr;
+                          active2 = true;
                         "
                       >
-                        <vs-button
-                          border
-                          square
-                          class="p-1"
-                          color="#25767a"
-                          @click="
-                            formationShow = tr;
-                            active2 = true;
-                          "
-                        >
-                          Voir fiche technique de la formation
-                        </vs-button>
-                        <vs-button
-                          border
-                          square
-                          class="p-1"
-                          color="#fe6f2e"
-                          @click="
-                            showFormDevis(tr);
-                            formationShow = tr;
-                          "
-                        >
-                          Demander un devis
-                        </vs-button>
-                      </div>
-                      <div v-if="auth.role == 'client'">
-                        <vs-button
-                          v-if="tr.block == 0"
-                          flat
-                          icon
-                          color="danger"
-                          border
-                        >
-                          <i class="bi bi-star"></i>
-                        </vs-button>
-                        <vs-button
-                          v-if="tr.block == 1"
-                          icon
-                          color="danger"
-                          border
-                          active
-                        >
-                          <i class="bi bi-star-fill"></i>
-                        </vs-button>
-                      </div>
-                    </v-card-actions>
-                  </v-card>
-                </div>
+                        Voir fiche technique de la formation
+                      </vs-button>
+                      <vs-button
+                        border
+                        square
+                        class="p-1"
+                        color="#fe6f2e"
+                        @click="
+                          showFormDevis(tr);
+                          formationShow = tr;
+                        "
+                      >
+                        Demander un devis
+                      </vs-button>
+                    </div>
+                    <div v-if="auth.role == 'client'">
+                      <vs-button
+                        v-if="tr.block == 0"
+                        flat
+                        icon
+                        color="danger"
+                        border
+                      >
+                        <i class="bi bi-star"></i>
+                      </vs-button>
+                      <vs-button
+                        v-if="tr.block == 1"
+                        icon
+                        color="danger"
+                        border
+                        active
+                      >
+                        <i class="bi bi-star-fill"></i>
+                      </vs-button>
+                    </div>
+                  </v-card-actions>
+                </v-card>
               </div>
             </div>
-          </div>
-        </div>
-      </div>
+          </v-expansion-panel-content>
+        </v-expansion-panel>
+      </v-expansion-panels>
+
       <vs-dialog
         v-if="formationShow"
         width="1600px"
