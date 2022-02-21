@@ -696,7 +696,7 @@
                 <span class="fs-1 pluss">+</span>
               </div>
 
-              <div class="chiffre">ENSEIGNANTS</div>
+              <div class="chiffre">ENSEIGNANTS / FORMATEURS</div>
             </div>
           </div>
         </div>
@@ -831,7 +831,7 @@
       </div>
       <div class="my-5">
         <v-sheet class="mx-auto pt-3" elevation="8" max-width="900">
-          <h2 class="text-center mt-3 text-muted">Notre clients</h2>
+          <h2 class="text-center mt-3 text-muted">Nos clients</h2>
           <hr />
           <v-slide-group
             v-model="model"
